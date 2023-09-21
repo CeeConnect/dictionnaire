@@ -1,0 +1,14 @@
+$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/anciennete_batiment
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Ancienneté du bâtiment
+type: string
+oneOf:
+  - $ref: "#/$defs/NEUF"
+  - $ref: "#/$defs/EXISTANT"
+$defs:
+  NEUF:
+    const: NEUF
+    title: Bâtiment de moins de 2 ans
+  EXISTANT:
+    const: EXISTANT
+    title: Bâtiment de plus de 2 ans

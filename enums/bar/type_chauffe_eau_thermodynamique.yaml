@@ -1,0 +1,14 @@
+$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/type_chauffe_eau_thermodynamique
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Type de chauffe-eau thermodynamique
+type: string
+oneOf:
+  - $ref: "#/$defs/AIR_EXTRAIT"
+  - $ref: "#/$defs/AUTRES"
+$defs:
+  AIR_EXTRAIT:
+    const: AIR_EXTRAIT
+    title: Chauffe-eau thermodynamique sur air extrait
+  AUTRES:
+    const: AUTRES
+    title: Autres

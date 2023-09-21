@@ -1,0 +1,146 @@
+$id: https://dictionnaire.ceeconnect.fr/schemas/mixins/adresse
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Adresse
+type: object
+properties:
+  ban_id:
+    $ref: "#/$defs/ban_id"
+  numero:
+    $ref: "#/$defs/numero"
+  voie:
+    $ref: "#/$defs/voie"
+  complement:
+    $ref: "#/$defs/complement"
+  commune:
+    title: Nom de la commune
+    type: string
+    maxLength: 240
+  code_postal:
+    title: Code postal de la commune
+    type: string
+    maxLength: 240
+  code_commune:
+    title: Code commune de la commune
+    type: string
+    maxLength: 240
+required:
+  - numero
+  - voie
+  - commune
+  - code_postal
+$defs:
+  ban_id:
+    title: Identifiant de l'adresse dans la Base Adresse Nationale
+    type: string
+    maxLength: 240
+  numero:
+    title: Numéro dans la voie
+    type: string
+    maxLength: 240
+  voie:
+    title: Nom de voie ou lieu dit
+    type: string
+    maxLength: 240
+  complement:
+    title: Complément d'adresse
+    type: string
+    maxLength: 240
+  commune:
+    title: Nom de la commune
+    type: string
+    maxLength: 240
+  code_postal:
+    title: Code postal
+    type: string
+    pattern: ^([02][1-9]|[12345678][0-9]|9[012345]|97[12346])[0-9]{3}$
+  code_insee:
+    title: Code INSEE
+    type: string
+    pattern: ^([02][1-9]|2[AB]|[1345678][0-9]|9[012345]|97[12346])[0-9]{3}$
+  france:
+    title: Adresse
+    type: object
+    ban_id:
+      $ref: "#/$defs/ban_id"
+    numero:
+      $ref: "#/$defs/numero"
+    voie:
+      $ref: "#/$defs/voie"
+    complement:
+      $ref: "#/$defs/complement"
+    commune:
+      $ref: "#/$defs/commune"
+    code_postal:
+      $ref: "#/$defs/code_postal"
+    code_commune:
+      $ref: "#/$defs/code_insee"
+    required:
+      - voie
+      - commune
+      - code_postal
+      - code_commune
+  franceMetropolitaine:
+    title: Adresse
+    type: object
+    properties:
+      ban_id:
+        $ref: "#/$defs/ban_id"
+      numero:
+        $ref: "#/$defs/numero"
+      voie:
+        $ref: "#/$defs/voie"
+      complement:
+        $ref: "#/$defs/complement"
+      commune:
+        $ref: "#/$defs/commune"
+      code_postal:
+        $ref: "#/$defs/code_postal"
+        pattern: ^([02][1-9]|[12345678][0-9]|9[012345])[0-9]{3}$
+      code_commune:
+        $ref: "#/$defs/code_insee"
+        pattern: ^([02][1-9]|2[AB]|[1345678][0-9]|9[012345])[0-9]{3}$
+    required:
+      - voie
+      - commune
+      - code_postal
+      - code_commune
+    examples:
+      - numero: "9"
+        voie: Rue des Colonnes
+        commune: Paris
+        code_postal: "75002"
+        code_insse: "75102"
+        ban_id: 75102_2219_00009
+  franceOutreMer:
+    title: Adresse
+    type: object
+    properties:
+      ban_id:
+        $ref: "#/$defs/ban_id"
+      numero:
+        $ref: "#/$defs/numero"
+      voie:
+        $ref: "#/$defs/voie"
+      complement:
+        $ref: "#/$defs/complement"
+      commune:
+        $ref: "#/$defs/commune"
+      code_postal:
+        $ref: "#/$defs/code_postal"
+        pattern: ^97[12346][0-9]{3}$
+      code_commune:
+        $ref: "#/$defs/code_insee"
+        pattern: ^97[12346][0-9]{3}$
+    required:
+      - voie
+      - commune
+      - code_postal
+      - code_commune
+    examples:
+      - {}
+examples:
+  - ban_id: 92062_A100
+    voie: Grande Arche Défense
+    commune: Puteaux
+    code_commune: "92062"
+    code_postal: "92800"

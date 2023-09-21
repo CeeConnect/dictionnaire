@@ -1,0 +1,14 @@
+$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/type_pose_isolant
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Type de pose
+type: string
+oneOf:
+  - $ref: "#/$defs/COMBLES_PERDUS"
+  - $ref: "#/$defs/RAMPANT_TOITURES"
+$defs:
+  COMBLES_PERDUS:
+    const: COMBLES_PERDUS
+    title: Pose en combles perdus
+  RAMPANT_TOITURES:
+    const: RAMPANT_TOITURES
+    title: Pose en rampant de toitures

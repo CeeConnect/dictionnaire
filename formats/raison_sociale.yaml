@@ -1,0 +1,8 @@
+$id: https://dictionnaire.ceeconnect.fr/schemas/formats/raison_sociale
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Raison sociale
+type: string
+maxLength: 240
+pattern: ^([A-Z]|[-]|[']|[ ])+$
+examples:
+  - CEE CONNECT

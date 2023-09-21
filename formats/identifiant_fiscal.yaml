@@ -1,0 +1,10 @@
+$id: https://dictionnaire.ceeconnect.fr/schemas/formats/identifiant_fiscal
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Identifiant fiscal
+type: string
+oneOf:
+  - $ref: https://dictionnaire.ceeconnect.fr/schemas/formats/numero-fiscal
+  - $ref: https://dictionnaire.ceeconnect.fr/schemas/formats/siren
+examples:
+  - "0000000000000"
+  - "0000000000"

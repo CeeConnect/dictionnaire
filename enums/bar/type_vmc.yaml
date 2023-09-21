@@ -1,0 +1,34 @@
+$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/type_vmc
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Type de VMC
+type: string
+oneOf:
+  - $ref: "#/$defs/TYPE_A"
+  - $ref: "#/$defs/TYPE_B"
+  - $ref: "#/$defs/AUTOREGLABLE"
+  - $ref: "#/$defs/MODULE"
+$defs:
+  TYPE_A:
+    const: TYPE_A
+    title: VMC hygroréglable de type A
+  TYPE_B:
+    const: TYPE_B
+    title: VMC hygroréglable de type B
+  AUTOREGLABLE:
+    const: AUTOREGLABLE
+    title: VMC autoréglable
+  MODULE:
+    const: MODULE
+    title: VMC modulée
+  hygroreglable:
+    title: Type de VMC hygroreglable
+    type: string
+    oneOf:
+      - $ref: "#/$defs/TYPE_A"
+      - $ref: "#/$defs/TYPE_B"
+  doubleFlux:
+    title: Type de VMC double flux
+    type: string
+    oneOf:
+      - $ref: "#/$defs/AUTOREGLABLE"
+      - $ref: "#/$defs/MODULE"

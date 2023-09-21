@@ -1,0 +1,18 @@
+$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/type_fenetre
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Type de fenêtre
+type: string
+oneOf:
+  - $ref: "#/$defs/FENETRE_TOITURE"
+  - $ref: "#/$defs/AUTRES"
+  - $ref: "#/$defs/PORTE_FENETRE"
+$defs:
+  FENETRE_TOITURE:
+    const: FENETRE_TOITURE
+    title: Fenêtre de toiture
+  AUTRES:
+    const: AUTRES
+    title: Autre(s) fenêtre(s) ou porte(s)-fenêtre(s)
+  PORTE_FENETRE:
+    const: PORTE_FENETRE
+    title: Porte-fenêtre

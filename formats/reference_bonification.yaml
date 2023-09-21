@@ -1,0 +1,9 @@
+$id: https://dictionnaire.ceeconnect.fr/schemas/formats/reference_bonification
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Référence interne
+type: string
+pattern: (ZNI|GPE-ZNI|ETS|CPE|GPE|CFT|CRC|CRM|CTH|CDP|CDC)([-][0-9]+)?v[0-9]*([-][0-9]*)?
+examples:
+  - CRMv31-1
+  - CDP-1v20-1
+  - ZNIv35-1

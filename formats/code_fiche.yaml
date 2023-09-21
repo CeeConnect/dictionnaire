@@ -1,0 +1,12 @@
+$id: https://dictionnaire.ceeconnect.fr/schemas/formats/code_fiche
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Code
+type: string
+pattern: (AGRI|BAR|BAT|IND|RES|TRA)[-](BA|CH|EC|EN|EQ|SE|TH|UT)[-][0-9]*([-]SE)?
+examples:
+  - AGRI-EQ-101
+  - BAT-EN-101
+  - BAR-EN-101
+  - IND-BA-110
+  - RES-CH-101
+  - TRA-EQ-101

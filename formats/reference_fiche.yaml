@@ -1,0 +1,9 @@
+$id: https://dictionnaire.ceeconnect.fr/schemas/formats/reference_fiche
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Référence interne
+type: string
+pattern: (AGRI|BAR|BAT|IND|RES|TRA)-(BA|CH|EC|EN|EQ|SE|TH|UT)-[0-9]+(-SE)?v[0-9]+[-][0-9]+
+examples:
+  - BAR-EN-101v39-4
+  - BAR-EN-102v39-2
+  - BAR-EN-103v39-5
