@@ -60,20 +60,21 @@ $defs:
   france:
     title: Adresse
     type: object
-    ban_id:
-      $ref: "#/$defs/ban_id"
-    numero:
-      $ref: "#/$defs/numero"
-    voie:
-      $ref: "#/$defs/voie"
-    complement:
-      $ref: "#/$defs/complement"
-    commune:
-      $ref: "#/$defs/commune"
-    code_postal:
-      $ref: "#/$defs/code_postal"
-    code_commune:
-      $ref: "#/$defs/code_insee"
+    properties:
+      ban_id:
+        $ref: "#/$defs/ban_id"
+      numero:
+        $ref: "#/$defs/numero"
+      voie:
+        $ref: "#/$defs/voie"
+      complement:
+        $ref: "#/$defs/complement"
+      commune:
+        $ref: "#/$defs/commune"
+      code_postal:
+        $ref: "#/$defs/code_postal"
+      code_commune:
+        $ref: "#/$defs/code_insee"
     required:
       - voie
       - commune
