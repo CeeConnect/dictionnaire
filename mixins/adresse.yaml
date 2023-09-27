@@ -143,5 +143,16 @@ examples:
   - banId: 92062_A100
     voie: Grande Arche Défense
     commune: Puteaux
-    codeCommune: "92062"
-    codePostal: "92800"
+    codeCommune: '92062'
+    codePostal: '92800'
+  - banId: '84007_2653'
+    voie: Place de l'Horloge
+    commune: Avignon
+    codeCommune: '84000'
+    codePostal: '84007'
+  - banId: 06088_3250_00005
+    numero: '5'
+    voie: Rue de l'Hôtel de Ville
+    commune: Nice
+    codeCommune: '06300'
+    codePostal: '06088'
