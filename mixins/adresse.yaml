@@ -3,8 +3,8 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: Adresse
 type: object
 properties:
-  ban_id:
-    $ref: "#/$defs/ban_id"
+  banId:
+    $ref: "#/$defs/banId"
   numero:
     $ref: "#/$defs/numero"
   voie:
@@ -15,11 +15,11 @@ properties:
     title: Nom de la commune
     type: string
     maxLength: 240
-  code_postal:
+  codePostal:
     title: Code postal de la commune
     type: string
     maxLength: 240
-  code_commune:
+  codeCommune:
     title: Code commune de la commune
     type: string
     maxLength: 240
@@ -27,9 +27,9 @@ required:
   - numero
   - voie
   - commune
-  - code_postal
+  - codePostal
 $defs:
-  ban_id:
+  banId:
     title: Identifiant de l'adresse dans la Base Adresse Nationale
     type: string
     maxLength: 240
@@ -49,11 +49,11 @@ $defs:
     title: Nom de la commune
     type: string
     maxLength: 240
-  code_postal:
+  codePostal:
     title: Code postal
     type: string
     pattern: ^([02][1-9]|[12345678][0-9]|9[012345]|97[12346])[0-9]{3}$
-  code_insee:
+  codeInsee:
     title: Code INSEE
     type: string
     pattern: ^([02][1-9]|2[AB]|[1345678][0-9]|9[012345]|97[12346])[0-9]{3}$
@@ -61,8 +61,8 @@ $defs:
     title: Adresse
     type: object
     properties:
-      ban_id:
-        $ref: "#/$defs/ban_id"
+      banId:
+        $ref: "#/$defs/banId"
       numero:
         $ref: "#/$defs/numero"
       voie:
@@ -71,21 +71,21 @@ $defs:
         $ref: "#/$defs/complement"
       commune:
         $ref: "#/$defs/commune"
-      code_postal:
-        $ref: "#/$defs/code_postal"
-      code_commune:
-        $ref: "#/$defs/code_insee"
+      codePostal:
+        $ref: "#/$defs/codePostal"
+      codeCommune:
+        $ref: "#/$defs/codeInsee"
     required:
       - voie
       - commune
-      - code_postal
-      - code_commune
+      - codePostal
+      - codeCommune
   franceMetropolitaine:
     title: Adresse
     type: object
     properties:
-      ban_id:
-        $ref: "#/$defs/ban_id"
+      banId:
+        $ref: "#/$defs/banId"
       numero:
         $ref: "#/$defs/numero"
       voie:
@@ -94,30 +94,30 @@ $defs:
         $ref: "#/$defs/complement"
       commune:
         $ref: "#/$defs/commune"
-      code_postal:
-        $ref: "#/$defs/code_postal"
+      codePostal:
+        $ref: "#/$defs/codePostal"
         pattern: ^([02][1-9]|[12345678][0-9]|9[012345])[0-9]{3}$
-      code_commune:
-        $ref: "#/$defs/code_insee"
+      codeCommune:
+        $ref: "#/$defs/codeInsee"
         pattern: ^([02][1-9]|2[AB]|[1345678][0-9]|9[012345])[0-9]{3}$
     required:
       - voie
       - commune
-      - code_postal
-      - code_commune
+      - codePostal
+      - codeCommune
     examples:
       - numero: "9"
         voie: Rue des Colonnes
         commune: Paris
-        code_postal: "75002"
-        code_insse: "75102"
-        ban_id: 75102_2219_00009
+        codePostal: "75002"
+        codeInsee: "75102"
+        banId: 75102_2219_00009
   franceOutreMer:
     title: Adresse
     type: object
     properties:
-      ban_id:
-        $ref: "#/$defs/ban_id"
+      banId:
+        $ref: "#/$defs/banId"
       numero:
         $ref: "#/$defs/numero"
       voie:
@@ -126,22 +126,22 @@ $defs:
         $ref: "#/$defs/complement"
       commune:
         $ref: "#/$defs/commune"
-      code_postal:
-        $ref: "#/$defs/code_postal"
+      codePostal:
+        $ref: "#/$defs/codePostal"
         pattern: ^97[12346][0-9]{3}$
-      code_commune:
-        $ref: "#/$defs/code_insee"
+      codeCommune:
+        $ref: "#/$defs/codeInsee"
         pattern: ^97[12346][0-9]{3}$
     required:
       - voie
       - commune
-      - code_postal
-      - code_commune
+      - codePostal
+      - codeCommune
     examples:
       - {}
 examples:
-  - ban_id: 92062_A100
+  - banId: 92062_A100
     voie: Grande Arche Défense
     commune: Puteaux
-    code_commune: "92062"
-    code_postal: "92800"
+    codeCommune: "92062"
+    codePostal: "92800"
