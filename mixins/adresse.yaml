@@ -156,3 +156,9 @@ examples:
     commune: Nice
     codeCommune: '06300'
     codePostal: '06088'
+  - banId: 97411_1060_00002
+    numero: '2'
+    voie: Rue de Paris
+    commune: Saint-Denis
+    codeCommune: '97411'
+    codePostal: '97400'
