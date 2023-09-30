@@ -12,3 +12,9 @@ $defs:
   CESCI:
     const: CESCI
     title: Chauffe-eau solaire à appoint individualisé
+  collectif:
+    title: Type de chauffe-eau solaire
+    type: string
+    oneOf:
+      - $ref: "#/$defs/CESC"
+      - $ref: "#/$defs/CESCI"
