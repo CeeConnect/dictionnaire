@@ -3,7 +3,6 @@ $schema: https://json-schema.org/draft/2020-12/schema
 $comment: https://www.seton.fr/media/cms/files/stfr/DMEU_TDS_2584_std.lang.all.pdf
 title: Indice de de protection aux chocs
 type: string
-unit: IK
 oneOf:
   - $ref: "#/$defs/00"
   - $ref: "#/$defs/01"
