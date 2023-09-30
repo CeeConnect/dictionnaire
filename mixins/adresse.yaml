@@ -24,7 +24,6 @@ properties:
     type: string
     maxLength: 240
 required:
-  - numero
   - voie
   - commune
   - codePostal
