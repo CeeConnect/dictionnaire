@@ -128,10 +128,10 @@ $defs:
         $ref: "#/$defs/commune"
       codePostal:
         $ref: "#/$defs/codePostal"
-        pattern: ^97[12346][0-9]{3}$
+        pattern: ^97[12346][0-9]{2}$
       codeCommune:
         $ref: "#/$defs/codeInsee"
-        pattern: ^97[12346][0-9]{3}$
+        pattern: ^97[12346][0-9]{2}$
     required:
       - voie
       - commune
