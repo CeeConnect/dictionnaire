@@ -10,6 +10,7 @@ oneOf:
   - $ref: "#/$defs/BOIS"
   - $ref: "#/$defs/GPL"
   - $ref: "#/$defs/CHARBON"
+  - $ref: "#/$defs/HYBRIDE"
 $defs:
   ELECTRICITE:
     const: ELECTRICITE
@@ -38,6 +39,9 @@ $defs:
   AUTRES:
     const: AUTRES
     title: AUTRES
+  HYBRIDE:
+    const: HYBRIDE
+    title: Module hybride
   energiesChauffage:
     title: Energie de chauffage principale
     type: string
