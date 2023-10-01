@@ -29,11 +29,11 @@ properties:
             - typeBatiment
         then:
           properties:
-            typeChauffage:
+            typeInstallationChauffage:
               title: Type de chauffage central
               $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffage
           required:
-            - typeChauffage
+            - typeInstallationChauffage
     required:
       - typeBatiment
       - ancienneteBatiment

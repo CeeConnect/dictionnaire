@@ -16,9 +16,6 @@ properties:
       ancienneteRadiateur:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/EXISTANT
         title: Radiateur existant depuis plus de deux ans à la date d'engagement de l'opération
-      typeInstallationChauffage:
-        title: Type d'installation de chauffage
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation
       quantite:
         title: Nombre d'équipements installés
         type: integer
@@ -34,10 +31,23 @@ properties:
       - ancienneteBatiment
       - ancienneteChaudiere
       - ancienneteRadiateur
-      - typeInstallationChauffage
       - quantite
       - marque
       - reference
+    allOf:
+      - if:
+          properties:
+            typeBatiment:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/APPARTEMENT
+          required:
+            - typeBatiment
+        then:
+          properties:
+            typeInstallationChauffage:
+              title: Type de chauffage central
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffage
+          required:
+            - typeInstallationChauffage
 required:
   - caracteristiques
 examples:
@@ -46,7 +56,6 @@ examples:
       ancienneteBatiment: EXISTANT
       ancienneteChaudiere: EXISTANT
       ancienneteRadiateur: EXISTANT
-      typeInstallationChauffage: INDIVIDUEL
       quantite: 10
       marque: MARQUE
       reference: REFERENCE

@@ -9,7 +9,7 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete
         description: Les parties nouvelles de logements existants sont considérées comme des logements neufs
