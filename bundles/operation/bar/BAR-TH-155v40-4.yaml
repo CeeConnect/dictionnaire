@@ -26,6 +26,10 @@ properties:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/hygroreglable
       typeExtracteur:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_extracteur_vmc
+      puissanceExtracteur:
+        title: Puissance spécifique de l'extracteur (Wh/m3)
+        type: number
+        maximum: 0.25
       marqueExtracteur:
         title: Marque de l'extracteur
         type: string
@@ -51,12 +55,27 @@ properties:
       - logements
       - typeEquipement
       - typeExtracteur
+      - puissanceExtracteur
       - marqueExtracteur
       - referenceExtracteur
       - marqueBouchesEntreeAir
       - referenceBouchesEntreeAir
       - marqueBouchesExtraction
       - referenceBouchesExtraction
+    allOf:
+      - if:
+          properties:
+            typeExtracteur:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_extracteur_vmc#/$defs/BASSE_CONSOMMATION
+          required:
+            - typeExtracteur
+        then:
+          properties:
+            puissanceExtracteur:
+              type: number
+              maximum: 0.1
+          required:
+            - puissanceExtracteur
   documents:
     type: array
     allOf:
@@ -83,6 +102,7 @@ examples:
       logements: 50
       typeEquipement: TYPE_A
       typeExtracteur: BASSE_CONSOMMATION
+      puissanceExtracteur: 0.05
       marqueExtracteur: MARQUE
       referenceExtracteur: REFERENCE
       marqueBouchesEntreeAir: MARQUE
