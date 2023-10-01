@@ -41,7 +41,7 @@ properties:
       - properties:
           puissanceNominale:
             type: number
-            minimum: 400
+            exclusiveMinimum: 400
           performanceEnergetique:
             title: Coefficient de performance (COP)
             type: number
@@ -56,7 +56,7 @@ properties:
               - $ref: https://schemas.ceeconnect.fr/enums/bar/temperature_distribution#/$defs/HAUTE_TEMPERATURE
           puissanceNominale:
             type: number
-            exclusiveMaximum: 400
+            maximum: 400
           performanceEnergetique:
             title: Efficacité énergétique saisonnière (%)
             type: number
@@ -71,7 +71,7 @@ properties:
               - $ref: https://schemas.ceeconnect.fr/enums/bar/temperature_distribution#/$defs/BASSE_TEMPERATURE
           puissanceNominale:
             type: number
-            exclusiveMaximum: 400
+            maximum: 400
           performanceEnergetique:
             title: Efficacité énergétique saisonnière (%)
             type: number
