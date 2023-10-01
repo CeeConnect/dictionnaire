@@ -1,0 +1,88 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-104v41-3
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-104v41-3
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      temperatureDistribution:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/temperature_distribution
+      surfaceChauffee:
+        title: Surface chaufée par l'équipement (m²)
+        type: number
+        minimum: 0
+      performanceEnergetique:
+        title: Efficacité énergétique saisonnière (%)
+        type: number
+        minimum: 111
+      marque:
+        title: Marque des équipements
+        type: string
+      reference:
+        title: Référence des équipements
+        type: string
+    allOf:
+      - if:
+          properties:
+            temperatureDistribution:
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/temperature_distribution#/$defs/BASSE_TEMPERATURE
+          required:
+            - temperatureDistribution
+        then:
+          properties:
+            performanceEnergetique:
+              type: number
+              minimum: 126
+          required:
+            - performanceEnergetique
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - temperatureDistribution
+      - performanceEnergetique
+      - surfaceChauffee
+      - marque
+      - reference
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Note de dimensionnement
+          type: object
+          properties:
+            code:
+              type: string
+              const: NOTE_DIMENSIONNEMENT
+          required:
+            - code
+      - contains:
+          title: Preuve de qualification du professionnel
+          type: object
+          properties:
+            code:
+              type: string
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
+required:
+  - caracteristiques
+  - documents
+examples:
+  - caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      temperatureDistribution: BASSE_TEMPERATURE
+      surfaceChauffee: 100
+      performanceEnergetique: 130
+      marque: MARQUE
+      reference: REFERENCE
+    documents:
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: NOTE_DIMENSIONNEMENT
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

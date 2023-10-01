@@ -1,0 +1,90 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-102v17-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-102v17-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif d'habitation
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      surfaceCapteurs:
+        title: Surface totale de capteurs solaires posés (m²)
+        type: number
+        minimum: 0
+      besoinEauChaudeSanitaire:
+        title: Besoin annuel en eau chaude sanitaire (kWh/an)
+        description: Indiquer le besoin annuel en eau chaude sanitaire issu de l'étude de dimensionnement
+        type: number
+        minimum: 0
+      tauxCouvertureSolaire:
+        title: Taux de couverture par l'énergie solaire (%)
+        description: Indiquer le taux de couverture par l'énergie solaire issu de l'étude de dimensionnement
+        type: number
+        minimum: 0
+      productionSolaireUtile:
+        title: Production solaire utile (kWh/an)
+        description: Indiquer la production solaire utile issue de l'étude de dimensionnement
+        type: number
+        minimum: 0
+      marque:
+        title: Marque de l'équipement
+        type: string
+      reference:
+        title: Référence de l'équipement
+        type: string
+    required:
+      - ancienneteBatiment
+      - typeBatiment
+      - surfaceCapteurs
+      - besoinEauChaudeSanitaire
+      - tauxCouvertureSolaire
+      - productionSolaireUtile
+      - marque
+      - reference
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Certification
+          description: Certification CSTBat ou SolarKeymark des capteurs solaires
+          type: object
+          properties:
+            code:
+              const: CERTIFICATION
+          required:
+            - code
+      - contains:
+          title: Etude de dimensionnement
+          type: object
+          properties:
+            code:
+              const: ETUDE_DIMENSIONNEMENT
+          required:
+            - code
+required:
+  - adresse
+  - caracteristiques
+  - documents
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+    caracteristiques:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      surfaceCapteurs: 30
+      besoinEauChaudeSanitaire: 100000
+      tauxCouvertureSolaire: 80
+      productionSolaireUtile: 80000
+      marque: MARQUE
+      reference: REFERENCE
+    documents:
+      - code: CERTIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: ETUDE_DIMENSIONNEMENT
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

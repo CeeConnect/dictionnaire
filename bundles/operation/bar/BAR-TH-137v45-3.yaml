@@ -1,0 +1,133 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-137v45-3
+$schema: https://json-schema.org/draft/2020-12/schema
+$comment: "TODO: Intégrer le document spécifique"
+title: BAR-TH-137v45-3
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/batiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      identifiantReseau:
+        title: Nom du réseau
+        type: string
+        maxLength: 240
+      raccordementAnterieur:
+        title: Le bâtiment n'a jamais été raccordé à un réseau de chaleur dans le délai
+          de cinq ans précédant la date de l'engagement de l'opération
+        type: boolean
+      demandeAnterieure:
+        title: Dans le cas où le bâtiment a été raccordé précédemment, le ou les
+          raccordements précédents ont fait l'objet d'une demande de certificats
+          d'économies d'énergie
+        type: boolean
+        const: false
+    anyOf:
+      - properties:
+          raccordementAnterieur:
+            const: false
+        required:
+          - raccordementAnterieur
+      - properties:
+          raccordementAnterieur:
+            const: true
+          demandeAnterieure:
+            const: false
+        required:
+          - raccordementAnterieur
+          - demandeAnterieure
+    allOf:
+      - if:
+          properties:
+            typeBatiment:
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/MAISON
+          required:
+            - typeBatiment
+        then:
+          properties:
+            surfaceHabitable:
+              title: Surface habitable
+              type: number
+              minimum: 0
+          required:
+            - surfaceHabitable
+      - if:
+          properties:
+            typeBatiment:
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/IMMEUBLE
+          required:
+            - typeBatiment
+        then:
+          properties:
+            logements:
+              title: Nombre d'appartements
+              description: Nombre d'appartement d'un même bâtiment
+              type: integer
+              minimum: 1
+          required:
+            - logements
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - identifiantReseau
+      - raccordementAnterieur
+  gestionnaire:
+    title: Professionnel gestionnaire du réseau
+    type: object
+    properties:
+      nom:
+        title: Nom de famille du réprésentant
+        type: string
+      prenom:
+        title: Prénom du représentant
+        type: string
+      fonction:
+        title: Fonction du représentant
+        type: string
+      raisonSociale:
+        title: Raison sociale
+        type: string
+      siret:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/siret
+      adresse:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/france
+      email:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/email
+      telephone:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/telephone
+      mobile:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/telephone
+    required:
+      - nom
+      - prenom
+      - fonction
+      - raisonSociale
+      - siret
+      - adresse
+      - email
+      - telephone
+      - mobile
+required:
+  - caracteristiques
+  - gestionnaire
+examples:
+  - caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      raccordementAnterieur: false
+      identifiantReseau: RESEAU
+      surfaceHabitable: 100
+    gestionnaire:
+      nom: NOM
+      prenom: PRENOM
+      fonction: FONCTION
+      raisonSociale: RAISON SOCIALE
+      siret: "00000000000000"
+      adresse:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+      email: contact@email.com
+      telephone: "0400000000"
+      mobile: "0600000000"

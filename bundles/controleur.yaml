@@ -1,0 +1,27 @@
+$id: https://schemas.ceeconnect.fr/bundles/controleur
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Contrôleur
+description: Organisme de contrôle ayant assuré le contrôle de l'opération
+type: object
+properties:
+  raisonSociale:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/raison_sociale
+  siren:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/siren
+  numeroAccreditation:
+    title: Numéro d'accréditation COFRAC
+    type: string
+  dateFinValiditeAccreditation:
+    title: Date de fin de validité de l'accréditation COFRAC
+    type: string
+    format: date
+required:
+  - raisonSociale
+  - siren
+  - numeroAccreditation
+  - dateFinValiditeAccreditation
+examples:
+  - raisonSociale: RAISON SOCIALE
+    siren: "000000000"
+    numeroAccreditation: XXXXXXXXX
+    dateFinValiditeAccreditation: "2023-01-01"

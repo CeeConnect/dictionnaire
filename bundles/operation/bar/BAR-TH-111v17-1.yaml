@@ -1,0 +1,47 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-111v17-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-111v17-1
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/MAISON
+        title: Le logement est une maison individuelle
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      energieChauffage:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/energie#/$defs/energiesChauffage
+      ancienneteEquipement:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/EXISTANT
+        title: Système de chauffage sur boucle à eau chaude existant depuis plus de 2 ans
+      surfaceHabitable:
+        title: Surface habitable
+        type: number
+        minimum: 0
+      marque:
+        title: Marque des équipements
+        type: string
+      reference:
+        title: Référence des équipements
+        type: string
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - energieChauffage
+      - ancienneteEquipement
+      - surfaceHabitable
+      - marque
+      - reference
+required:
+  - caracteristiques
+examples:
+  - caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      energieChauffage: ELECTRICITE
+      ancienneteEquipement: EXISTANT
+      surfaceHabitable: 100
+      marque: MARQUE
+      reference: REFERENCE

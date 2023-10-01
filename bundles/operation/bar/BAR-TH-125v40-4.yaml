@@ -1,0 +1,123 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-125v40-4
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-125v40-4
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      typeInstallation:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_installation
+      surfaceHabitable:
+        title: Surface habitable (m²)
+        type: number
+        minimum: 0
+      marqueCaisson:
+        title: Marque du caisson
+        type: string
+      referenceCaisson:
+        title: Référence du caisson
+        type: string
+      marqueBouchesExtraction:
+        title: Marque des bouches d'extrations
+        type: string
+      referenceBouchesExtraction:
+        title: Référence des bouches d'extrations
+        type: string
+    allOf:
+      - if:
+          properties:
+            typeInstallation:
+              const: INDIVIDUEL
+          required:
+            - typeInstallation
+        then:
+          properties:
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_vmc#/$defs/doubleFlux
+            performanceEnergetique:
+              title: Classe énergétique du système de ventilation
+              description: Classe énergétique du système de ventilation selon le règlement européen (UE) n° 1254/2014
+              type: string
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/classe_efficacite_energetique#/$defs/A+
+                - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/classe_efficacite_energetique#/$defs/A
+            performanceEnergetiqueEchangeur:
+              title: Efficacité thermique de l'échangeur (%)
+              type: number
+              exclusiveMinimum: 85
+          required:
+            - typeEquipement
+            - performanceEnergetique
+            - performanceEnergetiqueEchangeur
+      - if:
+          properties:
+            typeInstallation:
+              const: COLLECTIF
+          required:
+            - typeInstallation
+        then:
+          properties:
+            logements:
+              title: Nombre d'appartements
+              description: Nombre d'appartement d'un même bâtiment
+              type: integer
+              minimum: 1
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_vmc#/$defs/AUTOREGLABLE
+            performanceEnergetiqueEchangeur:
+              title: Efficacité de l'échangeur statique (%)
+              type: number
+              minimum: 75
+          required:
+            - logements
+            - typeEquipement
+            - performanceEnergetiqueEchangeur
+    required:
+      - ancienneteBatiment
+      - typeBatiment
+      - typeInstallation
+      - surfaceHabitable
+      - marqueCaisson
+      - referenceCaisson
+      - marqueBouchesExtraction
+      - referenceBouchesExtraction
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Preuve de qualification du professionnel ayant assuré la réalisation de l'opération
+          type: object
+          properties:
+            code:
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
+required:
+  - adresse
+  - caracteristiques
+  - documents
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+    caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      surfaceHabitable: 100
+      typeInstallation: INDIVIDUEL
+      typeEquipement: AUTOREGLABLE
+      performanceEnergetique: A+
+      performanceEnergetiqueEchangeur: 90
+      marqueCaisson: MARQUE
+      referenceCaisson: REFERENCE
+      marqueBouchesExtraction: MARQUE
+      referenceBouchesExtraction: REFERENCE
+    documents:
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

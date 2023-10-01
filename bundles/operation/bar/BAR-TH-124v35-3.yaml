@@ -1,0 +1,120 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-124v35-3
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-124v35-3
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceOutreMer
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete
+        description: Les parties nouvelles de logements existants sont considérées comme des logements neufs
+      typeVente:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_vente
+      mentionsContrat:
+        title:
+          Le contrat de vente par abonnement a d'une durée minimale de dix ans et il comporte une clause
+          de maintien, par le professionnel, du bon état de fonctionnement du CESI pendant toute la durée du
+          contrat d'abonnement
+        type: boolean
+        const: true
+      quantite:
+        title: Nombre d'appareils installé
+        type: integer
+        minimum: 1
+      surfaceCapteurs:
+        title: Superficie hors-tout totale de capteurs solaires posés
+        type: number
+        minimum: 0
+      performanceEnergetique:
+        title: Efficacité énergétique pour le chauffage de l'eau (%)
+        description: Indiquer l'efficacité énergétique conformément au règlement (UE) n° 814/2013
+        type: number
+        minimum: 36
+    allOf:
+      - if:
+          properties:
+            typeBatiment:
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/APPARTEMENT
+          required:
+            - typeBatiment
+        then:
+          properties:
+            surfaceCapteurs:
+              type: number
+              maximum: 40
+          required:
+            - surfaceCapteurs
+      - if:
+          properties:
+            typeVente:
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_vente#/$defs/ABONNEMENT
+          required:
+            - typeVente
+        then:
+          properties:
+            dureeContrat:
+              title:
+                Le contrat de vente par abonnement a d'une durée minimale de dix ans et
+                il comporte une clause de maintien, par le professionnel, du bon
+                état de fonctionnement du CESI pendant toute la durée du contrat
+                d'abonnement
+              type: boolean
+              const: true
+          required:
+            - dureeContrat
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - typeVente
+      - mentionsContrat
+      - quantite
+      - surfaceCapteurs
+      - performanceEnergetique
+      - marque
+      - reference
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Certification QB dont le domaine d'emploi de l'avis technique couvre explicitement les départements d'outremer
+          type: object
+          properties:
+            code:
+              const: CERTIFICATION
+          required:
+            - code
+      - contains:
+          title: Preuve de qualification du professionnel ayant assuré la réalisation de l'opération
+          type: object
+          properties:
+            code:
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
+required:
+  - adresse
+  - caracteristiques
+  - documents
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/3
+    caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      typeVente: VENTE
+      mentionsContrat: true
+      quantite: 1
+      surfaceCapteurs: 15
+      performanceEnergetique: 80
+      marque: MARQUE
+      reference: REFERENCE
+    documents:
+      - code: CERTIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

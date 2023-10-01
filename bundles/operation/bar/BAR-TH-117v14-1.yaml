@@ -1,0 +1,52 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-117v14-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-117v14-1
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      ancienneteChaudiere:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/EXISTANT
+        title: Chaudière existante depuis plus de deux ans à la date d'engagement de l'opération
+      ancienneteRadiateur:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/EXISTANT
+        title: Radiateur existant depuis plus de deux ans à la date d'engagement de l'opération
+      typeInstallationChauffage:
+        title: Type d'installation de chauffage
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_installation
+      quantite:
+        title: Nombre d'équipements installés
+        type: integer
+        minimum: 1
+      marque:
+        title: Marque des équipements
+        type: string
+      reference:
+        title: Référence des équipements
+        type: string
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - ancienneteChaudiere
+      - ancienneteRadiateur
+      - typeInstallationChauffage
+      - quantite
+      - marque
+      - reference
+required:
+  - caracteristiques
+examples:
+  - caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      ancienneteChaudiere: EXISTANT
+      ancienneteRadiateur: EXISTANT
+      typeInstallationChauffage: INDIVIDUEL
+      quantite: 10
+      marque: MARQUE
+      reference: REFERENCE

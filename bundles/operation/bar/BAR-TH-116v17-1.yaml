@@ -1,0 +1,51 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-116v17-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-116v17-1
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      surfaceChauffee:
+        title: Surface chauffée par le plancher chauffant (m²)
+        type: number
+        minimum: 0
+      marque:
+        title: Marque des équipements
+        type: string
+      reference:
+        title: Référence des équipements
+        type: string
+    allOf:
+      - if:
+          properties:
+            typeBatiment:
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/APPARTEMENT
+          required:
+            - typeBatiment
+        then:
+          properties:
+            typeChauffage:
+              title: Type de chauffage central
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chauffage
+          required:
+            - typeChauffage
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - surfaceChauffee
+      - marque
+      - reference
+required:
+  - caracteristiques
+examples:
+  - caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      surfaceChauffee: 100
+      marque: MARQUE
+      reference: REFERENCE

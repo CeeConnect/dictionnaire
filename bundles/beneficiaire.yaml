@@ -1,0 +1,86 @@
+$id: https://schemas.ceeconnect.fr/bundles/beneficiaire
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Bénéficiaire
+description: Bénéficiaire de l'opération d'économies d'énergie
+type: object
+properties:
+  nature:
+    title: Nature du bénéficiaire
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/nature_juridique
+  email:
+    title: Email de contact
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/email
+  telephone:
+    title: Numéro de téléphone
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/telephone
+  adresse:
+    title: Adresse
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse
+anyOf:
+  - $ref: "#/$defs/personnePhysique"
+  - $ref: "#/$defs/personneMorale"
+required:
+  - nature
+  - email
+  - telephone
+  - adresse
+$defs:
+  personnePhysique:
+    allOf:
+      - properties:
+          nature:
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/nature_juridique#/$defs/PERSONNE_PHYSIQUE
+        required:
+          - nature
+      - properties:
+          type:
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/type_beneficiaire#/$defs/PERSONNE_PHYSIQUE
+          nom:
+            title: Nom
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/nom_famille
+          prenom:
+            title: Prénom
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/prenom
+        required:
+          - type
+          - nom
+          - prenom
+  personneMorale:
+    allOf:
+      - properties:
+          nature:
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/nature_juridique#/$defs/PERSONNE_MORALE
+        required:
+          - nature
+      - properties:
+          type:
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/type_beneficiaire#/$defs/PERSONNE_MORALE
+          raisonSociale:
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/raison_sociale
+          siren:
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/siren
+          nom:
+            title: Nom de famille du représentant
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/nom_famille
+          prenom:
+            title: Prénom du représentant
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/prenom
+          fonction:
+            title: Fonction du représentant
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/fonction
+        required:
+          - type
+          - raisonSociale
+          - siren
+          - nom
+          - prenom
+          - fonction
+examples:
+  - nature: PERSONNE_PHYSIQUE
+    type: PROPRIETAIRE_UNIQUE
+    email: contact@email.fr
+    telephone: "0836656565"
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+    nom: NOM
+    prenom: PRENOM

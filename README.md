@@ -8,7 +8,9 @@ Ce projet propose un vocabulaire uniformisé de référence au format YAML pour 
 
 **formats**: Regroupe les termes dont les valeurs doivent respecter une nomenclature (eg un numéro SIREN est une chaîne de neuf caractères numériques).
 
-**mixins**: Regroupe les les termes composés (eg une adresse est composée d'un numéro, d'une voie, d'un code postal...)
+**mixins**: Regroupe les termes composés (eg une adresse est composée d'un numéro, d'une voie, d'un code postal...)
+
+**bundles**: Regroupe les ressources (eg un dépôt, un contrôle, une opération...)
 
 ## Usages
 

@@ -1,0 +1,94 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-155v40-4
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-155v40-4
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/collectif
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      ventilationExistante:
+        title: Système de ventilation existant
+        type: string
+        oneOf:
+          - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_ventilation#/$defs/NATURELLE
+          - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_ventilation#/$defs/SANS
+      logements:
+        title: Nombre d'appartements
+        type: integer
+        minimum: 1
+      typeEquipement:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_vmc#/$defs/hygroreglable
+      typeExtracteur:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_extracteur_vmc
+      marqueExtracteur:
+        title: Marque de l'extracteur
+        type: string
+      referenceExtracteur:
+        title: Référence de l'extracteur
+        type: string
+      marqueBouchesEntreeAir:
+        title: Marque des bouches d'entrée d'air
+        type: string
+      referenceBouchesEntreeAir:
+        title: Référence des bouches d'entrée d'air
+        type: string
+      marqueBouchesExtraction:
+        title: Marque des bouches d'extraction
+        type: string
+      referenceBouchesExtraction:
+        title: Référence des bouches d'extraction
+        type: string
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - ventilationExistante
+      - logements
+      - typeEquipement
+      - typeExtracteur
+      - marqueExtracteur
+      - referenceExtracteur
+      - marqueBouchesEntreeAir
+      - referenceBouchesEntreeAir
+      - marqueBouchesExtraction
+      - referenceBouchesExtraction
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Avis technique du système de ventilation hybride hygroréglable
+          type: object
+          properties:
+            code:
+              type: string
+              const: AVIS_TECHNIQUE
+          required:
+            - code
+required:
+  - adresse
+  - caracteristiques
+  - documents
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+    caracteristiques:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      ventilationExistante: SANS
+      logements: 50
+      typeEquipement: TYPE_A
+      typeExtracteur: BASSE_CONSOMMATION
+      marqueExtracteur: MARQUE
+      referenceExtracteur: REFERENCE
+      marqueBouchesEntreeAir: MARQUE
+      referenceBouchesEntreeAir: REFERENCE
+      marqueBouchesExtraction: MARQUE
+      referenceBouchesExtraction: REFERENCE
+    documents:
+      - code: AVIS_TECHNIQUE
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

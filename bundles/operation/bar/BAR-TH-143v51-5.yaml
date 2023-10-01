@@ -1,0 +1,94 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-143v51-5
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-143v51-5
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/MAISON
+        title: Type de bâtiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      temperatureDistribution:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/temperature_distribution#/$defs/BASSE_TEMPERATURE
+        title: Le système est couplé à des émetteurs de chauffage central de type basse température
+      productiviteCapteurs:
+        title: Productivité des capteurs (W/m²)
+        type: number
+        minimum: 600
+      surfaceCapteurs:
+        title: Surface hors tout de capteurs (m²)
+        type: number
+        minimum: 8
+      capteursHybrides:
+        title: Les capteurs solaires produisent à la fois électricité et chaleur
+          (capteurs hybrides)
+        type: boolean
+        const: false
+      volumeStockage:
+        title: Volume de stockage du ou des ballons d'eau chaude solaires (l)
+        type: number
+        minimum: 0
+      marque:
+        title: Marque de l'équipement
+        type: string
+      reference:
+        title: Référence de l'équipement
+        type: string
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - temperatureDistribution
+      - productiviteCapteurs
+      - surfaceCapteurs
+      - capteursHybrides
+      - volumeStockage
+      - marque
+      - reference
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Certification CSTBat ou Solar Keymark
+          type: object
+          properties:
+            code:
+              type: string
+              const: CERTIFICATION
+          required:
+            - code
+      - contains:
+          title: Preuve de qualification du professionnel ayan réalisé l'opération
+          type: object
+          properties:
+            code:
+              type: string
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
+required:
+  - adresse
+  - caracteristiques
+  - documents
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+    caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      surfaceCapteurs: 10
+      productiviteCapteurs: 800
+      capteursHybrides: false
+      temperatureDistribution: BASSE_TEMPERATURE
+      volumeStockage: 100
+      marque: MARQUE
+      reference: REFERENCE
+    documents:
+      - code: CERTIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

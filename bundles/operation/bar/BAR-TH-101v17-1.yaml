@@ -1,0 +1,63 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-101v17-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-101v17-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/MAISON
+        title: Le bâtiment est une maison individuelle
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      marque:
+        title: Marque
+        type: string
+      reference:
+        title: Référence
+        type: string
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - marque
+      - reference
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Certification CSTBat ou SolarKeymark
+          description: Certification CSTBat ou SolarKeymark des capteurs solaires ou les pièces justifiant de son équivalence
+          type: object
+          properties:
+            code:
+              const: CERTIFICATION
+          required:
+            - code
+      - contains:
+          title: Preuve de qualification du professionnel
+          type: object
+          properties:
+            code:
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
+required:
+  - adresse
+  - caracteristiques
+  - documents
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+    caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      marque: MARQUE
+      reference: REFERENCE
+    documents:
+      - code: CERTIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

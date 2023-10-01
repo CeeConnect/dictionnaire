@@ -1,0 +1,140 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-135v35-2
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-135v35-2
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceOutreMer
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/IMMEUBLE
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batiment
+      extensionBatiment:
+        title: L'opération concerne une partie nouvelle d'un bâtiment existant
+        type: boolean
+      typeEquipement:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chauffe_eau_solaire#/$defs/collectif
+      surfaceCapteurs:
+        title: Surface hors-tout totale de capteurs solaires (m²)
+        type: number
+        minimum: 0
+      besoinEauChaudeSanitaire:
+        title: Besoin annuel en eau chaude sanitaire (kWh/an)
+        description: Donnée issue de l'étude de dimensionnement
+        type: number
+        minimum: 0
+      tauxCouvertureSolaire:
+        title: Taux de couverture par l'énergie solaire (%)
+        description: Donnée issue de l'étude de dimensionnement
+        type: number
+      performanceEnergetique:
+        title: Efficacité énergétique pour le chauffage de l'eau (%)
+        type: number
+        minimum: 36
+      marque:
+        title: Marque de la pompe
+        type: string
+      reference:
+        title: Référence de la pompe
+        type: string
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - extensionBatiment
+      - typeEquipement
+      - surfaceCapteurs
+      - besoinEauChaudeSanitaire
+      - tauxCouvertureSolaire
+      - performanceEnergetique
+      - marque
+      - reference
+    anyOf:
+      - type: object
+        properties:
+          extensionBatiment:
+            type: boolean
+            const: false
+        required:
+          - extensionBatiment
+      - type: object
+        properties:
+          ancienneteBatiment:
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+          extensionBatiment:
+            type: boolean
+            const: true
+        required:
+          - ancienneteBatiment
+          - extensionBatiment
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Etude de dimensionnement
+          type: object
+          properties:
+            code:
+              const: NOTE_DIMENSIONNEMENT
+          required:
+            - code
+      - contains:
+          title: Avis de certification QB
+          type: object
+          properties:
+            code:
+              const: CERTIFICATION
+          required:
+            - code
+allOf:
+  - if:
+      properties:
+        caracteristiques:
+          type: object
+          properties:
+            surfaceCapteurs:
+              type: number
+              exclusiveMinimum: 25
+          required:
+            - surfaceCapteurs
+      required:
+        - caracteristiques
+    then:
+      properties:
+        document:
+          title: Preuve de qualification
+          type: object
+          properties:
+            code: 
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
+      required:
+        - documents
+required:
+  - adresse
+  - caracteristiques
+  - documents
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/3
+    caracteristiques:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      extensionBatiment: false
+      typeEquipement: CESCI
+      surfaceCapteurs: 35
+      besoinEauChaudeSanitaire: 100000
+      tauxCouvertureSolaire: 80
+      performanceEnergetique: 50
+      marque: MARQUE
+      reference: REFERENCE
+    documents:
+      - code: CERTIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: NOTE_DIMENSIONNEMENT
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

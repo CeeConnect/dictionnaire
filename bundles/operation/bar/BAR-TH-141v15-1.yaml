@@ -1,0 +1,67 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-141v15-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-141v15-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceOutreMer
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      typeEquipement:
+        title: L'appareil installé est un climatiseur fixe
+        const: CLIMATISEUR_FIXE
+      remplacement:
+        title: Le matériel existant a été déposé préalablement à l'installation du nouveau climatiseur
+        type: boolean
+        const: true
+      puissanceFrigorifique:
+        title: Puissance frigorifique (BTU/h)
+        type: number
+        oneOf:
+          - const: 7000
+          - const: 9000
+      performanceEnergetique:
+        title: Classe d'efficacité énergétique
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/classe_efficacite_energetique#/$defs/climatiseurs
+      quantite:
+        title: Nombre d'équipements installés
+        description: Indiquer le nombre de climatiseurs de caractéristiques et de classe d'efficacité énergétique identiques installés
+        type: integer
+        minimum: 1
+      marque:
+        title: Marque de l'équipement
+        type: string
+      reference:
+        title: Référence de l'équipement
+        type: string
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - typeEquipement
+      - remplacement
+      - puissanceFrigorifique
+      - performanceEnergetique
+      - quantite
+      - marque
+      - reference
+required:
+  - adresse
+  - caracteristiques
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/3
+    caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      typeEquipement: CLIMATISEUR_FIXE
+      remplacement: true
+      puissanceFrigorifique: 7000
+      performanceEnergetique: A
+      quantite: 4
+      marque: MARQUE
+      reference: REFERENCE

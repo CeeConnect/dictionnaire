@@ -1,0 +1,760 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Opération d'économies d'énergie
+type: object
+properties:
+  uuid:
+    title: Identifiant
+    description: Identifiant unique au format UUID
+    type: string
+    format: uuid
+  fiche:
+    title: Fiche d'opération standardisée
+    type: object
+    properties:
+      id:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/reference_fiche
+      code:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/code_fiche
+      secteur:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/secteur_application
+      nom:
+        title: Intitulé de la fiche
+        type: string
+    required:
+      - id
+      - code
+      - secteur
+      - nom
+  bonification:
+    title: Bonification
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
+        $ref: >-
+          https://schemas.ceeconnect.fr/dictionnaire/formats/reference_bonification
+      code:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/code_bonification
+      nom:
+        title: Intitulé de la bonification
+        type: string
+    required:
+      - id
+      - code
+      - nom
+  dateVisitePrealable:
+    title: Date de la visite préalable
+    type:
+      - string
+      - 'null'
+    format: date
+    formatMaximum:
+      $data: /dateEngagement
+  dateEngagement:
+    title: Date d'engagement de l'opération
+    type: string
+    format: date
+    formatMinimum:
+      $data: /dateVisitePrealable
+    formatMaximum:
+      $data: /dateDebutTravaux
+  dateDebutTravaux:
+    title: Date de début des travaux
+    type: string
+    format: date
+    formatMinimum:
+      $data: /dateEngagement
+    formatMaximum:
+      $data: /dateAchevement
+  dateAchevement:
+    title: Date d'achèvement de l'opération
+    type: string
+    format: date
+    formatMinimum:
+      $data: /dateDebutTravaux
+  volumeCeeClassique:
+    title: Volume de CEE classique
+    type: integer
+    minimum: 0
+  volumeCeePrecarite:
+    title: Volume de CEE précarité
+    type: integer
+    minimum: 0
+  natureContribution:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/nature_contribution
+    title: Nature du rôle actif et incitatif
+  valeurContribution:
+    title: Montant du rôle actif et incitatif
+    type: number
+    minimum: 0
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/france
+  beneficiaire:
+    $ref: https://schemas.ceeconnect.fr/bundles/beneficiaire
+  professionnel:
+    $ref: https://schemas.ceeconnect.fr/bundles/professionnel
+  installateur:
+    $ref: https://schemas.ceeconnect.fr/bundles/installateur
+  precarite:
+    $ref: https://schemas.ceeconnect.fr/bundles/precarite
+  documents:
+    title: Liste des documents
+    type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
+  caracteristiques:
+    title: Caractéristiques de l'opération
+    type: object
+required:
+  - uuid
+  - fiche
+  - bonification
+  - dateEngagement
+  - dateVisitePrealable
+  - dateDebutTravaux
+  - dateAchevement
+  - volumeCeeClassique
+  - volumeCeePrecarite
+  - natureContribution
+  - valeurContribution
+  - adresse
+  - beneficiaire
+  - professionnel
+  - installateur
+  - precarite
+  - documents
+  - caracteristiques
+$defs:
+  BAR-EN-101v39-4:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-101v39-4
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-EN-101v39-4
+            required:
+              - id
+        required:
+          - fiche
+  BAR-EN-102v39-2:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-102v39-2
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-EN-102v39-2
+            required:
+              - id
+        required:
+          - fiche
+  BAR-EN-103v39-5:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-103v39-5
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-EN-103v39-5
+            required:
+              - id
+        required:
+          - fiche
+  BAR-EN-104v14-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-104v14-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-EN-104v14-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-EN-105v39-3:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-105v39-3
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-EN-105v39-3
+            required:
+              - id
+        required:
+          - fiche
+  BAR-EN-106v33-4:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-106v33-4
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-EN-106v33-4
+            required:
+              - id
+        required:
+          - fiche
+  BAR-EN-107v20-3:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-107v20-3
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-EN-107v20-3
+            required:
+              - id
+        required:
+          - fiche
+  BAR-EN-108v37-2:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-108v37-2
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-EN-108v37-2
+            required:
+              - id
+        required:
+          - fiche
+  BAR-EN-109v24-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-109v24-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-EN-109v24-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-EN-110v35-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-110v35-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-EN-110v35-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-EQ-110v15-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-EQ-110v15-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-EQ-115v28-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-115v28-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-EQ-115v28-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-101v17-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-101v17-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-101v17-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-102v17-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-102v17-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-102v17-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-104v41-3:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-104v41-3
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-104v41-3
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-106v23-2:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-106v23-2
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-106v23-2
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-110v16-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-110v16-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-110v16-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-111v17-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-111v17-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-111v17-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-112v46-3:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-112v46-3
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-112v46-3
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-113v41-3:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-113v41-3
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-113v41-3
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-116v17-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-116v17-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-116v17-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-117v14-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-117v14-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-117v14-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-124v35-3:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-124v35-3
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-124v35-3
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-125v40-4:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-125v40-4
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-125v40-4
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-127v40-4:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-127v40-4
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-127v40-4
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-129v27-3:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-129v27-3
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-129v27-3
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-130v26-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-130v26-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-130v26-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-135v35-2:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-135v35-2
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-135v35-2
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-137v45-3:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-137v45-3
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-137v45-3
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-139v23-2:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-139v23-2
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-139v23-2
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-141v15-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-141v15-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-141v15-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-143v51-5:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-143v51-5
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-143v51-5
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-145v52-4:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-145v52-4
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-145v52-4
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-148v15-2:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-148v15-2
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-148v15-2
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-150v14-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-150v14-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-155v40-4:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-155v40-4
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-155v40-4
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-158v35-2:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-158v35-2
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-158v35-2
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-159v50-4:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-159v50-4
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-159v50-4
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-162v28-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-162v28-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-162v28-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-164v36-2:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-164v36-2
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-164v36-2
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-167v38-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-167v38-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-167v38-1
+            required:
+              - id
+        required:
+          - fiche
+  BAR-TH-168v40-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-168v40-1
+      - type: object
+        properties:
+          fiche:
+            type: object
+            properties:
+              id:
+                const: BAR-TH-168v40-1
+            required:
+              - id
+        required:
+          - fiche
+anyOf:
+  - $ref: '#/$defs/BAR-EN-101v39-4'
+  - $ref: '#/$defs/BAR-EN-102v39-2'
+  - $ref: '#/$defs/BAR-EN-103v39-5'
+  - $ref: '#/$defs/BAR-EN-104v14-1'
+  - $ref: '#/$defs/BAR-EN-105v39-3'
+  - $ref: '#/$defs/BAR-EN-106v33-4'
+  - $ref: '#/$defs/BAR-EN-107v20-3'
+  - $ref: '#/$defs/BAR-EN-108v37-2'
+  - $ref: '#/$defs/BAR-EN-109v24-1'
+  - $ref: '#/$defs/BAR-EN-110v35-1'
+  - $ref: '#/$defs/BAR-EQ-110v15-1'
+  - $ref: '#/$defs/BAR-EQ-115v28-1'
+  - $ref: '#/$defs/BAR-TH-101v17-1'
+  - $ref: '#/$defs/BAR-TH-102v17-1'
+  - $ref: '#/$defs/BAR-TH-104v41-3'
+  - $ref: '#/$defs/BAR-TH-106v23-2'
+  - $ref: '#/$defs/BAR-TH-110v16-1'
+  - $ref: '#/$defs/BAR-TH-111v17-1'
+  - $ref: '#/$defs/BAR-TH-112v46-3'
+  - $ref: '#/$defs/BAR-TH-113v41-3'
+  - $ref: '#/$defs/BAR-TH-116v17-1'
+  - $ref: '#/$defs/BAR-TH-117v14-1'
+  - $ref: '#/$defs/BAR-TH-124v35-3'
+  - $ref: '#/$defs/BAR-TH-125v40-4'
+  - $ref: '#/$defs/BAR-TH-127v40-4'
+  - $ref: '#/$defs/BAR-TH-129v27-3'
+  - $ref: '#/$defs/BAR-TH-130v26-1'
+  - $ref: '#/$defs/BAR-TH-135v35-2'
+  - $ref: '#/$defs/BAR-TH-137v45-3'
+  - $ref: '#/$defs/BAR-TH-139v23-2'
+  - $ref: '#/$defs/BAR-TH-141v15-1'
+  - $ref: '#/$defs/BAR-TH-143v51-5'
+  - $ref: '#/$defs/BAR-TH-145v52-4'
+  - $ref: '#/$defs/BAR-TH-148v15-2'
+  - $ref: '#/$defs/BAR-TH-150v14-1'
+  - $ref: '#/$defs/BAR-TH-155v40-4'
+  - $ref: '#/$defs/BAR-TH-158v35-2'
+  - $ref: '#/$defs/BAR-TH-159v50-4'
+  - $ref: '#/$defs/BAR-TH-162v28-1'
+  - $ref: '#/$defs/BAR-TH-164v36-2'
+  - $ref: '#/$defs/BAR-TH-167v38-1'
+  - $ref: '#/$defs/BAR-TH-168v40-1'

@@ -1,0 +1,136 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-113v41-3
+$schema: https://json-schema.org/draft/2020-12/schema
+$comment: Scénario Flamme verte uniquement couvert
+title: BAR-TH-113v41-3
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/MAISON
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      typeEquipement:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chaudiere_biomasse
+      puissanceNominale:
+        title: Puissance nominale de la chaudière
+        type: number
+        minimum: 0
+      performanceEnergetique:
+        title: Efficacité énergétique saisonnière
+        type: number
+        minimum: 77
+      performanceEnergetiqueRegulateur:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/classe_regulateur
+        title: Classe du régulateur
+      critereTypeBiomasse:
+        title: Biomasse ligneuse à base de bûches de bois, de copeaux de bois, de bois
+          comprimé sous forme de granulés, de bois comprimé sous forme de
+          briquettes ou de sciure de bois
+        type: boolean
+        const: true
+      critereFlammeVerte:
+        title: La chaudière installée possède le label Flamme Verte 7*
+        type: boolean
+        const: true
+      marque:
+        title: Marque des équipements
+        type: string
+      reference:
+        title: Référence des équipements
+        type: string
+    allOf:
+      - if:
+          properties:
+            puissanceNominale:
+              type: number
+              exclusiveMinimum: 20
+          required:
+            - puissanceNominale
+        then:
+          properties:
+            performanceEnergetique:
+              type: number
+              minimum: 79
+          required:
+            - performanceEnergetique
+      - if:
+          properties:
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chaudiere_biomasse#/$defs/CHARGEMENT_AUTOMATIQUE
+          required:
+            - typeEquipement
+        then:
+          properties:
+            criterePresenceSilo:
+              title: Présence d'un silo d'au moins 225 litres
+              type: boolean
+              const: true
+          required:
+            - criterePresenceSilo
+      - if:
+          properties:
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chaudiere_biomasse#/$defs/CHARGEMENT_MANUEL
+          required:
+            - typeEquipement
+        then:
+          properties:
+            criterePresenceBallon:
+              title: Présence d'un ballon tampon
+              type: boolean
+              const: true
+          required:
+            - criterePresenceBallon
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - typeEquipement
+      - performanceEnergetique
+      - performanceEnergetiqueRegulateur
+      - puissanceNominale
+      - critereTypeBiomasse
+      - critereFlammeVerte
+      - marque
+      - reference
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Preuve de qualification du professionnel
+          type: object
+          properties:
+            code:
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
+      - contains:
+          title: Note de dimensionnement
+          type: object
+          properties:
+            code:
+              const: NOTE_DIMENSIONNEMENT
+          required:
+            - code
+required:
+  - caracteristiques
+  - documents
+examples:
+  - caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      typeEquipement: CHARGEMENT_AUTOMATIQUE
+      puissanceNominale: 18
+      performanceEnergetique: 85
+      performanceEnergetiqueRegulateur: VII
+      critereTypeBiomasse: true
+      critereFlammeVerte: true
+      criterePresenceSilo: true
+      marque: MARQUE
+      reference: REFERENCE
+    documents:
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: NOTE_DIMENSIONNEMENT
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

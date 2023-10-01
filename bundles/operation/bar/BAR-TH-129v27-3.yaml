@@ -1,0 +1,49 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-129v27-3
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-129v27-3
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      surfaceChauffee:
+        title: Surface exclusivement chauffée par la PAC installée
+        type: number
+        minimum: 0
+      puissanceNominale:
+        title: Puissance nominale de l'équipement
+        type: number
+        maximum: 12
+      performanceEnergetique:
+        title: Coefficient de performance saisonnier (SCOP)
+        type: number
+        minimum: 3.9
+      marque:
+        title: Marque de l'équipement
+        type: string
+      reference:
+        title: Référence de l'équipement
+        type: string
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - surfaceChauffee
+      - puissanceNominale
+      - performanceEnergetique
+      - marque
+      - reference
+required:
+  - caracteristiques
+examples:
+  - caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      surfaceChauffee: 100
+      puissanceNominale: 9
+      performanceEnergetique: 4.2
+      marque: MARQUE
+      reference: REFERENCE

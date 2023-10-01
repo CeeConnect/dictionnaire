@@ -1,0 +1,178 @@
+$id: https://schemas.ceeconnect.fr/bundles/precarite
+$schema: 'https://json-schema.org/draft/2020-12/schema'
+title: Précarité énergétique
+description: Prise en compte de la précarité énergétique du bénéficiaire
+type: object
+properties:
+  scenario:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/scenario_precarite
+required:
+  - scenario
+anyOf:
+  - $ref: '#/$defs/8.1'
+  - $ref: '#/$defs/8.2'
+  - $ref: '#/$defs/8.3'
+  - $ref: '#/$defs/8.4'
+  - $ref: '#/$defs/8.5'
+$defs:
+  '8.1':
+    type: object
+    allOf:
+      - properties:
+          scenario:
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/scenario_precarite#/$defs/8.1
+        required:
+          - scenario
+      - properties:
+          menages:
+            title: Ménage occupant
+            type: array
+            minItems: 1
+            items:
+              $ref: '#/$defs/menage'
+        required:
+          - menages
+  '8.2':
+    type: object
+    allOf:
+      - properties:
+          scenario:
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/scenario_precarite#/$defs/8.2
+        required:
+          - scenario
+      - properties:
+          bailleursSociaux:
+            title: Liste des bailleurs sociaux
+            type: array
+            minItems: 1
+            items:
+              $ref: '#/$defs/bailleurSocial'
+          menages:
+            title: Liste des ménages
+            description: Ménages occupants un logement qui n'est pas géré par l'un des bailleurs sociaux renseignés
+            type: array
+            minItems: 1
+            items:
+              $ref: '#/$defs/menage'
+        required:
+          - bailleursSociaux
+          - menages
+  '8.3':
+    type: object
+    allOf:
+      - properties:
+          scenario:
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/scenario_precarite#/$defs/8.3
+        required:
+          - scenario
+  '8.4':
+    type: object
+    allOf:
+      - properties:
+          scenario:
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/scenario_precarite#/$defs/8.4
+        required:
+          - scenario
+      - properties:
+          codeQuartierPrioritaire:
+            title: Code du quartier prioritaire de la politique de la ville
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/code_quartier_prioritaire
+          nomQuartierPrioritaire:
+            title: Nom du quartier prioritaire de la politique de la ville
+            type: string
+            maxLength: 240
+        required:
+          - codeQuartierPrioritaire
+          - nomQuartierPrioritaire
+  '8.5':
+    type: object
+    allOf:
+      - properties:
+          scenario:
+            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/scenario_precarite#/$defs/8.5
+        required:
+          - scenario
+      - properties:
+          menages:
+            title: Liste des ménages concernés par l'opération
+            type: array
+            minItems: 1
+            items:
+              $ref: '#/$defs/menage'
+        required:
+          - menages
+  menage:
+    title: Ménage
+    description: Ménage bénéficiant de l'opération d'économies d'énergie
+    type: object
+    properties:
+      nom:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/nom_famille
+      prenom:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/prenom
+      composition:
+        title: Composition
+        description: Nombre de personnes composant le ménage
+        type: integer
+        minimum: 1
+      categorieRessource:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/categorie_ressource
+      foyersFiscaux:
+        title: Liste de foyers fiscaux
+        description: Liste des foyers fiscaux composant le ménage
+        type: array
+        minItems: 1
+        items:
+          title: Foyer fiscal
+          type: object
+          properties:
+            identifiantFiscal:
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/numero_fiscal
+            referenceAvis:
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/reference_avis_imposition
+          required:
+            - identifiantFiscal
+            - referenceAvis
+    required:
+      - nom
+      - prenom
+      - categorieRessource
+      - foyersFiscaux
+  bailleurSocial:
+    title: Bailleur social
+    type: object
+    properties:
+      nom:
+        title: Nom du représentant
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/nom_famille
+      prenom:
+        title: Prénom du représentant
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/prenom
+      fonction:
+        title: Fonction du représentant
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/fonction
+      raisonSociale:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/raison_sociale
+      siren:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/siren
+      adresse:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse
+      email:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/email
+      telephone:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/telephone
+      menages:
+        title: Nombre de ménages couverts
+        description: Nombre de ménages habitant un logement conventionné géré par l'organisme
+        type: integer
+        minimum: 0
+    required:
+      - nom
+      - prenom
+      - fonction
+      - raisonSociale
+      - siren
+      - adresse
+      - email
+      - telephone
+      - menages

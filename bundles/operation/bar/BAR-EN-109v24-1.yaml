@@ -1,0 +1,120 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-109v24-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-EN-109v24-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceOutreMer
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/batiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      quantite:
+        title: Surface de toiture protégée (en m²)
+        type: number
+        minimum: 0
+      compositionToiture:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/constitution_toiture
+      facteurSolaire:
+        title: Facteur solaire (m².K/W)
+        type: number
+        maximum: 0.03
+      references:
+        title: Marques et références
+        description: Dans le cas d'une pose superposée de plusieurs isolants, indiquer
+          les marques et références de chacun des isolants posés
+        type: array
+        minItems: 1
+        items:
+          type: object
+          properties:
+            marque:
+              title: Marque de l'isolant
+              type: string
+            reference:
+              title: Référence de l'isolant
+              type: string
+          required:
+            - marque
+            - reference
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - quantite
+      - compositionToiture
+      - facteurSolaire
+      - references
+allOf:
+  - if:
+      properties:
+        adresse:
+          type: object
+          properties:
+            codeCommune:
+              type: string
+              pattern: "[976].+"
+          required:
+            - codeCommune
+      required:
+        - adresse
+    then:
+      properties:
+        caracteristiques:
+          type: object
+          properties:
+            facteurSolaire:
+              type: number
+              maximum: 0.02
+          required:
+            - facteurSolaire
+      required:
+        - caracteristiques
+  - if:
+      properties:
+        caracteristiques:
+          type: object
+          properties:
+            compositionToiture:
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/constitution_toiture#/$defs/ENSEMBLE_ELEMENTS
+          required:
+            - compositionToiture
+      required:
+        - caracteristiques
+    then:
+      properties:
+        documents:
+          type: array
+          allOf:
+            - contains:
+                title: Note de calcul du facteur solaire
+                type: object
+                properties:
+                  code:
+                    const: NOTE_CALCUL
+                required:
+                  - code
+      required:
+        - documents
+required:
+  - adresse
+  - caracteristiques
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/3
+    caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      quantite: 100
+      compositionToiture: ENSEMBLE_ELEMENTS
+      facteurSolaire: 0.01
+      references:
+        - marque: MARQUE
+          reference: REFERENCE
+        - marque: MARQUE
+          reference: REFERENCE
+    documents:
+      - code: NOTE_CALCUL
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

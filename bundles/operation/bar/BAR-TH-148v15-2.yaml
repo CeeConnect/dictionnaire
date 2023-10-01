@@ -1,0 +1,70 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-148v15-2
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-148v15-2
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      typeEquipement:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chauffe_eau_thermodynamique
+      performanceEnergetique:
+        title: Coefficient de performance (COP)
+        type: number
+        exclusiveMinimum: 2.4
+      marque:
+        title: Marque
+        type: string
+      reference:
+        title: Référence
+        type: string
+    allOf:
+      - if:
+          properties:
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chauffe_eau_thermodynamique#/$defs/AIR_EXTRAIT
+          required:
+            - typeEquipement
+        then:
+          properties:
+            performanceEnergetique:
+              type: number
+              exclusiveMinimum: 2.5
+          required:
+            - performanceEnergetique
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - typeEquipement
+      - performanceEnergetique
+      - marque
+      - reference
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Preuve de qualification du professionnel ayan réalisé l'opération
+          type: object
+          properties:
+            code:
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
+required:
+  - caracteristiques
+  - documents
+examples:
+  - caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      typeEquipement: AIR_EXTRAIT
+      performanceEnergetique: 2.6
+      marque: MARQUE
+      reference: REFERENCE
+    documents:
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

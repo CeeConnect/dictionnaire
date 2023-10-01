@@ -1,0 +1,79 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-EQ-110v15-1
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      indiceProtectionChocs:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/indice_protection_chocs
+      efficaciteLumineuse:
+        title: Efficacité lumineuse (lm/W)
+        type: integer
+        minimum: 65
+      dureeVie:
+        title: Durée de vie (heures)
+        description: Durée de vie avec une chute de flux lumineux ≤ à 30 %
+        type: integer
+        minimum: 40000
+      quantite:
+        title: Quantité de luminaires installés
+        type: integer
+        minimum: 0
+      marque:
+        title: Marque
+        type: string
+      reference:
+        title: Référence
+        type: string
+    required:
+      - ancienneteBatiment
+      - indiceProtectionChocs
+      - efficaciteLumineuse
+      - dureeVie
+      - quantite
+      - marque
+      - reference
+    allOf:
+      - if:
+          not:
+            properties:
+              indiceProtectionChocs:
+                $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/indice_protection_chocs#/$defs/10
+          required:
+            - indiceProtectionChocs
+        then:
+          properties:
+            efficaciteLumineuse:
+              type: integer
+              minimum: 90
+          required:
+            - indiceProtectionChocs
+      - if:
+          not:
+            properties:
+              indiceProtectionChocs:
+                $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/indice_protection_chocs#/$defs/10
+          required:
+            - indiceProtectionChocs
+        then:
+          properties:
+            dureeVie:
+              type: integer
+              minimum: 50000
+          required:
+            - dureeVie
+required:
+  - caracteristiques
+examples:
+  - caracteristiques:
+      ancienneteBatiment: EXISTANT
+      indiceProtectionChocs: "10"
+      efficaciteLumineuse: 95
+      dureeVie: 60000
+      quantite: 100
+      marque: MARQUE
+      reference: REFERENCE

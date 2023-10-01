@@ -1,0 +1,115 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-115v28-1
+$schema: https://json-schema.org/draft/2020-12/schema
+$comment: "TODO : Intégrer les fonctionnalités d'affichage des consommations"
+title: BAR-EQ-115v28-1
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      typeInstallationChauffage:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_installation
+        title: Type d'installation de chauffage
+      energieChauffage:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/energie#/$defs/energiesChauffage
+        title: Energie de chauffage principale
+      surfaceHabitable:
+        title: Surface habitable (m²)
+        type: number
+        minimum: 0
+      location:
+        title: Le dispositif d'affichage et d'interprétation est installé dans le cadre d'une location
+        type: boolean
+      optionSuiviConfort:
+        title: Le dispositif inclut l'option « suivi du confort » comprenant la collecte locale et
+          l'affichage des données de température et d'hygrométrie intérieures et extérieures au logement
+        type: boolean
+      optionCollecteConsommations:
+        title: Le dispositif permet de collecter et de traiter les données de consommations d'énergie de l'utilisateur
+        type: boolean
+        const: true
+      optionAssistance:
+        title: Le dispositif apporte à l'utilisateur des conseils adaptés à sa situation, l'aide à interpréter les
+          données affichées et à réduire ses consommations d'énergie
+        type: boolean
+        const: true
+      optionBilanPeriodique:
+        title: Le dispositif informe l'utilisateur de manière régulière, à un pas inférieur ou égal à 1 mois, des données
+          disponibles sur l'affichage en lui adressant un bilan de la période écoulée, et en l'invitant à consulter
+          l'affichage pour davantage de détails
+        type: boolean
+        const: true
+      optionAlarmeDepassement:
+        title: En cas de dépassement d'un seuil de consommation de référence, le dispositif émet une alarme explicite
+          (par exemple SMS, mail, notification...)
+        type: boolean
+        const: true
+      optionComparaisonConsommations:
+        title: Le dispositif permet de comparer les consommations réalisées à des consommations types, établies à partir
+          de moyennes nationales et locales pour des profils de consommations comparables à ceux de l'utilisateur, et à
+          des seuils
+        type: boolean
+        const: true
+    required:
+      - ancienneteBatiment
+      - typeBatiment
+      - typeInstallationChauffage
+      - surfaceHabitable
+      - location
+      - optionSuiviConfort
+      - optionCollecteConsommations
+      - optionAssistance
+      - optionBilanPeriodique
+      - optionAlarmeDepassement
+      - optionComparaisonConsommations
+    allOf:
+      - if:
+          properties:
+            location:
+              type: boolean
+              const: true
+          required:
+            - location
+        then:
+          properties:
+            dureeLocation:
+              title: Durée de location (mois)
+              type: integer
+              minimum: 24
+          required:
+            - dureeLocation
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Descriptif du dispositif issu du fabricant
+          type: object
+          properties:
+            code:
+              const: DESCRIPTIF_TECHNIQUE
+          required:
+            - code
+required:
+  - caracteristiques
+  - documents
+examples:
+  - caracteristiques:
+      typeBatiment: APPARTEMENT
+      ancienneteBatiment: EXISTANT
+      typeInstallationChauffage: COLLECTIF
+      energieChauffage: ELECTRICITE
+      surfaceHabitable: 70
+      location: false
+      optionSuiviConfort: true
+      optionCollecteConsommations: true
+      optionAssistance: true
+      optionBilanPeriodique: true
+      optionAlarmeDepassement: true
+      optionComparaisonConsommations: true
+    documents:
+      - code: DESCRIPTIF_TECHNIQUE
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

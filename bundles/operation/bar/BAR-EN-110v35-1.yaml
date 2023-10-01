@@ -1,0 +1,85 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-110v35-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-EN-110v35-1
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      typeVentilation:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_ventilation
+      quantite:
+        title: Nombre de fenêtres ou portes fenêtres complètes pariétodynamiques posées
+        type: integer
+        minimum: 0
+      coefficientSurfacique:
+        title: Coefficient de transmission surfacique Uw (W/m².K)
+        type: number
+        maximum: 1.4
+      facteurSolaire:
+        title: Facteur solaire
+        type: number
+        minimum: 0.5
+      marque:
+        title: Marque des équipements
+        type: string
+      reference:
+        title: Référence des équipements
+        type: string
+    required:
+      - ancienneteBatiment
+      - typeVentilation
+      - quantite
+      - coefficientSurfacique
+      - facteurSolaire
+      - marque
+      - reference
+    anyOf:
+      - properties:
+          coefficientSurfacique:
+            type: number
+            maximum: 1.1
+          facteurSolaire:
+            type: number
+            minimum: 0.5
+        required:
+          - coefficientSurfacique
+          - facteurSolaire
+      - properties:
+          coefficientSurfacique:
+            type: number
+            maximum: 1.4
+          facteurSolaire:
+            type: number
+            minimum: 0.55
+        required:
+          - coefficientSurfacique
+          - facteurSolaire
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Preuve de qualification du professionnel
+          type: object
+          properties:
+            code:
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
+required:
+  - caracteristiques
+  - documents
+examples:
+  - caracteristiques:
+      ancienneteBatiment: EXISTANT
+      typeVentilation: NATURELLE
+      quantite: 10
+      coefficientSurfacique: 0.8
+      facteurSolaire: 0.6
+      marque: MARQUE
+      reference: REFERENCE
+    documents:
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

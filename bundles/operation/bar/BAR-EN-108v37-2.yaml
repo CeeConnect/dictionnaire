@@ -1,0 +1,65 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-108v37-2
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-EN-108v37-2
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceOutreMer
+  caracteristiques:
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      ancienneteEquipement:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/EXISTANT
+        title:
+          La fenêtre ou porte-fenêtre sur laquelle est installée la fermeture isolante est âgée
+          de plus de 2 ans à la date d'engagement de l'opération
+      quantite:
+        title: Nombre de fermetures isolantes posées
+        type: integer
+        minimum: 0
+      resistanceThermique:
+        title: Résistance thermique additionnelle (m².K/W)
+        type: number
+        minimum: 0.22
+      marque:
+        title: Marque des équipements installés
+        type: string
+      reference:
+        title: Référence des équipements installés
+        type: string
+    required:
+      - ancienneteBatiment
+      - ancienneteEquipement
+      - quantite
+      - resistanceThermique
+      - marque
+      - reference
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Preuve de qualification du professionnel
+          type: object
+          properties:
+            code:
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
+required:
+  - adresse
+  - caracteristiques
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/3
+    caracteristiques:
+      ancienneteBatiment: EXISTANT
+      ancienneteEquipement: EXISTANT
+      quantite: 10
+      resistanceThermique: 0.4
+      marque: MARQUE
+      reference: REFERENCE
+    documents:
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

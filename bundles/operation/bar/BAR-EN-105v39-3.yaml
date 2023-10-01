@@ -1,0 +1,83 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-105v39-3
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-EN-105v39-3
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+      quantite:
+        title: Surface d'isolant posé (m²)
+        description:
+          Dans le cas d'une pose superposée de plusieurs isolants, indiquer
+          la surface résultant de la superposition des isolants
+        type: number
+        minimum: 0
+      resistanceThermique:
+        title: Résistance thermmique de l'isolant
+        description:
+          Dans le cas d'une pose superposée de plusieurs isolants, indiquer
+          la résistance thermique globale
+        type: number
+        minimum: 4.5
+      epaisseur:
+        title: Epaisseur de l'isolant (mm)
+        type: number
+        minimum: 0
+      references:
+        title: Marques et références
+        description: Dans le cas d'une pose superposée de plusieurs isolants, indiquer
+          les marques et références de chacun des isolants posés
+        type: array
+        minItems: 1
+        items:
+          type: object
+          properties:
+            marque:
+              title: Marque de l'isolant
+              type: string
+            reference:
+              title: Référence de l'isolant
+              type: string
+          required:
+            - marque
+            - reference
+    required:
+      - ancienneteBatiment
+      - quantite
+      - resistanceThermique
+      - epaisseur
+      - references
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Preuve de qualification du professionnel
+          type: object
+          properties:
+            code:
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
+required:
+  - caracteristiques
+  - documents
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/3
+    caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      quantite: 100
+      resistanceThermique: 5
+      epaisseur: 200
+      references:
+        - marque: MARQUE
+          reference: REFERENCE
+        - marque: MARQUE
+          reference: REFERENCE
+    documents:
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
