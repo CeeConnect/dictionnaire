@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/anciennete_equipement
+$id: https://schemas.ceeconnect.fr/enums/bar/anciennete_equipement
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Ancienneté de l'équipement
 type: string

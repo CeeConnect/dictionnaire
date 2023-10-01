@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/type-beneficiaire
+$id: https://schemas.ceeconnect.fr/enums/type-beneficiaire
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Type
 type: string

@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/type_usage
+$id: https://schemas.ceeconnect.fr/enums/bar/type_usage
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Type d'usage
 type: string

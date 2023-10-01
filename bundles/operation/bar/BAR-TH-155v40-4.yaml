@@ -4,28 +4,28 @@ title: BAR-TH-155v40-4
 type: object
 properties:
   adresse:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   caracteristiques:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/collectif
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/collectif
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       ventilationExistante:
         title: Système de ventilation existant
         type: string
         oneOf:
-          - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_ventilation#/$defs/NATURELLE
-          - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_ventilation#/$defs/SANS
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/type_ventilation#/$defs/NATURELLE
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/type_ventilation#/$defs/SANS
       logements:
         title: Nombre d'appartements
         type: integer
         minimum: 1
       typeEquipement:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_vmc#/$defs/hygroreglable
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/hygroreglable
       typeExtracteur:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_extracteur_vmc
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_extracteur_vmc
       marqueExtracteur:
         title: Marque de l'extracteur
         type: string
@@ -75,7 +75,7 @@ required:
   - documents
 examples:
   - adresse:
-      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     caracteristiques:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT

@@ -8,11 +8,11 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/MAISON
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       typeEquipement:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chaudiere_biomasse
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_chaudiere_biomasse
       puissanceNominale:
         title: Puissance nominale de la chaudière
         type: number
@@ -22,7 +22,7 @@ properties:
         type: number
         minimum: 77
       performanceEnergetiqueRegulateur:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/classe_regulateur
+        $ref: https://schemas.ceeconnect.fr/enums/bar/classe_regulateur
         title: Classe du régulateur
       critereTypeBiomasse:
         title: Biomasse ligneuse à base de bûches de bois, de copeaux de bois, de bois
@@ -58,7 +58,7 @@ properties:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chaudiere_biomasse#/$defs/CHARGEMENT_AUTOMATIQUE
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chaudiere_biomasse#/$defs/CHARGEMENT_AUTOMATIQUE
           required:
             - typeEquipement
         then:
@@ -72,7 +72,7 @@ properties:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chaudiere_biomasse#/$defs/CHARGEMENT_MANUEL
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chaudiere_biomasse#/$defs/CHARGEMENT_MANUEL
           required:
             - typeEquipement
         then:

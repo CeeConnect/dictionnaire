@@ -7,9 +7,9 @@ properties:
     type: object
     properties:
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       indiceProtectionChocs:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/indice_protection_chocs
+        $ref: https://schemas.ceeconnect.fr/enums/bar/indice_protection_chocs
       efficaciteLumineuse:
         title: Efficacité lumineuse (lm/W)
         type: integer
@@ -42,7 +42,7 @@ properties:
           not:
             properties:
               indiceProtectionChocs:
-                $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/indice_protection_chocs#/$defs/10
+                $ref: https://schemas.ceeconnect.fr/enums/bar/indice_protection_chocs#/$defs/10
           required:
             - indiceProtectionChocs
         then:
@@ -56,7 +56,7 @@ properties:
           not:
             properties:
               indiceProtectionChocs:
-                $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/indice_protection_chocs#/$defs/10
+                $ref: https://schemas.ceeconnect.fr/enums/bar/indice_protection_chocs#/$defs/10
           required:
             - indiceProtectionChocs
         then:

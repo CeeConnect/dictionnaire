@@ -4,17 +4,17 @@ title: BAR-TH-143v51-5
 type: object
 properties:
   adresse:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   caracteristiques:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/MAISON
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
         title: Type de bâtiment
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       temperatureDistribution:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/temperature_distribution#/$defs/BASSE_TEMPERATURE
+        $ref: https://schemas.ceeconnect.fr/enums/bar/temperature_distribution#/$defs/BASSE_TEMPERATURE
         title: Le système est couplé à des émetteurs de chauffage central de type basse température
       productiviteCapteurs:
         title: Productivité des capteurs (W/m²)
@@ -76,7 +76,7 @@ required:
   - documents
 examples:
   - adresse:
-      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     caracteristiques:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT

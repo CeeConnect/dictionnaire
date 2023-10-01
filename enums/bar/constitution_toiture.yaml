@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/constitution_toiture
+$id: https://schemas.ceeconnect.fr/enums/bar/constitution_toiture
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Constitution d'une toiture performante
 type: string

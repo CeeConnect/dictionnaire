@@ -6,16 +6,16 @@ type: object
 properties:
   nature:
     title: Nature du bénéficiaire
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/nature_juridique
+    $ref: https://schemas.ceeconnect.fr/enums/nature_juridique
   email:
     title: Email de contact
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/email
+    $ref: https://schemas.ceeconnect.fr/formats/email
   telephone:
     title: Numéro de téléphone
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/telephone
+    $ref: https://schemas.ceeconnect.fr/formats/telephone
   adresse:
     title: Adresse
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse
 anyOf:
   - $ref: "#/$defs/personnePhysique"
   - $ref: "#/$defs/personneMorale"
@@ -29,18 +29,18 @@ $defs:
     allOf:
       - properties:
           nature:
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/nature_juridique#/$defs/PERSONNE_PHYSIQUE
+            $ref: https://schemas.ceeconnect.fr/enums/nature_juridique#/$defs/PERSONNE_PHYSIQUE
         required:
           - nature
       - properties:
           type:
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/type_beneficiaire#/$defs/PERSONNE_PHYSIQUE
+            $ref: https://schemas.ceeconnect.fr/enums/type_beneficiaire#/$defs/PERSONNE_PHYSIQUE
           nom:
             title: Nom
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/nom_famille
+            $ref: https://schemas.ceeconnect.fr/formats/nom_famille
           prenom:
             title: Prénom
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/prenom
+            $ref: https://schemas.ceeconnect.fr/formats/prenom
         required:
           - type
           - nom
@@ -49,25 +49,25 @@ $defs:
     allOf:
       - properties:
           nature:
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/nature_juridique#/$defs/PERSONNE_MORALE
+            $ref: https://schemas.ceeconnect.fr/enums/nature_juridique#/$defs/PERSONNE_MORALE
         required:
           - nature
       - properties:
           type:
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/type_beneficiaire#/$defs/PERSONNE_MORALE
+            $ref: https://schemas.ceeconnect.fr/enums/type_beneficiaire#/$defs/PERSONNE_MORALE
           raisonSociale:
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/raison_sociale
+            $ref: https://schemas.ceeconnect.fr/formats/raison_sociale
           siren:
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/siren
+            $ref: https://schemas.ceeconnect.fr/formats/siren
           nom:
             title: Nom de famille du représentant
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/nom_famille
+            $ref: https://schemas.ceeconnect.fr/formats/nom_famille
           prenom:
             title: Prénom du représentant
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/prenom
+            $ref: https://schemas.ceeconnect.fr/formats/prenom
           fonction:
             title: Fonction du représentant
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/fonction
+            $ref: https://schemas.ceeconnect.fr/formats/fonction
         required:
           - type
           - raisonSociale
@@ -81,6 +81,6 @@ examples:
     email: contact@email.fr
     telephone: "0836656565"
     adresse:
-      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     nom: NOM
     prenom: PRENOM

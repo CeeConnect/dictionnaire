@@ -4,14 +4,14 @@ title: BAR-TH-130v26-1
 type: object
 properties:
   adresse:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   caracteristiques:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batiment
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
       extensionBatiment:
         title: L'opération concerne une partie nouvelle d'un bâtiment existant
         type: boolean
@@ -19,16 +19,16 @@ properties:
         title: Energie de chauffage
         type: string
         oneOf:
-          - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/energie#/$defs/ELECTRICITE
-          - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/energie#/$defs/COMBUSTIBLES
-          - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/energie#/$defs/HYBRIDE
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/ELECTRICITE
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/COMBUSTIBLES
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/HYBRIDE
       energieEauChaudeSanitaire:
         title: Energie de production d'eau chaude sanitaire
         type: string
         oneOf:
-          - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/energie#/$defs/ELECTRICITE
-          - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/energie#/$defs/COMBUSTIBLES
-          - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/energie#/$defs/HYBRIDE
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/ELECTRICITE
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/COMBUSTIBLES
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/HYBRIDE
       surfaceThermique:
         title: Surface thermique (m²)
         description: Indiquer la surface thermique du bâtiment au sens de la règlementation thermique SRT
@@ -80,7 +80,7 @@ properties:
           - extensionBatiment
       - properties:
           ancienneteBatiment:
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+            $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
           extensionBatiment:
             type: boolean
             const: true
@@ -128,7 +128,7 @@ required:
   - documents
 examples:
   - adresse:
-      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     caracteristiques:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT

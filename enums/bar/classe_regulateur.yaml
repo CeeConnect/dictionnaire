@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/classe_regulateur
+$id: https://schemas.ceeconnect.fr/enums/bar/classe_regulateur
 $schema: https://json-schema.org/draft/2020-12/schema
 $comment: Classe du régulateur telle que définie au paragraphe 6.1 de la
   communication de la Commission 2014/C 207/02 dans le cadre du règlement (UE)

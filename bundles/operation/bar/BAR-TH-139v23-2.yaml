@@ -8,11 +8,11 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/IMMEUBLE
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       typeInstallation:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_installation#/$defs/COLLECTIF
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
         title: Système collectif de chauffage, de conditionnement d'ambiance ou de surpression d'eau
       equipements:
         title: Liste des pompes de caractéristiques strictement identiques

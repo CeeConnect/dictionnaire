@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/formats/code_fiche
+$id: https://schemas.ceeconnect.fr/formats/code_fiche
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Code
 type: string

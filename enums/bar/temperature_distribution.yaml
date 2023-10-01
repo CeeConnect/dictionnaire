@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/temperature_distribution
+$id: https://schemas.ceeconnect.fr/enums/bar/temperature_distribution
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Température de distribution (°C)
 type: string

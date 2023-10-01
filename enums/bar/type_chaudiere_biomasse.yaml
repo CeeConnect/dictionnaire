@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/type_chaudiere_biomasse
+$id: https://schemas.ceeconnect.fr/enums/bar/type_chaudiere_biomasse
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Type de chaudière biomasse
 type: string

@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/secteur-application
+$id: https://schemas.ceeconnect.fr/enums/secteur-application
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Secteur d'application
 type: string

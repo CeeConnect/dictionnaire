@@ -4,12 +4,12 @@ title: BAR-EN-102v39-2
 type: object
 properties:
   adresse:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   caracteristiques:
     type: object
     properties:
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       quantite:
         title: Surface d'isolant posé (m²)
         description:
@@ -70,7 +70,7 @@ required:
   - documents
 examples:
   - adresse:
-      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     caracteristiques:
       ancienneteBatiment: EXISTANT
       quantite: 100

@@ -7,9 +7,9 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       surfaceChauffee:
         title: Surface chauffée par la pompe à chaleur installée (m²)
         type: number
@@ -29,14 +29,14 @@ properties:
         type: boolean
         const: true
       usage:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_usage#/$defs/ECS
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_usage#/$defs/ECS
         title: La pompe à chaleur est utilisée uniquement pour la production d'eau chaude sanitaire
       temperatureDistribution:
         title: Température de fonctionnement
         type: string
         oneOf:
-          - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/temperature_distribution#/$defs/MOYENNE_TEMPERATURE
-          - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/temperature_distribution#/$defs/HAUTE_TEMPERATURE
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/temperature_distribution#/$defs/MOYENNE_TEMPERATURE
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/temperature_distribution#/$defs/HAUTE_TEMPERATURE
       marque:
         title: Marque de l'équipement
         type: string
@@ -49,7 +49,7 @@ properties:
         properties:
           classe:
             title: Classe
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/classe_regulateur
+            $ref: https://schemas.ceeconnect.fr/enums/bar/classe_regulateur
           marque:
             title: Marque
             type: string

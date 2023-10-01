@@ -7,7 +7,7 @@ properties:
     title: Code du document
     type: string
   url:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/url
+    $ref: https://schemas.ceeconnect.fr/formats/url
     title: URL d'accès au document
 required:
   - code

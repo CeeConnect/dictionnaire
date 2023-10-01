@@ -7,11 +7,11 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       typeEquipement:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chauffe_eau_thermodynamique
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_eau_thermodynamique
       performanceEnergetique:
         title: Coefficient de performance (COP)
         type: number
@@ -26,7 +26,7 @@ properties:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chauffe_eau_thermodynamique#/$defs/AIR_EXTRAIT
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_eau_thermodynamique#/$defs/AIR_EXTRAIT
           required:
             - typeEquipement
         then:

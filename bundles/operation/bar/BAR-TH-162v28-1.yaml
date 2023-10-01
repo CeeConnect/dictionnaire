@@ -4,15 +4,15 @@ title: BAR-TH-162v28-1
 type: object
 properties:
   adresse:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   caracteristiques:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/MAISON
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
         title: Type de bâtiment
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       surfaceCapteurs:
         title: surface totale de capteurs hybrides mis en place
         type: number
@@ -66,7 +66,7 @@ required:
   - documents
 examples:
   - adresse:
-      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     caracteristiques:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT

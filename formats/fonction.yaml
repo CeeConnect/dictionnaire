@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/formats/fonction
+$id: https://schemas.ceeconnect.fr/formats/fonction
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Fonction
 type: string

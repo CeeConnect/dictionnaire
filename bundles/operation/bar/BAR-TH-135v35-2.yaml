@@ -4,19 +4,19 @@ title: BAR-TH-135v35-2
 type: object
 properties:
   adresse:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceOutreMer
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceOutreMer
   caracteristiques:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/IMMEUBLE
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batiment
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
       extensionBatiment:
         title: L'opération concerne une partie nouvelle d'un bâtiment existant
         type: boolean
       typeEquipement:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chauffe_eau_solaire#/$defs/collectif
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_eau_solaire#/$defs/collectif
       surfaceCapteurs:
         title: Surface hors-tout totale de capteurs solaires (m²)
         type: number
@@ -62,7 +62,7 @@ properties:
       - type: object
         properties:
           ancienneteBatiment:
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+            $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
           extensionBatiment:
             type: boolean
             const: true
@@ -119,7 +119,7 @@ required:
   - documents
 examples:
   - adresse:
-      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/3
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/3
     caracteristiques:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT

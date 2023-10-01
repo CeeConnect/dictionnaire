@@ -5,9 +5,9 @@ description: Organisme de contrôle ayant assuré le contrôle de l'opération
 type: object
 properties:
   raisonSociale:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/raison_sociale
+    $ref: https://schemas.ceeconnect.fr/formats/raison_sociale
   siren:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/siren
+    $ref: https://schemas.ceeconnect.fr/formats/siren
   numeroAccreditation:
     title: Numéro d'accréditation COFRAC
     type: string

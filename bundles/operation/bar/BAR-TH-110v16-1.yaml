@@ -7,9 +7,9 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       critereChauffageCentral:
         title: Logement(s) chauffé(s) par un système de chauffage central
         type: boolean
@@ -28,13 +28,13 @@ properties:
       - if:
           properties:
             typeBatiment:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/APPARTEMENT
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/APPARTEMENT
           required:
             - typeBatiment
         then:
           properties:
             typeInstallation:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_installation
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation
           required:
             - typeInstallation
     required:

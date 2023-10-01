@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/consommation_suivie
+$id: https://schemas.ceeconnect.fr/enums/bar/consommation_suivie
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Nature des consommations suivies
 type: string

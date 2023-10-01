@@ -5,7 +5,7 @@ description: Prise en compte de la précarité énergétique du bénéficiaire
 type: object
 properties:
   scenario:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/scenario_precarite
+    $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite
 required:
   - scenario
 anyOf:
@@ -20,7 +20,7 @@ $defs:
     allOf:
       - properties:
           scenario:
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/scenario_precarite#/$defs/8.1
+            $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.1
         required:
           - scenario
       - properties:
@@ -37,7 +37,7 @@ $defs:
     allOf:
       - properties:
           scenario:
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/scenario_precarite#/$defs/8.2
+            $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.2
         required:
           - scenario
       - properties:
@@ -62,7 +62,7 @@ $defs:
     allOf:
       - properties:
           scenario:
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/scenario_precarite#/$defs/8.3
+            $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.3
         required:
           - scenario
   '8.4':
@@ -70,13 +70,13 @@ $defs:
     allOf:
       - properties:
           scenario:
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/scenario_precarite#/$defs/8.4
+            $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.4
         required:
           - scenario
       - properties:
           codeQuartierPrioritaire:
             title: Code du quartier prioritaire de la politique de la ville
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/code_quartier_prioritaire
+            $ref: https://schemas.ceeconnect.fr/formats/code_quartier_prioritaire
           nomQuartierPrioritaire:
             title: Nom du quartier prioritaire de la politique de la ville
             type: string
@@ -89,7 +89,7 @@ $defs:
     allOf:
       - properties:
           scenario:
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/scenario_precarite#/$defs/8.5
+            $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.5
         required:
           - scenario
       - properties:
@@ -107,16 +107,16 @@ $defs:
     type: object
     properties:
       nom:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/nom_famille
+        $ref: https://schemas.ceeconnect.fr/formats/nom_famille
       prenom:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/prenom
+        $ref: https://schemas.ceeconnect.fr/formats/prenom
       composition:
         title: Composition
         description: Nombre de personnes composant le ménage
         type: integer
         minimum: 1
       categorieRessource:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/categorie_ressource
+        $ref: https://schemas.ceeconnect.fr/enums/categorie_ressource
       foyersFiscaux:
         title: Liste de foyers fiscaux
         description: Liste des foyers fiscaux composant le ménage
@@ -127,9 +127,9 @@ $defs:
           type: object
           properties:
             identifiantFiscal:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/numero_fiscal
+              $ref: https://schemas.ceeconnect.fr/formats/numero_fiscal
             referenceAvis:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/reference_avis_imposition
+              $ref: https://schemas.ceeconnect.fr/formats/reference_avis_imposition
           required:
             - identifiantFiscal
             - referenceAvis
@@ -144,23 +144,23 @@ $defs:
     properties:
       nom:
         title: Nom du représentant
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/nom_famille
+        $ref: https://schemas.ceeconnect.fr/formats/nom_famille
       prenom:
         title: Prénom du représentant
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/prenom
+        $ref: https://schemas.ceeconnect.fr/formats/prenom
       fonction:
         title: Fonction du représentant
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/fonction
+        $ref: https://schemas.ceeconnect.fr/formats/fonction
       raisonSociale:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/raison_sociale
+        $ref: https://schemas.ceeconnect.fr/formats/raison_sociale
       siren:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/siren
+        $ref: https://schemas.ceeconnect.fr/formats/siren
       adresse:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse
+        $ref: https://schemas.ceeconnect.fr/mixins/adresse
       email:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/email
+        $ref: https://schemas.ceeconnect.fr/formats/email
       telephone:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/telephone
+        $ref: https://schemas.ceeconnect.fr/formats/telephone
       menages:
         title: Nombre de ménages couverts
         description: Nombre de ménages habitant un logement conventionné géré par l'organisme

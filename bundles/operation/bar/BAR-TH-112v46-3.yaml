@@ -7,12 +7,12 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/MAISON
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
         title: Le logement est une maison individuelle
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       typeCombustible:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_combustible_biomasse
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_combustible_biomasse
         title: Type de combustible
       performanceEnergetique:
         title: Efficacité énergétique saisonnière (%)
@@ -28,7 +28,7 @@ properties:
       - if:
           properties:
             typeCombustible:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_combustible_biomasse#/$defs/GRANULES
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_combustible_biomasse#/$defs/GRANULES
           required:
             - typeCombustible
         then:

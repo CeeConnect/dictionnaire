@@ -8,14 +8,14 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       typeInstallationChauffage:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_installation
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation
         title: Type d'installation de chauffage
       energieChauffage:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/energie#/$defs/energiesChauffage
+        $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffage
         title: Energie de chauffage principale
       surfaceHabitable:
         title: Surface habitable (m²)

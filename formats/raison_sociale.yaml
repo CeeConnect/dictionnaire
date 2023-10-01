@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/formats/raison_sociale
+$id: https://schemas.ceeconnect.fr/formats/raison_sociale
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Raison sociale
 type: string

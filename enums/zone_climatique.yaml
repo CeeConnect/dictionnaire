@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/zone_climatique
+$id: https://schemas.ceeconnect.fr/enums/zone_climatique
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Zone climatique
 type: string

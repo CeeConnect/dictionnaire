@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/energie
+$id: https://schemas.ceeconnect.fr/enums/energie
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Energie
 type: string

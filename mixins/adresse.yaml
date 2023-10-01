@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/mixins/adresse
+$id: https://schemas.ceeconnect.fr/mixins/adresse
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Adresse
 type: object

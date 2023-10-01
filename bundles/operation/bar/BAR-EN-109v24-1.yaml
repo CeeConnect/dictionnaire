@@ -4,49 +4,41 @@ title: BAR-EN-109v24-1
 type: object
 properties:
   adresse:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceOutreMer
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceOutreMer
   caracteristiques:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/batiment
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/batiment
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      energieChauffage:
+        $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffage
       quantite:
         title: Surface de toiture protégée (en m²)
         type: number
         minimum: 0
       compositionToiture:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/constitution_toiture
+        $ref: https://schemas.ceeconnect.fr/enums/bar/constitution_toiture
       facteurSolaire:
         title: Facteur solaire (m².K/W)
         type: number
         maximum: 0.03
-      references:
-        title: Marques et références
-        description: Dans le cas d'une pose superposée de plusieurs isolants, indiquer
-          les marques et références de chacun des isolants posés
-        type: array
-        minItems: 1
-        items:
-          type: object
-          properties:
-            marque:
-              title: Marque de l'isolant
-              type: string
-            reference:
-              title: Référence de l'isolant
-              type: string
-          required:
-            - marque
-            - reference
+      marque:
+        title: Marque de l'isolant
+        type: string
+      reference:
+        title: Référence de l'isolant
+        type: string
     required:
       - typeBatiment
       - ancienneteBatiment
+      - energieChauffage
       - quantite
       - compositionToiture
       - facteurSolaire
-      - references
+      - marque
+      - reference
 allOf:
   - if:
       properties:
@@ -78,7 +70,7 @@ allOf:
           type: object
           properties:
             compositionToiture:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/constitution_toiture#/$defs/ENSEMBLE_ELEMENTS
+              $ref: https://schemas.ceeconnect.fr/enums/bar/constitution_toiture#/$defs/ENSEMBLE_ELEMENTS
           required:
             - compositionToiture
       required:
@@ -103,18 +95,16 @@ required:
   - caracteristiques
 examples:
   - adresse:
-      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/3
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/3
     caracteristiques:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
+      energieChauffage: COMBUSTIBLES
       quantite: 100
       compositionToiture: ENSEMBLE_ELEMENTS
       facteurSolaire: 0.01
-      references:
-        - marque: MARQUE
-          reference: REFERENCE
-        - marque: MARQUE
-          reference: REFERENCE
+      marque: MARQUE
+      reference: REFERENCE
     documents:
       - code: NOTE_CALCUL
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

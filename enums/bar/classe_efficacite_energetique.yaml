@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/classe_efficacite_energetique
+$id: https://schemas.ceeconnect.fr/enums/bar/classe_efficacite_energetique
 $schema: https://json-schema.org/draft/2020-12/schema
 $comment: "Climatiseur : réglement (UE) n°626/2011 | Chauffe-eau : réglement
   (UE) 812/2013 | VMC : réglement (UE) 1254/2014"

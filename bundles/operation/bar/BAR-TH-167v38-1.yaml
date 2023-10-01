@@ -4,15 +4,15 @@ title: BAR-TH-167v38-1
 type: object
 properties:
   adresse:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   caracteristiques:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
         title: Type de bâtiment
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       combustibleGazeux:
         title: Le chauffe-bain est individuel et utilise un combustible gazeux
         type: boolean
@@ -26,7 +26,7 @@ properties:
       - if:
           properties:
             typeBatiment:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/MAISON
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
           required:
             - typeBatiment
         then:
@@ -42,7 +42,7 @@ properties:
       - if:
           properties:
             typeBatiment:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/APPARTEMENT
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/APPARTEMENT
           required:
             - typeBatiment
         then:
@@ -90,14 +90,14 @@ $defs:
     type: object
     properties:
       typeEquipement:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chauffe_bain
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain
         title: Type de chauffe-bain
       rendement:
         title: Rendement PCI nominal (%)
         type: number
         minimum: 0
       performanceEquipement:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/classe_efficacite_energetique#/$defs/chauffesBain
+        $ref: https://schemas.ceeconnect.fr/enums/bar/classe_efficacite_energetique#/$defs/chauffesBain
       marque:
         title: Marque de l'équipement
         type: string
@@ -115,8 +115,8 @@ $defs:
           properties:
             typeChauffeBain:
               oneOf:
-                - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chauffe_bain#/$defs/FLUX_FORCE_HAUT_RENDEMENT
-                - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chauffe_bain#/$defs/COMBUSTION_HAUT_RENDEMENT
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain#/$defs/FLUX_FORCE_HAUT_RENDEMENT
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain#/$defs/COMBUSTION_HAUT_RENDEMENT
           required:
             - typeChauffeBain
         then:
@@ -129,7 +129,7 @@ $defs:
       - if:
           properties:
             typeChauffeBain:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chauffe_bain#/$defs/CONDENSATION
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain#/$defs/CONDENSATION
           required:
             - typeChauffeBain
         then:
@@ -141,7 +141,7 @@ $defs:
             - rendement
 examples:
   - adresse:
-      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     caracteristiques:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT

@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/formats/siret
+$id: https://schemas.ceeconnect.fr/formats/siret
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Numéro de SIRET
 type: string

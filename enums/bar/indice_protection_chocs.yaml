@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/indice_protection_chocs
+$id: https://schemas.ceeconnect.fr/enums/bar/indice_protection_chocs
 $schema: https://json-schema.org/draft/2020-12/schema
 $comment: https://www.seton.fr/media/cms/files/stfr/DMEU_TDS_2584_std.lang.all.pdf
 title: Indice de de protection aux chocs

@@ -7,11 +7,11 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       temperatureDistribution:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/temperature_distribution
+        $ref: https://schemas.ceeconnect.fr/enums/bar/temperature_distribution
       surfaceChauffee:
         title: Surface chaufée par l'équipement (m²)
         type: number
@@ -30,7 +30,7 @@ properties:
       - if:
           properties:
             temperatureDistribution:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/temperature_distribution#/$defs/BASSE_TEMPERATURE
+              $ref: https://schemas.ceeconnect.fr/enums/bar/temperature_distribution#/$defs/BASSE_TEMPERATURE
           required:
             - temperatureDistribution
         then:

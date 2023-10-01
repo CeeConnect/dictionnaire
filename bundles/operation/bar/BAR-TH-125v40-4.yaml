@@ -4,16 +4,16 @@ title: BAR-TH-125v40-4
 type: object
 properties:
   adresse:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   caracteristiques:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       typeInstallation:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_installation
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation
       surfaceHabitable:
         title: Surface habitable (m²)
         type: number
@@ -40,14 +40,14 @@ properties:
         then:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_vmc#/$defs/doubleFlux
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/doubleFlux
             performanceEnergetique:
               title: Classe énergétique du système de ventilation
               description: Classe énergétique du système de ventilation selon le règlement européen (UE) n° 1254/2014
               type: string
               oneOf:
-                - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/classe_efficacite_energetique#/$defs/A+
-                - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/classe_efficacite_energetique#/$defs/A
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/classe_efficacite_energetique#/$defs/A+
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/classe_efficacite_energetique#/$defs/A
             performanceEnergetiqueEchangeur:
               title: Efficacité thermique de l'échangeur (%)
               type: number
@@ -70,7 +70,7 @@ properties:
               type: integer
               minimum: 1
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_vmc#/$defs/AUTOREGLABLE
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/AUTOREGLABLE
             performanceEnergetiqueEchangeur:
               title: Efficacité de l'échangeur statique (%)
               type: number
@@ -105,7 +105,7 @@ required:
   - documents
 examples:
   - adresse:
-      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     caracteristiques:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT

@@ -8,9 +8,9 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/batiment
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/batiment
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       identifiantReseau:
         title: Nom du réseau
         type: string
@@ -43,7 +43,7 @@ properties:
       - if:
           properties:
             typeBatiment:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/MAISON
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
           required:
             - typeBatiment
         then:
@@ -57,7 +57,7 @@ properties:
       - if:
           properties:
             typeBatiment:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/IMMEUBLE
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
           required:
             - typeBatiment
         then:
@@ -91,15 +91,15 @@ properties:
         title: Raison sociale
         type: string
       siret:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/siret
+        $ref: https://schemas.ceeconnect.fr/formats/siret
       adresse:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/france
+        $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
       email:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/email
+        $ref: https://schemas.ceeconnect.fr/formats/email
       telephone:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/telephone
+        $ref: https://schemas.ceeconnect.fr/formats/telephone
       mobile:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/telephone
+        $ref: https://schemas.ceeconnect.fr/formats/telephone
     required:
       - nom
       - prenom
@@ -127,7 +127,7 @@ examples:
       raisonSociale: RAISON SOCIALE
       siret: "00000000000000"
       adresse:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+        $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
       email: contact@email.com
       telephone: "0400000000"
       mobile: "0600000000"

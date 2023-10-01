@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/categorie_ressource
+$id: https://schemas.ceeconnect.fr/enums/categorie_ressource
 $schema: https://json-schema.org/draft/2020-12/schema
 $comment: Reprise des catégories de ressources Ma Prime Rénov'
 title: Catégorie de ressource

@@ -7,14 +7,14 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
     allOf:
       - if:
           properties:
             typeBatiment:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/MAISON
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
           required:
             - typeBatiment
         then:
@@ -35,7 +35,7 @@ properties:
       - if:
           properties:
             typeBatiment:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/APPARTEMENT
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/APPARTEMENT
           required:
             - typeBatiment
         then:
@@ -96,7 +96,7 @@ $defs:
         title: Référence des équipements
         type: string
       performanceEnergetiqueRegulateur:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/classe_regulateur
+        $ref: https://schemas.ceeconnect.fr/enums/bar/classe_regulateur
         title: Classe du régulateur
       marqueRegulateur:
         title: Marque du régulateur

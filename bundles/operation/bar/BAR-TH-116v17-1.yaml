@@ -7,9 +7,9 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       surfaceChauffee:
         title: Surface chauffée par le plancher chauffant (m²)
         type: number
@@ -24,14 +24,14 @@ properties:
       - if:
           properties:
             typeBatiment:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/APPARTEMENT
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/APPARTEMENT
           required:
             - typeBatiment
         then:
           properties:
             typeChauffage:
               title: Type de chauffage central
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_chauffage
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffage
           required:
             - typeChauffage
     required:

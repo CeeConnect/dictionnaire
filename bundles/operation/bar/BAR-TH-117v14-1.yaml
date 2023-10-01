@@ -7,18 +7,18 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       ancienneteChaudiere:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/EXISTANT
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/EXISTANT
         title: Chaudière existante depuis plus de deux ans à la date d'engagement de l'opération
       ancienneteRadiateur:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/EXISTANT
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/EXISTANT
         title: Radiateur existant depuis plus de deux ans à la date d'engagement de l'opération
       typeInstallationChauffage:
         title: Type d'installation de chauffage
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_installation
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation
       quantite:
         title: Nombre d'équipements installés
         type: integer

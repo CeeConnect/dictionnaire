@@ -4,20 +4,20 @@ title: BAR-TH-127v40-4
 type: object
 properties:
   adresse:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   caracteristiques:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       typeInstallation:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_installation
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation
       typeEquipement:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_vmc#/$defs/hygroreglable
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/hygroreglable
       typeCaisson:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_caisson_vmc
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_caisson_vmc
         title: Type de caisson
       referenceAvisTechnique:
         title: Référence de l'avis technique
@@ -42,7 +42,7 @@ properties:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_vmc#/$defs/TYPE_B
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/TYPE_B
           required:
             - typeEquipement
         then:
@@ -59,7 +59,7 @@ properties:
       - if:
           properties:
             typeInstallation:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_installation#/$defs/INDIVIDUEL
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/INDIVIDUEL
           required:
             - typeInstallation
         then:
@@ -69,9 +69,9 @@ properties:
               type: number
               maximum: 15
             typeCaisson:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_caisson_vmc#/$defs/BASSE_CONSOMMATION
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_caisson_vmc#/$defs/BASSE_CONSOMMATION
             performanceEnergetique:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/classe_efficacite_energetique#/$defs/ventilations
+              $ref: https://schemas.ceeconnect.fr/enums/bar/classe_efficacite_energetique#/$defs/ventilations
           required:
             - typeCaisson
             - puissanceElectrique
@@ -79,7 +79,7 @@ properties:
       - if:
           properties:
             typeInstallation:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_installation#/$defs/COLLECTIF
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
           required:
             - typeInstallation
         then:
@@ -99,9 +99,9 @@ properties:
       - if:
           properties:
             typeInstallation:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_installation#/$defs/COLLECTIF
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
             typeCaisson:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_caisson_vmc#/$defs/STANDARD
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_caisson_vmc#/$defs/STANDARD
           required:
             - typeInstallation
             - typeCaisson
@@ -115,9 +115,9 @@ properties:
       - if:
           properties:
             typeInstallation:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_installation#/$defs/COLLECTIF
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
             typeCaisson:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_caisson_vmc#/$defs/BASSE_CONSOMMATION
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_caisson_vmc#/$defs/BASSE_CONSOMMATION
           required:
             - typeInstallation
             - typeCaisson
@@ -131,9 +131,9 @@ properties:
       - if:
           properties:
             typeInstallation:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_installation#/$defs/COLLECTIF
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
             typeCaisson:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_caisson_vmc#/$defs/BASSE_PRESSION
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_caisson_vmc#/$defs/BASSE_PRESSION
           required:
             - typeInstallation
             - typeCaisson
@@ -174,7 +174,7 @@ required:
   - documents
 examples:
   - adresse:
-      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     caracteristiques:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT

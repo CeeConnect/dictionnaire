@@ -7,17 +7,17 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/IMMEUBLE
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       logements:
         title: Nombre d'appartements chauffés
         type: integer
         minimum: 1
       usage:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_usage#/$defs/chauffages
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_usage#/$defs/chauffages
       temperatureDistribution:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/temperature_distribution
+        $ref: https://schemas.ceeconnect.fr/enums/bar/temperature_distribution
       puissanceNominale:
         title: Puissance nominale (kW)
         type: number
@@ -52,8 +52,8 @@ properties:
       - properties:
           temperatureDistribution:
             oneOf:
-              - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/temperature_distribution#/$defs/MOYENNE_TEMPERATURE
-              - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/temperature_distribution#/$defs/HAUTE_TEMPERATURE
+              - $ref: https://schemas.ceeconnect.fr/enums/bar/temperature_distribution#/$defs/MOYENNE_TEMPERATURE
+              - $ref: https://schemas.ceeconnect.fr/enums/bar/temperature_distribution#/$defs/HAUTE_TEMPERATURE
           puissanceNominale:
             type: number
             exclusiveMaximum: 400
@@ -68,7 +68,7 @@ properties:
       - properties:
           temperatureDistribution:
             oneOf:
-              - $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/temperature_distribution#/$defs/BASSE_TEMPERATURE
+              - $ref: https://schemas.ceeconnect.fr/enums/bar/temperature_distribution#/$defs/BASSE_TEMPERATURE
           puissanceNominale:
             type: number
             exclusiveMaximum: 400

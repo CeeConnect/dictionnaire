@@ -4,12 +4,12 @@ title: BAR-EN-101v39-4
 type: object
 properties:
   adresse:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   caracteristiques:
     type: object
     properties:
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       quantite:
         title: Surface d'isolant posé (m²)
         description:
@@ -18,7 +18,7 @@ properties:
         type: number
         minimum: 0
       typePose:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_pose_isolant
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_pose_isolant
       resistanceThermique:
         title: Résistance thermmique de l'isolant
         description:
@@ -67,7 +67,7 @@ properties:
       - if:
           properties:
             typePose:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_pose_isolant#/$defs/COMBLES_PERDUS
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pose_isolant#/$defs/COMBLES_PERDUS
           required:
             - typePose
         then:
@@ -92,7 +92,7 @@ required:
   - documents
 examples:
   - adresse:
-      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     caracteristiques:
       ancienneteBatiment: EXISTANT
       typePose: COMBLES_PERDUS

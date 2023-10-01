@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/type_batiment
+$id: https://schemas.ceeconnect.fr/enums/bar/type_batiment
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Type de bâtiment
 type: string
@@ -21,6 +21,12 @@ $defs:
     type: string
     oneOf:
       - $ref: "#/$defs/MAISON"
+      - $ref: "#/$defs/APPARTEMENT"
+  collectif:
+    title: Type de bâtiment
+    type: string
+    oneOf:
+      - $ref: "#/$defs/IMMEUBLE"
       - $ref: "#/$defs/APPARTEMENT"
   batiment:
     title: Type de bâtiment

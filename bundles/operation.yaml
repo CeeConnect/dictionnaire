@@ -13,11 +13,11 @@ properties:
     type: object
     properties:
       id:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/reference_fiche
+        $ref: https://schemas.ceeconnect.fr/formats/reference_fiche
       code:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/code_fiche
+        $ref: https://schemas.ceeconnect.fr/formats/code_fiche
       secteur:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/secteur_application
+        $ref: https://schemas.ceeconnect.fr/enums/secteur_application
       nom:
         title: Intitulé de la fiche
         type: string
@@ -34,9 +34,9 @@ properties:
     properties:
       id:
         $ref: >-
-          https://schemas.ceeconnect.fr/dictionnaire/formats/reference_bonification
+          https://schemas.ceeconnect.fr/formats/reference_bonification
       code:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/code_bonification
+        $ref: https://schemas.ceeconnect.fr/enums/code_bonification
       nom:
         title: Intitulé de la bonification
         type: string
@@ -83,14 +83,14 @@ properties:
     type: integer
     minimum: 0
   natureContribution:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/nature_contribution
+    $ref: https://schemas.ceeconnect.fr/enums/nature_contribution
     title: Nature du rôle actif et incitatif
   valeurContribution:
     title: Montant du rôle actif et incitatif
     type: number
     minimum: 0
   adresse:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/france
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
   beneficiaire:
     $ref: https://schemas.ceeconnect.fr/bundles/beneficiaire
   professionnel:

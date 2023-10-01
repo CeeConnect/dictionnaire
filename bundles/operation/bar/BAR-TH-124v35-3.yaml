@@ -4,17 +4,17 @@ title: BAR-TH-124v35-3
 type: object
 properties:
   adresse:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceOutreMer
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceOutreMer
   caracteristiques:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete
         description: Les parties nouvelles de logements existants sont considérées comme des logements neufs
       typeVente:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_vente
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_vente
       mentionsContrat:
         title:
           Le contrat de vente par abonnement a d'une durée minimale de dix ans et il comporte une clause
@@ -39,7 +39,7 @@ properties:
       - if:
           properties:
             typeBatiment:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/APPARTEMENT
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/APPARTEMENT
           required:
             - typeBatiment
         then:
@@ -52,7 +52,7 @@ properties:
       - if:
           properties:
             typeVente:
-              $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_vente#/$defs/ABONNEMENT
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_vente#/$defs/ABONNEMENT
           required:
             - typeVente
         then:
@@ -102,7 +102,7 @@ required:
   - documents
 examples:
   - adresse:
-      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/3
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/3
     caracteristiques:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT

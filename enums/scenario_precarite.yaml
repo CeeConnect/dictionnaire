@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/scenario-precarite
+$id: https://schemas.ceeconnect.fr/enums/scenario-precarite
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Scénario
 description: Scénario de prise en compte de la précarité énergétique

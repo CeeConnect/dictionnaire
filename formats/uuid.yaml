@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/formats/uuid
+$id: https://schemas.ceeconnect.fr/formats/uuid
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Identifiant unique
 description: Identifiant unique universel conforme au standard RFC 4122 (UUID)

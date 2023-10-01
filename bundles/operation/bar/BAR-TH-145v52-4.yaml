@@ -5,15 +5,15 @@ title: BAR-TH-145v52-4
 type: object
 properties:
   adresse:
-    $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/$defs/franceMetropolitaine
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   caracteristiques:
     type: object
     properties:
       typeBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/bar/type_batiment#/$defs/IMMEUBLE
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
         title: Type de bâtiment
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       surfaceHabitable:
         title: Surface habitable (m²)
         description: Indiquer la surface habitable totale de l'immeuble
@@ -97,7 +97,7 @@ properties:
             title: Raison sociale
             type: string
           siren:
-            $ref: https://schemas.ceeconnect.fr/dictionnaire/formats/siren
+            $ref: https://schemas.ceeconnect.fr/formats/siren
         required:
           - raisonSociale
           - siren
@@ -131,7 +131,7 @@ required:
   - documents
 examples:
   - adresse:
-      $ref: https://schemas.ceeconnect.fr/dictionnaire/mixins/adresse#/examples/0
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     caracteristiques:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT

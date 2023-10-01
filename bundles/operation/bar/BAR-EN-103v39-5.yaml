@@ -7,7 +7,7 @@ properties:
     type: object
     properties:
       ancienneteBatiment:
-        $ref: https://schemas.ceeconnect.fr/dictionnaire/enums/anciennete#/$defs/batimentExistant
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       quantite:
         title: Surface d'isolant posé (m²)
         description:

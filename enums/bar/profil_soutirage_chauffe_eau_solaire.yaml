@@ -1,4 +1,4 @@
-$id: https://dictionnaire.ceeconnect.fr/schemas/enums/bar/profil_soutirage_chauffe_eau_solaire
+$id: https://schemas.ceeconnect.fr/enums/bar/profil_soutirage_chauffe_eau_solaire
 $schema: https://json-schema.org/draft/2020-12/schema
 $comment: "Chauffe-eau solaire indivicuel : réglement (UE) n°814/2013"
 title: Profil de soutirage d'un chauffe-eau solaire
