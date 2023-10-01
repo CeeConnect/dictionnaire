@@ -10,7 +10,7 @@ Ce projet propose un vocabulaire uniformisé de référence au format YAML pour 
 
 **mixins**: Regroupe les termes composés (eg une adresse est composée d'un numéro, d'une voie, d'un code postal...)
 
-**bundles**: Regroupe les ressources (eg un dépôt, un contrôle, une opération...)
+**bundles**: Regroupe les ressources métiers (eg un dépôt, un contrôle, une opération...)
 
 ## Usages
 
@@ -20,6 +20,20 @@ Ce projet propose un vocabulaire uniformisé de référence au format YAML pour 
 ## Spécification
 
 - [JSON Schema](https://json-schema.org/) 2020-12
+
+## Releases
+
+### v1.0.0
+- Couverture des dépôts
+- Couverture du secteur résidentiel
+
+### @beta-v2.0.0
+
+- Couverture des contrôles sur le secteur résidentiel
+
+### @alpha-v3.0.0
+
+- Couverture des dépôts et contrôles de tous les secteurs d'application
 
 ## Roadmap
 
@@ -31,3 +45,15 @@ Couverture par secteur d'application :
 - [] Industrie
 - [] Réseau
 - [] Transport
+
+## Doctrines
+
+### Performances des équipements
+
+Les performances et caractéristiques des équipements mentionnées par les fiches d'opérations standardisées couvertent par une réglementation nationale ou européenne ne sont pas validées. Elles sont considérées de facto cohérente avec le cadre réglementaire.
+
+###  BAR-EN-108v37-2
+
+**L'attesation sur l'honneur prévoit la possibilité de renseigner plusieurs marques et référence dans le cas d'équipements installés de caractéristiques différentes, mais un unique champs relatif à la résistance thermique additionnelle.**
+
+Afin de simplifier le dispositif, il est retenu qu'une fiche d'opération standardisée ne s'applique qu'à un ensemble cohérent d'équipements éligibles. Ainsi il conviendra de réaliser n dossiers avec n partie A de l'attestation sur l'honneur pour n équipements de caractéristiques différentes.
