@@ -25,9 +25,9 @@ Ce projet propose un vocabulaire uniformisé de référence au format YAML pour 
 
 Couverture par secteur d'application :
 
-[] Agriculture
-[x] Bâtiment résidentiel
-[] Bâtiment tertiaire
-[] Industrie
-[] Réseau
-[] Transport
+- [] Agriculture
+- [x] Bâtiment résidentiel
+- [] Bâtiment tertiaire
+- [] Industrie
+- [] Réseau
+- [] Transport
