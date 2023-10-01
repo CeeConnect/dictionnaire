@@ -1,5 +1,6 @@
 $id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-112v46-3
 $schema: https://json-schema.org/draft/2020-12/schema
+$comment: Scénario Flamme verte uniquement couvert
 title: BAR-TH-112v46-3
 type: object
 properties:
@@ -17,7 +18,11 @@ properties:
       performanceEnergetique:
         title: Efficacité énergétique saisonnière (%)
         type: number
-        minimum: 80
+        minimum: 66
+      critereFlammeVerte:
+        title: La chaudière installée possède le label Flamme Verte 7*
+        type: boolean
+        const: true
       marque:
         title: Marque des équipements
         type: string
@@ -43,6 +48,7 @@ properties:
       - ancienneteBatiment
       - typeCombustible
       - performanceEnergetique
+      - critereFlammeVerte
       - marque
       - reference
   documents:
@@ -64,6 +70,7 @@ examples:
       ancienneteBatiment: EXISTANT
       typeCombustible: GRANULES
       performanceEnergetique: 90
+      critereFlammeVerte: true
       marque: MARQUE
       reference: REFERENCE
     documents:
