@@ -101,22 +101,6 @@ properties:
             typeInstallation:
               $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
             typeCaisson:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_caisson_vmc#/$defs/STANDARD
-          required:
-            - typeInstallation
-            - typeCaisson
-        then:
-          properties:
-            puissanceElectrique:
-              type: number
-              maximum: 0.25
-          required:
-            - puissanceElectrique
-      - if:
-          properties:
-            typeInstallation:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
-            typeCaisson:
               $ref: https://schemas.ceeconnect.fr/enums/bar/type_caisson_vmc#/$defs/BASSE_CONSOMMATION
           required:
             - typeInstallation
