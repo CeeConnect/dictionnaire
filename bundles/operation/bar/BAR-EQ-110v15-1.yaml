@@ -23,6 +23,12 @@ properties:
         title: Quantité de luminaires installés
         type: integer
         minimum: 0
+      detecteurLumiere: 
+        title: Système de détection tenant compte des apports de lumière du jour
+        type: boolean
+      detecteurPresence: 
+        title: Détection de présence ou de mouvement
+        type: boolean
       marque:
         title: Marque
         type: string
@@ -66,6 +72,17 @@ properties:
               minimum: 50000
           required:
             - dureeVie
+    anyOf: 
+      - properties: 
+          detecteurLumiere:
+            const: true
+        required:
+            - detecteurLumiere
+      - properties: 
+          detecteurPresence:
+            const: true
+        required:
+          - detecteurPresence
 required:
   - caracteristiques
 examples:
@@ -73,6 +90,7 @@ examples:
       ancienneteBatiment: EXISTANT
       indiceProtectionChocs: "10"
       efficaciteLumineuse: 95
+      detecteurLumiere: true
       dureeVie: 60000
       quantite: 100
       marque: MARQUE
