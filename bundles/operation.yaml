@@ -9,46 +9,14 @@ properties:
     type: string
     format: uuid
   fiche:
+    $ref: https://schemas.ceeconnect.fr/formats/reference_fiche
     title: Fiche d'opération standardisée
-    type: object
-    properties:
-      id:
-        $ref: https://schemas.ceeconnect.fr/formats/reference_fiche
-      code:
-        $ref: https://schemas.ceeconnect.fr/formats/code_fiche
-      secteur:
-        $ref: https://schemas.ceeconnect.fr/enums/secteur_application
-      nom:
-        title: Intitulé de la fiche
-        type: string
-    required:
-      - id
-      - code
-      - secteur
-      - nom
   bonification:
     title: Bonification
-    type:
-      - object
-      - 'null'
-    properties:
-      id:
-        $ref: >-
-          https://schemas.ceeconnect.fr/formats/reference_bonification
-      code:
-        $ref: https://schemas.ceeconnect.fr/enums/code_bonification
-      nom:
-        title: Intitulé de la bonification
-        type: string
-    required:
-      - id
-      - code
-      - nom
+    $ref: https://schemas.ceeconnect.fr/formats/reference_bonification
   dateVisitePrealable:
     title: Date de la visite préalable
-    type:
-      - string
-      - 'null'
+    type: string
     format: date
     formatMaximum:
       $data: /dateEngagement
@@ -110,7 +78,6 @@ properties:
 required:
   - uuid
   - fiche
-  - bonification
   - dateEngagement
   - dateVisitePrealable
   - dateDebutTravaux

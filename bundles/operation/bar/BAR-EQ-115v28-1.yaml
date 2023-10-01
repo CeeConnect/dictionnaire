@@ -1,6 +1,6 @@
 $id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-115v28-1
 $schema: https://json-schema.org/draft/2020-12/schema
-$comment: "TODO : Intégrer les fonctionnalités d'affichage des consommations"
+$comment: "TODO: Intégrer les fonctionnalités d'affichage des consommations"
 title: BAR-EQ-115v28-1
 type: object
 properties:
@@ -67,6 +67,33 @@ properties:
       - optionAlarmeDepassement
       - optionComparaisonConsommations
     allOf:
+      - if:
+          properties:
+            typeInstallationChauffage:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
+            energieChauffage:
+              $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/COMBUSTIBLES
+          required:
+            - typeInstallationChauffage
+            - energieChauffage
+        then:
+          properties:
+            critereCompteurIndividuel:
+              title: Le logement est équipé d'un compteur individuel d'énergie
+              type: boolean
+            critereRepartiteurs:
+              title: Le logement est équipé de répartiteurs
+              type: boolean
+          required:
+            - critereCompteurIndividuel
+            - critereRepartiteurs
+          anyOf:
+            - properties:
+                critereCompteurIndividuel:
+                  const: true
+            - properties:
+                critereRepartiteurs:
+                  const: true
       - if:
           properties:
             location:
