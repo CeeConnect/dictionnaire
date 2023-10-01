@@ -14,6 +14,10 @@ properties:
         title: Type de bâtiment
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      surfaceHabitable:
+        title: Surface habitable (m²)
+        type: number
+        minimum: 0
       referenceAudit:
         title: Référence de l'étude énergétique
         type: string
@@ -96,6 +100,7 @@ properties:
     required:
       - typeBatiment
       - ancienneteBatiment
+      - surfaceHabitable
       - referenceAudit
       - dateAudit
       - cepInitial
@@ -127,6 +132,7 @@ examples:
     caracteristiques:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
+      surfaceHabitable: 100
       dateAudit: "2023-02-07"
       referenceAudit: REFERENCE
       cepInitial: 200
