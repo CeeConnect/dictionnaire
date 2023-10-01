@@ -51,24 +51,6 @@ properties:
       - performanceEnergetique
       - marque
       - reference
-    anyOf:
-      - type: object
-        properties:
-          extensionBatiment:
-            type: boolean
-            const: false
-        required:
-          - extensionBatiment
-      - type: object
-        properties:
-          ancienneteBatiment:
-            $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
-          extensionBatiment:
-            type: boolean
-            const: true
-        required:
-          - ancienneteBatiment
-          - extensionBatiment
   documents:
     type: array
     allOf:

@@ -73,10 +73,13 @@ properties:
       - bbioBat
     anyOf:
       - properties:
+          ancienneteBatiment:
+            $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/NEUF
           extensionBatiment:
             type: boolean
             const: false
         required:
+          - ancienneteBatiment
           - extensionBatiment
       - properties:
           ancienneteBatiment:
@@ -132,7 +135,7 @@ examples:
     caracteristiques:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
-      extensionBatiment: false
+      extensionBatiment: true
       typeEquipement: CESCI
       energieChauffage: ELECTRICITE
       energieEauChaudeSanitaire: COMBUSTIBLES
