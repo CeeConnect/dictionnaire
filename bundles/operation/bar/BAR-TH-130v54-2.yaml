@@ -1,0 +1,169 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-130v54-2
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BBAR-TH-130v54-2
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
+      extensionBatiment:
+        title: L'opération concerne une partie nouvelle d'un bâtiment existant
+        type: boolean
+      energieChauffage:
+        title: Energie de chauffage
+        type: string
+        oneOf:
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/ELECTRICITE
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/COMBUSTIBLES
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/HYBRIDE
+      energieEauChaudeSanitaire:
+        title: Energie de production d'eau chaude sanitaire
+        type: string
+        oneOf:
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/ELECTRICITE
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/COMBUSTIBLES
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/HYBRIDE
+      surfaceThermique:
+        title: Surface thermique (m²)
+        description: Indiquer la surface thermique du bâtiment au sens de la règlementation thermique SRT
+        type: number
+        minimum: 0
+      cepMax:
+        title: CEPmax (kWh/m².an)
+        description: Indiquer la consommation conventionnelle en énergie primaire maximale CEPmax issue de l'étude thermique
+        type: number
+      cepBat:
+        title: CEPbat (kWh/m².an)
+        description: Indiquer la consommation conventionnelle en énergie primaire du bâtiment CEPbat issue de l'étude thermique
+        type: number
+      cefMax:
+        title: CEFmax (kWh/m².an)
+        description: Indiquer la consommation conventionnelle en énergie finale maximale CEFmax issue de l'étude thermique
+        type: number
+      cefBat:
+        title: CEFbat (kWh/m².an)
+        description: Indiquer la consommation conventionnelle en énergie finale du bâtiment CEFbat issue de l'étude thermique
+        type: number
+      bbioMax:
+        title: Besoin bioclimatique maximale
+        description: Indiquer le besoin bioclimatique maximale issu de l'étude thermique
+        type: number
+      bbioBat:
+        title: Besoin bioclimatique du bâtiment
+        description: Indiquer le besoin bioclimatique du bâtiment issu de l'étude thermique
+        type: number
+      icMax:
+        title: Impact maximal sur le changement climatique des consommations d'énergie (kg éq CO2/m2)
+        description: Indiquer la valeur issue de l'étude thermique
+        type: number
+      icBat:
+        title: Impact sur le changement climatique des consommations d'énergie du bâtiment (kg éq CO2/m2)
+        description: Indiquer la valeur issue de l'étude thermique
+        type: number
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - extensionBatiment
+      - energieChauffage
+      - energieEauChaudeSanitaire
+      - surfaceThermique
+      - cepMax
+      - cepBat
+      - cefMax
+      - cefBat
+      - bbioMax
+      - bbioBat
+      - icMax
+      - icBat
+    anyOf:
+      - properties:
+          ancienneteBatiment:
+            $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/NEUF
+          extensionBatiment:
+            type: boolean
+            const: false
+        required:
+          - ancienneteBatiment
+          - extensionBatiment
+      - properties:
+          ancienneteBatiment:
+            $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+          extensionBatiment:
+            type: boolean
+            const: true
+        required:
+          - ancienneteBatiment
+          - extensionBatiment
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Récépissé du dépôt de persmis de construire
+          type: object
+          properties:
+            code:
+              const: PERMIS_CONSTRUIRE
+          required:
+            - code
+      - contains:
+          title: Synthèse de l'étude thermique réglementaire
+          type: object
+          properties:
+            code:
+              const: ETUDE_THERMIQUE
+          required:
+            - code
+      - contains:
+          title: Attestation de la prise en compte de la réglementation thermique
+          type: object
+          properties:
+            code:
+              const: ATTESTATION_RE
+          required:
+            - code
+      - contains:
+          title: Déclaration d'achèvement et de conformité des travaux
+          type: object
+          properties:
+            code:
+              const: DAACT
+          required:
+            - code
+required:
+  - adresse
+  - caracteristiques
+  - documents
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      extensionBatiment: true
+      typeEquipement: CESCI
+      energieChauffage: ELECTRICITE
+      energieEauChaudeSanitaire: COMBUSTIBLES
+      surfaceThermique: 100
+      cepMax: 50
+      cepBat: 25
+      cefMax: 50
+      cefBat: 25
+      bbioMax: 50
+      bbioBat: 25
+      icMax: 50
+      icBat: 50
+    documents:
+      - code: PERMIS_CONSTRUIRE
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: ETUDE_THERMIQUE
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: ATTESTATION_RE
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: DAACT
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

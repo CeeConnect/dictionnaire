@@ -1,0 +1,184 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-127v54-5
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-127v54-5
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      typeInstallation:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation
+      typeEquipement:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/hygroreglable
+      typeCaisson:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_caisson_vmc
+        title: Type de caisson
+      referenceAvisTechnique:
+        title: Référence de l'avis technique
+        type: string
+      dateAvisTechnique:
+        title: Date de validitéde l'avis technique
+        type: string
+        format: date
+      marqueCaison:
+        title: Marque du caisson
+        type: string
+      referenceCaison:
+        title: Référence du caisson
+        type: string
+      marqueBouchesExtraction:
+        title: Marque des bouches d'extrations
+        type: string
+      referenceBouchesExtraction:
+        title: Référence des bouches d'extrations
+        type: string
+    allOf:
+      - if:
+          properties:
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/TYPE_B
+          required:
+            - typeEquipement
+        then:
+          properties:
+            marqueBouchesEntreeAir:
+              title: Marque des bouches d'entrée d'air
+              type: string
+            referenceBouchesEntreeAir:
+              title: Référence des bouches d'entrée d'air
+              type: string
+          required:
+            - marqueBouchesEntreeAir
+            - referenceBouchesEntreeAir
+      - if:
+          properties:
+            typeInstallation:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/INDIVIDUEL
+          required:
+            - typeInstallation
+        then:
+          properties:
+            surfaceHabitable:
+              title: Surface habitable (m²)
+              type: number
+              minimum: 0
+            puissanceElectrique:
+              title: Puissance électrique absorbée pondérée (WThC)
+              type: number
+              maximum: 15
+            typeCaisson:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_caisson_vmc#/$defs/BASSE_CONSOMMATION
+            performanceEnergetique:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/classe_efficacite_energetique#/$defs/ventilations
+          required:
+            - surfaceHabitable
+            - typeCaisson
+            - puissanceElectrique
+            - performanceEnergetique
+      - if:
+          properties:
+            typeInstallation:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
+          required:
+            - typeInstallation
+        then:
+          properties:
+            logements:
+              title: Nombre de logements desservis
+              description: Nombre d'appartement d'un même bâtiment
+              type: integer
+              minimum: 1
+            puissanceElectrique:
+              title: Puissance électrique absorbée pondérée (WThC/(m3/h))
+              type: number
+              maximum: 0.25
+          required:
+            - logements
+            - puissanceElectrique
+      - if:
+          properties:
+            typeInstallation:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
+            typeCaisson:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_caisson_vmc#/$defs/BASSE_CONSOMMATION
+          required:
+            - typeInstallation
+            - typeCaisson
+        then:
+          properties:
+            puissanceElectrique:
+              type: number
+              maximum: 0.1
+          required:
+            - puissanceElectrique
+      - if:
+          properties:
+            typeInstallation:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
+            typeCaisson:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_caisson_vmc#/$defs/BASSE_PRESSION
+          required:
+            - typeInstallation
+            - typeCaisson
+        then:
+          properties:
+            puissanceElectrique:
+              type: number
+              maximum: 0.12
+          required:
+            - puissanceElectrique
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - typeInstallation
+      - typeEquipement
+      - typeCaisson
+      - puissanceElectrique
+      - referenceAvisTechnique
+      - dateAvisTechnique
+      - marqueCaison
+      - referenceCaison
+      - marqueBouchesExtraction
+      - referenceBouchesExtraction
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Avis technique du système de ventilation hybride hygroréglable
+          type: object
+          properties:
+            code:
+              const: AVIS_TECHNIQUE
+          required:
+            - code
+required:
+  - adresse
+  - caracteristiques
+  - documents
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      typeInstallation: INDIVIDUEL
+      typeEquipement: TYPE_A
+      typeCaisson: BASSE_CONSOMMATION
+      puissanceElectrique: 10
+      performanceEnergetique: A+
+      referenceAvisTechnique: REFERENCE
+      dateAvisTechnique: '2020-01-01'
+      marqueCaison: MARQUE
+      referenceCaison: REFERENCE
+      marqueBouchesExtraction: MARQUE
+      referenceBouchesExtraction: REFERENCE
+    documents:
+      - code: AVIS_TECHNIQUE
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+

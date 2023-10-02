@@ -24,8 +24,18 @@ Ce projet propose un vocabulaire uniformisé de référence au format YAML pour 
 ## Releases
 
 ### v1.0.0
+
 - Couverture des dépôts
 - Couverture du secteur résidentiel
+
+### @next
+
+- BAR-SE-109v54-1
+- BAR-TH-123v54-2
+- BAR-TH-127v54-5
+- BAR-TH-160v54-4
+- BAR-TH-161v54-2
+- BAR-TH-170v54-1
 
 ### @beta-v2.0.0
 
