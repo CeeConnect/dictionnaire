@@ -1,0 +1,19 @@
+$id: https://schemas.ceeconnect.fr/enums/bar/type_equipement
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Type d'équipement
+type: string
+oneOf:
+  - $ref: "#/$defs/CHAUDIERE_HORS_CONDENSATION"
+  - $ref: "#/$defs/CHAUDIERE_CONDENSATION"
+  - $ref: "#/$defs/RESEAU_CHALEUR"
+$defs:
+  CHAUDIERE_HORS_CONDENSATION:
+    const: CHAUDIERE_HORS_CONDENSATION
+    title: Chaudière autre qu'à condensation
+  CHAUDIERE_CONDENSATION:
+    const: CHAUDIERE_CONDENSATION
+    title: Chaudière à condensation
+  RESEAU_CHALEUR:
+    const: RESEAU_CHALEUR
+    title: Réseau de chaleur
+  
