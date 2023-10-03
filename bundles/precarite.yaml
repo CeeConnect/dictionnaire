@@ -176,3 +176,13 @@ $defs:
       - email
       - telephone
       - menages
+examples:
+  - scenario: "8.1"
+    menages:
+      - nom: NOM
+        prenom: PRENOM
+        composition: 3
+        categorieRessource: MODESTE
+        foyersFiscaux:
+          - identifiantFiscal: "0000000000000"
+            referenceAvis: "00000000000000"
