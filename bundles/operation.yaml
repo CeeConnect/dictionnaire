@@ -96,7 +96,7 @@ required:
 $defs:
   BAR-EN-101v39-4:
     allOf:
-      - $ref: ./bar/BAR-EN-101v39-4.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-101v39-4
       - type: object
         properties:
           fiche:
@@ -105,7 +105,7 @@ $defs:
             - fiche
   BAR-EN-102v39-2:
     allOf:
-      - $ref: ./bar/BAR-EN-102v39-2.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-102v39-2
       - type: object
         properties:
           fiche:
@@ -114,7 +114,7 @@ $defs:
             - fiche
   BAR-EN-103v39-5:
     allOf:
-      - $ref: ./bar/BAR-EN-103v39-5.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-103v39-5
       - type: object
         properties:
           fiche:
@@ -123,7 +123,7 @@ $defs:
             - fiche
   BAR-EN-104v14-1:
     allOf:
-      - $ref: ./bar/BAR-EN-104v14-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-104v14-1
       - type: object
         properties:
           fiche:
@@ -132,7 +132,7 @@ $defs:
             - fiche
   BAR-EN-105v39-3:
     allOf:
-      - $ref: ./bar/BAR-EN-105v39-3.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-105v39-3
       - type: object
         properties:
           fiche:
@@ -141,7 +141,7 @@ $defs:
             - fiche
   BAR-EN-106v33-4:
     allOf:
-      - $ref: ./bar/BAR-EN-106v33-4.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-106v33-4
       - type: object
         properties:
           fiche:
@@ -150,7 +150,7 @@ $defs:
             - fiche
   BAR-EN-107v20-3:
     allOf:
-      - $ref: ./bar/BAR-EN-107v20-3.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-107v20-3
       - type: object
         properties:
           fiche:
@@ -159,7 +159,7 @@ $defs:
             - fiche
   BAR-EN-108v37-2:
     allOf:
-      - $ref: ./bar/BAR-EN-108v37-2.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-108v37-2
       - type: object
         properties:
           fiche:
@@ -168,7 +168,7 @@ $defs:
             - fiche
   BAR-EN-109v24-1:
     allOf:
-      - $ref: ./bar/BAR-EN-109v24-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-109v24-1
       - type: object
         properties:
           fiche:
@@ -177,7 +177,7 @@ $defs:
             - fiche
   BAR-EN-110v35-1:
     allOf:
-      - $ref: ./bar/BAR-EN-110v35-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-110v35-1
       - type: object
         properties:
           fiche:
@@ -186,7 +186,7 @@ $defs:
             - fiche
   BAR-EQ-110v15-1:
     allOf:
-      - $ref: ./bar/BAR-EQ-110v15-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1
       - type: object
         properties:
           fiche:
@@ -195,7 +195,7 @@ $defs:
             - fiche
   BAR-EQ-115v28-1:
     allOf:
-      - $ref: ./bar/BAR-EQ-115v28-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-115v28-1
       - type: object
         properties:
           fiche:
@@ -204,7 +204,7 @@ $defs:
             - fiche
   BAR-TH-101v17-1:
     allOf:
-      - $ref: ./bar/BAR-TH-101v17-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-101v17-1
       - type: object
         properties:
           fiche:
@@ -213,7 +213,7 @@ $defs:
             - fiche
   BAR-TH-102v17-1:
     allOf:
-      - $ref: ./bar/BAR-TH-102v17-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-102v17-1
       - type: object
         properties:
           fiche:
@@ -222,7 +222,7 @@ $defs:
             - fiche
   BAR-TH-104v41-3:
     allOf:
-      - $ref: ./bar/BAR-TH-104v41-3.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-104v41-3
       - type: object
         properties:
           fiche:
@@ -231,7 +231,7 @@ $defs:
             - fiche
   BAR-TH-106v23-2:
     allOf:
-      - $ref: ./bar/BAR-TH-106v23-2.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-106v23-2
       - type: object
         properties:
           fiche:
@@ -240,7 +240,7 @@ $defs:
             - fiche
   BAR-TH-110v16-1:
     allOf:
-      - $ref: ./bar/BAR-TH-110v16-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-110v16-1
       - type: object
         properties:
           fiche:
@@ -249,7 +249,7 @@ $defs:
             - fiche
   BAR-TH-111v17-1:
     allOf:
-      - $ref: ./bar/BAR-TH-111v17-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-111v17-1
       - type: object
         properties:
           fiche:
@@ -258,7 +258,7 @@ $defs:
             - fiche
   BAR-TH-112v46-3:
     allOf:
-      - $ref: ./bar/BAR-TH-112v46-3.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-112v46-3
       - type: object
         properties:
           fiche:
@@ -267,7 +267,7 @@ $defs:
             - fiche
   BAR-TH-113v41-3:
     allOf:
-      - $ref: ./bar/BAR-TH-113v41-3.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-113v41-3
       - type: object
         properties:
           fiche:
@@ -276,7 +276,7 @@ $defs:
             - fiche
   BAR-TH-116v17-1:
     allOf:
-      - $ref: ./bar/BAR-TH-116v17-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-116v17-1
       - type: object
         properties:
           fiche:
@@ -285,7 +285,7 @@ $defs:
             - fiche
   BAR-TH-117v14-1:
     allOf:
-      - $ref: ./bar/BAR-TH-117v14-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-117v14-1
       - type: object
         properties:
           fiche:
@@ -294,7 +294,7 @@ $defs:
             - fiche
   BAR-TH-124v35-3:
     allOf:
-      - $ref: ./bar/BAR-TH-124v35-3.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-124v35-3
       - type: object
         properties:
           fiche:
@@ -303,7 +303,7 @@ $defs:
             - fiche
   BAR-TH-125v40-4:
     allOf:
-      - $ref: ./bar/BAR-TH-125v40-4.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-125v40-4
       - type: object
         properties:
           fiche:
@@ -312,7 +312,7 @@ $defs:
             - fiche
   BAR-TH-127v40-4:
     allOf:
-      - $ref: ./bar/BAR-TH-127v40-4.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-127v40-4
       - type: object
         properties:
           fiche:
@@ -321,7 +321,7 @@ $defs:
             - fiche
   BAR-TH-129v27-3:
     allOf:
-      - $ref: ./bar/BAR-TH-129v27-3.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-129v27-3
       - type: object
         properties:
           fiche:
@@ -330,7 +330,7 @@ $defs:
             - fiche
   BAR-TH-130v26-1:
     allOf:
-      - $ref: ./bar/BAR-TH-130v26-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-130v26-1
       - type: object
         properties:
           fiche:
@@ -339,7 +339,7 @@ $defs:
             - fiche
   BAR-TH-135v35-2:
     allOf:
-      - $ref: ./bar/BAR-TH-135v35-2.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-135v35-2
       - type: object
         properties:
           fiche:
@@ -348,7 +348,7 @@ $defs:
             - fiche
   BAR-TH-137v45-3:
     allOf:
-      - $ref: ./bar/BAR-TH-137v45-3.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-137v45-3
       - type: object
         properties:
           fiche:
@@ -357,7 +357,7 @@ $defs:
             - fiche
   BAR-TH-139v23-2:
     allOf:
-      - $ref: ./bar/BAR-TH-139v23-2.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-139v23-2
       - type: object
         properties:
           fiche:
@@ -366,7 +366,7 @@ $defs:
             - fiche
   BAR-TH-141v15-1:
     allOf:
-      - $ref: ./bar/BAR-TH-141v15-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-141v15-1
       - type: object
         properties:
           fiche:
@@ -375,7 +375,7 @@ $defs:
             - fiche
   BAR-TH-143v51-5:
     allOf:
-      - $ref: ./bar/BAR-TH-143v51-5.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-143v51-5
       - type: object
         properties:
           fiche:
@@ -384,7 +384,7 @@ $defs:
             - fiche
   BAR-TH-145v52-4:
     allOf:
-      - $ref: ./bar/BAR-TH-145v52-4.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-145v52-4
       - type: object
         properties:
           fiche:
@@ -393,7 +393,7 @@ $defs:
             - fiche
   BAR-TH-148v15-2:
     allOf:
-      - $ref: ./bar/BAR-TH-148v15-2.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-148v15-2
       - type: object
         properties:
           fiche:
@@ -402,7 +402,7 @@ $defs:
             - fiche
   BAR-TH-150v14-1:
     allOf:
-      - $ref: ./bar/BAR-TH-150v14-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1
       - type: object
         properties:
           fiche:
@@ -411,7 +411,7 @@ $defs:
             - fiche
   BAR-TH-155v40-4:
     allOf:
-      - $ref: ./bar/BAR-TH-155v40-4.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-155v40-4
       - type: object
         properties:
           fiche:
@@ -420,7 +420,7 @@ $defs:
             - fiche
   BAR-TH-158v35-2:
     allOf:
-      - $ref: ./bar/BAR-TH-158v35-2.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-158v35-2
       - type: object
         properties:
           fiche:
@@ -429,7 +429,7 @@ $defs:
             - fiche
   BAR-TH-159v50-4:
     allOf:
-      - $ref: ./bar/BAR-TH-159v50-4.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-159v50-4
       - type: object
         properties:
           fiche:
@@ -438,7 +438,7 @@ $defs:
             - fiche
   BAR-TH-162v28-1:
     allOf:
-      - $ref: ./bar/BAR-TH-162v28-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-162v28-1
       - type: object
         properties:
           fiche:
@@ -447,7 +447,7 @@ $defs:
             - fiche
   BAR-TH-164v36-2:
     allOf:
-      - $ref: ./bar/BAR-TH-164v36-2.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-164v36-2
       - type: object
         properties:
           fiche:
@@ -456,7 +456,7 @@ $defs:
             - fiche
   BAR-TH-167v38-1:
     allOf:
-      - $ref: ./bar/BAR-TH-167v38-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-167v38-1
       - type: object
         properties:
           fiche:
@@ -465,7 +465,7 @@ $defs:
             - fiche
   BAR-TH-168v40-1:
     allOf:
-      - $ref: ./bar/BAR-TH-168v40-1.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-168v40-1
       - type: object
         properties:
           fiche:
@@ -474,7 +474,7 @@ $defs:
             - fiche
   BBAR-TH-130v54-2:
     allOf:
-      - $ref: ./bar/BAR-TH-130v54-2.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-130v54-2
       - type: object
         properties:
           fiche:
@@ -483,7 +483,7 @@ $defs:
             - fiche
   BAR-TH-127v54-5:
     allOf:
-      - $ref: ./bar/BAR-TH-127v54-5.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-127v54-5
       - type: object
         properties:
           fiche:
@@ -492,7 +492,7 @@ $defs:
             - fiche
   BAR-TH-125v54-5:
     allOf:
-      - $ref: ./bar/BAR-TH-125v54-5.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-125v54-5
       - type: object
         properties:
           fiche:
@@ -501,7 +501,7 @@ $defs:
             - fiche
   BAR-EN-108v54-3:
     allOf:
-      - $ref: ./bar/BAR-EN-108v54-3.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-108v54-3
       - type: object
         properties:
           fiche:
@@ -510,7 +510,7 @@ $defs:
             - fiche
   BAR-EN-104v54-2:
     allOf:
-      - $ref: ./bar/BAR-EN-104v54-2.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-104v54-2
       - type: object
         properties:
           fiche:
@@ -519,7 +519,7 @@ $defs:
             - fiche
   BAR-EN-101v54-5:
     allOf:
-      - $ref: ./bar/BAR-EN-101v54-5.yaml
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-101v54-5
       - type: object
         properties:
           fiche:
