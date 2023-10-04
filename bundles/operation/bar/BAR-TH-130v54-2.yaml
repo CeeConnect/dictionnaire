@@ -29,9 +29,9 @@ properties:
           - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/ELECTRICITE
           - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/COMBUSTIBLES
           - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/HYBRIDE
-      surfaceThermique:
-        title: Surface thermique (m²)
-        description: Indiquer la surface thermique du bâtiment au sens de la règlementation thermique SRT
+      surfaceReference:
+        title: Surface de référence (m²)
+        description: Indiquer la surface thermique du bâtiment au sens de la règlementation thermique RE2020
         type: number
         minimum: 0
       cepMax:
@@ -72,7 +72,7 @@ properties:
       - extensionBatiment
       - energieChauffage
       - energieEauChaudeSanitaire
-      - surfaceThermique
+      - surfaceReference
       - cepMax
       - cepBat
       - cefMax
@@ -149,7 +149,7 @@ examples:
       typeEquipement: CESCI
       energieChauffage: ELECTRICITE
       energieEauChaudeSanitaire: COMBUSTIBLES
-      surfaceThermique: 100
+      surfaceReference: 100
       cepMax: 50
       cepBat: 25
       cefMax: 50
