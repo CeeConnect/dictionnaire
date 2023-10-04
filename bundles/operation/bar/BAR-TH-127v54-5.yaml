@@ -170,6 +170,7 @@ examples:
       typeInstallation: INDIVIDUEL
       typeEquipement: TYPE_A
       typeCaisson: BASSE_CONSOMMATION
+      surfaceHabitable: 100
       puissanceElectrique: 10
       performanceEnergetique: A+
       referenceAvisTechnique: REFERENCE

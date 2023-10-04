@@ -90,8 +90,8 @@ properties:
           properties:
             typeEquipement:
               const: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/MODULE
-            required:
-              - typeEquipement
+          required:
+            - typeEquipement
         then:
           properties:
             referenceAvisTechnique:
@@ -135,6 +135,7 @@ examples:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       surfaceHabitable: 100
+      puissanceElectrique: 30
       typeInstallation: INDIVIDUEL
       typeEquipement: AUTOREGLABLE
       performanceEnergetique: A+
