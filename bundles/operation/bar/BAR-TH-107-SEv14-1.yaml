@@ -1,0 +1,166 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-107-SEv14-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-107-SEv14-1
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      typeBatiment:
+        title: Type de bâtiment
+        type: string
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+      logements:
+        title: Nombre d'appartements
+        description: Nombre d'appartement d'un même bâtiment
+        type: integer
+        minimum: 1
+      puissanceNominale:
+        title: "Puissance nominale de la chaudière "
+        type: number
+        minimum: 0
+      marque:
+        title: Marque de la chaudière
+        type: string
+      reference:
+        title: Référence de la chaudière
+        type: string
+      autreEquipement:
+        title: Mise en place d'un ou plusieurs autres équipements (chaudières ou pompes à chaleur)
+        description: La mise en place de la chaudière haute performance énergétique s'accompagne de la mise en place d'un ou plusieurs autres équipements (chaudières ou pompes à chaleur)
+        type: boolean
+    required:
+      - ancienneteBatiment
+      - typeBatiment
+      - logements
+      - puissanceNominale
+      - marque
+      - reference
+      - autreEquipement
+  contrat:
+    type: object
+    properties:
+      suivieContrat:
+        title: Au travers du contrat le prestataire assure la conduite de ces installations pendant la durée du contrat
+        description: Le contrat est un contrat d'exploitation des installations de chauffage et, le cas échéant, d'eau-chaude sanitaire, établi entre le bénéficiaire de l'opération et le prestataire. Au travers de ce contrat le prestataire assure la conduite de ces installations pendant la durée du contrat, dans les périodes précisées dans le contrat
+        const: true
+      dateContrat:
+        title: Date de prise d'effet du contrat
+        type: string
+        format: date
+      debutContrat:
+        title: Le contrat est daté, signé et prend effet moins d'un an après la date d'achèvement de l'opération
+        type: boolean
+        const: true
+      dureeContrat:
+        title: Durée du contrat
+        type: integer
+        minimum: 1
+      prestationMt:
+        title: Forfait sur la base de conditions climatiques réévalué chaque année
+        description: "(type de prestation communément appelé MT) Le contrat comporte une prestation de conduite des installations et de travaux de petits entretiens, et dont le montant afférent au combustible (et dont la fourniture est la charge du titulaire du contrat) : est initialement fixé forfaitairement sur la base de conditions climatiques de référence définies dans le contrat puis réévalué chaque année en fonction des conditions climatiques réelles"
+        type: boolean
+        const: true
+      prestationMc:
+        title: Prix unitaire en fonction de la quantité de chaleur fournie et mesurée par comptage
+        description: "(type de prestation communément appelé MC) Le contrat comporte une prestation de conduite des installations et de travaux de petits entretiens, et dont le montant afférent au combustible (et dont la fourniture est la charge du titulaire du contrat) : est évalué à un prix unitaire en fonction de la quantité de chaleur fournie et mesurée par comptage"
+        type: boolean
+        const: true
+      prestationMti:
+        title: Le contrat comporte une clause d'intéressement
+        description: "(types de prestation communément appelés MTI ou MCI ou PFI ou CPI). Le contrat comporte une clause d'intéressement, prévoyant le partage des économies ou des excès de consommation de combustible, par rapport à une consommation de base définie pour les conditions climatiques de référence"
+        type: boolean
+        const: true
+      prestationP3:
+        title: Le contrat comporte une prestation de garantie totale ou de gros entretien et renouvellement des matériels
+        description: "(communément appelée P3) Le contrat comporte une prestation de garantie totale ou de gros entretien et renouvellement des matériels"
+        type: boolean
+        const: true
+    required:
+      - dateContrat
+      - debutContrat
+      - dureeContrat
+      - suivieContrat
+      - prestationMt
+      - prestationMc
+      - prestationMti
+      - prestationP3
+    allOf:
+      - if:
+          properties:
+            autreEquipement:
+              const: true
+          required:
+            - autreEquipement
+        then:
+          properties:
+            puissanceNominaleTotaleChaudieres:
+              title: Puissance nominale totale des chaudières nouvellement installés
+              description: Puissance nominale totale des chaudières nouvellement installés respectant les conditions des fiches d'opérations standardisées en vigueur
+              type: number
+              minimum: 0
+            puissanceTotalePac:
+              title: Puissance totale de la pompe à chaleur installée
+              type: number
+              minimum: 0
+            puissanceNominaleTotaleChaufferie:
+              title: Puissance nominale totale de la chaufferie après travaux
+              type: number
+              minimum: 0
+          required:
+            - puissanceNominaleTotaleChaufferie
+          anyOf:
+            - required:
+                - puissanceNominaleTotaleChaudieres
+            - required:
+                - puissanceTotalePac
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Contrat signé entre le prestataire et le bénéficiaire
+          type: object
+          properties:
+            code:
+              type: string
+              const: CONTRAT
+          required:
+            - code
+      - contains:
+          title: Preuve de qualification ou de certification
+          description: La décision de qualification ou le certificat Qualibat 553 ou 554 du prestataire, à la date d'entrée en vigueur du contrat
+          type: object
+          properties:
+            code:
+              type: string
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
+required:
+  - caracteristiques
+  - documents
+examples:
+  - caracteristiques:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      logements: 10
+      puissanceNominale: 300
+      marque: MARQUE
+      reference: REFERENCE
+      autreEquipement: false
+      contrat:
+        dateContrat: 2023-09-25
+        debutContrat: 2023-10-25
+        dureeContrat: 5
+        suivieContrat: true
+        prestationMt: true
+        prestationMc: true
+        prestationMti: true
+        prestationP3: true
+    documents:
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: CONTRAT
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

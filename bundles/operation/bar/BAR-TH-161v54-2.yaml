@@ -1,0 +1,161 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-161v54-2
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-161v54-2
+type: object
+properties:
+  description:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif d'habitation
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      typePointSingulier:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_point_singulier
+      temperatureFluide:
+        title: Température du fluide caloporteur (°C)
+        type: number
+        minimum: 50
+      dateEtatRecapitulatif:
+        title: Date de l'état récapitulatif
+        description: | 
+          Renseigner la date de l'état récapitulatif établi par le professionnel à l'issue de travaux, mentionnant
+          les housses isolantes mises en place et les points singuliers isolés
+        type: string
+        format: date
+      equipements:
+        title: Liste des houses isolantes installées
+        description: Renseigner autant houses que de marques et références différentes
+        type: array
+        minItems: 1
+        items:
+          type: object
+          properties:
+            temperatureService:
+              title: Température maximale de service
+              type: number
+              exclusiveMinimum: 200
+            resistance50:
+              title: Résistance thermique de l'isolant R (m2.K/W) à une température moyenne de 50°C
+              type: number
+              minimum: 1.5
+            resistance100:
+              title: Résistance thermique de l'isolant R (m2.K/W) à une température moyenne de 100°C
+              type: number
+              minimum: 1
+            critereNature:
+              title: La housse est souple, démontable et équipée d'un système de fermeture
+              type: boolean
+              const: true
+            critereMateriau:
+              title: La housse est constituée d'un isolant à base de laine minérale
+              type: boolean
+              const: true
+            marque:
+              title: Marque
+              type: string
+            reference:
+              title: Reference
+              type: string
+          required:
+            - temperatureService
+            - resistance50
+            - resistance100
+            - critereNature
+            - critereMateriau
+            - marque
+            - reference
+    allOf:
+      - if:
+          properties:
+            typePointSingulier:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_point_singulier#/$defs/HORS_ECHANGEUR
+          required:
+            - typePointSingulier
+        then:
+          properties:
+            diametreNominal:
+              title: Diamètre nominal (DN) de la canalisation
+              type: number
+              minimum: 20
+              maximum: 100
+          required:
+            - diametreNominal
+      - if:
+          properties:
+            typePointSingulier:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_point_singulier#/$defs/ECHANGEUR
+          required:
+            - typePointSingulier
+        then:
+          properties:
+            quantite:
+              title: Nombre de housses d'isolation
+              description: Renseigner uniquement les housses d'isolation mises en place seulement pour échangeurs à plaques
+              type: integer
+              minimum: 1
+          required:
+            - quantite
+    required:
+      - ancienneteBatiment
+      - typeBatiment
+      - typePointSingulier
+      - temperatureFluide
+      - dateEtatRecapitulatif
+      - equipements
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Récapitulatif
+          description: |
+            Etat récapitulatif daté et signé par le professionnel et le bénéficiaire de l'opération. Il comporte :
+            - le lieu d'implantation des matelas en chaufferie ou sous-station ;
+            - les marques, références ou numéros de repérage internes des points singuliers isolés par les housses ainsi que le
+            diamètre nominal des canalisations auxquelles sont raccordés les points singuliers ;
+            - les marques et références des housses installées, la résistance thermique de l'âme isolante à la température
+            exigée, la température maximale de service de leur âme isolante et, le cas échéant, les numéros de repérage
+            internes des housses isolantes ;
+            - la température du fluide caloporteur.
+          type: object
+          properties:
+            code:
+              type: string
+              const: ETAT_RECAPITULATIF
+          required:
+            - code
+      - contains:
+          title: Justification de l'accréditation de l'organisme d'inspection
+          description: La décision de qualification ou le certificat Qualibat 553 ou 554 du prestataire, à la date d'entrée en vigueur du contrat
+          type: object
+          properties:
+            code:
+              type: string
+              const: ACCREDITATION_ORGANISME_CONTROLE
+          required:
+            - code
+required:
+  - description
+  - documents
+examples:
+  - description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      typePointSingulier: ECHANGEUR
+      temperatureFluide: 60
+      quantite: 100
+      dateRecapitulatif: "2023-12-12"
+      equipements:
+        - critereNature: true
+          critereMateriau: true
+          temperatureService: 250
+          resistance50: 2
+          resistance100: 1.5
+          marque: MARQUE
+          reference: REFERENCE
+    documents:
+      - code: ETAT_RECAPITULATIF
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: ACCREDITATION_ORGANISME_CONTROLE
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

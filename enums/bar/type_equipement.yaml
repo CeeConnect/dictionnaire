@@ -16,4 +16,3 @@ $defs:
   RESEAU_CHALEUR:
     const: RESEAU_CHALEUR
     title: Réseau de chaleur
-  

@@ -1,0 +1,77 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-123v54-2
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-123v54-2
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      logements:
+        title: Nombre d'appartements
+        type: integer
+        minimum: 1
+      critereSystemeEligible:
+        title: |
+          L'équipement de régulation est installé sur un système de chauffage collectif à combustible
+          existant depuis plus de 2 ans
+        type: boolean
+        const: true
+      critereFonctionCommutateur:
+        title: Le dispositif intègre une fonction commutateur été/hiver au sens de la norme NF EN 12098-1
+        type: boolean
+        const: true
+      critereFonctionDescenteTemperature:
+        title: Le dispositif intègre une fonction descente de température (réduit de nuit) au sens de la norme NF EN 12098-1
+        type: boolean
+        const: true
+      marque:
+        title: Marque de l'équipement
+        type: string
+      reference:
+        title: Référence de l'équipement
+        type: string
+    required:
+      - ancienneteBatiment
+      - typeBatiment
+      - logements
+      - critereSystemeEligible
+      - critereFonctionCommutateur
+      - critereFonctionDescenteTemperature
+      - marque
+      - reference
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Preuve de réalisation de l'opération
+          description: |
+            La preuve de réalisation de l'opération mentionne la mise en place d'un optimiseur de relance comprenant une
+            fonction auto-adaptative au sens de la norme NF EN 12098-1.
+          type: object
+          properties:
+            code:
+              type: string
+              const: PREUVE_REALISATION
+          required:
+            - code
+required:
+  - caracteristiques
+  - documents
+examples:
+  - caracteristiques:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      logements: 10
+      critereSystemeEligible: true
+      critereFonctionCommutateur: true
+      critereFonctionDescenteTemperature: true
+      marque: MARQUE
+      reference: REFERENCE
+    documents:
+      - code: PREUVE_REALISATION
+        url: https://api.ceeconnect.fr/archivage/{uuid}

@@ -1,0 +1,77 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-104v19-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-SE-104v19-1
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      typeBatiment:
+        title: Type de bâtiment
+        type: string
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+      logements:
+        title: Nombre d'appartements
+        description: Nombre d'appartement d'un même bâtiment
+        type: integer
+        minimum: 1
+    required:
+      - ancienneteBatiment
+      - typeBatiment
+      - logements
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Schéma hydraulique
+          description: Un schéma hydraulique simplifié des installations de chauffage précisant l'implantation de toutes les vannes réglées et étiquetées sur site
+          type: object
+          properties:
+            code:
+              type: string
+              const: SCHEMA_HYDRAULIQUE
+          required:
+            - code
+      - contains:
+          title: Grille d'équilibrage
+          description:
+            "une grille d'équilibrage dans laquelle sont précisés, pour chacune des vannes réglée:
+            - le numéro de repérage ;
+            - la marque et référence ou les caractéristiques hydrauliques (tableau de pertes de charge ou équivalent) de chaque type et diamètre de vanne réglée ;
+            - le débit théorique visé ou, pour une température de départ donnée, la température de retour théorique visée ;
+            - le débit final mesuré ou, pour une température de départ donnée, la température de retour finale mesurée ;
+            - la valeur finale de réglage (nombre de tour, graduations ou équivalent)."
+          type: object
+          properties:
+            code:
+              type: string
+              const: GRILLE_EQUILIBRAGE
+          required:
+            - code
+      - contains:
+          title: Tableau d'enregistrement des températures moyennes sur un échantillon des logements, après équilibrage.
+          description: L'écart de température entre l'appartement le plus chauffé et le moins chauffé doit être strictement inférieur à 2°C.
+          type: object
+          properties:
+            code:
+              type: string
+              const: TABLEAU_TEMPERATURES
+          required:
+            - code
+required:
+  - caracteristiques
+  - documents
+examples:
+  - caracteristiques:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      logements: 10
+    documents:
+      - code: SCHEMA_HYDRAULIQUE
+        url: https://api.ceeconnect.fr/archivage/
+      - code: GRILLE_EQUILIBRAGE
+        url: https://api.ceeconnect.fr/archivage/
+      - code: TABLEAU_TEMPERATURES
+        url: https://api.ceeconnect.fr/archivage/

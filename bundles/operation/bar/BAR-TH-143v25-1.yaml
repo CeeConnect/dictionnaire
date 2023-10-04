@@ -1,6 +1,6 @@
-$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-143v51-5
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-143v25-1
 $schema: https://json-schema.org/draft/2020-12/schema
-title: BAR-TH-143v51-5
+title: BAR-TH-143v25-1
 type: object
 properties:
   adresse:
@@ -20,14 +20,6 @@ properties:
         title: Productivité des capteurs (W/m²)
         type: number
         minimum: 600
-      surfaceCapteurs:
-        title: Surface hors tout de capteurs (m²)
-        type: number
-        minimum: 8
-      volumeStockage:
-        title: Volume de stockage du ou des ballons d'eau chaude solaires (l)
-        type: number
-        minimum: 400
       critereCertification:
         title: Les capteurs solaires ont une certification CSTBat ou Solar Keymark ou équivalente
         type: boolean
@@ -47,8 +39,6 @@ properties:
       - ancienneteBatiment
       - temperatureDistribution
       - productiviteCapteurs
-      - surfaceCapteurs
-      - volumeStockage
       - critereCertification
       - critereCapteursHybrides
       - marque
@@ -97,7 +87,6 @@ examples:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       temperatureDistribution: BASSE_TEMPERATURE
-      surfaceCapteurs: 10
       productiviteCapteurs: 800
       critereCapteursHybrides: false
       critereCertification: true

@@ -1,0 +1,279 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-169v46-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-169v46-1
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      typeBatiment:
+        title: Type de bâtiment
+        type: string
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+      logements:
+        title: Nombre d'appartements
+        description: Nombre d'appartement d'un même bâtiment
+        type: integer
+        minimum: 1
+      quantite:
+        title: Nombre de PAC installées
+        description: Nombre de pompes à chaleur installées
+        type: integer
+        minimum: 1
+      equipements:
+        title: Liste des caractéristiques
+        type: array
+        minItems: 1
+        items:
+          $ref: "#/$defs/equipement"
+    required:
+      - ancienneteBatiment
+      - typeBatiment
+      - logements
+      - quantite
+      - equipements
+$defs:
+  equipement:
+    type: object
+    title:
+      Caractéristiques du système centralisé de production d'ECS par pompe(s)
+      à chaleur (PAC)
+    properties:
+      typeEquipement:
+        title: Type de pompe(s) à chaleur
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac
+      puissanceNominale:
+        title: Puissance nominale de(s) pompe(s) à chaleur
+        description:
+          La pompe à chaleur chauffant l'eau chaude sanitaire ou le chauffe-eau
+          a une puissance nominale ne dépassant pas 400 kW
+        type: number
+        maximum: 400
+      performanceEquipement:
+        title: Coefficient de performance (COP)
+        type: number
+        minimum: 2.8
+      facteurR:
+        title: facteur R
+        description:
+          Le Facteur R est le rapport entre l'énergie annuelle cumulée
+          produite par la PAC sans l'appoint pour le chauffage de l'eau et la somme
+          des besoins annuels cumulés liés au puisage de l'eau chaude sanitaire et
+          des pertes de distribution d'eau chaude sanitaire cumulées sur l'année
+        type: number
+        maximum: 1
+      marque:
+        title: Marque de la pompe à chaleur installée
+        type: string
+      reference:
+        title: Référence de la pompe à chaleur installée
+        type: string
+    allOf:
+      - if:
+          properties:
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/CET
+          required:
+            - typeEquipement
+        then:
+          properties:
+            profilSoutirage:
+              title: Profil de soutirage
+              $ref: https://schemas.ceeconnect.fr/enums/bar/profil_soutirage_chauffe_eau_solaire
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/profil_soutirage_chauffe_eau_solaire#/$defs/XXL
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/profil_soutirage_chauffe_eau_solaire#/$defs/3XL
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/profil_soutirage_chauffe_eau_solaire#/$defs/4XL
+            performanceEquipement:
+              title: Efficacité énergétique pour la production d'ECS (Eta wh en %)
+              description:
+                Pour les chauffe-eau thermodynamiques concernés par le règlement
+                (UE) n° 814/2013 de la Commission du 2 août 2013
+              type: number
+              minimum: 61
+          allOf:
+            - if:
+                properties:
+                  profilSoutirage:
+                    anyOf:
+                      - $ref: https://schemas.ceeconnect.fr/enums/bar/profil_soutirage_chauffe_eau_solaire#/$defs/3XL
+                      - $ref: https://schemas.ceeconnect.fr/enums/bar/profil_soutirage_chauffe_eau_solaire#/$defs/4XL
+                required:
+                  - profilSoutirage
+              then:
+                properties:
+                  performanceEquipement:
+                    type: number
+                    minimum: 65
+                required:
+                  - performanceEquipement
+          required:
+            - profilSoutirage
+            - performanceEquipement
+      - if:
+          properties:
+            typeEquipement:
+              anyOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/AIR-EXTERIEUR-EAU
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/AIR-EXTRAIT-EAU
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/EAU-NAPPE-EAU
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/EAU-GLYCOLEE-EAU
+          required:
+            - typeEquipement
+        then:
+          properties:
+            performanceEquipement:
+              title: Efficacité énergétique saisonnière (ηs)
+              type: number
+              minimum: 111
+          required:
+            - performanceEquipement
+      - if:
+          properties:
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/AIR-EXTERIEUR-EAU
+          required:
+            - typeEquipement
+        then:
+          properties:
+            performanceEquipement:
+              description:
+                "Selon la norme NF EN 14511, sous les conditions suivantes
+                de température : température à l'entrée (échangeur extérieur) de 7°C
+                extérieur/température à la sortie (échangeur intérieur) de 45°C, pour
+                une PAC air extérieur/eau"
+          required:
+            - performanceEquipement
+      - if:
+          properties:
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/AIR-EXTRAIT-EAU
+          required:
+            - typeEquipement
+        then:
+          properties:
+            performanceEquipement:
+              description:
+                "Selon la norme NF EN 14511, sous les conditions de température
+                : température à l'entrée (échangeur extérieur) de 20°C/température à
+                la sortie (échangeur intérieur) de 45°C, pour une PAC air extrait/eau"
+          required:
+            - performanceEquipement
+      - if:
+          properties:
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/EAU-NAPPE-EAU
+          required:
+            - typeEquipement
+        then:
+          properties:
+            performanceEquipement:
+              description:
+                "Selon la norme NF EN 14511, sous les conditions de température
+                : température à l'entrée (échangeur extérieur) de 10°C/température à
+                la sortie (échangeur intérieur) de 45°C, pour une PAC eau/eau sur eau
+                de nappe"
+          required:
+            - performanceEquipement
+      - if:
+          properties:
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/EAU-GLYCOLEE-EAU
+          required:
+            - typeEquipement
+        then:
+          properties:
+            performanceEquipement:
+              description:
+                "Selon la norme NF EN 14511, sous les conditions de température
+                : température à l'entrée (échangeur extérieur) de 0°C/température à
+                la sortie (échangeur intérieur) de 45°C, pour une PAC eau glycolée /eau
+                sur capteurs enterrés"
+          required:
+            - performanceEquipement
+      - if:
+          properties:
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/SOLAIRE
+          required:
+            - typeEquipement
+        then:
+          properties:
+            performanceEquipement:
+              description:
+                "Selon la norme NF EN 14511, sous les conditions de température
+                : 10°C/45°C, pour une PAC à capteur solaire atmosphérique"
+          required:
+            - performanceEquipement
+      - if:
+          properties:
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/EAUX-GRISES
+          required:
+            - typeEquipement
+        then:
+          properties:
+            performanceEquipement:
+              description:
+                "Selon la norme NF EN 14511, sous les conditions de température
+                : 19°C/45°C, pour une PAC sur eaux grises"
+          required:
+            - performanceEquipement
+      - if:
+          properties:
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/CO2
+          required:
+            - typeEquipement
+        then:
+          properties:
+            performanceEquipement:
+              description:
+                "Arrêté du 6 avril 2022 modifiant les arrêtés pris en application
+                des articles R. 122-22 à R. 122-25 et R. 172-1 à R. 172-9 du code de
+                la construction et de l'habitation (intégrant le « Titre V Système »
+                PAC CO2), sous les conditions de température : 7°C/T eau entrée = 15°C
+                avec T eau sortie > 55°C, pour une PAC au CO2"
+          required:
+            - performanceEquipement
+    required:
+      - typeEquipement
+      - puissanceNominale
+      - performanceEquipement
+      - facteurR
+      - marque
+      - reference
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Preuve de qualification du professionnel
+          type: object
+          properties:
+            code:
+              type: string
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
+required:
+  - caracteristiques
+  - documents
+examples:
+  - caracteristiques:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      logements: 10
+      quantite: 10
+      equipements:
+        - typeEquipement: CET
+          puissanceNominale: 200
+          performanceEquipement: 65
+          facteurR: 0.9
+          profilSoutirage: 3XL
+          marque: MARQUE
+          reference: REFERENCE
+    documents:
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

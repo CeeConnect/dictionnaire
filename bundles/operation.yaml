@@ -63,8 +63,6 @@ properties:
     $ref: https://schemas.ceeconnect.fr/bundles/beneficiaire
   professionnel:
     $ref: https://schemas.ceeconnect.fr/bundles/professionnel
-  installateur:
-    $ref: https://schemas.ceeconnect.fr/bundles/installateur
   precarite:
     $ref: https://schemas.ceeconnect.fr/bundles/precarite
   documents:
@@ -72,8 +70,8 @@ properties:
     type: array
     items:
       $ref: https://schemas.ceeconnect.fr/bundles/document
-  caracteristiques:
-    title: Caractéristiques de l'opération
+  description:
+    title: Descriptif de l'opération
     type: object
 required:
   - uuid
@@ -92,7 +90,7 @@ required:
   - installateur
   - precarite
   - documents
-  - caracteristiques
+  - description
 $defs:
   BAR-EN-101v39-4:
     allOf:
@@ -101,8 +99,8 @@ $defs:
         properties:
           fiche:
             const: BAR-EN-101v39-4
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-EN-102v39-2:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-102v39-2
@@ -110,8 +108,8 @@ $defs:
         properties:
           fiche:
             const: BAR-EN-102v39-2
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-EN-103v39-5:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-103v39-5
@@ -119,8 +117,8 @@ $defs:
         properties:
           fiche:
             const: BAR-EN-103v39-5
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-EN-104v14-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-104v14-1
@@ -128,8 +126,8 @@ $defs:
         properties:
           fiche:
             const: BAR-EN-104v14-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-EN-105v39-3:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-105v39-3
@@ -137,8 +135,8 @@ $defs:
         properties:
           fiche:
             const: BAR-EN-105v39-3
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-EN-106v33-4:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-106v33-4
@@ -146,8 +144,8 @@ $defs:
         properties:
           fiche:
             const: BAR-EN-106v33-4
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-EN-107v20-3:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-107v20-3
@@ -155,8 +153,8 @@ $defs:
         properties:
           fiche:
             const: BAR-EN-107v20-3
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-EN-108v37-2:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-108v37-2
@@ -164,8 +162,8 @@ $defs:
         properties:
           fiche:
             const: BAR-EN-108v37-2
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-EN-109v24-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-109v24-1
@@ -173,8 +171,8 @@ $defs:
         properties:
           fiche:
             const: BAR-EN-109v24-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-EN-110v35-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-110v35-1
@@ -182,8 +180,8 @@ $defs:
         properties:
           fiche:
             const: BAR-EN-110v35-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-EQ-110v15-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1
@@ -191,8 +189,8 @@ $defs:
         properties:
           fiche:
             const: BAR-EQ-110v15-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-EQ-115v28-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-115v28-1
@@ -200,8 +198,8 @@ $defs:
         properties:
           fiche:
             const: BAR-EQ-115v28-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-101v17-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-101v17-1
@@ -209,8 +207,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-101v17-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-102v17-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-102v17-1
@@ -218,8 +216,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-102v17-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-104v41-3:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-104v41-3
@@ -227,8 +225,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-104v41-3
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-106v23-2:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-106v23-2
@@ -236,8 +234,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-106v23-2
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-110v16-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-110v16-1
@@ -245,8 +243,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-110v16-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-111v17-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-111v17-1
@@ -254,8 +252,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-111v17-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-112v46-3:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-112v46-3
@@ -263,8 +261,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-112v46-3
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-113v41-3:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-113v41-3
@@ -272,8 +270,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-113v41-3
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-116v17-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-116v17-1
@@ -281,8 +279,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-116v17-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-117v14-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-117v14-1
@@ -290,8 +288,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-117v14-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-124v35-3:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-124v35-3
@@ -299,8 +297,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-124v35-3
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-125v40-4:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-125v40-4
@@ -308,8 +306,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-125v40-4
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-127v40-4:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-127v40-4
@@ -317,8 +315,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-127v40-4
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-129v27-3:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-129v27-3
@@ -326,8 +324,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-129v27-3
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-130v26-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-130v26-1
@@ -335,8 +333,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-130v26-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-135v35-2:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-135v35-2
@@ -344,8 +342,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-135v35-2
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-137v45-3:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-137v45-3
@@ -353,8 +351,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-137v45-3
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-139v23-2:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-139v23-2
@@ -362,8 +360,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-139v23-2
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-141v15-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-141v15-1
@@ -371,8 +369,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-141v15-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-143v51-5:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-143v51-5
@@ -380,8 +378,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-143v51-5
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-145v52-4:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-145v52-4
@@ -389,8 +387,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-145v52-4
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-148v15-2:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-148v15-2
@@ -398,8 +396,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-148v15-2
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-150v14-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1
@@ -407,8 +405,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-150v14-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-155v40-4:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-155v40-4
@@ -416,8 +414,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-155v40-4
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-158v35-2:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-158v35-2
@@ -425,8 +423,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-158v35-2
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-159v50-4:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-159v50-4
@@ -434,8 +432,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-159v50-4
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-162v28-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-162v28-1
@@ -443,8 +441,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-162v28-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-164v36-2:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-164v36-2
@@ -452,8 +450,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-164v36-2
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-167v38-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-167v38-1
@@ -461,8 +459,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-167v38-1
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-168v40-1:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-168v40-1
@@ -470,8 +468,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-168v40-1
-          required:
-            - fiche
+        required:
+          - fiche
   BBAR-TH-130v54-2:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-130v54-2
@@ -479,8 +477,8 @@ $defs:
         properties:
           fiche:
             const: BBAR-TH-130v54-2
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-127v54-5:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-127v54-5
@@ -488,8 +486,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-127v54-5
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-TH-125v54-5:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-125v54-5
@@ -497,8 +495,8 @@ $defs:
         properties:
           fiche:
             const: BAR-TH-125v54-5
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-EN-108v54-3:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-108v54-3
@@ -506,8 +504,8 @@ $defs:
         properties:
           fiche:
             const: BAR-EN-108v54-3
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-EN-104v54-2:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-104v54-2
@@ -515,8 +513,8 @@ $defs:
         properties:
           fiche:
             const: BAR-EN-104v54-2
-          required:
-            - fiche
+        required:
+          - fiche
   BAR-EN-101v54-5:
     allOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-101v54-5
@@ -524,13 +522,154 @@ $defs:
         properties:
           fiche:
             const: BAR-EN-101v54-5
-          required:
-            - fiche
+        required:
+          - fiche
+  BAR-TH-169v46-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-169v46-1
+      - type: object
+        properties:
+          fiche:
+            const: BAR-TH-169v46-1
+        required:
+          - fiche
+  BAR-TH-166v38-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-166v38-1
+      - type: object
+        properties:
+          fiche:
+            const: BAR-TH-166v38-1
+        required:
+          - fiche
+  BAR-TH-165v34-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-165v34-1
+      - type: object
+        properties:
+          fiche:
+            const: BAR-TH-165v34-1
+        required:
+          - fiche
+  BAR-TH-163v38-3:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-163v38-3
+      - type: object
+        properties:
+          fiche:
+            const: BAR-TH-163v38-3
+        required:
+          - fiche
+  BAR-TH-161v28-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-161v28-1
+      - type: object
+        properties:
+          fiche:
+            const: BAR-TH-161v28-1
+        required:
+          - fiche
+  BAR-TH-160v50-3:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-160v50-3
+      - type: object
+        properties:
+          fiche:
+            const: BAR-TH-160v50-3
+        required:
+          - fiche
+  BAR-TH-123v17-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-123v17-1
+      - type: object
+        properties:
+          fiche:
+            const: BAR-TH-123v17-1
+        required:
+          - fiche
+  BAR-TH-122v15-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-122v15-1
+      - type: object
+        properties:
+          fiche:
+            const: BAR-TH-122v15-1
+        required:
+          - fiche
+  BAR-TH-118v14-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-118v14-1
+      - type: object
+        properties:
+          fiche:
+            const: BAR-TH-118v14-1
+        required:
+          - fiche
+  BAR-TH-107v14-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-107v14-1
+      - type: object
+        properties:
+          fiche:
+            const: BAR-TH-107v14-1
+        required:
+          - fiche
+  BAR-TH-107-SEv14-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-107-SEv14-1
+      - type: object
+        properties:
+          fiche:
+            const: BAR-TH-107-SEv14-1
+        required:
+          - fiche
+  BAR-SE-108v48-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-108v48-1
+      - type: object
+        properties:
+          fiche:
+            const: BAR-SE-108v48-1
+        required:
+          - fiche
+  BAR-SE-107v37-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-107v37-1
+      - type: object
+        properties:
+          fiche:
+            const: BAR-SE-107v37-1
+        required:
+          - fiche
+  BAR-SE-106v32-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-106v32-1
+      - type: object
+        properties:
+          fiche:
+            const: BAR-SE-106v32-1
+        required:
+          - fiche
+  BAR-SE-104v19-1:
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-104v19-1
+      - type: object
+        properties:
+          fiche:
+            const: BAR-SE-104v19-1
+        required:
+          - fiche
 anyOf:
+  - $ref: '#/$defs/BAR-TH-169v46-1'
   - $ref: '#/$defs/BAR-TH-168v40-1'
   - $ref: '#/$defs/BAR-TH-167v38-1'
+  - $ref: '#/$defs/BAR-TH-166v38-1'
+  - $ref: '#/$defs/BAR-TH-165v34-1'
   - $ref: '#/$defs/BAR-TH-164v36-2'
+  - $ref: '#/$defs/BAR-TH-163v38-3'
   - $ref: '#/$defs/BAR-TH-162v28-1'
+  - $ref: '#/$defs/BAR-TH-161v28-1'
+  - $ref: '#/$defs/BAR-TH-160v50-3'
   - $ref: '#/$defs/BAR-TH-159v50-4'
   - $ref: '#/$defs/BAR-TH-158v35-2'
   - $ref: '#/$defs/BAR-TH-155v40-4'
@@ -550,16 +689,25 @@ anyOf:
   - $ref: '#/$defs/BAR-TH-125v54-5'
   - $ref: '#/$defs/BAR-TH-125v40-4'
   - $ref: '#/$defs/BAR-TH-124v35-3'
+  - $ref: '#/$defs/BAR-TH-123v17-1'
+  - $ref: '#/$defs/BAR-TH-122v15-1'
+  - $ref: '#/$defs/BAR-TH-118v14-1'
   - $ref: '#/$defs/BAR-TH-117v14-1'
   - $ref: '#/$defs/BAR-TH-116v17-1'
   - $ref: '#/$defs/BAR-TH-113v41-3'
   - $ref: '#/$defs/BAR-TH-112v46-3'
   - $ref: '#/$defs/BAR-TH-111v17-1'
   - $ref: '#/$defs/BAR-TH-110v16-1'
+  - $ref: '#/$defs/BAR-TH-107v14-1'
+  - $ref: '#/$defs/BAR-TH-107-SEv14-1'
   - $ref: '#/$defs/BAR-TH-106v23-2'
   - $ref: '#/$defs/BAR-TH-104v41-3'
   - $ref: '#/$defs/BAR-TH-102v17-1'
   - $ref: '#/$defs/BAR-TH-101v17-1'
+  - $ref: '#/$defs/BAR-SE-108v48-1'
+  - $ref: '#/$defs/BAR-SE-107v37-1'
+  - $ref: '#/$defs/BAR-SE-106v32-1'
+  - $ref: '#/$defs/BAR-SE-104v19-1'
   - $ref: '#/$defs/BAR-EQ-115v28-1'
   - $ref: '#/$defs/BAR-EQ-110v15-1'
   - $ref: '#/$defs/BAR-EN-110v35-1'

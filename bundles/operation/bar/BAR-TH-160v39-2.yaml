@@ -1,0 +1,125 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-160v39-2
+$schema: https://json-schema.org/draft/2020-12/schema
+$comment: |
+  TODO: Vérifier si le rapport de contrôle n'est pas couvert par la doctrine contrôle avant dépôt
+  TODO: Vérifier si le justificatif d'accréditation de l'ogranisme de contrôle n'est pas couvert par la doctrine contrôle avant dépôt
+title: BAR-TH-160v39-2
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
+  description:
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      typeBatiment:
+        title: Type de bâtiment
+        type: string
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+      critereRemplacementInstallation:
+        title: |
+          L'installation de chauffage collectif ou de production d'eau chaude sanitaire a été remplacée après le 01/01/2018
+        type: boolean
+        const: false
+      critereReseauExistant:
+        title: L'opération est réalisée sur un réseau hydraulique de chauffage ou d'eau chaude sanitaire existant
+        type: boolean
+        const: true
+      critereReseauNonIsole:
+        title: |
+          L'opération est réalisée sur un réseau hydraulique de chauffage ou d'eau chaude non isolé
+        type: boolean
+      critereReseauIsole:
+        title: |
+          L'opération est réalisée sur un réseau hydraulique de chauffage ou d'eau chaude dont l'isolation 
+          en place est de classe inférieure ou égale à 2
+        type: boolean
+      quantite:
+        title: Longueur isolée de réseau
+        description: Longueur isolée de réseau de chauffage ou d'eau chaude sanitaire situé hors du volume chauffé
+        type: integer
+        minimum: 0
+      epaisseur:
+        title: Epaisseur de l'isolant (mm)
+        type: number
+        minimum: 0
+      classeIsolation:
+        title: Classe de l'isolant
+        type: string
+        oneOf:
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/classe_isolation#/$defs/04
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/classe_isolation#/$defs/05
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/classe_isolation#/$defs/06
+      marque:
+        title: Marque de l'isolant
+        type: string
+      reference:
+        title: Référence de l'isolant
+        type: string
+    anyOf:
+      - properties:
+          critereReseauNonIsole:
+            const: true
+      - properties:
+          critereReseauIsole:
+            const: true
+    required:
+      - ancienneteBatiment
+      - typeBatiment
+      - critereRemplacementInstallation
+      - critereReseauExistant
+      - critereReseauNonIsole
+      - critereReseauIsole
+      - quantite
+      - epaisseur
+      - classeIsolation
+      - marque
+      - reference
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Rapport de conformité établi par l'organisme d'inspection
+          type: object
+          properties:
+            code:
+              type: string
+              const: RAPPORT_CONTROLE
+          required:
+            - code
+      - contains:
+          title: Justification de l'accréditation de l'organisme d'inspection
+          description: |
+            La décision de qualification ou le certificat Qualibat 553 ou 554 du prestataire, à la date d'entrée en vigueur du contrat
+          type: object
+          properties:
+            code:
+              type: string
+              const: ACCREDITATION
+          required:
+            - code
+required:
+  - adresse
+  - description
+  - documents
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      critereRemplacementInstallation: false
+      critereReseauExistant: true
+      critereReseauNonIsole: true
+      critereReseauIsole: false
+      quantite: 100
+      epaisseur: 300
+      classeIsolation: "4"
+      marque: MARQUE
+      reference: REFERENCE
+    documents:
+      - code: RAPPORT_CONTROLE
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: ACCREDITATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

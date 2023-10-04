@@ -1,0 +1,136 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-106v32-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-SE-106v32-1
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      typeBatiment:
+        title: Type de bâtiment
+        type: string
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
+      consommationSuivie:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/consommation_suivie
+      suiviConsommations:
+        title:
+          Le service permet l'affichage des informations sur le suivi des consommations
+          via un support numérique de type espace Web ou via une application mobile
+        type: boolean
+        const: true
+      mesureConsommation:
+        title:
+          Le dispositif exploite les consommations mesurées par les compteurs communicants
+          et transmises par les gestionnaires de réseau et permet de communiquer vers
+          le consommateur les résulstas obtenus et des consiels adaptés à sa situation
+          de façon à l'aider à interpréter les données et à l'inciter à réduire ses consommations
+          d'énergie
+        type: boolean
+        const: true
+      intervalleTemps:
+        title:
+          Le dispositif permet l'affichage de l'ensemble des consommations d'énergie
+          sur l'intervalle de temps entre deux pas de délivrance à un pas minimum de 30
+          minutes pour l'électricité et une journée pour le gaz
+        type: boolean
+        const: true
+      coursKwh:
+        title:
+          Le dispositif permet l'affichage des consommations d'énergie en kWh et
+          valorisées en euros
+        type: boolean
+        const: true
+      cumuls:
+        title:
+          Le dispositif permet la possibilité d'accès par le bénéficiaire à différents
+          cumuls (heure / journée / semaine / mois / année)
+        type: boolean
+        const: true
+      analysePerso:
+        title:
+          Le dispositif permet une décomposition des consommations et une analyse
+          personnalisée par usage
+        type: boolean
+        const: true
+      historiqueCumuls:
+        title:
+          Le dispositif dispose d'un historique de tous les cumuls sur au moins 3
+          mois et de ceux supérieurs ou égaux à la journée pendant 2 années glissantes
+        type: boolean
+        const: true
+      comparaisonConsomations:
+        title:
+          Le dispositif permet de comparer les consommations réalisées à des consommations
+          types, établies à partir de moyennes nationales et locales pour des profils
+          de consommations comparables à ceux de l'utilisateur, et à des seuils
+        description:
+          A minima, la comparaison doit être effectuée par rapport à des statistiques
+          de consommations extraites de l'historique disponible
+        type: boolean
+        const: true
+      alerteDepassement:
+        title:
+          En cas de dépassement d'un seuil de consommation de référence, le dispositif
+          émet une alarme explicite (par exemple SMS, mail, notification...)
+        type: boolean
+        const: true
+    required:
+      - ancienneteBatiment
+      - typeBatiment
+      - consommationSuivie
+      - suiviConsommations
+      - mesureConsommation
+      - intervalleTemps
+      - coursKwh
+      - cumuls
+      - analysePerso
+      - historiqueCumuls
+      - comparaisonConsomations
+      - alerteDepassement
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Descriptif du dispositif
+          description: Descriptif du dispositif issu du prestataire du service indiquant la présence des fonctions détaillées dans la présente fiche
+          type: object
+          properties:
+            code:
+              type: string
+              const: DESCRIPTIF_DISPOSITIF
+          required:
+            - code
+      - contains:
+          title: Justificatif du nombre de connexions au service de suivi des consommations
+          description: Justificatif du nombre de connexions au service de suivi des consommations sur la durée de souscription, établi par l'opérateur assurant ce suivi.
+          type: object
+          properties:
+            code:
+              type: string
+              const: JUSTIFICATIF_CONNEXIONS
+          required:
+            - code
+required:
+  - caracteristiques
+  - documents
+examples:
+  - caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      consommationSuivie: CHAUFFAGE_GAZ
+      suiviConsommations: true
+      mesureConsommation: true
+      intervalleTemps: true
+      coursKwh: true
+      cumuls: true
+      analysePerso: true
+      historiqueCumuls: true
+      comparaisonConsomations: true
+      alerteDepassement: true
+    documents:
+      - code: DESCRIPTIF_DISPOSITIF
+        url: https://api.ceeconnect.fr/archivage/
+      - code: JUSTIFICATIF_CONNEXIONS
+        url: https://api.ceeconnect.fr/archivage/

@@ -1,0 +1,216 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-165v34-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-165v34-1
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      typeBatiment:
+        title: Type de bâtiment
+        type: string
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+      logements:
+        title: Nombre d'appartements
+        description: Nombre d'appartement d'un même bâtiment
+        type: integer
+        minimum: 1
+      surfaceChauffee:
+        title: Surface totale chauffée du bâtiment
+        type: number
+        minimum: 0
+      typeBiomasseLigneuse:
+        title: Biomasse ligneuse à base de bûches de bois, de copeaux de bois, de bois comprimé sous forme de granulés, de bois comprimé sous forme de briquettes ou de sciure de bois
+        type: boolean
+        const: true
+      chaleurNetteTotale:
+        title: Quantité de chaleur nette utile produite par l'ensemble des chaudières biomasse installées
+        description: Cette donnée est reprise de l'étude de dimensionnement préalable à l'installation de la chaudière biomasse
+        type: number
+        exclusiveMaximum: 12
+      equipements:
+        title: Liste des caractéristiques de l'opération
+        type: array
+        minItems: 1
+        items:
+          $ref: "#/$defs/equipement"
+      entrepriseEtudeDimensionnement:
+        title: Coordonnées de l'entité ayant établi l'étude de dimensionnement
+        type: object
+        properties:
+          raisonSociale:
+            title: Raison sociale
+            type: string
+          siren:
+            $ref: https://schemas.ceeconnect.fr/formats/siren
+          referenceEtude:
+            title: Référence de l'étude de dimensionnement
+            type: string
+        required:
+          - raisonSociale
+          - siren
+          - referenceEtude
+    required:
+      - ancienneteBatiment
+      - typeBatiment
+      - surfaceChauffee
+      - logements
+      - typeBiomasseLigneuse
+      - chaleurNetteTotale
+      - entrepriseEtudeDimensionnement
+$defs:
+  equipement:
+    type: object
+    title: Caractéristiques de la (ou des) chaudière(s)
+    properties:
+      puissanceNominale:
+        title: Puissance nominale de la chaudière
+        type: number
+        minimum: 0
+      chaleurNette:
+        title: Chaleur produite par la chaudière
+        description:
+          Chaleur nette utile produite par la chaudière issue de l'étude
+          de dimensionnement préalable à la réalisation des travaux
+        type: number
+        exclusiveMaximum: 12
+      classeRegulateur:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/classe_regulateur
+      marque:
+        title: Marque de la chaudière
+        type: string
+      reference:
+        title: Référence de la chaudière
+        type: string
+    required:
+      - puissanceNominale
+      - chaleurNette
+      - classeRegulateur
+      - marque
+      - reference
+    allOf:
+      - if:
+          properties:
+            puissanceNominale:
+              type: number
+              maximum: 500
+          required:
+            - puissanceNominale
+        then:
+          type: object
+          title: Chaudière de puissance nominale inférieure ou égale à 70kw
+          properties:
+            performanceEquipement:
+              title: Efficacité énergétique saisonnière (ηs) de la chaudière biomasse
+              type: number
+              minimum: 83
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chaudiere_biomasse
+            flammeVerte:
+              title: L'équipement possède le label Flamme Verte 7*
+              type: boolean
+              const: true
+          required:
+            - performanceEquipement
+            - typeEquipement
+            - flammeVerte
+          allOf:
+            - if:
+                properties:
+                  typeEquipement:
+                    $ref: https://schemas.ceeconnect.fr/enums/bar/type_chaudiere_biomasse#/$defs/CHARGEMENT_AUTOMATIQUE
+                required:
+                  - typeEquipement
+              then:
+                properties:
+                  presenceSilo:
+                    title: Présence d'un silo d'au moins 225 litres
+                    type: boolean
+                    const: true
+                required:
+                  - presenceSilo
+            - if:
+                properties:
+                  typeEquipement:
+                    $ref: https://schemas.ceeconnect.fr/enums/bar/type_chaudiere_biomasse#/$defs/CHARGEMENT_MANUEL
+                required:
+                  - typeEquipement
+              then:
+                properties:
+                  presenceBallon:
+                    title: Présence d'un ballon tampon
+                    type: boolean
+                    const: true
+                required:
+                  - presenceBallon
+      - if:
+          properties:
+            puissanceNominale:
+              type: number
+              exclusiveMinimum: 500
+          required:
+            - puissanceNominale
+        then:
+          type: object
+          title: Chaudière de puissance nominale supérieure à 500kw
+          properties:
+            performanceEquipement:
+              title: Rendement PCI à pleine charge de la chaudière
+              type: number
+              minimum: 92
+            emissionsParticules:
+              title: Émissions saisonnières de particules en mg/Nm3
+              type: number
+              minimum: 0
+              exclusiveMaximum: 75
+            emissionsAzote:
+              title: Émissions saisonnières d'oxydes d'azote (NOx) en mg/Nm3
+              type: number
+              minimum: 0
+              exclusiveMaximum: 300
+          required:
+            - performanceEquipement
+            - emissionsParticules
+            - emissionsAzote
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Note de dimensionnement
+          type: object
+          properties:
+            code:
+              type: string
+              const: NOTE_DIMENSIONNEMENT
+          required:
+            - code
+required:
+  - caracteristiques
+  - documents
+examples:
+  - caracteristiques:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      logements: 10
+      surfaceChauffee: 800
+      typeBiomasseLigneuse: true
+      chaleurNetteTotale: 10
+      equipements:
+        - puissanceNominale: 60
+          performanceEquipement: 84
+          chaleurNette: 10
+          classeRegulateur: V
+          typeEquipement: CHARGEMENT_AUTOMATIQUE
+          presenceSilo: true
+          flammeVerte: true
+          marque: MARQUE
+          reference: REFERENCE
+      entrepriseEtudeDimensionnement:
+        raisonSociale: Raison sociale
+        siren: "000000000"
+        referenceEtude: Référence.
+    documents:
+      - code: NOTE_DIMENSIONNEMENT
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

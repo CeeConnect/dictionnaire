@@ -1,12 +1,13 @@
 $id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-145v52-4
 $schema: https://json-schema.org/draft/2020-12/schema
-$comment: "TODO: Vérifier la possibilité d'intégrer l'attestation de réalisation ANAG comme document justificatif spécifique"
+$comment: |
+  - TODO: Vérifier la possibilité d'intégrer l'attestation de réalisation ANAH comme document justificatif spécifique
 title: BAR-TH-145v52-4
 type: object
 properties:
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
-  caracteristiques:
+  description:
     type: object
     properties:
       typeBatiment:
@@ -14,69 +15,85 @@ properties:
         title: Type de bâtiment
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      regimeCopropriete:
+        title: L'immeuble relève du régime de la copropriété défini par la loi n° 65-557 du 10 juillet 1965
+        type: boolean
       surfaceHabitable:
         title: Surface habitable (m²)
         description: Indiquer la surface habitable totale de l'immeuble
         type: number
         minimum: 0
-      copropriete:
-        title: L'immeuble relève du régime de la copropriété défini par la loi n° 65-557 du 10 juillet 1965
-        type: boolean
-      referenceAudit:
-        title: Référence de l'étude énergétique
-        type: string
-      dateAudit:
-        title: Date de l'étude énergétique
-        type: string
-        format: date
-      cepInitial:
-        title: Cep initial (kWh/m².an)
-        description: Consommation conventionnelle en énergie primaire avant les travaux
-          de rénovation
-        type: number
-        exclusiveMaximum: 331
-      cepProjet:
-        title: Cep initial (kWh/m².an)
-        description: Consommation conventionnelle en énergie primaire après les travaux
-          de rénovation
-        type: number
-        minimum: 0
-      cefInitial:
-        title: Cef initial (kWh/m².an)
-        description: Consommation conventionnelle en énergie finale avant les travaux de
-          rénovation
-        type: number
-        minimum: 0
-      cefProjet:
-        title: Cef projet (kWh/m².an)
-        description: Consommation conventionnelle en énergie finale après les travaux de
-          rénovation
-        type: number
-        minimum: 0
-      gainEnergetique:
-        title: Gain énergétique du projet (%)
-        description: Gain énergétique du projet par rapport à la consommation
-          conventionnelle en énergie primaire avant travaux
-        type: number
-        minimum: 35
-      emissionsGaz:
-        title: Les émissions de gaz à effet de serre après rénovation, exprimées en
-          kgeqCO2/m².an, sont inférieures ou égales à la valeur initiale de ces
-          émissions avant travaux
-        type: boolean
-        const: true
-      logicielAudit:
+      auditEnergetique:
+        title: Informations relatives à l'audit énergétique
+        type: object
+        properties:
+          reference:
+            title: Référence de l'étude énergétique
+            type: string
+          dateRealisation:
+            title: Date de réalisation de l'étude énergétique
+            type: string
+            format: date
+          cepInitial:
+            title: Cep initial (kWh/m².an)
+            description: |
+              Consommation conventionnelle en énergie primaire avant les travaux
+              de rénovation issue de l'étude énergétique
+            type: number
+            exclusiveMaximum: 331
+          cepProjet:
+            title: Cep initial (kWh/m².an)
+            description: |
+              Consommation conventionnelle en énergie primaire après les travaux
+              de rénovation issue de l'étude énergétique
+            type: number
+            minimum: 0
+          cefInitial:
+            title: Cef initial (kWh/m².an)
+            description: |
+              Consommation conventionnelle en énergie finale avant les travaux de
+              rénovation issue de l'étude énergétique
+            type: number
+            minimum: 0
+          cefProjet:
+            title: Cef projet (kWh/m².an)
+            description: |
+              Consommation conventionnelle en énergie finale après les travaux de
+              rénovation issue de l'étude énergétique
+            type: number
+            minimum: 0
+          gainEnergetique:
+            title: Gain énergétique du projet (%)
+            description: |
+              Gain énergétique du projet par rapport à la consommation
+              conventionnelle en énergie primaire avant travaux issu de l'étude énergétique
+            type: number
+            minimum: 35
+          critereEmissionsGes:
+            title: Les émissions de gaz à effet de serre après rénovation, exprimées en
+              kgeqCO2/m².an, sont inférieures ou égales à la valeur initiale de ces
+              émissions avant travaux
+            type: boolean
+            const: true
+        required:
+          - reference
+          - dateRealisation
+          - cepInitial
+          - cepProjet
+          - cefInitial
+          - cefProjet
+          - gainEnergetique
+          - critereEmissionsGes
+      logicielAuditEnergetique:
         title: Logiciel utilisé pour réaliser l'audit énergétique
         type: object
         properties:
           nom:
             title: Nom du logiciel
             type: string
-            pattern: ^([A-Z0-9]|[-]|[']|[ ])+$
           editeur:
             title: Nom de l'éditeur
             type: string
-            pattern: ^([A-Z0-9]|[-]|[']|[ ])+$
           date:
             title: Date de création du logiciel
             type: string
@@ -101,19 +118,52 @@ properties:
         required:
           - raisonSociale
           - siren
+      installateurs:
+        title: Liste des professionnels
+        description: Indiquer les informations de chaque intervenant
+        type: array
+        minItems: 1
+        items:
+          type: object
+          properties:
+            nom:
+              title: Nom du représentant
+              type: string
+            prenom:
+              title: Prenom du représentant
+              type: string
+            raisonSociale:
+              title: Raison sociale
+              type: string
+            siret:
+              $ref: https://schemas.ceeconnect.fr/formats/siret
+            domaineTravaux:
+              title: Domaine des travaux réalisés
+              type: string
+            referenceQualification:
+              title: Référende de la qualification ou certification
+              type: string
+            dateQualification:
+              title: Date de la qualification ou certification
+              type: string
+              format: date
+          required:
+            - nom
+            - prenom
+            - raisonSociale
+            - siret
+            - domaineTravaux
+            - referenceQualification
+            - dateQualification
     required:
       - typeBatiment
       - ancienneteBatiment
-      - referenceAudit
-      - dateAudit
-      - cepInitial
-      - cepProjet
-      - cefInitial
-      - cefProjet
-      - gainEnergetique
-      - emissionsGaz
-      - logicielAudit
+      - regimeCopropriete
+      - surfaceHabitable
+      - auditEnergetique
+      - logicielAuditEnergetique
       - auditeur
+      - installateurs
   documents:
     type: array
     allOf:
@@ -127,22 +177,25 @@ properties:
             - code
 required:
   - adresse
-  - caracteristiques
+  - description
   - documents
 examples:
   - adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    caracteristiques:
+    description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
-      dateAudit: "2023-02-07"
-      referenceAudit: REFERENCE
-      cepInitial: 200
-      cepProjet: 130
-      cefInitial: 200
-      cefProjet: 130
-      gainEnergetique: 70
-      emissionsGaz: true
+      regimeCopropriete: true
+      surfaceHabitable: 100
+      auditEnergetique:
+        dateAudit: "2023-02-07"
+        referenceAudit: REFERENCE
+        cepInitial: 200
+        cepProjet: 130
+        cefInitial: 200
+        cefProjet: 130
+        gainEnergetique: 70
+        critereEmissionsGes: true
       auditeur:
         raisonSociale: RAISON SOCIALE
         siren: "000000000"

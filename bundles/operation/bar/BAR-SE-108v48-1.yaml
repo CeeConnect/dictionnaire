@@ -1,0 +1,98 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-108v48-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-SE-108v48-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
+  caracteristiques:
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      typeBatiment:
+        title: Type de bâtiment
+        type: string
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
+      typeInstallation:
+        title: L'opération concerne une installation individuelle de chauffage
+        type: string
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/INDIVIDUEL
+      puissanceNominale:
+        title: Puissance thermique nominale de l'installation de chauffage (kW)
+        type: number
+        maximum: 70
+      rincageSysteme:
+        title:
+          Rinçage à l'eau du système de distribution par boucle d'eau (général puis
+          réseau par réseau)
+        type: boolean
+        const: true
+      injection:
+        title:
+          Injection d'un réactif désembouant et circulation selon le dosage et le
+          temps de contact préconisés, avec l'utilisation d'une pompe de désembouage (général
+          puis réseau par réseau ; dans les deux sens de circulation)
+        type: boolean
+        const: true
+      rincageCircuit:
+        title: Rinçage des circuits à l'eau claire (général puis réseau par réseau)
+        type: boolean
+        const: true
+      verificationFiltre:
+        title:
+          Vérification du filtre (ou pot à boues) existant et/ou installation d'un
+          filtre sur le ou les circuits de retour au générateur, ainsi que l'injection
+          d'un réactif inhibiteur au dosage préconisé
+        type: boolean
+        const: true
+    required:
+      - ancienneteBatiment
+      - typeBatiment
+      - typeInstallation
+      - puissanceNominale
+      - rincageSysteme
+      - injection
+      - rincageCircuit
+      - verificationFiltre
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Justificatif spécifique à l'opération
+          description:
+            "Document établi, daté et signé par le professionnel réalisant l'opération, mentionnant :
+            - l'adresse du bâtiment concerné par l'opération ;
+            - le fait que l'opération concerne le désembouage du système de distribution par boucle d'eau d'une installation individuelle de chauffage ;
+            - le descriptif des étapes de l'opération de désembouage, conformément à la présente fiche ;
+            - le type de générateur (chaudière, chaudière biomasse, pompe à chaleur, équipement solaire thermique) et sa puissance nominale ;
+            - le nombre d'émetteurs désemboués ;
+            - la nature du réseau (cuivre, acier, multicouche, matériaux de synthèse) ;
+            - le volume d'eau total du circuit ;
+            - le réactif désembouant et le réactif inhibiteur utilisés."
+          type: object
+          properties:
+            code:
+              type: string
+              const: JUSTIFICATIF_OPERATION
+          required:
+            - code
+required:
+  - adresse
+  - caracteristiques
+  - documents
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    caracteristiques:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      typeInstallation: INDIVIDUEL
+      puissanceNominale: 65
+      rincageSysteme: true
+      injection: true
+      rincageCircuit: true
+      verificationFiltre: true
+    documents:
+      - code: JUSTIFICATIF_OPERATION
+        url: https://api.ceeconnect.fr/archivage/

@@ -1,0 +1,98 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-107v37-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-SE-107v37-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
+  caracteristiques:
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      typeBatiment:
+        title: Type de bâtiment
+        type: string
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+      logements:
+        title: Nombre d'appartements
+        description: Nombre d'appartement d'un même bâtiment
+        type: integer
+        minimum: 1
+      typeIntervention:
+        title: Type d'intervention
+        type: string
+        oneOf:
+          - title:
+              Suppression de l'ensemble des points de recyclage dans la sous-station
+              raccordée au réseau de chaleur
+            const: SOUS_STATION
+          - title:
+              Suppression de l'ensemble des points de recyclage et équilibrage de l'ensemble
+              des sous-stations raccordées au réseau de chaleur
+            const: ENSEMBLE_SOUS_STATIONS
+          - title:
+              Suppression de l'ensemble des points de recyclage et équilibrage de l'ensemble
+              des sous-stations implantées sur le circuit secondaire de distribution de
+              chaleur concernées par l'opération
+            const: CIRCUIT_SECONDAIRE
+      entrepriseEtudeTechnique:
+        title:
+          Coordonnées de l'entité ayant établi l'étude technique préalable aux travaux
+          d'abaissement de la température de retour vers le réseau de chaleur
+        type: object
+        properties:
+          raisonSociale:
+            title: Raison sociale
+            type: string
+          siren:
+            $ref: https://schemas.ceeconnect.fr/formats/siren
+          referenceEtude:
+            title: Référence de l'étude énergétique
+            type: string
+        required:
+          - raisonSociale
+          - siren
+          - referenceEtude
+    required:
+      - ancienneteBatiment
+      - typeBatiment
+      - logements
+      - typeIntervention
+      - entrepriseEtudeTechnique
+  documents:
+    type: array
+    allOf:
+      - contains:
+          title: Attestation, établie par le professionnel, d'absence de points de recyclage et de situation de débit constant
+          description:
+            Pour les cas d'intervention sur un circuit de distribution avec plusieurs sousstations, ce document spécifique atteste, de plus, de la bonne répartition des débits, soit par la mesure des débits,
+            soit par mesure des températures de retour, vannes de régulation positionnées en grande ouverture. Le gestionnaire
+            du réseau approuve ce document en le signant.
+          type: object
+          properties:
+            code:
+              type: string
+              const: ATTESTATION_SITUATION
+          required:
+            - code
+required:
+  - adresse
+  - caracteristiques
+  - documents
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    caracteristiques:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      consommationSuivie: CHAUFFAGE_GAZ
+      logements: 10
+      typeIntervention: ENSEMBLE_SOUS_STATIONS
+      entrepriseEtudeTechnique:
+        raisonSociale: ENTREPRISE
+        siren: "000000000"
+        referenceEtude: REFERENCE ETUDE
+    documents:
+      - code: ATTESTATION_SITUATION
+        url: https://api.ceeconnect.fr/archivage/

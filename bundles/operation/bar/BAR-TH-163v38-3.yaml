@@ -1,0 +1,113 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-163v38-3
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-163v38-3
+type: object
+properties:
+  caracteristiques:
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      typeBatiment:
+        title: Type de bâtiment
+        type: string
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+      chaudiereIndividuelle:
+        title: Le chauffage central de chaque logement est assuré par une chaudière individuelle au gaz
+        type: boolean
+        const: false
+      typeConduit:
+        title: L'opération concerne la mise en place d'un (de) conduit(s)
+        type: string
+        oneOf:
+          - const: COLLECTIF
+            title: Collectif
+          - const: INDIVIDUEL
+            title: Individuel dans un conduit de fumée individuel
+          - const: INDIVIDUEL_COLLECTIF
+            title: Individuel dans un conduit de fumée collectif
+    allOf:
+      - if:
+          properties:
+            typeConduit:
+              const: COLLECTIF
+          required:
+            - typeConduit
+        then:
+          properties:
+            conduitCollectif:
+              title: Le conduit collectif vient en remplacement d'un ou plusieurs conduits de fumée collectifs de type
+              type: string
+              oneOf:
+                - const: SHUNT
+                  title: Shunt pour chaudières non étanches
+                - const: ALSACE
+                  title: Alsace pour chaudières non étanches
+                - const: ALVEOLE
+                  title: Alvéole technique gaz pour chaudières non étanches
+                - const: VMC
+                  title: VMC gaz pour chaudières non étanches
+                - const: ETANCHES
+                  title: Conduits collectifs pour chaudières étanches à tirage naturel
+            quantite:
+              title: Nombre de chaudières à raccorder au conduit
+              type: integer
+              minimum: 1
+          required:
+            - conduitCollectif
+            - quantite
+      - if:
+          properties:
+            typeConduit:
+              const: INDIVIDUEL
+          required:
+            - typeConduit
+        then:
+          properties:
+            longueur:
+              title: Longueur du conduit individuel d'évacuation des produits de combustion
+              description: Dans le cas de la mise en place d'un conduit individuel d'évacuation des produits de combustion dans un conduit de fumée individuel existant
+              type: number
+              minimum: 10
+          required:
+            - longueur
+      - if:
+          properties:
+            typeConduit:
+              const: INDIVIDUEL_COLLECTIF
+          required:
+            - typeConduit
+        then:
+          properties:
+            installationConduit:
+              title: L'installation des conduits individuels d'évacuation est réalisée simultanément et concerne l'ensemble des logements raccordés à un conduit collectif existant
+              type: boolean
+              const: true
+            conduitIndividuelCollectif:
+              title: L'installation des conduits individuels d'évacuation est réalisée en réutilisant un conduit collectif de type
+              type: string
+              oneOf:
+                - const: SHUNT
+                  title: Shunt
+                - const: ALSACE
+                  title: Alsace
+                - const: VMC
+                  title: VMC gaz
+          required:
+            - installationConduit
+            - conduitIndividuelCollectif
+    required:
+      - ancienneteBatiment
+      - typeBatiment
+      - chaudiereIndividuelle
+      - typeConduit
+required:
+  - caracteristiques
+examples:
+  - caracteristiques:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      chaudiereIndividuelle: false
+      typeConduit: COLLECTIF
+      conduitCollectif: SHUNT
+      quantite: 10
