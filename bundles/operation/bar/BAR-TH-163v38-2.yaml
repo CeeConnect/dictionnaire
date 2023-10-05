@@ -1,6 +1,6 @@
-$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-163v38-3
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-163v38-2
 $schema: https://json-schema.org/draft/2020-12/schema
-title: BAR-TH-163v38-3
+title: BAR-TH-163v38-2
 type: object
 properties:
   description:

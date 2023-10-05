@@ -42,7 +42,6 @@ properties:
           properties:
             logements:
               title: Nombre d'appartements
-              description: Nombre d'appartements équipés
               type: integer
               minimum: 0
             equipements:
