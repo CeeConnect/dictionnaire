@@ -3,7 +3,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-EN-105v39-3
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
       ancienneteBatiment:
@@ -62,12 +62,12 @@ properties:
           required:
             - code
 required:
-  - caracteristiques
+  - description
   - documents
 examples:
   - adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/3
-    caracteristiques:
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       quantite: 100

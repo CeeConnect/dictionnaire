@@ -4,7 +4,7 @@ $comment: "TODO: Intégrer le document spécifique"
 title: BAR-TH-137v45-3
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
       typeBatiment:
@@ -15,11 +15,11 @@ properties:
         title: Nom du réseau
         type: string
         maxLength: 240
-      raccordementAnterieur:
+      critereRaccordementAnterieur:
         title: Le bâtiment n'a jamais été raccordé à un réseau de chaleur dans le délai
           de cinq ans précédant la date de l'engagement de l'opération
         type: boolean
-      demandeAnterieure:
+      critereDemandeAnterieure:
         title: Dans le cas où le bâtiment a été raccordé précédemment, le ou les
           raccordements précédents ont fait l'objet d'une demande de certificats
           d'économies d'énergie
@@ -27,18 +27,18 @@ properties:
         const: false
     anyOf:
       - properties:
-          raccordementAnterieur:
+          critereRaccordementAnterieur:
             const: false
         required:
-          - raccordementAnterieur
+          - critereRaccordementAnterieur
       - properties:
-          raccordementAnterieur:
+          critereRaccordementAnterieur:
             const: true
-          demandeAnterieure:
+          critereDemandeAnterieure:
             const: false
         required:
-          - raccordementAnterieur
-          - demandeAnterieure
+          - critereRaccordementAnterieur
+          - critereDemandeAnterieure
     allOf:
       - if:
           properties:
@@ -73,7 +73,7 @@ properties:
       - typeBatiment
       - ancienneteBatiment
       - identifiantReseau
-      - raccordementAnterieur
+      - critereRaccordementAnterieur
   gestionnaire:
     title: Professionnel gestionnaire du réseau
     type: object
@@ -111,13 +111,13 @@ properties:
       - telephone
       - mobile
 required:
-  - caracteristiques
+  - description
   - gestionnaire
 examples:
-  - caracteristiques:
+  - description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
-      raccordementAnterieur: false
+      critereRaccordementAnterieur: false
       identifiantReseau: RESEAU
       surfaceHabitable: 100
     gestionnaire:

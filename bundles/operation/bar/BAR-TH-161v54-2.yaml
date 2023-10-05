@@ -145,7 +145,7 @@ examples:
       typePointSingulier: ECHANGEUR
       temperatureFluide: 60
       quantite: 100
-      dateRecapitulatif: "2023-12-12"
+      dateEtatRecapitulatif: "2023-12-12"
       equipements:
         - critereNature: true
           critereMateriau: true

@@ -3,25 +3,23 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-SE-106v32-1
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
-      typeBatiment:
-        title: Type de bâtiment
-        type: string
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       consommationSuivie:
         $ref: https://schemas.ceeconnect.fr/enums/bar/consommation_suivie
-      suiviConsommations:
-        title:
+      critereServiceConsommations:
+        title: |
           Le service permet l'affichage des informations sur le suivi des consommations
           via un support numérique de type espace Web ou via une application mobile
         type: boolean
         const: true
-      mesureConsommation:
-        title:
+      critereMesureConsommation:
+        title: |
           Le dispositif exploite les consommations mesurées par les compteurs communicants
           et transmises par les gestionnaires de réseau et permet de communiquer vers
           le consommateur les résulstas obtenus et des consiels adaptés à sa situation
@@ -29,39 +27,39 @@ properties:
           d'énergie
         type: boolean
         const: true
-      intervalleTemps:
+      critereIntervalleTemps:
         title:
           Le dispositif permet l'affichage de l'ensemble des consommations d'énergie
           sur l'intervalle de temps entre deux pas de délivrance à un pas minimum de 30
           minutes pour l'électricité et une journée pour le gaz
         type: boolean
         const: true
-      coursKwh:
-        title:
+      critereValorisationEuros:
+        title: |
           Le dispositif permet l'affichage des consommations d'énergie en kWh et
           valorisées en euros
         type: boolean
         const: true
-      cumuls:
-        title:
+      critereCumuls:
+        title: |
           Le dispositif permet la possibilité d'accès par le bénéficiaire à différents
           cumuls (heure / journée / semaine / mois / année)
         type: boolean
         const: true
-      analysePerso:
-        title:
+      critereDecompositionConsommations:
+        title: |
           Le dispositif permet une décomposition des consommations et une analyse
           personnalisée par usage
         type: boolean
         const: true
-      historiqueCumuls:
-        title:
+      critereHistoriqueCumuls:
+        title: |
           Le dispositif dispose d'un historique de tous les cumuls sur au moins 3
           mois et de ceux supérieurs ou égaux à la journée pendant 2 années glissantes
         type: boolean
         const: true
-      comparaisonConsomations:
-        title:
+      critereComparaisonConsomations:
+        title: |
           Le dispositif permet de comparer les consommations réalisées à des consommations
           types, établies à partir de moyennes nationales et locales pour des profils
           de consommations comparables à ceux de l'utilisateur, et à des seuils
@@ -70,8 +68,8 @@ properties:
           de consommations extraites de l'historique disponible
         type: boolean
         const: true
-      alerteDepassement:
-        title:
+      critereAlerteDepassement:
+        title: |
           En cas de dépassement d'un seuil de consommation de référence, le dispositif
           émet une alarme explicite (par exemple SMS, mail, notification...)
         type: boolean
@@ -80,15 +78,15 @@ properties:
       - ancienneteBatiment
       - typeBatiment
       - consommationSuivie
-      - suiviConsommations
-      - mesureConsommation
-      - intervalleTemps
-      - coursKwh
-      - cumuls
-      - analysePerso
-      - historiqueCumuls
-      - comparaisonConsomations
-      - alerteDepassement
+      - critereServiceConsommations
+      - critereMesureConsommation
+      - critereIntervalleTemps
+      - critereValorisationEuros
+      - critereCumuls
+      - critereDecompositionConsommations
+      - critereHistoriqueCumuls
+      - critereComparaisonConsomations
+      - critereAlerteDepassement
   documents:
     type: array
     allOf:
@@ -113,22 +111,22 @@ properties:
           required:
             - code
 required:
-  - caracteristiques
+  - description
   - documents
 examples:
-  - caracteristiques:
+  - description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       consommationSuivie: CHAUFFAGE_GAZ
-      suiviConsommations: true
-      mesureConsommation: true
-      intervalleTemps: true
-      coursKwh: true
-      cumuls: true
-      analysePerso: true
-      historiqueCumuls: true
-      comparaisonConsomations: true
-      alerteDepassement: true
+      critereServiceConsommations: true
+      critereMesureConsommation: true
+      critereIntervalleTemps: true
+      critereValorisationEuros: true
+      critereCumuls: true
+      critereDecompositionConsommations: true
+      critereHistoriqueCumuls: true
+      critereComparaisonConsomations: true
+      critereAlerteDepassement: true
     documents:
       - code: DESCRIPTIF_DISPOSITIF
         url: https://api.ceeconnect.fr/archivage/

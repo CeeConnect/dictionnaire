@@ -3,7 +3,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-EQ-110v15-1
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
       ancienneteBatiment:
@@ -75,18 +75,20 @@ properties:
     anyOf: 
       - properties: 
           detecteurLumiere:
+            type: boolean
             const: true
         required:
             - detecteurLumiere
       - properties: 
           detecteurPresence:
+            type: boolean
             const: true
         required:
           - detecteurPresence
 required:
-  - caracteristiques
+  - description
 examples:
-  - caracteristiques:
+  - description:
       ancienneteBatiment: EXISTANT
       indiceProtectionChocs: "10"
       efficaciteLumineuse: 95

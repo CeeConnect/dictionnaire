@@ -3,15 +3,14 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-SE-104v19-1
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif d'habitation
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
-      typeBatiment:
-        title: Type de bâtiment
-        type: string
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
       logements:
         title: Nombre d'appartements
         description: Nombre d'appartement d'un même bâtiment
@@ -61,10 +60,10 @@ properties:
           required:
             - code
 required:
-  - caracteristiques
+  - description
   - documents
 examples:
-  - caracteristiques:
+  - description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       logements: 10

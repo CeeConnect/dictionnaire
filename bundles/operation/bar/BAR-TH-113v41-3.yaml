@@ -4,11 +4,12 @@ $comment: Scénario Flamme verte uniquement couvert
 title: BAR-TH-113v41-3
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
       typeBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
+        title: Le bâtiment est une maison individuelle
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       typeEquipement:
@@ -114,10 +115,10 @@ properties:
           required:
             - code
 required:
-  - caracteristiques
+  - description
   - documents
 examples:
-  - caracteristiques:
+  - description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       typeEquipement: CHARGEMENT_AUTOMATIQUE

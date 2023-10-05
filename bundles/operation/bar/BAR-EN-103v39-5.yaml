@@ -3,7 +3,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-EN-103v39-5
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
       ancienneteBatiment:
@@ -69,10 +69,10 @@ properties:
           required:
             - code
 required:
-  - caracteristiques
+  - description
   - documents
 examples:
-  - caracteristiques:
+  - description:
       ancienneteBatiment: EXISTANT
       quantite: 100
       resistanceThermique: 4

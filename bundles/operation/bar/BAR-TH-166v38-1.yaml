@@ -3,15 +3,14 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-166v38-1
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif d'habitation
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
-      typeBatiment:
-        title: Type de bâtiment
-        type: string
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
       logements:
         title: Nombre d'appartements chauffés
         description: Nombre d'appartement d'un même bâtiment
@@ -23,6 +22,19 @@ properties:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_usage
       performanceEquipement:
         title: Efficacité énergétique saisonnière (ηs)
+        type: number
+        minimum: 0
+      puissanceEligibleAutresFiches:
+        title: Puissance nominale totale des équipements nouvellement installés (kW)
+        description: Puissance nominale totale des équipements nouvellement installés respectant les conditions des fiches d'opérations standardisées en vigueur
+        type: number
+        minimum: 0
+      puissanceEligible:
+        title: Puissance nominale de la (ou des) pompe(s) à chaleur installée(s) (kW)
+        type: number
+        minimum: 0
+      puissanceChaufferie:
+        title: Puissance nominale totale de la chaufferie après travaux (kW)
         type: number
         minimum: 0
       marque:
@@ -64,37 +76,6 @@ properties:
               minimum: 111
           required:
             - performanceEquipement
-      - if:
-          properties:
-            autreEquipement:
-              type: boolean
-              const: true
-          required:
-            - autreEquipement
-        then:
-          properties:
-            puissanceNominaleTotaleChaudieres:
-              title: Puissance nominale totale des chaudières nouvellement installés
-              description:
-                Puissance nominale totale des chaudières nouvellement installés
-                respectant les conditions des fiches d'opérations standardisées en vigueur
-              type: number
-              minimum: 0
-            puissanceTotalePac:
-              title: Puissance totale de la pompe à chaleur installée
-              type: number
-              minimum: 0
-            puissanceNominaleTotaleChaufferie:
-              title: Puissance nominale totale de la chaufferie après travaux
-              type: number
-              minimum: 0
-          required:
-            - puissanceNominaleTotaleChaufferie
-          anyOf:
-            - required:
-                - puissanceNominaleTotaleChaudieres
-            - required:
-                - puissanceTotalePac
     required:
       - ancienneteBatiment
       - typeBatiment
@@ -104,7 +85,7 @@ properties:
       - performanceEquipement
       - marque
       - reference
-      - autreEquipement
+      - puissanceEligibleAutresFiches
   documents:
     type: array
     allOf:
@@ -118,19 +99,19 @@ properties:
           required:
             - code
 required:
-  - caracteristiques
+  - description
   - documents
 examples:
-  - caracteristiques:
+  - description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       logements: 10
       usage: CHAUFFAGE
       temperatureDistribution: BASSE_TEMPERATURE
       performanceEquipement: 127
+      puissanceEligibleAutresFiches: 0
       marque: MARQUE
       reference: REFERENCE
-      autreEquipement: false
     documents:
       - code: PREUVE_QUALIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

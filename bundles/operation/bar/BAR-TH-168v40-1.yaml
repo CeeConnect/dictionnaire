@@ -5,11 +5,12 @@ type: object
 properties:
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
-  caracteristiques:
+  description:
     type: object
     properties:
       typeBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
+        title: Le bâtiment est une maison individuelle
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       surfaceCapteurs:
@@ -62,12 +63,12 @@ properties:
             - code
 required:
   - adresse
-  - caracteristiques
+  - description
   - documents
 examples:
   - adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    caracteristiques:
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       surfaceCapteurs: 10

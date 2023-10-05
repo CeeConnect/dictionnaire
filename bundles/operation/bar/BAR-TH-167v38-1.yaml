@@ -5,19 +5,18 @@ type: object
 properties:
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
-  caracteristiques:
+  description:
     type: object
     properties:
       typeBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
-        title: Type de bâtiment
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
-      combustibleGazeux:
+      critereCombustibleGazeux:
         title: Le chauffe-bain est individuel et utilise un combustible gazeux
         type: boolean
         const: true
-      remplacement:
+      critereRemplacement:
         title: L'appareil installé vient en remplacement d'un chauffe-bain au gaz mural
           à combustion atmosphérique
         type: boolean
@@ -67,8 +66,8 @@ properties:
     required:
       - ancienneteBatiment
       - typeBatiment
-      - combustibleGazeux
-      - remplacement
+      - critereCombustibleGazeux
+      - critereRemplacement
   documents:
     type: array
     allOf:
@@ -83,7 +82,7 @@ properties:
             - code
 required:
   - adresse
-  - caracteristiques
+  - description
   - documents
 $defs:
   equipement:
@@ -142,14 +141,14 @@ $defs:
 examples:
   - adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    caracteristiques:
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       typeEquipement: COMBUSTION_HAUT_RENDEMENT
       rendement: 90
       performanceEquipement: A++
-      combustibleGazeux: true
-      remplacement: true
+      critereCombustibleGazeux: true
+      critereRemplacement: true
       surfaceHabitable: 100
       marque: MARQUE
       reference: REFERENCE

@@ -3,12 +3,12 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-123v17-1
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
       typeBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
-        title: Le bâtiment est un immeuble collectif
+        title: Le bâtiment est un immeuble collectif d'habitation
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       logements:
@@ -50,10 +50,10 @@ properties:
           required:
             - code
 required:
-  - caracteristiques
+  - description
   - documents
 examples:
-  - caracteristiques:
+  - description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       logements: 10

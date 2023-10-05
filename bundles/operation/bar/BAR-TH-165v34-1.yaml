@@ -3,15 +3,14 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-165v34-1
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif d'habitation
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
-      typeBatiment:
-        title: Type de bâtiment
-        type: string
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
       logements:
         title: Nombre d'appartements
         description: Nombre d'appartement d'un même bâtiment
@@ -21,7 +20,7 @@ properties:
         title: Surface totale chauffée du bâtiment
         type: number
         minimum: 0
-      typeBiomasseLigneuse:
+      critereBiomasseLigneuse:
         title: Biomasse ligneuse à base de bûches de bois, de copeaux de bois, de bois comprimé sous forme de granulés, de bois comprimé sous forme de briquettes ou de sciure de bois
         type: boolean
         const: true
@@ -57,7 +56,7 @@ properties:
       - typeBatiment
       - surfaceChauffee
       - logements
-      - typeBiomasseLigneuse
+      - critereBiomasseLigneuse
       - chaleurNetteTotale
       - entrepriseEtudeDimensionnement
 $defs:
@@ -108,14 +107,14 @@ $defs:
               minimum: 83
             typeEquipement:
               $ref: https://schemas.ceeconnect.fr/enums/bar/type_chaudiere_biomasse
-            flammeVerte:
+            critereFlammeVerte:
               title: L'équipement possède le label Flamme Verte 7*
               type: boolean
               const: true
           required:
             - performanceEquipement
             - typeEquipement
-            - flammeVerte
+            - critereFlammeVerte
           allOf:
             - if:
                 properties:
@@ -125,12 +124,12 @@ $defs:
                   - typeEquipement
               then:
                 properties:
-                  presenceSilo:
+                  criterePresenceSilo:
                     title: Présence d'un silo d'au moins 225 litres
                     type: boolean
                     const: true
                 required:
-                  - presenceSilo
+                  - criterePresenceSilo
             - if:
                 properties:
                   typeEquipement:
@@ -139,12 +138,12 @@ $defs:
                   - typeEquipement
               then:
                 properties:
-                  presenceBallon:
+                  criterePresenceBallon:
                     title: Présence d'un ballon tampon
                     type: boolean
                     const: true
                 required:
-                  - presenceBallon
+                  - criterePresenceBallon
       - if:
           properties:
             puissanceNominale:
@@ -187,15 +186,15 @@ $defs:
           required:
             - code
 required:
-  - caracteristiques
+  - description
   - documents
 examples:
-  - caracteristiques:
+  - description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       logements: 10
       surfaceChauffee: 800
-      typeBiomasseLigneuse: true
+      critereBiomasseLigneuse: true
       chaleurNetteTotale: 10
       equipements:
         - puissanceNominale: 60
@@ -203,8 +202,8 @@ examples:
           chaleurNette: 10
           classeRegulateur: V
           typeEquipement: CHARGEMENT_AUTOMATIQUE
-          presenceSilo: true
-          flammeVerte: true
+          criterePresenceSilo: true
+          critereFlammeVerte: true
           marque: MARQUE
           reference: REFERENCE
       entrepriseEtudeDimensionnement:

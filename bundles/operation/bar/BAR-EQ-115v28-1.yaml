@@ -4,7 +4,7 @@ $comment: "TODO: Intégrer les fonctionnalités d'affichage des consommations"
 title: BAR-EQ-115v28-1
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
       typeBatiment:
@@ -28,27 +28,27 @@ properties:
         title: Le dispositif inclut l'option « suivi du confort » comprenant la collecte locale et
           l'affichage des données de température et d'hygrométrie intérieures et extérieures au logement
         type: boolean
-      optionCollecteConsommations:
+      critereOptionCollecteConsommations:
         title: Le dispositif permet de collecter et de traiter les données de consommations d'énergie de l'utilisateur
         type: boolean
         const: true
-      optionAssistance:
+      critereOptionAssistance:
         title: Le dispositif apporte à l'utilisateur des conseils adaptés à sa situation, l'aide à interpréter les
           données affichées et à réduire ses consommations d'énergie
         type: boolean
         const: true
-      optionBilanPeriodique:
+      critereOptionBilanPeriodique:
         title: Le dispositif informe l'utilisateur de manière régulière, à un pas inférieur ou égal à 1 mois, des données
           disponibles sur l'affichage en lui adressant un bilan de la période écoulée, et en l'invitant à consulter
           l'affichage pour davantage de détails
         type: boolean
         const: true
-      optionAlarmeDepassement:
+      critereOptionAlarmeDepassement:
         title: En cas de dépassement d'un seuil de consommation de référence, le dispositif émet une alarme explicite
           (par exemple SMS, mail, notification...)
         type: boolean
         const: true
-      optionComparaisonConsommations:
+      critereOptionComparaisonConsommations:
         title: Le dispositif permet de comparer les consommations réalisées à des consommations types, établies à partir
           de moyennes nationales et locales pour des profils de consommations comparables à ceux de l'utilisateur, et à
           des seuils
@@ -61,11 +61,11 @@ properties:
       - surfaceHabitable
       - location
       - optionSuiviConfort
-      - optionCollecteConsommations
-      - optionAssistance
-      - optionBilanPeriodique
-      - optionAlarmeDepassement
-      - optionComparaisonConsommations
+      - critereOptionCollecteConsommations
+      - critereOptionAssistance
+      - critereOptionBilanPeriodique
+      - critereOptionAlarmeDepassement
+      - critereOptionComparaisonConsommations
     allOf:
       - if:
           properties:
@@ -121,10 +121,10 @@ properties:
           required:
             - code
 required:
-  - caracteristiques
+  - description
   - documents
 examples:
-  - caracteristiques:
+  - description:
       typeBatiment: APPARTEMENT
       ancienneteBatiment: EXISTANT
       typeInstallationChauffage: COLLECTIF
@@ -132,11 +132,11 @@ examples:
       surfaceHabitable: 70
       location: false
       optionSuiviConfort: true
-      optionCollecteConsommations: true
-      optionAssistance: true
-      optionBilanPeriodique: true
-      optionAlarmeDepassement: true
-      optionComparaisonConsommations: true
+      critereOptionCollecteConsommations: true
+      critereOptionAssistance: true
+      critereOptionBilanPeriodique: true
+      critereOptionAlarmeDepassement: true
+      critereOptionComparaisonConsommations: true
     documents:
       - code: DESCRIPTIF_TECHNIQUE
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

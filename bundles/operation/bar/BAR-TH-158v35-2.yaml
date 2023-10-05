@@ -3,7 +3,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-158v35-2
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
       typeBatiment:
@@ -21,21 +21,21 @@ properties:
             numeroCertification:
               title: Numéro de certification NF Electricité performance catégorie 3* oeil
               type: string
-            fonctionRegulation:
+            critereFonctionRegulation:
               title: Régulation ayant une amplitude inférieure à 0,3K et une dérive inférieure à 1 K
               type: boolean
               const: true
-            fonctionDetectionOuvertureFenetre:
+            critereFonctionDetectionOuvertureFenetre:
               title: Détection automatique et intégrée à l'appareil de l'ouverture d'une fenêtre par passage
                 en mode « arrêt chauffage » ou « horsgel »
               type: boolean
               const: true
-            fonctionDetectionAbsence:
+            critereFonctionDetectionAbsence:
               title: Détection automatique d'absence, intégrée à l'appareil, par réduction d'allure et passage
                 progressif jusqu'au mode « Eco »
               type: boolean
               const: true
-            fonctionIndicationSurconsommation:
+            critereFonctionIndicationSurconsommation:
               title: Indication de surconsommation par information visuelle du consommateur ayant a minima 3 niveaux
                 de consommation basés sur la température de consigne et représentés par des couleurs
               type: boolean
@@ -64,23 +64,23 @@ properties:
                 - numeroCertification
             - allOf:
                 - properties:
-                    fonctionRegulation:
+                    critereFonctionRegulation:
                       type: boolean
                       const: true
-                    fonctionDetectionOuvertureFenetre:
+                    critereFonctionDetectionOuvertureFenetre:
                       type: boolean
                       const: true
-                    fonctionDetectionAbsence:
+                    critereFonctionDetectionAbsence:
                       type: boolean
                       const: true
-                    fonctionIndicationSurconsommation:
+                    critereFonctionIndicationSurconsommation:
                       type: boolean
                       const: true
                   required:
-                    - fonctionRegulation
-                    - fonctionDetectionOuvertureFenetre
-                    - fonctionDetectionAbsence
-                    - fonctionIndicationSurconsommation
+                    - critereFonctionRegulation
+                    - critereFonctionDetectionOuvertureFenetre
+                    - critereFonctionDetectionAbsence
+                    - critereFonctionIndicationSurconsommation
     required:
       - typeBatiment
       - ancienneteBatiment
@@ -97,10 +97,10 @@ properties:
           required:
             - code
 required:
-  - caracteristiques
+  - description
   - documents
 examples:
-  - caracteristiques:
+  - description:
       ancienneteBatiment: EXISTANT
       typeBatiment: MAISON
       equipements:

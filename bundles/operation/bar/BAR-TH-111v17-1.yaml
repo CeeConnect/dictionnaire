@@ -3,7 +3,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-111v17-1
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
       typeBatiment:
@@ -13,9 +13,10 @@ properties:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       energieChauffage:
         $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffage
-      ancienneteEquipement:
-        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/EXISTANT
+      critereAncienneteEquipement:
         title: Système de chauffage sur boucle à eau chaude existant depuis plus de 2 ans
+        type: boolean
+        const: true
       surfaceHabitable:
         title: Surface habitable
         type: number
@@ -30,18 +31,18 @@ properties:
       - typeBatiment
       - ancienneteBatiment
       - energieChauffage
-      - ancienneteEquipement
+      - critereAncienneteEquipement
       - surfaceHabitable
       - marque
       - reference
 required:
-  - caracteristiques
+  - description
 examples:
-  - caracteristiques:
+  - description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       energieChauffage: ELECTRICITE
-      ancienneteEquipement: EXISTANT
+      critereAncienneteEquipement: true
       surfaceHabitable: 100
       marque: MARQUE
       reference: REFERENCE

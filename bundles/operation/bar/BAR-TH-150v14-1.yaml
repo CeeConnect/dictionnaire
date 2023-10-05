@@ -3,11 +3,12 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-150v14-1
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
       typeBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif d'habitation
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       logements:
@@ -24,7 +25,6 @@ properties:
         minimum: 0
       puissanceEligible:
         title: Puissance totale des pompes à chaleur éligibles
-        description: Renseigner la puissance totale de l'enseble des équipements nouvellement installés
         type: number
         minimum: 0
       puissanceChaufferie:
@@ -92,9 +92,9 @@ properties:
       - marque
       - reference
 required:
-  - caracteristiques
+  - description
 examples:
-  - caracteristiques:
+  - description:
       ancienneteBatiment: EXISTANT
       typeBatiment: IMMEUBLE
       logements: 50

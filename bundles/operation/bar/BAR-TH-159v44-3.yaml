@@ -1,6 +1,6 @@
-$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-159v50-4
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-159v44-3
 $schema: https://json-schema.org/draft/2020-12/schema
-title: BAR-TH-159v50-4
+title: BAR-TH-159v44-3
 type: object
 properties:
   description:

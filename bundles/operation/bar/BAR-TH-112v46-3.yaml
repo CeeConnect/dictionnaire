@@ -4,7 +4,7 @@ $comment: Scénario Flamme verte uniquement couvert
 title: BAR-TH-112v46-3
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
       typeBatiment:
@@ -63,9 +63,9 @@ properties:
           required:
             - code
 required:
-  - caracteristiques
+  - description
 examples:
-  - caracteristiques:
+  - description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       typeCombustible: GRANULES

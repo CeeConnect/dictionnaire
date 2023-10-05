@@ -5,15 +5,14 @@ type: object
 properties:
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
-  caracteristiques:
+  description:
     type: object
     properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif d'habitation
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
-      typeBatiment:
-        title: Type de bâtiment
-        type: string
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
       logements:
         title: Nombre d'appartements
         description: Nombre d'appartement d'un même bâtiment
@@ -78,12 +77,12 @@ properties:
             - code
 required:
   - adresse
-  - caracteristiques
+  - description
   - documents
 examples:
   - adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    caracteristiques:
+    description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       consommationSuivie: CHAUFFAGE_GAZ

@@ -3,15 +3,14 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-107v14-1
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif d'habitation
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
-      typeBatiment:
-        title: Type de bâtiment
-        type: string
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
       logements:
         title: Nombre d'appartements
         description: Nombre d'appartement d'un même bâtiment
@@ -21,61 +20,53 @@ properties:
         title: Puissance nominale de la chaudière
         type: number
         minimum: 0
+      puissanceEligibleAutresFiches:
+        title: Puissance totale de la pompe à chaleur installée (kW)
+        description: Puissance nominale totale des chaudières nouvellement installés respectant les conditions des fiches d'opérations standardisées en vigueur
+        type: number
+        minimum: 0
+      puissanceEligible:
+        title: Puissance nominale totale des chaudières nouvellement installées (kW)
+        type: number
+        minimum: 0
+      puissanceChaufferie:
+        title: Puissance nominale totale de la chaufferie après travaux (kW)
+        type: number
       marque:
         title: Marque de la chaudière
         type: string
       reference:
         title: Référence de la chaudière
         type: string
-      autreEquipement:
-        title: Mise en place d'un ou plusieurs autres équipements (chaudières ou pompes à chaleur)
-        description: La mise en place de la chaudière haute performance énergétique s'accompagne de la mise en place d'un ou plusieurs autres équipements (chaudières ou pompes à chaleur)
-        type: boolean
     allOf:
       - if:
           properties:
-            autreEquipement:
-              const: true
+            puissanceEligibleAutresFiches:
+              type: number
+              exclusiveMinimum: 0
           required:
-            - autreEquipement
+            - puissanceEligibleAutresFiches
+            - puissanceChaufferie
         then:
-          properties:
-            puissanceNominaleTotaleChaudieres:
-              title: Puissance nominale totale des chaudières nouvellement installés
-              description: Puissance nominale totale des chaudières nouvellement installés respectant les conditions des fiches d'opérations standardisées en vigueur
-              type: number
-              minimum: 0
-            puissanceTotalePac:
-              title: Puissance totale de la pompe à chaleur installée
-              type: number
-              minimum: 0
-            puissanceNominaleTotaleChaufferie:
-              title: Puissance nominale totale de la chaufferie après travaux
-              type: number
-              minimum: 0
           required:
-            - puissanceNominaleTotaleChaufferie
-          anyOf:
-            - required:
-                - puissanceNominaleTotaleChaudieres
-            - required:
-                - puissanceTotalePac
+            - puissanceEligible
+            - puissanceChaufferie
     required:
       - ancienneteBatiment
       - typeBatiment
       - logements
       - puissanceNominale
+      - puissanceEligibleAutresFiches
       - marque
       - reference
-      - autreEquipement
 required:
-  - caracteristiques
+  - description
 examples:
-  - caracteristiques:
+  - description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       logements: 10
       puissanceNominale: 300
+      puissanceEligibleAutresFiches: 0
       marque: MARQUE
       reference: REFERENCE
-      autreEquipement: false

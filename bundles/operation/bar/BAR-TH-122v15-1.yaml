@@ -1,85 +1,73 @@
 $id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-122v15-1
 $schema: https://json-schema.org/draft/2020-12/schema
+$comment: "TODO: Vérifier la partie relative au coefficient R de l'attestation sur l'honneur"
 title: BAR-TH-122v15-1
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif d'habitation
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
-      typeBatiment:
-        title: Type de bâtiment
-        type: string
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
       logements:
         title: Nombre d'appartements
         description: Nombre d'appartement régulés par la programmation d'intermittence
         type: integer
         minimum: 1
-      ancienneteEquipement:
+      critereEquipementExistant:
         title: Le récupérateur de chaleur est installé sur une chaudière existante depuis plus de 2 ans raccordée à un système de chauffage collectif
-        $ref: https://schemas.ceeconnect.fr/enums/bar/anciennete_equipement#/$defs/EXISTANT
+        type: boolean
+        const: true
+      puissanceEligibleAutresFiches:
+        title: Puissance totale de la pompe à chaleur installée (kW)
+        type: number
+        minimum: 0
+      puissanceEligible:
+        title: Puissance nominale totale de la ou des chaudières nouvellement équipée(s) du (des) récupérateur(s) à condensation (kW)
+        type: number
+        minimum: 0
+      puissanceChaufferie:
+        title: Puissance nominale totale de la chaufferie après travaux (kW)
+        type: number
+        minimum: 0
       marque:
         title: Marque du récupérateur de chaleur à condensation
         type: string
       reference:
         title: Référence du récupérateur de chaleur à condensation
         type: string
-      autreEquipement:
-        title: La mise en place de récupérateurs de chaleur à condensation concerne la puissance totale de la chaufferie
-        description: Non, si la chaufferie après travaux comporte plus d'un équipement (chaudières et/ou pompes à chaleur), hors équipements de secours et chaudière biomasse
-        type: boolean
-        oneOf:
-          - title: Oui
-            const: true
-          - title: Non
-            const: false
     allOf:
       - if:
           properties:
-            autreEquipement:
-              const: false
+            puissanceEligibleAutresFiches:
+              type: number
+              exclusiveMinimum: 0
           required:
-            - autreEquipement
-        then:
-          properties:
-            puissanceEligible:
-              title: Puissance nominale totale des chaudières nouvellement installés
-              description: puissance nominale totale de la ou des chaudières nouvellement équipée(s) du (des) récupérateur(s) à condensation (kW)
-              type: number
-              minimum: 0
-            puissanceEligiblePac:
-              title: Puissance totale de la pompe à chaleur installée
-              type: number
-              minimum: 0
-            puissanceChaufferie:
-              title: Puissance nominale totale de la chaufferie après travaux
-              type: number
-              minimum: 0
-          required:
+            - puissanceEligibleAutresFiches
             - puissanceChaufferie
-          anyOf:
-            - required:
-                - puissanceEligible
-            - required:
-                - puissanceEligiblePac
+        then:
+          required:
+            - puissanceEligible
+            - puissanceChaufferie
     required:
       - ancienneteBatiment
       - typeBatiment
       - logements
-      - ancienneteEquipement
+      - critereEquipementExistant
+      - puissanceEligibleAutresFiches
       - marque
       - reference
-      - autreEquipement
 required:
-  - caracteristiques
+  - description
 examples:
-  - caracteristiques:
+  - description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       logements: 10
-      ancienneteEquipement: EXISTANT
+      critereEquipementExistant: true
       marque: MARQUE
       reference: REFERENCE
-      autreEquipement: true
+      puissanceEligibleAutresFiches: 0

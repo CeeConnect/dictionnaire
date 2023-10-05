@@ -3,111 +3,121 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-163v38-3
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif d'habitation
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
-      typeBatiment:
-        title: Type de bâtiment
-        type: string
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
-      chaudiereIndividuelle:
+      critereChaudiereIndividuelle:
         title: Le chauffage central de chaque logement est assuré par une chaudière individuelle au gaz
         type: boolean
         const: false
-      typeConduit:
-        title: L'opération concerne la mise en place d'un (de) conduit(s)
-        type: string
-        oneOf:
-          - const: COLLECTIF
-            title: Collectif
-          - const: INDIVIDUEL
-            title: Individuel dans un conduit de fumée individuel
-          - const: INDIVIDUEL_COLLECTIF
-            title: Individuel dans un conduit de fumée collectif
+      typeInstallation:
+        $ref: "#/$defs/typeInstallation"
     allOf:
       - if:
           properties:
-            typeConduit:
-              const: COLLECTIF
+            typeInstallation:
+              $ref: "#/$defs/typeInstallation/oneOf/0"
           required:
-            - typeConduit
+            - typeInstallation
         then:
           properties:
-            conduitCollectif:
-              title: Le conduit collectif vient en remplacement d'un ou plusieurs conduits de fumée collectifs de type
-              type: string
-              oneOf:
-                - const: SHUNT
-                  title: Shunt pour chaudières non étanches
-                - const: ALSACE
-                  title: Alsace pour chaudières non étanches
-                - const: ALVEOLE
-                  title: Alvéole technique gaz pour chaudières non étanches
-                - const: VMC
-                  title: VMC gaz pour chaudières non étanches
-                - const: ETANCHES
-                  title: Conduits collectifs pour chaudières étanches à tirage naturel
+            typeConduit:
+              $ref: "#/$defs/typeConduitCollectif"
             quantite:
               title: Nombre de chaudières à raccorder au conduit
               type: integer
               minimum: 1
           required:
-            - conduitCollectif
+            - typeConduit
             - quantite
       - if:
           properties:
-            typeConduit:
-              const: INDIVIDUEL
+            typeInstallation:
+              $ref: "#/$defs/typeInstallation/oneOf/1"
           required:
-            - typeConduit
+            - typeInstallation
         then:
           properties:
-            longueur:
+            longueurConduit:
               title: Longueur du conduit individuel d'évacuation des produits de combustion
-              description: Dans le cas de la mise en place d'un conduit individuel d'évacuation des produits de combustion dans un conduit de fumée individuel existant
+              description: | 
+                Dans le cas de la mise en place d'un conduit individuel d'évacuation des produits de combustion
+                dans un conduit de fumée individuel existant
               type: number
               minimum: 10
           required:
-            - longueur
+            - longueurConduit
       - if:
           properties:
-            typeConduit:
-              const: INDIVIDUEL_COLLECTIF
+            typeInstallation:
+              $ref: "#/$defs/typeInstallation/oneOf/2"
           required:
-            - typeConduit
+            - typeInstallation
         then:
           properties:
-            installationConduit:
-              title: L'installation des conduits individuels d'évacuation est réalisée simultanément et concerne l'ensemble des logements raccordés à un conduit collectif existant
+            critereRenovationEnsemble:
+              title: | 
+                L'installation des conduits individuels d'évacuation est réalisée simultanément et concerne
+                l'ensemble des logements raccordés à un conduit collectif existant
               type: boolean
               const: true
-            conduitIndividuelCollectif:
-              title: L'installation des conduits individuels d'évacuation est réalisée en réutilisant un conduit collectif de type
-              type: string
-              oneOf:
-                - const: SHUNT
-                  title: Shunt
-                - const: ALSACE
-                  title: Alsace
-                - const: VMC
-                  title: VMC gaz
+            typeConduit:
+              $ref: "#/$defs/typeConduitIndividuel"
           required:
-            - installationConduit
-            - conduitIndividuelCollectif
+            - typeConduit
+            - critereRenovationEnsemble
     required:
       - ancienneteBatiment
       - typeBatiment
-      - chaudiereIndividuelle
-      - typeConduit
+      - critereChaudiereIndividuelle
+      - typeInstallation
 required:
-  - caracteristiques
+  - description
+$defs:
+  typeInstallation:
+    title: Type d'installation
+    type: string
+    oneOf:
+      - const: COLLECTIF
+        title: Collectif
+      - const: INDIVIDUEL
+        title: Individuel dans un conduit de fumée individuel
+      - const: INDIVIDUEL_COLLECTIF
+        title: Individuel dans un conduit de fumée collectif
+  typeConduitCollectif:
+    title: Type de conduit
+    type: string
+    oneOf:
+      - const: SHUNT
+        title: Shunt pour chaudières non étanches
+      - const: ALSACE
+        title: Alsace pour chaudières non étanches
+      - const: ALVEOLE
+        title: Alvéole technique gaz pour chaudières non étanches
+      - const: VMC
+        title: VMC gaz pour chaudières non étanches
+      - const: ETANCHES
+        title: Conduits collectifs pour chaudières étanches à tirage naturel
+  typeConduitIndividuel:
+    title: Type de conduit
+    type: string
+    oneOf:
+      - const: SHUNT
+        title: Shunt
+      - const: ALSACE
+        title: Alsace
+      - const: VMC
+        title: VMC gaz
 examples:
-  - caracteristiques:
+  - description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
-      chaudiereIndividuelle: false
-      typeConduit: COLLECTIF
-      conduitCollectif: SHUNT
+      critereChaudiereIndividuelle: false
+      typeInstallation: COLLECTIF
+      typeConduit: SHUNT
       quantite: 10

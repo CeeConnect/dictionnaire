@@ -3,22 +3,21 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-118v14-1
 type: object
 properties:
-  caracteristiques:
+  description:
     type: object
     properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
-      typeBatiment:
-        title: Type de bâtiment
-        type: string
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       energieChauffage:
         title: Énergie de chauffage
         type: string
         $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffage
-      ancienneteEquipement:
+      critereAncienneteEquipement:
         title: L'équipement de régulation est installé sur un système de chauffage existant depuis plus de 2 ans
-        $ref: https://schemas.ceeconnect.fr/enums/bar/anciennete_equipement#/$defs/EXISTANT
+        type: boolean
+        const: true
       marque:
         title: " Marque de l'équipement"
         type: string
@@ -63,18 +62,18 @@ properties:
       - ancienneteBatiment
       - typeBatiment
       - energieChauffage
-      - ancienneteEquipement
+      - critereAncienneteEquipement
       - marque
       - reference
 required:
-  - caracteristiques
+  - description
 examples:
-  - caracteristiques:
+  - description:
       typeBatiment: APPARTEMENT
       ancienneteBatiment: EXISTANT
       energieChauffage: COMBUSTIBLES
       logements: 1
-      ancienneteEquipement: EXISTANT
+      critereAncienneteEquipement: true
       typeChauffage: INDIVIDUEL
       marque: MARQUE
       reference: REFERENCE

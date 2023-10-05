@@ -12,11 +12,11 @@ properties:
       indicateurEfficaciteEnergetique:
         title: Indicateur d'efficacité énergétique (PUE)
         type: number
-        minimum: 1.15
+        maximum: 1.15
       indicateurEfficaciteReutilisationEnergie:
         title: Indicateur d'efficacité de réutilisation de l'énergie (ERE)
         type: number
-        minimum: 0.2
+        maximum: 0.2
       puissanceElectrique:
         title: Puissance électrique de l'installation (kW)
         type: number
@@ -133,7 +133,6 @@ properties:
           required:
             - code
 required:
-  - adresse
   - description
   - documents
 examples:
@@ -144,8 +143,8 @@ examples:
       puissanceElectrique: 20
       critereEtudeDimensionnement: true
       critereTemperature: true
-      critereRefroidissementAuxiliaire: true
-      crietereCouvertureUsages: true
+      critereRefroidissementAuxiliaire: false
+      crietereCouvertureUsages: false
       contrat:
         dateSignature: "2024-01-01"
         dateDebut: "2024-02-01"
@@ -157,7 +156,7 @@ examples:
         raisonSociale: RAISON SOCIALE
         siret: "00000000000000"
         email: contact@email.com
-        telephone: 0836656565
+        telephone: "0836656565"
         adresse:
           $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     documents:

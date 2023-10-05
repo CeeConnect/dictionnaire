@@ -5,12 +5,12 @@ type: object
 properties:
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
-  caracteristiques:
+  description:
     type: object
     properties:
       typeBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
-        title: Type de bâtiment
+        title: Le bâtiment est une maison individuelle
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       surfaceCapteurs:
@@ -22,7 +22,7 @@ properties:
         description: Productivité des capteurs est calculée avec un rayonnement de 1 000 W/m²
         type: number
         minimum: 500
-      capteursHybrides:
+      critereCapteursHybrides:
         title: Les capteurs solaires sont exclusivement des capteurs hybrides produisant
           à la fois électricité et chaleur
         type: boolean
@@ -38,7 +38,7 @@ properties:
       - ancienneteBatiment
       - productiviteCapteurs
       - surfaceCapteurs
-      - capteursHybrides
+      - critereCapteursHybrides
       - marque
       - reference
   documents:
@@ -62,17 +62,17 @@ properties:
             - code
 required:
   - adresse
-  - caracteristiques
+  - description
   - documents
 examples:
   - adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    caracteristiques:
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       productiviteCapteurs: 600
       surfaceCapteurs: 10
-      capteursHybrides: true
+      critereCapteursHybrides: true
       marque: MARQUE
       reference: REFERENCE
     documents:
