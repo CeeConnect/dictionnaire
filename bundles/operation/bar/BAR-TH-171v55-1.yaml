@@ -17,7 +17,7 @@ properties:
         type: number
         minimum: 0
       usage:
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_usage#/$defs/chauffage
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_usage#/$defs/chauffages
         title: Usage couvert par l'équipement installé
       performanceEnergetique:
         title: Efficacité énergétique saisonnière (%)

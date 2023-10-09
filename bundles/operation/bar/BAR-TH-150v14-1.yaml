@@ -23,6 +23,11 @@ properties:
         title: Puissance nominale (kW)
         type: number
         minimum: 0
+      puissanceEligibleAutresFiches:
+        title: Puissance totale de(s) chaudière(s) collective(s) installée(s) (kW)
+        description: Renseigner la puissance nominale totale des chaudières nouvellement installées respectant les conditions de la fiches BAR-TH-107
+        type: number
+        minimum: 0
       puissanceEligible:
         title: Puissance totale des pompes à chaleur éligibles
         type: number
@@ -87,6 +92,7 @@ properties:
       - usage
       - temperatureDistribution
       - puissanceNominale
+      - puissanceEligibleAutresFiches
       - puissanceEligible
       - puissanceChaufferie
       - marque
@@ -103,6 +109,7 @@ examples:
       puissanceNominale: 300
       puissanceEligible: 300
       puissanceChaufferie: 300
+      puissanceEligibleAutresFiches: 0
       performanceEnergetique: 140
       marque: MARQUE
       reference: REFERENCE
