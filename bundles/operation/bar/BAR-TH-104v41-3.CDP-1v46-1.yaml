@@ -1,0 +1,37 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-104v41-3.CDP-1v46-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-104v41-3.CDP-1v46-1
+type: object
+allOf:
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-104v41-3
+  - properties:
+      description:
+        type: object
+        properties:
+          critereEquipementExistant:
+            title: L'équipement vient en remplacement d'une chaudière individuelle au fioul, au gaz ou au charbon
+            type: boolean
+            const: true
+          energieChauffage:
+            $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffageFossiles
+        required:
+          - critereEquipementExistant
+          - energieChauffage
+    required:
+      - description
+examples:
+  - description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      critereEquipementExistant: true
+      energieChauffage: FIOUL
+      temperatureDistribution: BASSE_TEMPERATURE
+      surfaceChauffee: 100
+      performanceEnergetique: 130
+      marque: MARQUE
+      reference: REFERENCE
+    documents:
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+      - code: NOTE_DIMENSIONNEMENT
+        url: https://api.ceeconnect.fr/archivage/archives/{uuid}

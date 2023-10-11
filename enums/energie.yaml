@@ -48,3 +48,10 @@ $defs:
     oneOf:
       - $ref: "#/$defs/ELECTRICITE"
       - $ref: "#/$defs/COMBUSTIBLES"
+  energiesChauffageFossiles:
+    title: Energie de chauffage principale
+    type: string
+    oneOf:
+      - $ref: "#/$defs/GAZ_NATUREL"
+      - $ref: "#/$defs/FIOUL"
+      - $ref: "#/$defs/CHARBON"
