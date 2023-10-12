@@ -24,7 +24,7 @@ properties:
         title: Biomasse ligneuse à base de bûches de bois, de copeaux de bois, de bois comprimé sous forme de granulés, de bois comprimé sous forme de briquettes ou de sciure de bois
         type: boolean
         const: true
-      chaleurNetteTotale:
+      quantiteChaleurUtile:
         title: Quantité de chaleur nette utile produite par l'ensemble des chaudières biomasse installées
         description: Cette donnée est reprise de l'étude de dimensionnement préalable à l'installation de la chaudière biomasse
         type: number
@@ -57,7 +57,7 @@ properties:
       - surfaceChauffee
       - logements
       - critereBiomasseLigneuse
-      - chaleurNetteTotale
+      - quantiteChaleurUtile
       - entrepriseEtudeDimensionnement
 $defs:
   equipement:
@@ -195,7 +195,7 @@ examples:
       logements: 10
       surfaceChauffee: 800
       critereBiomasseLigneuse: true
-      chaleurNetteTotale: 10
+      quantiteChaleurUtile: 10
       equipements:
         - puissanceNominale: 60
           performanceEquipement: 84
