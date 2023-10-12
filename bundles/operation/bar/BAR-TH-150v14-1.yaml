@@ -48,8 +48,7 @@ properties:
             type: number
             exclusiveMinimum: 400
           performanceEnergetique:
-            title: Coefficient de performance (COP)
-            type: number
+            $ref: https://schemas.ceeconnect.fr/formats/performance_energetique#/$defs/cop
             minimum: 1.3
         required:
           - puissanceNominale

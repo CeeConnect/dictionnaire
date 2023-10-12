@@ -19,8 +19,7 @@ properties:
         type: number
         minimum: 0
       performanceEnergetique:
-        title: Efficacité énergétique saisonnière
-        type: number
+        $ref: https://schemas.ceeconnect.fr/formats/performance_energetique#/$defs/etas
         minimum: 77
       performanceEnergetiqueRegulateur:
         $ref: https://schemas.ceeconnect.fr/enums/bar/classe_regulateur

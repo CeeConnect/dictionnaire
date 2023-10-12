@@ -15,8 +15,7 @@ properties:
         type: number
         minimum: 0
       performanceEnergetique:
-        title: Efficacité énergétique saisonnière (%)
-        type: number
+        $ref: https://schemas.ceeconnect.fr/formats/performance_energetique#/$defs/etas
         minimum: 111
       tauxCouverture:
         title: Taux de couverture de la pompe à chaleur (%)

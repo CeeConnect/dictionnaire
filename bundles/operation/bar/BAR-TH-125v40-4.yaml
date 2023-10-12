@@ -41,7 +41,7 @@ properties:
           properties:
             typeEquipement:
               $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/doubleFlux
-            performanceEnergetique:
+            classeEnergetique:
               title: Classe énergétique du système de ventilation
               description: Classe énergétique du système de ventilation selon le règlement européen (UE) n° 1254/2014
               type: string
@@ -54,7 +54,7 @@ properties:
               exclusiveMinimum: 85
           required:
             - typeEquipement
-            - performanceEnergetique
+            - classeEnergetique
             - performanceEnergetiqueEchangeur
       - if:
           properties:
@@ -112,7 +112,7 @@ examples:
       surfaceHabitable: 100
       typeInstallation: INDIVIDUEL
       typeEquipement: AUTOREGLABLE
-      performanceEnergetique: A+
+      classeEnergetique: A+
       performanceEnergetiqueEchangeur: 90
       marqueCaisson: MARQUE
       referenceCaisson: REFERENCE

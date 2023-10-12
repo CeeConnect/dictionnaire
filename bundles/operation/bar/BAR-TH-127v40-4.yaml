@@ -70,12 +70,12 @@ properties:
               maximum: 15
             typeCaisson:
               $ref: https://schemas.ceeconnect.fr/enums/bar/type_caisson_vmc#/$defs/BASSE_CONSOMMATION
-            performanceEnergetique:
+            classeEnergetique:
               $ref: https://schemas.ceeconnect.fr/enums/bar/classe_efficacite_energetique#/$defs/ventilations
           required:
             - typeCaisson
             - puissanceElectrique
-            - performanceEnergetique
+            - classeEnergetique
       - if:
           properties:
             typeInstallation:
@@ -166,7 +166,7 @@ examples:
       typeEquipement: TYPE_A
       typeCaisson: BASSE_CONSOMMATION
       puissanceElectrique: 10
-      performanceEnergetique: A+
+      classeEnergetique: A+
       referenceAvisTechnique: REFERENCE
       dateAvisTechnique: '2020-01-01'
       marqueCaison: MARQUE

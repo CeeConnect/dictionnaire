@@ -85,8 +85,7 @@ $defs:
         type: integer
         minimum: 1
       performanceEnergetique:
-        title: Efficacité énergétique saisonnière (%)
-        type: number
+        $ref: https://schemas.ceeconnect.fr/formats/performance_energetique#/$defs/etas
         minimum: 90
       marque:
         title: Marque des équipements

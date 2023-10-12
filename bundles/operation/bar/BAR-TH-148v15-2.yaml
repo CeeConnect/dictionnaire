@@ -13,8 +13,7 @@ properties:
       typeEquipement:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_eau_thermodynamique
       performanceEnergetique:
-        title: Coefficient de performance (COP)
-        type: number
+        $ref: https://schemas.ceeconnect.fr/formats/performance_energetique#/$defs/cop
         exclusiveMinimum: 2.4
       marque:
         title: Marque

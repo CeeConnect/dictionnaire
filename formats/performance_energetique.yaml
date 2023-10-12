@@ -5,6 +5,7 @@ anyOf:
   - "#/$defs/etas"
   - "#/$defs/cop"
   - "#/$defs/scop"
+  - "#/$defs/rendementPCI"
 $defs:
   etas:
     title: Efficacité énergétique saisonnière (%)
@@ -16,5 +17,9 @@ $defs:
     minimum: 0
   scop:
     title: Coefficient de performance saisonnier
+    type: number
+    minimum: 0
+  rendementPCI:
+    title: Rendement PCI nominal (%)
     type: number
     minimum: 0

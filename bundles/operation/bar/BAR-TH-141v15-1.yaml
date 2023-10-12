@@ -25,7 +25,7 @@ properties:
         oneOf:
           - const: 7000
           - const: 9000
-      performanceEnergetique:
+      classeEnergetique:
         title: Classe d'efficacité énergétique
         $ref: https://schemas.ceeconnect.fr/enums/bar/classe_efficacite_energetique#/$defs/climatiseurs
       quantite:
@@ -45,7 +45,7 @@ properties:
       - typeEquipement
       - critereRemplacement
       - puissanceFrigorifique
-      - performanceEnergetique
+      - classeEnergetique
       - quantite
       - marque
       - reference
@@ -61,7 +61,7 @@ examples:
       typeEquipement: CLIMATISEUR_FIXE
       critereRemplacement: true
       puissanceFrigorifique: 7000
-      performanceEnergetique: A
+      classeEnergetique: A
       quantite: 4
       marque: MARQUE
       reference: REFERENCE

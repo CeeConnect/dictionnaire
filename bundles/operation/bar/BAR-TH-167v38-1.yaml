@@ -25,8 +25,7 @@ properties:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain
         title: Type de chauffe-bain
       performanceEnergetique:
-        title: Rendement PCI nominal (%)
-        type: number
+        $ref: https://schemas.ceeconnect.fr/formats/performance_energetique#/$defs/rendementPCI
         minimum: 0
       classeEnergetique:
         $ref: https://schemas.ceeconnect.fr/enums/bar/classe_efficacite_energetique#/$defs/chauffesBain

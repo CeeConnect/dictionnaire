@@ -16,8 +16,7 @@ properties:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_combustible_biomasse
         title: Type de combustible
       performanceEnergetique:
-        title: Efficacité énergétique saisonnière (%)
-        type: number
+        $ref: https://schemas.ceeconnect.fr/formats/performance_energetique#/$defs/etas
         minimum: 66
       critereFlammeVerte:
         title: La chaudière installée possède le label Flamme Verte 7*

@@ -19,8 +19,7 @@ properties:
         type: number
         maximum: 12
       performanceEnergetique:
-        title: Coefficient de performance saisonnier (SCOP)
-        type: number
+        $ref: https://schemas.ceeconnect.fr/formats/performance_energetique#/$defs/scop
         minimum: 3.9
       marque:
         title: Marque de l'équipement
