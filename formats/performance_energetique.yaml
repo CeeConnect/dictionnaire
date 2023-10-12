@@ -1,0 +1,20 @@
+$id: https://schemas.ceeconnect.fr/formats/performance_energetique
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Performance énergétique des équipements
+anyOf:
+  - "#/$defs/etas"
+  - "#/$defs/cop"
+  - "#/$defs/scop"
+$defs:
+  etas:
+    title: Efficacité énergétique saisonnière (%)
+    type: number
+    minimum: 0
+  cop:
+    title: Coefficient de performance énergétique
+    type: number
+    minimum: 0
+  scop:
+    title: Coefficient de performance saisonnier
+    type: number
+    minimum: 0
