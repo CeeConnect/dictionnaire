@@ -1,11 +1,12 @@
 $id: https://schemas.ceeconnect.fr/formats/performance_energetique
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Performance énergétique des équipements
+type: number
 anyOf:
-  - "#/$defs/etas"
-  - "#/$defs/cop"
-  - "#/$defs/scop"
-  - "#/$defs/rendementPCI"
+  - $ref: "#/$defs/etas"
+  - $ref: "#/$defs/cop"
+  - $ref: "#/$defs/scop"
+  - $ref: "#/$defs/rendementPCI"
 $defs:
   etas:
     title: Efficacité énergétique saisonnière (%)
@@ -23,3 +24,8 @@ $defs:
     title: Rendement PCI nominal (%)
     type: number
     minimum: 0
+examples:
+  - 130
+  - 4.5
+  - 4
+  - 80
