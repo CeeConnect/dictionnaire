@@ -1,8 +1,45 @@
 $id: https://schemas.ceeconnect.fr/formats/reference_fiche
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Référence interne
+title: Fiche d'opération standardisée
 type: string
-pattern: (AGRI|BAR|BAT|IND|RES|TRA)-(BA|CH|EC|EN|EQ|SE|TH|UT)-[0-9]+(-SE)?v[0-9]+[-][0-9]+
+pattern: (AGRI|BAR|BAT|IND|RES|TRA)[-](BA|CH|EC|EN|EQ|SE|TH|UT)[-][0-9]+([-]SE)?v[0-9]+[-][0-9]+
+$defs:
+  agri:
+    title: Fiche d'opération standardisée - Agriculture
+    type: string
+    pattern: (AGRI)[-](BA|CH|EC|EN|EQ|SE|TH|UT)[-][0-9]+([-]SE)?v[0-9]+[-][0-9]+
+    examples:
+      - AGRI-EQ-101v14-1
+  bar:
+    title: Fiche d'opération standardisée - Bâtiment résidentiel
+    type: string
+    pattern: (BAR)[-](BA|CH|EC|EN|EQ|SE|TH|UT)[-][0-9]+([-]SE)?v[0-9]+[-][0-9]+
+    examples:
+      - BAR-EN-101v39-4
+  bat:
+    title: Fiche d'opération standardisée - Bâtiment tertiaire
+    type: string
+    pattern: (BAT)[-](BA|CH|EC|EN|EQ|SE|TH|UT)[-][0-9]+([-]SE)?v[0-9]+[-][0-9]+
+    examples:
+      - BAT-EN-101v33-3
+  ind:
+    title: Fiche d'opération standardisée - Industrie
+    type: string
+    pattern: (IND)[-](BA|CH|EC|EN|EQ|SE|TH|UT)[-][0-9]+([-]SE)?v[0-9]+[-][0-9]+
+    examples:
+      - IND-BA-110v20-2
+  res:
+    title: Fiche d'opération standardisée - Réseau
+    type: string
+    pattern: (RES)[-](BA|CH|EC|EN|EQ|SE|TH|UT)[-][0-9]+([-]SE)?v[0-9]+[-][0-9]+
+    examples:
+      - RES-CH-101v16-1
+  tra:
+    title: Fiche d'opération standardisée - Transport
+    type: string
+    pattern: (TRA)[-](BA|CH|EC|EN|EQ|SE|TH|UT)[-][0-9]+([-]SE)?v[0-9]+[-][0-9]+
+    examples:
+      - TRA-EQ-101v14-1
 examples:
   - BAR-EN-101v39-4
   - BAR-EN-102v39-2
