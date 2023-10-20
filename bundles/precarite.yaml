@@ -24,14 +24,12 @@ $defs:
         required:
           - scenario
       - properties:
-          menages:
-            title: Ménage occupant
-            type: array
-            minItems: 1
-            items:
-              $ref: '#/$defs/menage'
+          categorieRessource:
+            $ref: https://schemas.ceeconnect.fr/enums/categorie_ressource
         required:
-          - menages
+          - categorieRessource
+        allOf:
+          - $ref: '#/$defs/menage'
   '8.2':
     type: object
     allOf:
@@ -65,6 +63,30 @@ $defs:
             $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.3
         required:
           - scenario
+      - properties:
+          nombreMenages:
+            title: Nombre de ménages
+            description: Indiquer le nombre de ménages concernés par l'opération
+            type: integer
+            minimum: 1
+          nombreMenagesModestes:
+            title: Nombre de ménages modestes
+            description: |
+              Indiquer le nombre de ménages concernés par l'opération dont les ressources sont inférieures au plafond des 
+              catégories "Modeste" et "Très modestes" du barème Ma Prime Rénov'
+            type: integer
+            minimum: 0
+          nombreMenagesTresModestes:
+            title: Nombre de ménages précaires
+            description: |
+              Indiquer le nombre de ménages concernés par l'opération dont les ressources sont inférieures au plafond de 
+              catégorie "Très modestes" du barème Ma Prime Rénov'
+            type: integer
+            minimum: 0
+        required:
+          - nombreMenages
+          - nombreMenagesModestes
+          - nombreMenagesTresModestes
   '8.4':
     type: object
     allOf:
@@ -93,6 +115,25 @@ $defs:
         required:
           - scenario
       - properties:
+          nombreMenages:
+            title: Nombre de ménages
+            description: Indiquer le nombre de ménages concernés par l'opération
+            type: integer
+            minimum: 1
+          nombreMenagesModestes:
+            title: Nombre de ménages modestes
+            description: |
+              Indiquer le nombre de ménages concernés par l'opération dont les ressources sont inférieures au plafond des 
+              catégories "Modeste" et "Très modestes" du barème Ma Prime Rénov'
+            type: integer
+            minimum: 0
+          nombreMenagesTresModestes:
+            title: Nombre de ménages précaires
+            description: |
+              Indiquer le nombre de ménages concernés par l'opération dont les ressources sont inférieures au plafond de 
+              catégorie "Très modestes" du barème Ma Prime Rénov'
+            type: integer
+            minimum: 0
           menages:
             title: Liste des ménages concernés par l'opération
             type: array
@@ -100,6 +141,9 @@ $defs:
             items:
               $ref: '#/$defs/menage'
         required:
+          - nombreMenages
+          - nombreMenagesModestes
+          - nombreMenagesTresModestes
           - menages
   menage:
     title: Ménage
@@ -178,11 +222,10 @@ $defs:
       - menages
 examples:
   - scenario: "8.1"
-    menages:
-      - nom: NOM
-        prenom: PRENOM
-        composition: 3
-        categorieRessource: MODESTE
-        foyersFiscaux:
-          - identifiantFiscal: "0000000000000"
-            referenceAvis: "00000000000000"
+    nom: NOM
+    prenom: PRENOM
+    composition: 3
+    categorieRessource: MODESTE
+    foyersFiscaux:
+      - identifiantFiscal: "0000000000000"
+        referenceAvis: "00000000000000"
