@@ -4,9 +4,9 @@ title: Zones non interconnectées au réseau métropolitain continental de trans
 description: Version en vigueur à compter du 17/04/2021
 properties:
   fiche:
-    $ref: https://schemas.ceeconnect.fr/formats/reference_fiche
+    $ref: https://schemas.ceeconnect.fr/enums/fiche
   bonification:
-    $ref: https://schemas.ceeconnect.fr/formats/reference_bonification
+    $ref: https://schemas.ceeconnect.fr/enums/bonification
     const: ZNIv35-1
 required:
   - fiche

@@ -5,10 +5,10 @@ description: Version en vigueur du 01/03/2023 au 06/10/2023
 type: object
 properties:
   fiche:
-    $ref: https://schemas.ceeconnect.fr/formats/reference_fiche
+    $ref: https://schemas.ceeconnect.fr/enums/fiche
     pattern: BAR[-]TH[-](104|106|112|113|137|143|159|171|172).*
   bonification:
-    $ref: https://schemas.ceeconnect.fr/formats/reference_bonification
+    $ref: https://schemas.ceeconnect.fr/enums/bonification
     const: CDPv50-1
 required:
   - fiche

@@ -9,10 +9,10 @@ properties:
     type: string
     format: uuid
   fiche:
-    $ref: https://schemas.ceeconnect.fr/formats/reference_fiche
+    $ref: https://schemas.ceeconnect.fr/enums/fiche
     title: Fiche d'opération standardisée
   bonification:
-    $ref: https://schemas.ceeconnect.fr/formats/reference_bonification
+    $ref: https://schemas.ceeconnect.fr/enums/bonification
     title: Bonification
   dateVisitePrealable:
     title: Date de la visite préalable

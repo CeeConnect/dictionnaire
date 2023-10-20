@@ -6,7 +6,7 @@ discriminator:
   propertyName: bonification
 properties:
   bonification:
-    $ref: https://schemas.ceeconnect.fr/formats/reference_bonification
+    $ref: https://schemas.ceeconnect.fr/enums/bonification
 required:
   - bonification
 oneOf:
