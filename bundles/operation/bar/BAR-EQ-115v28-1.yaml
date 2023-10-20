@@ -4,6 +4,9 @@ $comment: "TODO: Intégrer les fonctionnalités d'affichage des consommations"
 title: BAR-EQ-115v28-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-EQ-115v28-1
   description:
     type: object
     properties:
@@ -123,6 +126,7 @@ properties:
           required:
             - code
 required:
+  - fiche
   - description
   - documents
 examples:

@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-EQ-110v15-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-EQ-110v15-1
   description:
     title: Caractéristiques
     type: object
@@ -24,6 +27,7 @@ properties:
       - detecteurLumiere
       - detecteurPresence
 required:
+  - fiche
   - description
 examples:
   - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1#/examples/0

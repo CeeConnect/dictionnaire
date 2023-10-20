@@ -4,6 +4,9 @@ $comment: "TODO: Intégrer le document spécifique"
 title: BAR-TH-137v45-3
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-137v45-3
   description:
     type: object
     properties:
@@ -111,6 +114,7 @@ properties:
       - telephone
       - mobile
 required:
+  - fiche
   - description
   - gestionnaire
 examples:

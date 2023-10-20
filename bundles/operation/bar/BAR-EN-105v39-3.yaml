@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-EN-105v39-3
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-EN-105v39-3
   description:
     type: object
     properties:
@@ -64,6 +67,7 @@ properties:
           required:
             - code
 required:
+  - fiche
   - description
   - documents
 examples:

@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BBAR-TH-130v54-2
 type: object
 properties:
+  fiche:
+    type: string
+    const: BBAR-TH-130v54-2
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   description:
@@ -138,6 +141,7 @@ properties:
           required:
             - code
 required:
+  - fiche
   - adresse
   - description
   - documents

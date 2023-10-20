@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-150v14-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-150v14-1
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
   description:
@@ -46,6 +49,7 @@ properties:
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1#/properties/description/anyOf/0
       - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1#/properties/description/anyOf/1
 required:
+  - fiche
   - adresse
   - description
 examples:

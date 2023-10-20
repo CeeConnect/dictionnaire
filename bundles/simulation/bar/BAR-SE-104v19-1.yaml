@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-SE-104v19-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-SE-104v19-1
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
   description:
@@ -26,6 +29,7 @@ properties:
       - ancienneteBatiment
       - logements
 required:
+  - fiche
   - adresse
   - description
 examples:

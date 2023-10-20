@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-EQ-110v15-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-EQ-110v15-1
   description:
     type: object
     properties:
@@ -86,6 +89,7 @@ properties:
         required:
           - detecteurPresence
 required:
+  - fiche
   - description
 examples:
   - description:

@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-SE-107v37-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-SE-107v37-1
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   description:
@@ -24,6 +27,7 @@ properties:
       - ancienneteBatiment
       - logements
 required:
+  - fiche
   - adresse
   - description
 examples:

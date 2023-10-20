@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-EN-108v54-3
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-EN-108v54-3
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceOutreMer
   description:
@@ -56,6 +59,7 @@ properties:
           required:
             - code
 required:
+  - fiche
   - adresse
   - description
 examples:

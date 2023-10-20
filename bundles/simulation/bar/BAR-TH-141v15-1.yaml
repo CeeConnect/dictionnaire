@@ -5,6 +5,9 @@ $comment: |
 title: BAR-TH-141v15-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-141v15-1
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceOutreMer
   description:
@@ -29,6 +32,7 @@ properties:
       - puissanceFrigorifique
       - classeEnergetique
 required:
+  - fiche
   - adresse
   - description
 examples:

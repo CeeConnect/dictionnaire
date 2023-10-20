@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-129v27-3
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-129v27-3
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
   description:
@@ -28,6 +31,7 @@ properties:
       - surfaceChauffee
       - performanceEnergetique
 required:
+  - fiche
   - adresse
   - description
 examples:

@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-124v35-3
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-124v35-3
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceOutreMer
   description:
@@ -91,6 +94,7 @@ properties:
           required:
             - code
 required:
+  - fiche
   - adresse
   - description
   - documents

@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-102v17-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-102v17-1
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   description:
@@ -35,6 +38,7 @@ properties:
       - productionSolaireUtile
       - tauxCouverture
 required:
+  - fiche
   - adresse
   - description
 examples:

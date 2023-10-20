@@ -4,6 +4,9 @@ $comment: Scénario Flamme verte uniquement couvert
 title: BAR-TH-113v41-3
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-113v41-3
   description:
     type: object
     properties:
@@ -116,6 +119,7 @@ properties:
           required:
             - code
 required:
+  - fiche
   - description
   - documents
 examples:

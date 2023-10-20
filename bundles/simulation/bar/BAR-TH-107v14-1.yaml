@@ -5,6 +5,9 @@ $comment: |
 title: BAR-TH-107v14-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-107v14-1
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
   description:
@@ -62,6 +65,7 @@ properties:
             - puissanceEligible
             - puissanceChaufferie
 required:
+  - fiche
   - adresse
   - description
 examples:

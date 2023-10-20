@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-169v46-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-169v46-1
   description:
     type: object
     properties:
@@ -258,6 +261,7 @@ $defs:
           required:
             - code
 required:
+  - fiche
   - description
   - documents
 examples:

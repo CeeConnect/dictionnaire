@@ -4,6 +4,9 @@ $comment: "TODO: Vérifier la partie relative au coefficient R de l'attestation 
 title: BAR-TH-122v15-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-122v15-1
   description:
     type: object
     properties:
@@ -61,6 +64,7 @@ properties:
       - marque
       - reference
 required:
+  - fiche
   - description
 examples:
   - description:

@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-163v38-2
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-163v38-2
   description:
     type: object
     properties:
@@ -77,6 +80,7 @@ properties:
       - critereChaudiereIndividuelle
       - typeInstallation
 required:
+  - fiche
   - description
 $defs:
   typeInstallation:

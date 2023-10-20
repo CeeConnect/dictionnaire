@@ -4,6 +4,9 @@ $comment: "TODO: Définir la nature neuve d'une pompe en fonction de sa date d'a
 title: BAR-TH-139v23-2
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-139v23-2
   description:
     type: object
     properties:
@@ -108,4 +111,5 @@ properties:
       - typeInstallationChauffage
       - equipements
 required:
+  - fiche
   - description

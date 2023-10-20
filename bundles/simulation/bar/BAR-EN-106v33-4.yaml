@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-EN-106v33-4
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-EN-106v33-4
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceOutreMer
   description:
@@ -20,6 +23,7 @@ properties:
       - ancienneteBatiment
       - quantite
 required:
+  - fiche
   - adresse
   - description
 examples:

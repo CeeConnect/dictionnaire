@@ -5,6 +5,9 @@ $comment: |
 title: BAR-TH-122v15-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-122v15-1
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
   description:
@@ -25,6 +28,7 @@ properties:
       - ancienneteBatiment
       - logements
 required:
+  - fiche
   - adresse
   - description
 examples:

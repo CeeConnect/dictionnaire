@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-171v55-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-171v55-1
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
   description:
@@ -33,6 +36,7 @@ properties:
       - performanceEnergetique
       - critereEquipementExistant
 required:
+  - fiche
   - adresse
   - description
 examples:

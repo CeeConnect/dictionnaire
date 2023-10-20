@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-148v15-2
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-148v15-2
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   description:
@@ -17,6 +20,7 @@ properties:
       - typeBatiment
       - ancienneteBatiment
 required:
+  - fiche
   - description
 examples:
   - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-148v15-2#/examples/0

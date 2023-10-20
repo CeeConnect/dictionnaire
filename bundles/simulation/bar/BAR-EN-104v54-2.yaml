@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-EN-104v54-2
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-EN-104v54-2
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
   description:
@@ -20,6 +23,7 @@ properties:
       - energieChauffage
       - quantite
 required:
+  - fiche
   - adresse
   - description
 examples:

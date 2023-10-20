@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-130v26-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-130v26-1
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   description:
@@ -128,6 +131,7 @@ properties:
           required:
             - code
 required:
+  - fiche
   - adresse
   - description
   - documents

@@ -5,6 +5,9 @@ $comment: |
 title: BAR-TH-145v36-3
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-145v36-3
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   description:
@@ -198,6 +201,7 @@ properties:
           required:
             - code
 required:
+  - fiche
   - adresse
   - description
   - documents

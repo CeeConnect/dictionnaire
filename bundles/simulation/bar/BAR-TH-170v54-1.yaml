@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-170v54-1
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-170v54-1
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
   description:
@@ -17,6 +20,7 @@ properties:
       - typeBatiment
       - puissanceElectrique
 required:
+  - fiche
   - description
 examples:
   - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-170v54-1#/examples/0

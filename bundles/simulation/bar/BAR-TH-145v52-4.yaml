@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-145v52-4
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-145v52-4
   adresse:
     $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-145v52-4#/properties/adresse
   description:
@@ -60,6 +63,7 @@ properties:
           required:
             - tauxEnergieRenouvelable
 required:
+  - fiche
   - adresse
   - description
 examples:

@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-161v54-2
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-161v54-2
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
   description:
@@ -37,6 +40,7 @@ properties:
       - ancienneteBatiment
       - equipements
 required:
+  - fiche
   - adresse
   - description
 examples:

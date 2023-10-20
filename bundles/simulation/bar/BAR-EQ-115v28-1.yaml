@@ -23,6 +23,7 @@ properties:
       - surfaceHabitable
       - optionSuiviConfort
 required:
+  - fiche
   - adresse
   - description
 examples:

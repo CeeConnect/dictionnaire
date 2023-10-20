@@ -3,6 +3,9 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: BAR-TH-113v41-3
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-113v41-3
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
   description:
@@ -24,6 +27,7 @@ properties:
       - energieChauffage
       - critereEquipementExistant
 required:
+  - fiche
   - adresse
   - description
 examples:

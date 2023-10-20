@@ -6,6 +6,9 @@ $comment: |
 title: BAR-TH-160v50-3
 type: object
 properties:
+  fiche:
+    type: string
+    const: BAR-TH-160v50-3
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   description:
@@ -101,6 +104,7 @@ properties:
           required:
             - code
 required:
+  - fiche
   - adresse
   - description
   - documents
