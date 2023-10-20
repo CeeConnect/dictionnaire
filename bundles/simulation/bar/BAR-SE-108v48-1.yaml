@@ -24,4 +24,9 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-108v48-1
+  - fiche: BAR-SE-108v48-1
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT

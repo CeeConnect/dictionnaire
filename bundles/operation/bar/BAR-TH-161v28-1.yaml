@@ -157,12 +157,12 @@ examples:
     description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
-      typePointSingulier: ECHANGEUR
-      temperatureFluide: 60
-      quantite: 100
-      dateEtatRecapitulatif: 2023-12-12
+      dateEtatRecapitulatif: "2023-12-12"
       equipements:
-        - critereNature: true
+        - typePointSingulier: ECHANGEUR
+          temperatureFluide: 60
+          quantite: 100
+          critereNature: true
           critereMateriau: true
           temperatureService: 250
           resistance50: 2

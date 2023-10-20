@@ -40,4 +40,14 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-171v55-1
+  - fiche: BAR-TH-171v55-1
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      energieChauffage: FIOUL
+      usage: CHAUFFAGE
+      surfaceChauffee: 100
+      performanceEnergetique: 111
+      critereEquipementExistant: true

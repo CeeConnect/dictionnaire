@@ -42,4 +42,12 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-135v35-2
+  - fiche: BAR-TH-135v35-2
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/3
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      typeEquipement: CESCI
+      besoinEauChaudeSanitaire: 100000
+      tauxCouverture: 80

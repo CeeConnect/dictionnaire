@@ -27,4 +27,10 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-109v24-1
+  - fiche: BAR-EN-109v24-1
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/3
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      quantite: 500

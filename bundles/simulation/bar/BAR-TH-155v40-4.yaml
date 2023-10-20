@@ -32,4 +32,11 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-155v40-4
+  - fiche: BAR-TH-155v40-4
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      ancienneteBatiment: EXISTANT
+      logements: 20
+      typeEquipement: TYPE_B
+      typeExtracteur: STANDARD

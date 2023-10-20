@@ -55,4 +55,19 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1
+  - fiche: BAR-TH-150v14-1
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      logements: 20
+      usages: CHAUFFAGE
+      temperatureDistribution: HAUTE_TEMPERATURE
+      puissanceNominale: 300
+      puissanceEligible: 300
+      puissanceChaufferie: 300
+      puissanceEligibleAutresFiches: 0
+      performanceEnergetique: 120
+      critereRegimeCopropriete: true
+      critereEquipementExistant: true

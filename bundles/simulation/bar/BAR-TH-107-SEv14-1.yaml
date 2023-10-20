@@ -71,4 +71,15 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-107-SEv14-1
+  - fiche: BAR-TH-107-SEv14-1
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      logements: 50
+      puissanceNominale: 100
+      puissanceEligibleAutresFiches: 0
+      puissanceChaufferie: 100
+      puissanceEligible: 100
+      dureeContrat: 10

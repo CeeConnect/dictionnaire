@@ -69,4 +69,17 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-145v36-3
+  - fiche: BAR-TH-145v36-3
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      surfaceHabitable: 1000
+      logements: 40
+      critereRegimeCopropriete: true
+      critereChangemenentEquipement: true
+      tauxEnergieRenouvelable: 60
+      auditEnergetique:
+        cefInitial: 400
+        cefProjet: 200

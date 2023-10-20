@@ -108,7 +108,7 @@ properties:
     required:
       - typeBatiment
       - ancienneteBatiment
-      - typeInstallationChauffage
+      - typeInstallation
       - equipements
 required:
   - fiche
@@ -116,7 +116,7 @@ required:
 examples:
   - fiche: BAR-TH-139v23-2
     description:
-      typeBatiment: MAISON
+      typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       typeInstallation: COLLECTIF
       equipements:

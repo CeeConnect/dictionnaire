@@ -54,14 +54,13 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-137v45-3
-  - adresse:
+  - fiche: BAR-TH-137v45-3
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
-      typeBatiment: IMMEUBLE
+      typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       energieChauffage: FIOUL
-      logements: 50
-      critereRegimeCopropriete: true
+      surfaceHabitable: 100
       critereEquipementExistant: true
       critereAlimentationReseauChaleur: true

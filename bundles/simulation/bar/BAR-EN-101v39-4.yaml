@@ -24,4 +24,9 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-101v39-4
+  - fiche: BAR-EN-101v39-4
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      ancienneteBatiment: EXISTANT
+      quantite: 100

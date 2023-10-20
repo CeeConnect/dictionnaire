@@ -44,4 +44,18 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-161v54-2
+  - fiche: BAR-TH-161v54-2
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      equipements:
+        - typePointSingulier: ECHANGEUR
+          quantite: 5
+          diametre: 20
+          temperatureFluide: 50
+        - typePointSingulier: HORS_ECHANGEUR
+          quantite: 5
+          diametreNominal: 65
+          temperatureFluide: 50

@@ -34,4 +34,11 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-129v27-3
+  - fiche: BAR-TH-129v27-3
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      performanceEnergetique: 4.7
+      surfaceChauffee: 100

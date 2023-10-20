@@ -30,4 +30,10 @@ required:
   - fiche
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1
+  - fiche: BAR-EQ-110v15-1
+    description:
+      ancienneteBatiment: EXISTANT
+      detecteurLumiere: true
+      detecteurPresence: false
+      quantite: 50
+      indiceProtectionChocs: "08"

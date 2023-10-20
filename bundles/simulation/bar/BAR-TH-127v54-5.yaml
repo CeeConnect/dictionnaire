@@ -71,4 +71,13 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-127v54-5
+  - fiche: BAR-TH-127v54-5
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      typeInstallation: INDIVIDUEL
+      typeEquipement: TYPE_A
+      typeCaisson: BASSE_CONSOMMATION
+      surfaceHabitable: 100

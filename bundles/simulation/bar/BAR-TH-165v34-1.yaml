@@ -39,4 +39,13 @@ required:
   - fiche
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-165v34-1
+  - fiche: BAR-TH-165v34-1
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      quantiteChaleurUtile: 140000
+      puissanceNominale: 450
+      critereRegimeCopropriete: true
+      critereEquipementExistant: true

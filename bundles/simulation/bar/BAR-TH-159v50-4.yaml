@@ -37,4 +37,13 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-159v50-4
+  - fiche: BAR-TH-159v50-4
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      energieChauffage: FIOUL
+      performanceEnergetique: 120
+      surfaceChauffee: 150
+      critereEquipementExistant: true

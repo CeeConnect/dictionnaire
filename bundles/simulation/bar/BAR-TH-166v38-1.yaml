@@ -52,4 +52,17 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-166v38-1
+  - fiche: BAR-TH-166v38-1
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      logements: 10
+      usage: CHAUFFAGE
+      typeEquipement: PAC_EAU_EAU
+      performanceEnergetique: 111
+      puissanceNominale: 200
+      puissanceChaufferie: 200
+      critereRegimeCopropriete: true
+      critereEquipementExistant: true

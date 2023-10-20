@@ -72,4 +72,15 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-130v54-2
+  - fiche: BAR-TH-130v54-2
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: NEUF
+      extensionBatiment: false
+      energieChauffage: ELECTRICITE
+      energieEauChaudeSanitaire: ELECTRICITE
+      surfaceReference: 120
+      cefBat: 20
+      cepMax: 50

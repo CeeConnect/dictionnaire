@@ -38,4 +38,11 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-109v54-1
+  - fiche: BAR-SE-109v54-1
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      typeEquipementExistant: CHAUDIERE_HORS_CONDENSATION
+      logements: 50

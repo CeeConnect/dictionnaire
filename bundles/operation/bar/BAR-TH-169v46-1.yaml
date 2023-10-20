@@ -56,16 +56,13 @@ $defs:
         type: number
         minimum: 2.8
       tauxCouverture:
-        title: Taux de couverture
-        description: >
-          Renseigner le rapport entre l'énergie annuelle cumulée produite par la
-          PAC sans l'appoint pour le chauffage 
-
-          de l'eau et la somme des besoins annuels cumulés liés au puisage de l'eau chaude sanitaire et des pertes de 
-
-          distribution d'eau chaude sanitaire cumulées sur l'année
+        title: Taux de couverture (%)
+        description: |
+          Renseigner le rapport entre l'énergie annuelle cumulée produite par la PAC sans l'appoint pour 
+          le chauffage de l'eau et la somme des besoins annuels cumulés liés au puisage de l'eau chaude 
+          sanitaire et des pertes de distribution d'eau chaude sanitaire cumulées sur l'année
         type: number
-        maximum: 1
+        minimum: 0
       marque:
         title: Marque de la pompe à chaleur installée
         type: string
@@ -269,7 +266,7 @@ examples:
         - typeEquipement: CET
           puissanceNominale: 200
           performanceEnergetique: 65
-          tauxCouverture: 0.9
+          tauxCouverture: 90
           profilSoutirage: 3XL
           marque: MARQUE
           reference: REFERENCE

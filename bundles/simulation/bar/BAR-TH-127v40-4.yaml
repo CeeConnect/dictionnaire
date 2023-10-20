@@ -1,11 +1,11 @@
-$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-125v54-5
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-127v40-4
 $schema: https://json-schema.org/draft/2020-12/schema
-title: BAR-TH-125v54-5
+title: BAR-TH-127v40-4
 type: object
 properties:
   fiche:
     type: string
-    const: BAR-TH-125v54-5
+    const: BAR-TH-127v40-4
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   description:
@@ -71,4 +71,13 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-125v54-5
+  - fiche: BAR-TH-127v40-4
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      typeInstallation: INDIVIDUEL
+      typeEquipement: TYPE_A
+      typeCaisson: BASSE_CONSOMMATION
+      surfaceHabitable: 100

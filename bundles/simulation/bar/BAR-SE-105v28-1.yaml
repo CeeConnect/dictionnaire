@@ -38,4 +38,11 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-105v28-1
+  - fiche: BAR-SE-105v28-1
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/2
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      logements: 20
+      dureeGarantie: 2

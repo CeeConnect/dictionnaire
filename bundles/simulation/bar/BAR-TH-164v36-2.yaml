@@ -43,4 +43,16 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-164v36-2
+  - fiche: BAR-TH-164v36-2
+    adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      surfaceHabitable: 100
+      categoriesTravaux:
+        - ISOLATION_MURS
+        - CHAUFFAGE
+      auditEnergetique:
+        cefInitial: 60
+        cefProjet: 30
