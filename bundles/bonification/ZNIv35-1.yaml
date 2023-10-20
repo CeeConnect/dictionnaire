@@ -1,0 +1,24 @@
+$id: https://schemas.ceeconnect.fr/bundles/bonification/ZNIv35-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Zones non interconnectées au réseau métropolitain continental de transport d'électricité
+description: Version en vigueur à compter du 17/04/2021
+properties:
+  fiche:
+    $ref: https://schemas.ceeconnect.fr/formats/reference_fiche
+  bonification:
+    $ref: https://schemas.ceeconnect.fr/formats/reference_bonification
+    const: ZNIv35-1
+required:
+  - fiche
+  - bonification
+allOf:
+  - if:
+      type: object
+      required:
+        - bonification
+    then:
+      properties:
+        adresse:
+          $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceOutreMer
+      required:
+        - adresse

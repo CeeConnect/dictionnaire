@@ -102,6 +102,8 @@ properties:
           - extensionBatiment
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Récépissé du dépôt de persmis de construire

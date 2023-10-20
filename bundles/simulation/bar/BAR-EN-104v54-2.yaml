@@ -1,0 +1,31 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-EN-104v54-2
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-EN-104v54-2
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-104v54-2#/properties/description/properties/ancienneteBatiment
+      energieChauffage:
+        $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffage
+      surface:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-104v54-2#/properties/description/properties/surface
+    required:
+      - ancienneteBatiment
+      - energieChauffage
+      - quantite
+required:
+  - adresse
+  - description
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      ancienneteBatiment: EXISTANT
+      energieChauffage: ELECTRICITE
+      quantite: 10

@@ -1,0 +1,41 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-169v46-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-169v46-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-169v46-1#/properties/description/properties/typeBatiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-169v46-1#/properties/description/properties/ancienneteBatiment
+      logements:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-169v46-1#/properties/description/properties/logements
+      equipements:
+        title: Liste des équipements installés
+        type: array
+        minItems: 1
+        items:
+          type: object
+          properties:
+            performanceEnergetique:
+              $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-169v46-1#/properties/description/properties/equipements/items/properties/performanceEnergetique
+            tauxCouverture:
+              $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-169v46-1#/properties/description/properties/equipements/items/properties/tauxCouverture
+          required:
+            - performanceEnergetique
+            - tauxCouverture
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - logements
+      - equipements
+required:
+  - adresse
+  - description
+examples:
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-169v46-1#/examples/0

@@ -1,0 +1,52 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-150v14-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-150v14-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1#/properties/description/properties/typeBatiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1#/properties/description/properties/ancienneteBatiment
+      logements:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1#/properties/description/properties/logements
+      usage:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1#/properties/description/properties/usage
+      temperatureDistribution:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1#/properties/description/properties/temperatureDistribution
+      puissanceNominale:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1#/properties/description/properties/puissanceNominale
+      puissanceEligible:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1#/properties/description/properties/puissanceEligible
+      puissanceEligibleAutresFiches:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1#/properties/description/properties/puissanceEligibleAutresFiches
+      puissanceChaufferie:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1#/properties/description/properties/puissanceChaufferie
+      critereRegimeCopropriete:
+        title: L'immeuble relève du régime de la copropriété défini par la loi n° 65-557 du 10 juillet 1965
+        type: boolean
+      critereEquipementExistant:
+        title: L'équipement vient en remplacement d'une chaudière collective au fioul, au gaz ou au charbon
+        type: boolean
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - logements
+      - usages
+      - puissanceNominale
+      - puissanceEligibleAutresFiches
+      - puissanceEligible
+      - puissanceChaufferie
+    anyOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1#/properties/description/anyOf/0
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1#/properties/description/anyOf/1
+required:
+  - adresse
+  - description
+examples:
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1#/examples/0

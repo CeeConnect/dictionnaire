@@ -78,6 +78,8 @@ properties:
             - puissanceExtracteur
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Avis technique du système de ventilation hybride hygroréglable

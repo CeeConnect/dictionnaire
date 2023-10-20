@@ -1,0 +1,101 @@
+$id: https://schemas.ceeconnect.fr/bundles/bonification/CFTv50-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Coup de pouce Chauffage des bâtiments résidentiels collectifs et tertiaires
+description: Version en vigueur à compter du 01/03/2023
+type: object
+properties:
+  fiche:
+    $ref: https://schemas.ceeconnect.fr/formats/reference_fiche
+    pattern: BAR[-]TH[-](137|150|165|166).*
+  bonification:
+    $ref: https://schemas.ceeconnect.fr/formats/reference_bonification
+    const: CFTv50-1
+required:
+  - fiche
+  - bonification
+allOf:
+  - if:
+      type: object
+      properties:
+        fiche:
+          type: string
+          pattern: BAR[-]TH[-](137|150|165|166).*
+      required:
+        - fiche
+        - bonification
+    then:
+      properties:
+        description:
+          type: object
+          properties:
+            critereRegimeCopropriete:
+              title: L'immeuble relève du régime de la copropriété défini par la loi n° 65-557 du 10 juillet 1965
+              description: |
+                Dans le cas de travaux réalisés dans une copropriété résidentielle, le syndicat de copropriétaires 
+                attaché à la copropriété, bénéficiaire de l'opération, est immatriculé sur le registre d'immatriculation 
+                prévu par les articles L. 711-1 et suivants du code de la construction et de l'habitation
+              type: boolean
+            critereEquipementExistant:
+              title: L'équipement vient en remplacement d'une chaudière individuelle au fioul, au gaz ou au charbon
+              type: boolean
+              const: true
+            energieChauffage:
+              $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffageFossiles
+          required:
+            - critereRegimeCopropriete
+            - critereEquipementExistant
+            - energieChauffage
+      required:
+        - description
+  - if:
+      type: object
+      properties:
+        fiche:
+          type: string
+          pattern: BAR[-]TH[-]137.*
+      required:
+        - fiche
+        - bonification
+    then:
+      properties:
+        description:
+          type: object
+          properties:
+            critereEquipementExistant:
+              title: Le raccordement au réseau de chaleur vient en remplacement d'une chaudière au charbon, au fioul ou au gaz
+              type: boolean
+              const: true
+            critereAlimentationReseauChaleur:
+              title: Raccordement à un réseau de chaleur alimenté majoritairement par des énergies renouvelables ou de récupération
+              type: boolean
+          required:
+            - critereEquipementExistant
+            - critereAlimentationReseauChaleur
+      required:
+        - description
+examples:
+  - fiche: BAR-TH-137v45-3
+    bonification: CFTv50-1
+    description:
+      critereRegimeCopropriete: true
+      critereEquipementExistant: true
+      critereAlimentationReseauChaleur: true
+      energieChauffage: FIOUL
+  - fiche: BAR-TH-150v14-1
+    bonification: CFTv50-1
+    description:
+      critereRegimeCopropriete: true
+      critereEquipementExistant: true
+      energieChauffage: FIOUL
+  - fiche: BAR-TH-165v34-1
+    bonification: CFTv50-1
+    description:
+      critereRegimeCopropriete: true
+      critereEquipementExistant: true
+      energieChauffage: FIOUL
+  - fiche: BAR-TH-166v38-1
+    bonification: CFTv50-1
+    description:
+      critereRegimeCopropriete: true
+      critereEquipementExistant: true
+      energieChauffage: FIOUL

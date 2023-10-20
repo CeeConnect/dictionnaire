@@ -2,6 +2,7 @@ $id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-164v36-2
 $schema: https://json-schema.org/draft/2020-12/schema
 $comment: |
   - TODO: Vérifier la possibilité d'intégrer l'attestation de réalisation ANAH comme document justificatif spécifique
+  - TODO: Intégrer les postes de rénovation prévus par la bonification CRM ?
 title: BAR-TH-164v36-2
 type: object
 properties:
@@ -152,6 +153,8 @@ properties:
       - installateurs
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Rapport de synthèse de l'audit énergétique

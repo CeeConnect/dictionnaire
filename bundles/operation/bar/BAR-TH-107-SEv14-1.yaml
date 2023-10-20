@@ -111,6 +111,8 @@ properties:
             - puissanceChaufferie
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Contrat signé entre le prestataire et le bénéficiaire

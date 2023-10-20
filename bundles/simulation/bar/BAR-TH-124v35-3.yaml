@@ -1,0 +1,35 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-124v35-3
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-124v35-3
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceOutreMer
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
+        title: Le bâtiment est une maison individuelle
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
+      surfaceCapteurs:
+        title: Surface des capteurs solaires (m²)
+        type: number
+        minimum: 0
+        maximum: 40
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - surfaceCapteurs
+required:
+  - adresse
+  - description
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/3
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      surfaceCapteurs: 10

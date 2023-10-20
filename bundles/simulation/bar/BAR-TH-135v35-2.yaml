@@ -1,0 +1,51 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-135v35-2
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-135v35-2
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceOutreMer
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif d'habitation
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
+      typeEquipement:
+        $ref: >-
+          https://schemas.ceeconnect.fr/enums/bar/type_chauffe_eau_solaire#/$defs/collectif
+      besoinEauChaudeSanitaire:
+        title: Besoin annuel d'eau chaude sanitaire (kWh/an)
+        description: >-
+          Besoin annuel en eau chaude sanitaire à produire par l'énergie solaire
+          exprimé en kWh par an et issu de l'étude de dimensionnemen
+        type: number
+        minimum: 0
+      tauxCouverture:
+        title: Taux de couverture solaire (%)
+        description: >-
+          Indiquer le taux de couverture par l'énergie solaire de l'installation
+          issu de l'étude de dimensionnement
+        type: number
+        minimum: 0
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - typeEquipement
+      - besoinEauChaudeSanitaire
+      - tauxCouverture
+required:
+  - adresse
+  - description
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/3
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      typeEquipement: CESCI
+      besoinEauChaudeSanitaire: 100000
+      tauxCouverture: 80

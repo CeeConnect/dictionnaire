@@ -16,21 +16,31 @@ properties:
         description: Nombre d'appartement d'un même bâtiment
         type: integer
         minimum: 1
+      typeEquipement:
+        title: Type de pompe à chaleur
+        type: string
+        oneOf:
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_AIR_EAU
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_EAU_EAU
       temperatureDistribution:
         $ref: https://schemas.ceeconnect.fr/enums/bar/temperature_distribution
       usage:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_usage
-      performanceEquipement:
+      performanceEnergetique:
         title: Efficacité énergétique saisonnière (ηs)
+        type: number
+        minimum: 0
+      puissanceNominale:
+        title: Puissance nominale (kW)
+        type: number
+        minimum: 0
+      puissanceEligible:
+        title: Puissance nominale de la (ou des) pompe(s) à chaleur installée(s) (kW)
         type: number
         minimum: 0
       puissanceEligibleAutresFiches:
         title: Puissance nominale totale des équipements nouvellement installés (kW)
         description: Puissance nominale totale des équipements nouvellement installés respectant les conditions des fiches d'opérations standardisées en vigueur
-        type: number
-        minimum: 0
-      puissanceEligible:
-        title: Puissance nominale de la (ou des) pompe(s) à chaleur installée(s) (kW)
         type: number
         minimum: 0
       puissanceChaufferie:
@@ -56,11 +66,11 @@ properties:
             - temperatureDistribution
         then:
           properties:
-            performanceEquipement:
+            performanceEnergetique:
               type: number
               minimum: 126
           required:
-            - performanceEquipement
+            - performanceEnergetique
       - if:
           properties:
             temperatureDistribution:
@@ -71,23 +81,29 @@ properties:
             - temperatureDistribution
         then:
           properties:
-            performanceEquipement:
+            performanceEnergetique:
               type: number
               minimum: 111
           required:
-            - performanceEquipement
+            - performanceEnergetique
     required:
       - ancienneteBatiment
       - typeBatiment
       - logements
+      - typeEquipement
       - temperatureDistribution
       - usage
-      - performanceEquipement
+      - performanceEnergetique
       - marque
       - reference
+      - puissanceNominale
+      - puissanceEligible
       - puissanceEligibleAutresFiches
+      - puissanceChaufferie
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Preuve de qualification du professionnel
@@ -107,9 +123,13 @@ examples:
       ancienneteBatiment: EXISTANT
       logements: 10
       usage: CHAUFFAGE
+      typeEquipement: PAC_EAU_EAU
       temperatureDistribution: BASSE_TEMPERATURE
-      performanceEquipement: 127
+      performanceEnergetique: 127
+      puissanceNominale: 100
+      puissanceEligible: 100
       puissanceEligibleAutresFiches: 0
+      puissanceChaufferie: 100
       marque: MARQUE
       reference: REFERENCE
     documents:

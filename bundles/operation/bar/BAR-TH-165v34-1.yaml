@@ -1,5 +1,7 @@
 $id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-165v34-1
 $schema: https://json-schema.org/draft/2020-12/schema
+$comment: |
+  - TODO: Véfifier les cas de plusieurs chaudières biommasses installées
 title: BAR-TH-165v34-1
 type: object
 properties:
@@ -24,17 +26,23 @@ properties:
         title: Biomasse ligneuse à base de bûches de bois, de copeaux de bois, de bois comprimé sous forme de granulés, de bois comprimé sous forme de briquettes ou de sciure de bois
         type: boolean
         const: true
+      puissanceNominale:
+        title: Puissance nominale de la chaudière
+        type: number
+        minimum: 0
       quantiteChaleurUtile:
-        title: Quantité de chaleur nette utile produite par l'ensemble des chaudières biomasse installées
+        title: Quantité de chaleur nette utile (kWh)
         description: Cette donnée est reprise de l'étude de dimensionnement préalable à l'installation de la chaudière biomasse
         type: number
-        exclusiveMaximum: 12
-      equipements:
-        title: Liste des caractéristiques de l'opération
-        type: array
-        minItems: 1
-        items:
-          $ref: "#/$defs/equipement"
+        exclusiveMaximum: 12000000
+      classeRegulateur:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/classe_regulateur
+      marque:
+        title: Marque de la chaudière
+        type: string
+      reference:
+        title: Référence de la chaudière
+        type: string
       entrepriseEtudeDimensionnement:
         title: Coordonnées de l'entité ayant établi l'étude de dimensionnement
         type: object
@@ -57,38 +65,12 @@ properties:
       - surfaceChauffee
       - logements
       - critereBiomasseLigneuse
-      - quantiteChaleurUtile
-      - entrepriseEtudeDimensionnement
-$defs:
-  equipement:
-    type: object
-    title: Caractéristiques de la (ou des) chaudière(s)
-    properties:
-      puissanceNominale:
-        title: Puissance nominale de la chaudière
-        type: number
-        minimum: 0
-      chaleurNette:
-        title: Chaleur produite par la chaudière
-        description:
-          Chaleur nette utile produite par la chaudière issue de l'étude
-          de dimensionnement préalable à la réalisation des travaux
-        type: number
-        exclusiveMaximum: 12
-      classeRegulateur:
-        $ref: https://schemas.ceeconnect.fr/enums/bar/classe_regulateur
-      marque:
-        title: Marque de la chaudière
-        type: string
-      reference:
-        title: Référence de la chaudière
-        type: string
-    required:
       - puissanceNominale
-      - chaleurNette
+      - quantiteChaleurUtile
       - classeRegulateur
       - marque
       - reference
+      - entrepriseEtudeDimensionnement
     allOf:
       - if:
           properties:
@@ -101,7 +83,7 @@ $defs:
           type: object
           title: Chaudière de puissance nominale inférieure ou égale à 70kw
           properties:
-            performanceEquipement:
+            performanceEnergetique:
               title: Efficacité énergétique saisonnière (ηs) de la chaudière biomasse
               type: number
               minimum: 83
@@ -112,7 +94,7 @@ $defs:
               type: boolean
               const: true
           required:
-            - performanceEquipement
+            - performanceEnergetique
             - typeEquipement
             - critereFlammeVerte
           allOf:
@@ -155,7 +137,7 @@ $defs:
           type: object
           title: Chaudière de puissance nominale supérieure à 500kw
           properties:
-            performanceEquipement:
+            performanceEnergetique:
               title: Rendement PCI à pleine charge de la chaudière
               type: number
               minimum: 92
@@ -170,11 +152,13 @@ $defs:
               minimum: 0
               exclusiveMaximum: 300
           required:
-            - performanceEquipement
+            - performanceEnergetique
             - emissionsParticules
             - emissionsAzote
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Note de dimensionnement
@@ -195,17 +179,15 @@ examples:
       logements: 10
       surfaceChauffee: 800
       critereBiomasseLigneuse: true
-      quantiteChaleurUtile: 10
-      equipements:
-        - puissanceNominale: 60
-          performanceEquipement: 84
-          chaleurNette: 10
-          classeRegulateur: V
-          typeEquipement: CHARGEMENT_AUTOMATIQUE
-          criterePresenceSilo: true
-          critereFlammeVerte: true
-          marque: MARQUE
-          reference: REFERENCE
+      performanceEnergetique: 84
+      quantiteChaleurUtile: 360000
+      puissanceNominale: 60
+      classeRegulateur: V
+      typeEquipement: CHARGEMENT_AUTOMATIQUE
+      criterePresenceSilo: true
+      critereFlammeVerte: true
+      marque: MARQUE
+      reference: REFERENCE
       entrepriseEtudeDimensionnement:
         raisonSociale: Raison sociale
         siren: "000000000"

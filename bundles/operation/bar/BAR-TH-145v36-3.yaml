@@ -15,11 +15,18 @@ properties:
         title: Le bâtiment est un immeuble collectif d'habitation
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      critereRegimeCopropriete:
+        title: L'immeuble relève du régime de la copropriété défini par la loi n° 65-557 du 10 juillet 1965
+        type: boolean
       surfaceHabitable:
         title: Surface habitable (m²)
         description: Indiquer la surface habitable totale de l'immeuble
         type: number
         minimum: 0
+      logements:
+        title: Nombre de logements
+        type: integer
+        minimum: 1
       auditEnergetique:
         title: Audit énergétique
         description: Renseigner les informations issues de l'audit énergétique
@@ -146,13 +153,17 @@ properties:
     required:
       - typeBatiment
       - ancienneteBatiment
+      - critereRegimeCopropriete
       - surfaceHabitable
+      - logements
       - auditEnergetique
       - logicielAuditEnergetique
       - auditeur
       - installateurs
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Rapport de synthèse de l'audit énergétique
@@ -196,7 +207,9 @@ examples:
     description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
+      critereRegimeCopropriete: true
       surfaceHabitable: 1000
+      logements: 40
       auditEnergetique:
         dateRealisation: "2023-02-07"
         reference: REFERENCE

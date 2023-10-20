@@ -1,0 +1,42 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-164v36-2
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-164v36-2
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-164v36-2#/properties/description/properties/typeBatiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-164v36-2#/properties/description/properties/ancienneteBatiment
+      surfaceHabitable:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-164v36-2#/properties/description/properties/surfaceHabitable
+      categoriesTravaux:
+        $ref: https://schemas.ceeconnect.fr/bundles/bonification/CRMv51-1#/allOf/0/then/properties/description/properties/categoriesTravaux
+      auditEnergetique:
+        title: Audit énergétique
+        description: Renseigner les informations issues de l'audit énergétique
+        type: object
+        properties:
+          cefInitial:
+            $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-164v36-2#/properties/description/properties/auditEnergetique/properties/cefInitial
+          cefProjet:
+            $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-164v36-2#/properties/description/properties/auditEnergetique/properties/cefProjet
+        required:
+          - cefInitial
+          - cefProjet
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - surfaceHabitable
+      - categoriesTravaux
+      - auditEnergetique
+required:
+  - adresse
+  - description
+examples:
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-164v36-2#/examples/0

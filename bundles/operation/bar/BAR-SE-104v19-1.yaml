@@ -22,6 +22,8 @@ properties:
       - logements
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Schéma hydraulique

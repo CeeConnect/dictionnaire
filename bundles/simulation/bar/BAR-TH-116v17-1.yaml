@@ -1,0 +1,49 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-116v17-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-116v17-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: >-
+          https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
+      surfaceChauffee:
+        title: Surface chauffée par le plancher chauffant (m²)
+        type: number
+        minimum: 0
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - surfaceChauffee
+    allOf:
+      - if:
+          properties:
+            typeBatiment:
+              $ref: >-
+                https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/APPARTEMENT
+          required:
+            - typeBatiment
+        then:
+          properties:
+            typeInstallationChauffage:
+              title: Type d'installation de chauffage
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation
+          required:
+            - typeInstallationChauffage
+required:
+  - adresse
+  - description
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      surfaceChauffee: 100

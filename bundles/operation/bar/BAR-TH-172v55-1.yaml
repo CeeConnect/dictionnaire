@@ -58,6 +58,8 @@ properties:
       - performanceEnergetiqueRegulateur
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Note de dimensionnement

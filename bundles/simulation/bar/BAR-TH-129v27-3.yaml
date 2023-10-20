@@ -1,0 +1,40 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-129v27-3
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-129v27-3
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: >-
+          https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
+      surfaceChauffee:
+        title: Surface chauffée par la pompe à chaleur (m²)
+        type: number
+        minimum: 0
+      performanceEnergetique:
+        title: Coefficient de performance saisonnier
+        type: number
+        minimum: 3.9
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - surfaceChauffee
+      - performanceEnergetique
+required:
+  - adresse
+  - description
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      performanceEnergetique: 4.7
+      surfaceChauffee: 100

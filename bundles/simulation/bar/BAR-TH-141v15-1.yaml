@@ -1,0 +1,35 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-141v15-1
+$schema: https://json-schema.org/draft/2020-12/schema
+$comment: |
+  TODO: Référencer /properties/description/properties/classeEnergetique
+title: BAR-TH-141v15-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceOutreMer
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-141v15-1#/properties/description/properties/typeBatiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-141v15-1#/properties/description/properties/ancienneteBatiment
+      quantite:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-141v15-1#/properties/description/properties/quantite
+      puissanceFrigorifique:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-141v15-1#/properties/description/properties/puissanceFrigorifique
+      classeEnergetique:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/classe_efficacite_energetique#/$defs/climatiseurs
+        title: Classe d'efficacité énergétique
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - quantite
+      - puissanceFrigorifique
+      - classeEnergetique
+required:
+  - adresse
+  - description
+examples:
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-141v15-1#/examples/0

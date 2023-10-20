@@ -16,6 +16,10 @@ $defs:
   IMMEUBLE:
     title: Immeuble collectif
     const: IMMEUBLE
+    description: |
+      Sont considérés comme des bâtiments résidentiels collectifs dans le cadre de ce dispositif, les immeubles 
+      dont au moins 75 % de la surface totale chauffée est utilisée ou destinée à être utilisée en tant 
+      qu'habitation.
   individuel:
     title: Type de logement
     type: string

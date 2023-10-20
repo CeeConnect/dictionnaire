@@ -1,0 +1,43 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-161v28-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-161v28-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-161v28-1#/properties/description/properties/typeBatiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-161v28-1#/properties/description/properties/ancienneteBatiment
+      equipements:
+        title: Liste des housses isolantes installées
+        type: array
+        minItems: 1
+        items:
+          type: object
+          properties:
+            typePointSingulier:
+              $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-161v28-1#/properties/description/properties/equipements/items/properties/typePointSingulier
+            temperatureFluide:
+              $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-161v28-1#/properties/description/properties/equipements/items/properties/temperatureFluide
+            quantite:
+              $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-161v28-1#/properties/description/properties/equipements/items/properties/quantite
+          required:
+            - typePointSingulier
+            - temperatureFluide
+            - quantite
+          allOf:
+            - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-161v28-1#/properties/description/properties/equipements/items/allOf/0
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - equipements
+required:
+  - adresse
+  - description
+examples:
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-161v28-1#/examples/0

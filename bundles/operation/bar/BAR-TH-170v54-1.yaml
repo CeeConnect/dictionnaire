@@ -104,6 +104,8 @@ properties:
       - prestataire
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Étude préalable de dimensionnement

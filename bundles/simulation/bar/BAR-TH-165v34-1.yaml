@@ -1,0 +1,37 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-165v34-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-165v34-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-165v34-1#/properties/description/properties/typeBatiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-165v34-1#/properties/description/properties/ancienneteBatiment
+      puissanceNominale:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-165v34-1#/properties/description/properties/puissanceNominale
+      quantiteChaleurUtile:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-165v34-1#/properties/description/properties/quantiteChaleurUtile
+      critereRegimeCopropriete:
+        title: L'immeuble relève du régime de la copropriété défini par la loi n° 65-557 du 10 juillet 1965
+        type: boolean
+      critereEquipementExistant:
+        title: L'équipement vient en remplacement d'une chaudière collective au fioul, au gaz ou au charbon
+        type: boolean
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - puissanceNominale
+      - quantiteChaleurUtile
+      - critereRegimeCopropriete
+      - critereEquipementExistant
+required:
+  - description
+
+examples:
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-165v34-1#/examples/0

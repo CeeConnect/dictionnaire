@@ -1,0 +1,81 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-130v26-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-130v26-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
+      extensionBatiment:
+        title: L'opération concerne une partie nouvelle d'un bâtiment existant
+        type: boolean
+      energieChauffage:
+        title: Energie de chauffage principale
+        $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffage
+      energieEauChaudeSanitaire:
+        title: Energie de production de l'eau chaude sanitaire
+        oneOf:
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/ELECTRICITE
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/COMBUSTIBLES
+          - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/HYBRIDE
+      surfaceThermique:
+        title: Surface thermique (m²)
+        description: Surface thermique du bâtiment au sens de la règlementation thermique
+        type: number
+        minimum: 0
+      cefBat:
+        title: Consommation finale du bâtiment (kWh/m²/an)
+        description: Consommation conventionnelle du bâtiment exprimée en énergie finale
+        type: number
+      cepMax:
+        title: Consommation primaire maximale (kWh/m²/an)
+        description: Consommation conventionnelle exprimée en énergie finale maximale
+        type: number
+    required:
+      - energieChauffage
+      - energieEauChaudeSanitaire
+      - surfaceThermique
+      - cefBat
+      - cepMax
+    anyOf:
+      - properties:
+          ancienneteBatiment:
+            $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/NEUF
+          extensionBatiment:
+            type: boolean
+            const: false
+        required:
+          - ancienneteBatiment
+          - extensionBatiment
+      - properties:
+          ancienneteBatiment:
+            $ref: >-
+              https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+          extensionBatiment:
+            type: boolean
+            const: true
+        required:
+          - ancienneteBatiment
+          - extensionBatiment
+required:
+  - adresse
+  - description
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: NEUF
+      extensionBatiment: false
+      energieChauffage: ELECTRICITE
+      energieEauChaudeSanitaire: ELECTRICITE
+      surfaceThermique: 120
+      cefBat: 20
+      cepMax: 50

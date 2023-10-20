@@ -26,8 +26,8 @@ properties:
           - const: 7000
           - const: 9000
       classeEnergetique:
-        title: Classe d'efficacité énergétique
         $ref: https://schemas.ceeconnect.fr/enums/bar/classe_efficacite_energetique#/$defs/climatiseurs
+        title: Classe d'efficacité énergétique
       quantite:
         title: Nombre d'équipements installés
         description: Indiquer le nombre de climatiseurs de caractéristiques et de classe d'efficacité énergétique identiques installés

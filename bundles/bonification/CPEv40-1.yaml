@@ -1,0 +1,37 @@
+$id: https://schemas.ceeconnect.fr/bundles/bonification/CPEv40-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Contrat de performance énergétique
+description: Version en vigueur à compter du 24/12/2021
+type: object
+properties:
+  fiche:
+    $ref: https://schemas.ceeconnect.fr/formats/reference_fiche
+    pattern: ^(BAR|BAT).*
+  bonification:
+    $ref: https://schemas.ceeconnect.fr/formats/reference_bonification
+    const: CPEv40-1
+required:
+  - fiche
+  - bonification
+allOf:
+  - if:
+      type: object
+      required:
+        - fiche
+        - bonification
+    then:
+      properties:
+        description:
+          type: object
+          properties:
+            dureeGarantie:
+              title: Durée de garantie
+              description: |
+                Indiquer la durée du contrat de performance énergétique pendant laquelle les économies d'énergie 
+                sont garanties
+              type: integer
+              minimum: 1
+          required:
+            - dureeGarantie
+      required:
+        - description

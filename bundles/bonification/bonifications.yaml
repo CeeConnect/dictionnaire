@@ -1,0 +1,19 @@
+$id: https://schemas.ceeconnect.fr/bundles/bonification/bonifications
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Bonifications
+type: object
+discriminator:
+  propertyName: bonification
+properties:
+  bonification:
+    $ref: https://schemas.ceeconnect.fr/formats/reference_bonification
+required:
+  - bonification
+oneOf:
+  - $ref: https://schemas.ceeconnect.fr/bundles/bonification/CDPv50-1
+  - $ref: https://schemas.ceeconnect.fr/bundles/bonification/CDPv52-1
+  - $ref: https://schemas.ceeconnect.fr/bundles/bonification/CFTv50-1
+  - $ref: https://schemas.ceeconnect.fr/bundles/bonification/CPEv40-1
+  - $ref: https://schemas.ceeconnect.fr/bundles/bonification/CRCv51-1
+  - $ref: https://schemas.ceeconnect.fr/bundles/bonification/CRMv51-1
+  - $ref: https://schemas.ceeconnect.fr/bundles/bonification/ZNIv35-1

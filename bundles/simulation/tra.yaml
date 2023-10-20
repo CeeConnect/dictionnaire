@@ -1,0 +1,15 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/tra
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Transport
+type: object
+allOf:
+  - if:
+      properties:
+        fiche:
+          $ref: https://schemas.ceeconnect.fr/enums/fiche#/$defs/tra
+      required:
+        - fiche
+    then:
+      discriminator:
+        propertyName: fiche
+      oneOf: []

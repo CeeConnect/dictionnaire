@@ -103,6 +103,8 @@ properties:
       - organismeControle
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Rapport de conformité établi par l'organisme d'inspection

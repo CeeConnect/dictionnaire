@@ -1,0 +1,31 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-155v40-4
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-155v40-4
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-155v40-4#/properties/description/properties/typeBatiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-155v40-4#/properties/description/properties/ancienneteBatiment
+      typeEquipement:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-155v40-4#/properties/description/properties/typeEquipement
+      typeExtracteur:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-155v40-4#/properties/description/properties/typeExtracteur
+      logements:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-155v40-4#/properties/description/properties/logements
+    required:
+      - ancienneteBatiment
+      - typeEquipement
+      - typeExtracteur
+      - logements
+required:
+  - adresse
+  - description
+examples:
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-155v40-4#/examples/0

@@ -13,6 +13,9 @@ properties:
         title: Le bâtiment est une maison individuelle
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      usage:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_usage#/$defs/ecs
+        title: Usage couvert par l'équipement installé
       surfaceCapteurs:
         title: Surface hors-tout totale de capteurs solaires (m²)
         type: number
@@ -35,6 +38,7 @@ properties:
     required:
       - ancienneteBatiment
       - typeBatiment
+      - usage
       - productiviteCapteurs
       - surfaceCapteurs
       - capteursHybrides
@@ -42,6 +46,8 @@ properties:
       - reference
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Certification CSTBat ou Solar Keymark
@@ -71,6 +77,7 @@ examples:
     description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
+      usage: CHAUFFAGE_ECS
       surfaceCapteurs: 10
       productiviteCapteurs: 800
       capteursHybrides: false

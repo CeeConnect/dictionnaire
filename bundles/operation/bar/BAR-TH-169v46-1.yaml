@@ -22,7 +22,7 @@ properties:
         type: integer
         minimum: 1
       equipements:
-        title: Liste des caractéristiques
+        title: Liste des équipements installés
         type: array
         minItems: 1
         items:
@@ -50,17 +50,16 @@ $defs:
           a une puissance nominale ne dépassant pas 400 kW
         type: number
         maximum: 400
-      performanceEquipement:
+      performanceEnergetique:
         title: Coefficient de performance (COP)
         type: number
         minimum: 2.8
-      facteurR:
-        title: facteur R
-        description:
-          Le Facteur R est le rapport entre l'énergie annuelle cumulée
-          produite par la PAC sans l'appoint pour le chauffage de l'eau et la somme
-          des besoins annuels cumulés liés au puisage de l'eau chaude sanitaire et
-          des pertes de distribution d'eau chaude sanitaire cumulées sur l'année
+      tauxCouverture:
+        title: Taux de couverture
+        description: |
+          Renseigner le rapport entre l'énergie annuelle cumulée produite par la PAC sans l'appoint pour le chauffage 
+          de l'eau et la somme des besoins annuels cumulés liés au puisage de l'eau chaude sanitaire et des pertes de 
+          distribution d'eau chaude sanitaire cumulées sur l'année
         type: number
         maximum: 1
       marque:
@@ -85,7 +84,7 @@ $defs:
                 - $ref: https://schemas.ceeconnect.fr/enums/bar/profil_soutirage_chauffe_eau_solaire#/$defs/XXL
                 - $ref: https://schemas.ceeconnect.fr/enums/bar/profil_soutirage_chauffe_eau_solaire#/$defs/3XL
                 - $ref: https://schemas.ceeconnect.fr/enums/bar/profil_soutirage_chauffe_eau_solaire#/$defs/4XL
-            performanceEquipement:
+            performanceEnergetique:
               title: Efficacité énergétique pour la production d'ECS (Eta wh en %)
               description:
                 Pour les chauffe-eau thermodynamiques concernés par le règlement
@@ -103,14 +102,14 @@ $defs:
                   - profilSoutirage
               then:
                 properties:
-                  performanceEquipement:
+                  performanceEnergetique:
                     type: number
                     minimum: 65
                 required:
-                  - performanceEquipement
+                  - performanceEnergetique
           required:
             - profilSoutirage
-            - performanceEquipement
+            - performanceEnergetique
       - if:
           properties:
             typeEquipement:
@@ -123,12 +122,12 @@ $defs:
             - typeEquipement
         then:
           properties:
-            performanceEquipement:
+            performanceEnergetique:
               title: Efficacité énergétique saisonnière (ηs)
               type: number
               minimum: 111
           required:
-            - performanceEquipement
+            - performanceEnergetique
       - if:
           properties:
             typeEquipement:
@@ -137,14 +136,14 @@ $defs:
             - typeEquipement
         then:
           properties:
-            performanceEquipement:
+            performanceEnergetique:
               description:
                 "Selon la norme NF EN 14511, sous les conditions suivantes
                 de température : température à l'entrée (échangeur extérieur) de 7°C
                 extérieur/température à la sortie (échangeur intérieur) de 45°C, pour
                 une PAC air extérieur/eau"
           required:
-            - performanceEquipement
+            - performanceEnergetique
       - if:
           properties:
             typeEquipement:
@@ -153,13 +152,13 @@ $defs:
             - typeEquipement
         then:
           properties:
-            performanceEquipement:
+            performanceEnergetique:
               description:
                 "Selon la norme NF EN 14511, sous les conditions de température
                 : température à l'entrée (échangeur extérieur) de 20°C/température à
                 la sortie (échangeur intérieur) de 45°C, pour une PAC air extrait/eau"
           required:
-            - performanceEquipement
+            - performanceEnergetique
       - if:
           properties:
             typeEquipement:
@@ -168,14 +167,14 @@ $defs:
             - typeEquipement
         then:
           properties:
-            performanceEquipement:
+            performanceEnergetique:
               description:
                 "Selon la norme NF EN 14511, sous les conditions de température
                 : température à l'entrée (échangeur extérieur) de 10°C/température à
                 la sortie (échangeur intérieur) de 45°C, pour une PAC eau/eau sur eau
                 de nappe"
           required:
-            - performanceEquipement
+            - performanceEnergetique
       - if:
           properties:
             typeEquipement:
@@ -184,14 +183,14 @@ $defs:
             - typeEquipement
         then:
           properties:
-            performanceEquipement:
+            performanceEnergetique:
               description:
                 "Selon la norme NF EN 14511, sous les conditions de température
                 : température à l'entrée (échangeur extérieur) de 0°C/température à
                 la sortie (échangeur intérieur) de 45°C, pour une PAC eau glycolée /eau
                 sur capteurs enterrés"
           required:
-            - performanceEquipement
+            - performanceEnergetique
       - if:
           properties:
             typeEquipement:
@@ -200,12 +199,12 @@ $defs:
             - typeEquipement
         then:
           properties:
-            performanceEquipement:
+            performanceEnergetique:
               description:
                 "Selon la norme NF EN 14511, sous les conditions de température
                 : 10°C/45°C, pour une PAC à capteur solaire atmosphérique"
           required:
-            - performanceEquipement
+            - performanceEnergetique
       - if:
           properties:
             typeEquipement:
@@ -214,12 +213,12 @@ $defs:
             - typeEquipement
         then:
           properties:
-            performanceEquipement:
+            performanceEnergetique:
               description:
                 "Selon la norme NF EN 14511, sous les conditions de température
                 : 19°C/45°C, pour une PAC sur eaux grises"
           required:
-            - performanceEquipement
+            - performanceEnergetique
       - if:
           properties:
             typeEquipement:
@@ -228,7 +227,7 @@ $defs:
             - typeEquipement
         then:
           properties:
-            performanceEquipement:
+            performanceEnergetique:
               description:
                 "Arrêté du 6 avril 2022 modifiant les arrêtés pris en application
                 des articles R. 122-22 à R. 122-25 et R. 172-1 à R. 172-9 du code de
@@ -236,16 +235,18 @@ $defs:
                 PAC CO2), sous les conditions de température : 7°C/T eau entrée = 15°C
                 avec T eau sortie > 55°C, pour une PAC au CO2"
           required:
-            - performanceEquipement
+            - performanceEnergetique
     required:
       - typeEquipement
       - puissanceNominale
-      - performanceEquipement
-      - facteurR
+      - performanceEnergetique
+      - tauxCouverture
       - marque
       - reference
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Preuve de qualification du professionnel
@@ -268,8 +269,8 @@ examples:
       equipements:
         - typeEquipement: CET
           puissanceNominale: 200
-          performanceEquipement: 65
-          facteurR: 0.9
+          performanceEnergetique: 65
+          tauxCouverture: 0.9
           profilSoutirage: 3XL
           marque: MARQUE
           reference: REFERENCE

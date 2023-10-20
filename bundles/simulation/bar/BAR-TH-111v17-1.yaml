@@ -1,0 +1,39 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-111v17-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-111v17-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
+        title: Le logement est une maison individuelle
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
+      energieChauffage:
+        title: Energie de chauffage principale
+        $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffage
+      surfaceHabitable:
+        title: Surface habitable du logement (m²)
+        type: number
+        minimum: 0
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - energieChauffage
+      - surfaceHabitable
+required:
+  - adresse
+  - description
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      energieChauffage: ELECTRICITE
+      surfaceHabitable: 100

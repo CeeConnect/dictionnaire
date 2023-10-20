@@ -111,6 +111,8 @@ properties:
             - dureeLocation
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Descriptif du dispositif issu du fabricant

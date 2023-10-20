@@ -27,12 +27,14 @@ required:
 $defs:
   personnePhysique:
     allOf:
-      - properties:
+      - type: object
+        properties:
           nature:
             $ref: https://schemas.ceeconnect.fr/enums/nature_juridique#/$defs/PERSONNE_PHYSIQUE
         required:
           - nature
-      - properties:
+      - type: object
+        properties:
           type:
             $ref: https://schemas.ceeconnect.fr/enums/type_beneficiaire#/$defs/PERSONNE_PHYSIQUE
           nom:
@@ -47,12 +49,14 @@ $defs:
           - prenom
   personneMorale:
     allOf:
-      - properties:
+      - type: object
+        properties:
           nature:
             $ref: https://schemas.ceeconnect.fr/enums/nature_juridique#/$defs/PERSONNE_MORALE
         required:
           - nature
-      - properties:
+      - type: object
+        properties:
           type:
             $ref: https://schemas.ceeconnect.fr/enums/type_beneficiaire#/$defs/PERSONNE_MORALE
           raisonSociale:

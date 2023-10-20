@@ -1,0 +1,104 @@
+$id: https://schemas.ceeconnect.fr/bundles/bonification/CDPv50-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Coup de pouce Chauffage
+description: Version en vigueur du 01/03/2023 au 06/10/2023
+type: object
+properties:
+  fiche:
+    $ref: https://schemas.ceeconnect.fr/formats/reference_fiche
+    pattern: BAR[-]TH[-](104|106|112|113|137|143|159|171|172).*
+  bonification:
+    $ref: https://schemas.ceeconnect.fr/formats/reference_bonification
+    const: CDPv50-1
+required:
+  - fiche
+  - bonification
+allOf:
+  - if:
+      type: object
+      properties:
+        fiche:
+          type: string
+          pattern: BAR[-]TH[-](104|106|112|113|137|143|159|171|172).*
+      required:
+        - fiche
+        - bonification
+    then:
+      properties:
+        description:
+          type: object
+          properties:
+            energieChauffage:
+              $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffageFossiles
+            critereEquipementExistant:
+              title: L'équipement vient en remplacement d'une chaudière individuelle
+              type: boolean
+              const: true
+          required:
+            - energieChauffage
+            - critereEquipementExistant
+      required:
+        - description
+  - if:
+      type: object
+      properties:
+        fiche:
+          type: string
+          pattern: BAR[-]TH[-]137.*
+      required:
+        - fiche
+        - bonification
+    then:
+      properties:
+        description:
+          type: object
+          properties:
+            critereEquipementExistant:
+              title: Le raccordement au réseau de chaleur vient en remplacement d'une chaudière individuelle
+              type: boolean
+              const: true
+          required:
+            - critereEquipementExistant
+      required:
+        - description
+examples:
+  - fiche: BAR-TH-104v41-3
+    bonification: CDPv50-1
+    description:
+      critereEquipementExistant: true
+      energieChauffage: FIOUL
+  - fiche: BAR-TH-106v23-2
+    bonification: CDPv50-1
+    description:
+      critereEquipementExistant: true
+      energieChauffage: FIOUL
+  - fiche: BAR-TH-113v41-3
+    bonification: CDPv50-1
+    description:
+      critereEquipementExistant: true
+      energieChauffage: FIOUL
+  - fiche: BAR-TH-137v45-3
+    bonification: CDPv50-1
+    description:
+      critereEquipementExistant: true
+      energieChauffage: FIOUL
+  - fiche: BAR-TH-143v51-5
+    bonification: CDPv50-1
+    description:
+      critereEquipementExistant: true
+      energieChauffage: FIOUL
+  - fiche: BAR-TH-159v50-4
+    bonification: CDPv50-1
+    description:
+      critereEquipementExistant: true
+      energieChauffage: FIOUL
+  - fiche: BAR-TH-171v55-1
+    bonification: CDPv50-1
+    description:
+      critereEquipementExistant: true
+      energieChauffage: FIOUL
+  - fiche: BAR-TH-172v55-1
+    bonification: CDPv50-1
+    description:
+      critereEquipementExistant: true
+      energieChauffage: FIOUL

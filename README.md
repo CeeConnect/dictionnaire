@@ -12,10 +12,18 @@ Ce projet propose un vocabulaire uniformisé de référence au format YAML pour 
 
 **bundles**: Regroupe les ressources métiers (eg un dépôt, un contrôle, une opération...)
 
+## Guide
+
+## Création d'une nouvelle fiche
+
+1. Création du schéma d'opération
+2. Création du schéma de simulation 
+3. Création du schéma de contrôle
+
 ## Usages
 
 - Validation de données JSON (JSON Schema)
-- Description APIs (OpenAPI)
+- Génération automatique de formulaire HTML
 
 ## Spécification
 
@@ -25,36 +33,20 @@ Ce projet propose un vocabulaire uniformisé de référence au format YAML pour 
 
 ### v1.0.0
 
-- Couverture des dépôts
-- Couverture du secteur résidentiel
+- [x] Bâtiment résidentiel
 
 ### @next
 
-- BAR-SE-109v54-1
-- BAR-TH-123v54-2
-- BAR-TH-127v54-5
-- BAR-TH-160v54-4
-- BAR-TH-161v54-2
-- BAR-TH-170v54-1
+- Couverture des contrôles
 
-### @beta-v2.0.0
+### @alpha-v2.0.0
 
-- Couverture des contrôles sur le secteur résidentiel
-
-### @alpha-v3.0.0
-
-- Couverture des dépôts et contrôles de tous les secteurs d'application
-
-## Roadmap
-
-Couverture par secteur d'application :
-
-- [] Agriculture
+- [x] Agriculture
 - [x] Bâtiment résidentiel
-- [] Bâtiment tertiaire
-- [] Industrie
-- [] Réseau
-- [] Transport
+- [x] Bâtiment tertiaire
+- [x] Industrie
+- [x] Réseau
+- [x] Transport
 
 ## Doctrines
 

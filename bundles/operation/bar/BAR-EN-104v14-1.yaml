@@ -14,8 +14,13 @@ properties:
         title: Nombre de fenêtres ou portes fenêtres complètes avec vitrage isolant posées
         type: integer
         minimum: 1
-      typeFenetre:
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_fenetre
+      typeEquipement:
+        title: Type de fenêtre
+        type: string
+        oneOf:
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PORTE_FENETRE
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/FENETRE_TOITURE
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/AUTRES
       coefficientSurfacique:
         title: Coefficient de transmission surfacique Uw (W/m².K)
         type: number
@@ -33,15 +38,15 @@ properties:
       - ancienneteBatiment
       - energieChauffage
       - quantite
-      - typeFenetre
+      - typeEquipement
       - coefficientSurfacique
       - facteurSolaire
       - marque
       - reference
     anyOf:
       - properties:
-          typeFenetre:
-            $ref: https://schemas.ceeconnect.fr/enums/bar/type_fenetre#/$defs/FENETRE_TOITURE
+          typeEquipement:
+            $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/FENETRE_TOITURE
           coefficientSurfacique:
             type: number
             maximum: 1.5
@@ -49,14 +54,14 @@ properties:
             type: number
             maximum: 0.36
         required:
-          - typeFenetre
+          - typeEquipement
           - coefficientSurfacique
           - facteurSolaire
       - properties:
-          typeFenetre:
+          typeEquipement:
             oneOf:
-              - $ref: https://schemas.ceeconnect.fr/enums/bar/type_fenetre#/$defs/AUTRES
-              - $ref: https://schemas.ceeconnect.fr/enums/bar/type_fenetre#/$defs/PORTE_FENETRE
+              - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/AUTRES
+              - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PORTE_FENETRE
           coefficientSurfacique:
             type: number
             maximum: 1.3
@@ -64,14 +69,14 @@ properties:
             type: number
             maximum: 0.3
         required:
-          - typeFenetre
+          - typeEquipement
           - coefficientSurfacique
           - facteurSolaire
       - properties:
-          typeFenetre:
+          typeEquipement:
             oneOf:
-              - $ref: https://schemas.ceeconnect.fr/enums/bar/type_fenetre#/$defs/AUTRES
-              - $ref: https://schemas.ceeconnect.fr/enums/bar/type_fenetre#/$defs/PORTE_FENETRE
+              - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/AUTRES
+              - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PORTE_FENETRE
           coefficientSurfacique:
             type: number
             maximum: 1.7
@@ -79,11 +84,13 @@ properties:
             type: number
             maximum: 0.36
         required:
-          - typeFenetre
+          - typeEquipement
           - coefficientSurfacique
           - facteurSolaire
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Preuve de qualification du professionnel
@@ -101,7 +108,7 @@ examples:
       ancienneteBatiment: EXISTANT
       energieChauffage: COMBUSTIBLES
       quantite: 100
-      typeFenetre: AUTRES
+      typeEquipement: AUTRES
       coefficientSurfacique: 1.2
       facteurSolaire: 0.2
       marque: MARQUE

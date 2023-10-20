@@ -55,3 +55,12 @@ $defs:
       - $ref: "#/$defs/GAZ_NATUREL"
       - $ref: "#/$defs/FIOUL"
       - $ref: "#/$defs/CHARBON"
+  energiesChauffageResidentiel:
+    title: Energie de chauffage principale
+    type: string
+    oneOf:
+      - $ref: "#/$defs/ELECTRICITE"
+      - $ref: "#/$defs/GAZ_NATUREL"
+      - $ref: "#/$defs/FIOUL"
+      - $ref: "#/$defs/CHARBON"
+      - $ref: "#/$defs/BOIS"

@@ -1,0 +1,29 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-EQ-110v15-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-EQ-110v15-1
+type: object
+properties:
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1#/properties/description/properties/ancienneteBatiment
+      quantite:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1#/properties/description/properties/quantite
+      indiceProtectionChocs:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1#/properties/description/properties/indiceProtectionChocs
+      detecteurLumiere:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1#/properties/description/properties/detecteurLumiere
+      detecteurPresence:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1#/properties/description/properties/detecteurPresence
+    required:
+      - ancienneteBatiment
+      - quantite
+      - indiceProtectionChocs
+      - detecteurLumiere
+      - detecteurPresence
+required:
+  - description
+examples:
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1#/examples/0

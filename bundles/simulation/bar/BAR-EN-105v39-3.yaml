@@ -1,0 +1,27 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-EN-105v39-3
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-EN-105v39-3
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-105v39-3#/properties/description/properties/ancienneteBatiment
+      quantite:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-105v39-3#/properties/description/properties/quantite
+    required:
+      - ancienneteBatiment
+      - quantite
+required:
+  - adresse
+  - description
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      ancienneteBatiment: EXISTANT
+      quantite: 100

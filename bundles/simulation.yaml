@@ -1,0 +1,25 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Simulation
+type: object
+properties:
+  fiche:
+    $ref: https://schemas.ceeconnect.fr/enums/fiche
+    title: Fiche d'opération standardisée
+  bonification:
+    $ref: https://schemas.ceeconnect.fr/formats/reference_bonification
+    title: Bonification
+  dateEngagement:
+    title: Date d'engagement de l'opération
+    type: string
+    format: date
+required:
+  - fiche
+  - dateEngagement
+allOf:
+  - $ref: https://schemas.ceeconnect.fr/bundles/simulation/agri
+  - $ref: https://schemas.ceeconnect.fr/bundles/simulation/bar
+  - $ref: https://schemas.ceeconnect.fr/bundles/simulation/bat
+  - $ref: https://schemas.ceeconnect.fr/bundles/simulation/ind
+  - $ref: https://schemas.ceeconnect.fr/bundles/simulation/res
+  - $ref: https://schemas.ceeconnect.fr/bundles/simulation/tra

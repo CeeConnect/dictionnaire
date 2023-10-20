@@ -1,0 +1,35 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-139v23-2
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-139v23-2
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif d'habitation
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
+      puissanceNominale:
+        title: Puissance nominale du moteur de la pompe (kW)
+        type: number
+        minimum: 0.75
+        maximum: 375
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - puissanceNominale
+required:
+  - adresse
+  - description
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      puissanceNominale: 50

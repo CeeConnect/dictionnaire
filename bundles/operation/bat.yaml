@@ -1,0 +1,15 @@
+$id: https://schemas.ceeconnect.fr/bundles/operation/bat
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Bâtiment tertiaire
+type: object
+allOf:
+  - if:
+      properties:
+        fiche:
+          $ref: https://schemas.ceeconnect.fr/enums/fiche#/$defs/bat
+      required:
+        - fiche
+    then:
+      discriminator:
+        propertyName: fiche
+      oneOf: []

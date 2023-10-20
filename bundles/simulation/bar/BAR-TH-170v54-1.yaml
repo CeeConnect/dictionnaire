@@ -1,0 +1,22 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-170v54-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-170v54-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-170v54-1#/properties/description/properties/typeBatiment
+      puissanceElectrique:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-170v54-1#/properties/description/properties/puissanceElectrique
+    required:
+      - typeBatiment
+      - puissanceElectrique
+required:
+  - description
+examples:
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-170v54-1#/examples/0

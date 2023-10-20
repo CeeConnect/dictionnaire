@@ -2,8 +2,8 @@ $id: https://schemas.ceeconnect.fr/formats/reference_bonification
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Référence interne
 type: string
-pattern: (AGRI|BAR|BAT|IND|RES|TRA)-(BA|CH|EC|EN|EQ|SE|TH|UT)-[0-9]+(-SE)?v[0-9]+[-][0-9]+[.](ZNI|GPE-ZNI|ETS|CPE|GPE|CFT|CRC|CRM|CTH|CDP|CDC)([-][0-9]+)?v[0-9]*([-][0-9]*)?
+pattern: (ZNI|GPE-ZNI|ETS|CPE|GPE|CFT|CRC|CRM|CTH|CDP|CDC)([-][0-9]+)?v[0-9]*([-][0-9]*)?
 examples:
-  - BAR-TH-113v41-3.CDP-1v52-1
-  - BAR-TH-145v52-4.CRCv51-1
-  - BAT-TH-157v50-2.CFTv50-2
+  - CDP-1v52-1
+  - CRCv51-1
+  - CFTv50-2

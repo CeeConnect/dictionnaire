@@ -1,0 +1,68 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-137v45-3
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-137v45-3
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-137v45-3#/properties/description/properties/typeBatiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-137v45-3#/properties/description/properties/ancienneteBatiment
+      energieChauffage:
+        $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffageResidentiel
+      critereEquipementExistant:
+        title: Le raccordement au réseau de chaleur vient en remplacement d'une chaudière
+        type: boolean
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - energieChauffage
+      - critereEquipementExistant
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-137v45-3#/properties/description/allOf/0
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-137v45-3#/properties/description/allOf/1
+      - if:
+          properties:
+            typeBatiment:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+          required:
+            - typeBatiment
+        then:
+          properties:
+            critereRegimeCopropriete:
+              title: L'immeuble relève du régime de la copropriété défini par la loi n° 65-557 du 10 juillet 1965
+              type: boolean
+            critereAlimentationReseauChaleur:
+              title: Raccordement à un réseau de chaleur alimenté majoritairement par des énergies renouvelables ou de récupération
+              type: boolean
+          required:
+            - critereRegimeCopropriete
+            - critereAlimentationReseauChaleur
+required:
+  - adresse
+  - description
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      energieChauffage: FIOUL
+      surfaceHabitable: 100
+      critereEquipementExistant: true
+      critereAlimentationReseauChaleur: true
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      energieChauffage: FIOUL
+      logements: 50
+      critereRegimeCopropriete: true
+      critereEquipementExistant: true
+      critereAlimentationReseauChaleur: true

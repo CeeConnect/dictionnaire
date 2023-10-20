@@ -61,6 +61,8 @@ properties:
       - entrepriseEtudeTechnique
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Attestation, établie par le professionnel, d'absence de points de recyclage et de situation de débit constant

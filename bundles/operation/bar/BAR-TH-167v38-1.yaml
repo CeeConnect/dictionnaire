@@ -48,34 +48,6 @@ properties:
     allOf:
       - if:
           properties:
-            typeEquipement:
-              oneOf:
-                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain#/$defs/FLUX_FORCE_HAUT_RENDEMENT
-                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain#/$defs/COMBUSTION_HAUT_RENDEMENT
-          required:
-            - typeEquipement
-        then:
-          properties:
-            performanceEnergetique:
-              type: number
-              minimum: 85
-          required:
-            - performanceEnergetique
-      - if:
-          properties:
-            typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain#/$defs/CONDENSATION
-          required:
-            - typeEquipement
-        then:
-          properties:
-            performanceEnergetique:
-              type: number
-              minimum: 100
-          required:
-            - performanceEnergetique
-      - if:
-          properties:
             typeBatiment:
               $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
           required:
@@ -103,8 +75,38 @@ properties:
               minimum: 1
           required:
             - quantite
+      - if:
+          properties:
+            typeEquipement:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain#/$defs/FLUX_FORCE_HAUT_RENDEMENT
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain#/$defs/COMBUSTION_HAUT_RENDEMENT
+          required:
+            - typeEquipement
+        then:
+          properties:
+            performanceEnergetique:
+              type: number
+              minimum: 85
+          required:
+            - performanceEnergetique
+      - if:
+          properties:
+            typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain#/$defs/CONDENSATION
+          required:
+            - typeEquipement
+        then:
+          properties:
+            performanceEnergetique:
+              type: number
+              minimum: 100
+          required:
+            - performanceEnergetique
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Preuve de qualification du professionnel ayan réalisé l'opération

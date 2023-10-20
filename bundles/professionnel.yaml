@@ -31,6 +31,7 @@ required:
   - siret
   - email
   - telephone
+  - adresse
   - nom
   - prenom
   - fonction

@@ -1,0 +1,39 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-172v55-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-172v55-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-172v55-1#/properties/description/properties/typeBatiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-172v55-1#/properties/description/properties/ancienneteBatiment
+      energieChauffage:
+        $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffageResidentiel
+      usage:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-172v55-1#/properties/description/properties/usage
+      surfaceChauffee:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-172v55-1#/properties/description/properties/surfaceChauffee
+      performanceEnergetique:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-172v55-1#/properties/description/properties/performanceEnergetique
+      critereEquipementExistant:
+        title: L'équipement vient en remplacement d'une chaudière individuelle
+        type: boolean
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - energieChauffage
+      - usage
+      - surfaceChauffee
+      - performanceEnergetique
+      - critereEquipementExistant
+required:
+  - adresse
+  - description
+examples:
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-172v55-1#/examples/0

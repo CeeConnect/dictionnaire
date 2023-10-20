@@ -1,0 +1,30 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-143v51-5
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-143v51-5
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-143v51-5#/properties/description/properties/typeBatiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-143v51-5#/properties/description/properties/ancienneteBatiment
+      energieChauffage:
+        $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffageResidentiel
+      critereEquipementExistant:
+        title: L'équipement vient en remplacement d'une chaudière individuelle
+        type: boolean
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - energieChauffage
+      - critereEquipementExistant
+required:
+  - adresse
+  - description
+examples:
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-143v51-5#/examples/0

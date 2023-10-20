@@ -1,0 +1,40 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-106v23-2
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-106v23-2
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-106v23-2#/properties/description/properties/typeBatiment
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-106v23-2#/properties/description/properties/ancienneteBatiment
+      energieChauffage:
+        $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffageResidentiel
+      critereEquipementExistant:
+        title: L'équipement vient en remplacement d'une chaudière individuelle
+        type: boolean
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - energieChauffage
+      - critereEquipementExistant
+    allOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-106v23-2#/properties/description/allOf/0
+      - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-106v23-2#/properties/description/allOf/1
+required:
+  - adresse
+  - description
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      energieChauffage: FIOUL
+      surfaceHabitable: 100
+      critereEquipementExistant: true

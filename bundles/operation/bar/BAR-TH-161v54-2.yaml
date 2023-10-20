@@ -11,12 +11,6 @@ properties:
         title: Le bâtiment est un immeuble collectif d'habitation
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
-      typePointSingulier:
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_point_singulier
-      temperatureFluide:
-        title: Température du fluide caloporteur (°C)
-        type: number
-        minimum: 50
       dateEtatRecapitulatif:
         title: Date de l'état récapitulatif
         description: | 
@@ -32,6 +26,19 @@ properties:
         items:
           type: object
           properties:
+            typePointSingulier:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_point_singulier
+            quantite:
+              title: Nombre de housses d'isolation
+              description: |
+                Dans le cas d'un point singulier de type échangeur à plaque, renseigner le nombre d'échangeurs à plaques de 
+                caractéristiques identiques
+              type: integer
+              minimum: 1
+            temperatureFluide:
+              title: Température du fluide caloporteur (°C)
+              type: number
+              minimum: 50
             temperatureService:
               title: Température maximale de service
               type: number
@@ -59,6 +66,9 @@ properties:
               title: Reference
               type: string
           required:
+            - typePointSingulier
+            - quantite
+            - temperatureFluide
             - temperatureService
             - resistance50
             - resistance100
@@ -66,46 +76,31 @@ properties:
             - critereMateriau
             - marque
             - reference
-    allOf:
-      - if:
-          properties:
-            typePointSingulier:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_point_singulier#/$defs/HORS_ECHANGEUR
-          required:
-            - typePointSingulier
-        then:
-          properties:
-            diametreNominal:
-              title: Diamètre nominal (DN) de la canalisation
-              type: number
-              minimum: 20
-              maximum: 100
-          required:
-            - diametreNominal
-      - if:
-          properties:
-            typePointSingulier:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_point_singulier#/$defs/ECHANGEUR
-          required:
-            - typePointSingulier
-        then:
-          properties:
-            quantite:
-              title: Nombre de housses d'isolation
-              description: Renseigner uniquement les housses d'isolation mises en place seulement pour échangeurs à plaques
-              type: integer
-              minimum: 1
-          required:
-            - quantite
+          allOf:
+            - if:
+                properties:
+                  typePointSingulier:
+                    $ref: https://schemas.ceeconnect.fr/enums/bar/type_point_singulier#/$defs/HORS_ECHANGEUR
+                required:
+                  - typePointSingulier
+              then:
+                properties:
+                  diametreNominal:
+                    title: Diamètre nominal (DN) de la canalisation
+                    type: number
+                    minimum: 20
+                    maximum: 100
+                required:
+                  - diametreNominal
     required:
       - ancienneteBatiment
       - typeBatiment
-      - typePointSingulier
-      - temperatureFluide
       - dateEtatRecapitulatif
       - equipements
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Récapitulatif

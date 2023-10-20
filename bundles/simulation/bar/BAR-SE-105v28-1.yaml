@@ -1,0 +1,44 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-SE-105v28-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-SE-105v28-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif d'habitation
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
+      logements:
+        title: Nombre d'appartements
+        description: >-
+          Nombre d'appartements raccordés à l'installation collective de
+          chauffage
+        type: integer
+        minimum: 0
+      dureeGarantie:
+        title: Durée de garantie
+        description: Durée de garantie du contrat de performance énergétique
+        type: integer
+        minimum: 2
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - logements
+      - dureeGarantie
+required:
+  - adresse
+  - description
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/2
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      logements: 20
+      dureeGarantie: 2

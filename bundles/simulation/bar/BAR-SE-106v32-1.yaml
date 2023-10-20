@@ -1,0 +1,28 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-SE-106v32-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-SE-106v32-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: >-
+          https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
+      consommationSuivie:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/consommation_suivie
+    required:
+      - typeBatiment
+      - consommationSuivie
+required:
+  - adresse
+  - description
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/1
+    description:
+      typeBatiment: MAISON
+      consommationSuivie: CHAUFFAGE_ELECTRIQUE

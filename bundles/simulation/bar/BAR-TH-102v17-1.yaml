@@ -1,0 +1,48 @@
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-102v17-1
+$schema: https://json-schema.org/draft/2020-12/schema
+title: BAR-TH-102v17-1
+type: object
+properties:
+  adresse:
+    $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
+  description:
+    title: Caractéristiques
+    type: object
+    properties:
+      typeBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/IMMEUBLE
+        title: Le bâtiment est un immeuble collectif d'habitation
+      ancienneteBatiment:
+        $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
+      besoinEauChaudeSanitaire:
+        title: Besoin annuel d'ECS (kWh/an)
+        description: Besoin annuel d'eau chaude sanitaire à produire par l'énergie solaire
+        type: number
+        minimum: 0
+      productionSolaireUtile:
+        title: Production solaire utile (kWh/an)
+        type: number
+        minimum: 0
+      tauxCouverture:
+        title: Taux de couverture (%)
+        description: Taux de couverture du chauffe-eau solaire collectif (%)
+        type: number
+        minimum: 0
+    required:
+      - typeBatiment
+      - ancienneteBatiment
+      - besoinEauChaudeSanitaire
+      - productionSolaireUtile
+      - tauxCouverture
+required:
+  - adresse
+  - description
+examples:
+  - adresse:
+      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+    description:
+      typeBatiment: IMMEUBLE
+      ancienneteBatiment: EXISTANT
+      besoinEauChaudeSanitaire: 100000
+      productionSolaireUtile: 80000
+      tauxCouverture: 80

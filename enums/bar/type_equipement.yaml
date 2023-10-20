@@ -3,10 +3,28 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: Type d'équipement
 type: string
 oneOf:
+  - $ref: "#/$defs/FENETRE_TOITURE"
+  - $ref: "#/$defs/AUTRES"
+  - $ref: "#/$defs/PORTE_FENETRE"
+  - $ref: "#/$defs/DOUBLE_FENETRE"
   - $ref: "#/$defs/CHAUDIERE_HORS_CONDENSATION"
   - $ref: "#/$defs/CHAUDIERE_CONDENSATION"
   - $ref: "#/$defs/RESEAU_CHALEUR"
+  - $ref: "#/$defs/PAC_AIR_EAU"
+  - $ref: "#/$defs/PAC_EAU_EAU"
 $defs:
+  FENETRE_TOITURE:
+    const: FENETRE_TOITURE
+    title: Fenêtre de toiture
+  AUTRES:
+    const: AUTRES
+    title: Autre(s) fenêtre(s) ou porte(s)-fenêtre(s)
+  PORTE_FENETRE:
+    const: PORTE_FENETRE
+    title: Porte-fenêtre
+  DOUBLE_FENETRE:
+    const: DOUBLE_FENETRE
+    title: Double fenêtre
   CHAUDIERE_HORS_CONDENSATION:
     const: CHAUDIERE_HORS_CONDENSATION
     title: Chaudière autre qu'à condensation
@@ -16,3 +34,9 @@ $defs:
   RESEAU_CHALEUR:
     const: RESEAU_CHALEUR
     title: Réseau de chaleur
+  PAC_AIR_EAU:
+    const: PAC_AIR_EAU
+    title: Pompe à chaleur air/eau
+  PAC_EAU_EAU:
+    const: PAC_EAU_EAU
+    title: Pompe à chaleur eau/eau

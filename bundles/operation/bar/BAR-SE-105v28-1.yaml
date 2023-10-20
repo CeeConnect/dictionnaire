@@ -125,6 +125,8 @@ properties:
       - contrat
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Contrat signé entre l'opérateur et le bénéficiaire

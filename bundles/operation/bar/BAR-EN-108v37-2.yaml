@@ -42,6 +42,8 @@ properties:
       - reference
   documents:
     type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
           title: Preuve de qualification du professionnel
