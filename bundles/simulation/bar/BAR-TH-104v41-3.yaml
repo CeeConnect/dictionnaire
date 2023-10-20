@@ -37,12 +37,4 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
-      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    description:
-      typeBatiment: MAISON
-      ancienneteBatiment: EXISTANT
-      energieChauffage: FIOUL
-      surfaceChauffee: 100
-      performanceEnergetique: 111
-      critereEquipementExistant: true
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-104v41-3

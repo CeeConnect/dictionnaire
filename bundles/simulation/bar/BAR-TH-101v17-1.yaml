@@ -25,8 +25,4 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
-      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    description:
-      typeBatiment: MAISON
-      ancienneteBatiment: EXISTANT
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-101v17-1

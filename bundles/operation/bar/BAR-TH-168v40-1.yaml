@@ -76,7 +76,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-TH-168v40-1
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
       typeBatiment: MAISON

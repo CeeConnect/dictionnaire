@@ -31,8 +31,7 @@ properties:
       - if:
           properties:
             typeInstallation:
-              $ref: >-
-                https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/INDIVIDUEL
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/INDIVIDUEL
           required:
             - typeInstallation
         then:
@@ -41,8 +40,7 @@ properties:
               title: Type de caisson
               type: string
               oneOf:
-                - $ref: >-
-                    https://schemas.ceeconnect.fr/enums/bar/type_caisson_vmc#/$defs/BASSE_CONSOMMATION
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_caisson_vmc#/$defs/BASSE_CONSOMMATION
             surfaceHabitable:
               title: Surface habitable du logement (m²)
               type: number
@@ -53,8 +51,7 @@ properties:
       - if:
           properties:
             typeInstallation:
-              $ref: >-
-                https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
           required:
             - typeInstallation
         then:
@@ -74,12 +71,4 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
-      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    description:
-      typeBatiment: MAISON
-      ancienneteBatiment: EXISTANT
-      typeInstallation: INDIVIDUEL
-      typeEquipement: TYPE_A
-      typeCaisson: BASSE_CONSOMMATION
-      surfaceHabitable: 100
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-127v54-5

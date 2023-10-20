@@ -19,7 +19,8 @@ properties:
         title: L'appareil installé est un climatiseur fixe
         const: CLIMATISEUR_FIXE
       critereRemplacement:
-        title: Le matériel existant a été déposé préalablement à l'installation du nouveau climatiseur
+        title: Le matériel existant a été déposé préalablement à l'installation du
+          nouveau climatiseur
         type: boolean
         const: true
       puissanceFrigorifique:
@@ -33,7 +34,8 @@ properties:
         title: Classe d'efficacité énergétique
       quantite:
         title: Nombre d'équipements installés
-        description: Indiquer le nombre de climatiseurs de caractéristiques et de classe d'efficacité énergétique identiques installés
+        description: Indiquer le nombre de climatiseurs de caractéristiques et de classe
+          d'efficacité énergétique identiques installés
         type: integer
         minimum: 1
       marque:
@@ -57,7 +59,8 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
+  - fiche: BAR-TH-141v15-1
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/3
     description:
       typeBatiment: MAISON

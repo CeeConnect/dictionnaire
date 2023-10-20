@@ -19,8 +19,7 @@ properties:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
       logements:
         title: Nombre d'appartements
-        description: >-
-          Nombre d'appartements raccordés à l'installation collective de
+        description: Nombre d'appartements raccordés à l'installation collective de
           chauffage
         type: integer
         minimum: 0
@@ -39,10 +38,4 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
-      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/2
-    description:
-      typeBatiment: IMMEUBLE
-      ancienneteBatiment: EXISTANT
-      logements: 20
-      dureeGarantie: 2
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-105v28-1

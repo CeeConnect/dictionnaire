@@ -78,7 +78,8 @@ required:
   - description
   - documents
 examples:
-  - description:
+  - fiche: BAR-EN-110v35-1
+    description:
       ancienneteBatiment: EXISTANT
       typeVentilation: NATURELLE
       quantite: 10

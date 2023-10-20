@@ -99,7 +99,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-TH-155v40-4
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
       typeBatiment: IMMEUBLE

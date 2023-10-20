@@ -95,7 +95,7 @@ allOf:
           title: Preuve de qualification
           type: object
           properties:
-            code: 
+            code:
               const: PREUVE_QUALIFICATION
           required:
             - code
@@ -107,7 +107,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-TH-135v35-2
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/3
     description:
       typeBatiment: IMMEUBLE

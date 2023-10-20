@@ -19,7 +19,8 @@ properties:
       energieChauffage:
         $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffageResidentiel
       critereEquipementExistant:
-        title: Le raccordement au réseau de chaleur vient en remplacement d'une chaudière
+        title: Le raccordement au réseau de chaleur vient en remplacement d'une
+          chaudière
         type: boolean
     required:
       - typeBatiment
@@ -38,10 +39,12 @@ properties:
         then:
           properties:
             critereRegimeCopropriete:
-              title: L'immeuble relève du régime de la copropriété défini par la loi n° 65-557 du 10 juillet 1965
+              title: L'immeuble relève du régime de la copropriété défini par la loi n° 65-557
+                du 10 juillet 1965
               type: boolean
             critereAlimentationReseauChaleur:
-              title: Raccordement à un réseau de chaleur alimenté majoritairement par des énergies renouvelables ou de récupération
+              title: Raccordement à un réseau de chaleur alimenté majoritairement par des
+                énergies renouvelables ou de récupération
               type: boolean
           required:
             - critereRegimeCopropriete
@@ -51,15 +54,7 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
-      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    description:
-      typeBatiment: MAISON
-      ancienneteBatiment: EXISTANT
-      energieChauffage: FIOUL
-      surfaceHabitable: 100
-      critereEquipementExistant: true
-      critereAlimentationReseauChaleur: true
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-137v45-3
   - adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:

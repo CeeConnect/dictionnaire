@@ -15,7 +15,8 @@ properties:
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       critereChaudiereIndividuelle:
-        title: Le chauffage central de chaque logement est assuré par une chaudière individuelle au gaz
+        title: Le chauffage central de chaque logement est assuré par une chaudière
+          individuelle au gaz
         type: boolean
         const: false
       typeInstallation:
@@ -48,8 +49,10 @@ properties:
           properties:
             longueurConduit:
               title: Longueur du conduit individuel d'évacuation des produits de combustion
-              description: | 
-                Dans le cas de la mise en place d'un conduit individuel d'évacuation des produits de combustion
+              description: >
+                Dans le cas de la mise en place d'un conduit individuel
+                d'évacuation des produits de combustion
+
                 dans un conduit de fumée individuel existant
               type: number
               minimum: 10
@@ -64,8 +67,10 @@ properties:
         then:
           properties:
             critereRenovationEnsemble:
-              title: | 
-                L'installation des conduits individuels d'évacuation est réalisée simultanément et concerne
+              title: >
+                L'installation des conduits individuels d'évacuation est
+                réalisée simultanément et concerne
+
                 l'ensemble des logements raccordés à un conduit collectif existant
               type: boolean
               const: true
@@ -118,7 +123,8 @@ $defs:
       - const: VMC
         title: VMC gaz
 examples:
-  - description:
+  - fiche: BAR-TH-163v38-2
+    description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       critereChaudiereIndividuelle: false

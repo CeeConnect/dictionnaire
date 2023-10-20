@@ -30,4 +30,4 @@ required:
   - fiche
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1#/examples/0
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1

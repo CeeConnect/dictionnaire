@@ -19,17 +19,21 @@ properties:
         type: integer
         minimum: 1
       critereSystemeEligible:
-        title: |
-          L'équipement de régulation est installé sur un système de chauffage collectif à combustible
+        title: >
+          L'équipement de régulation est installé sur un système de chauffage
+          collectif à combustible
+
           existant depuis plus de 2 ans
         type: boolean
         const: true
       critereFonctionCommutateur:
-        title: Le dispositif intègre une fonction commutateur été/hiver au sens de la norme NF EN 12098-1
+        title: Le dispositif intègre une fonction commutateur été/hiver au sens de la
+          norme NF EN 12098-1
         type: boolean
         const: true
       critereFonctionDescenteTemperature:
-        title: Le dispositif intègre une fonction descente de température (réduit de nuit) au sens de la norme NF EN 12098-1
+        title: Le dispositif intègre une fonction descente de température (réduit de
+          nuit) au sens de la norme NF EN 12098-1
         type: boolean
         const: true
       marque:
@@ -54,8 +58,10 @@ properties:
     allOf:
       - contains:
           title: Preuve de réalisation de l'opération
-          description: |
-            La preuve de réalisation de l'opération mentionne la mise en place d'un optimiseur de relance comprenant une
+          description: >
+            La preuve de réalisation de l'opération mentionne la mise en place
+            d'un optimiseur de relance comprenant une
+
             fonction auto-adaptative au sens de la norme NF EN 12098-1.
           type: object
           properties:
@@ -69,7 +75,8 @@ required:
   - description
   - documents
 examples:
-  - description:
+  - fiche: BAR-TH-123v54-2
+    description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       logements: 10

@@ -14,9 +14,9 @@ properties:
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       critereAncienneteEquipement:
-        title:
-          La fenêtre ou porte-fenêtre sur laquelle est installée la fermeture isolante est âgée
-          de plus de 2 ans à la date d'engagement de l'opération
+        title: La fenêtre ou porte-fenêtre sur laquelle est installée la fermeture
+          isolante est âgée de plus de 2 ans à la date d'engagement de
+          l'opération
         type: boolean
         const: true
       energieChauffage:
@@ -61,7 +61,8 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
+  - fiche: BAR-EN-108v37-2
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/3
     description:
       ancienneteBatiment: EXISTANT

@@ -17,7 +17,8 @@ properties:
       energieChauffage:
         $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffage
       critereAncienneteEquipement:
-        title: Système de chauffage sur boucle à eau chaude existant depuis plus de 2 ans
+        title: Système de chauffage sur boucle à eau chaude existant depuis plus de 2
+          ans
         type: boolean
         const: true
       surfaceHabitable:
@@ -42,7 +43,8 @@ required:
   - fiche
   - description
 examples:
-  - description:
+  - fiche: BAR-TH-111v17-1
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       energieChauffage: ELECTRICITE

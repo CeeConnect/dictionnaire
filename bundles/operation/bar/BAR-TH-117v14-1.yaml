@@ -15,10 +15,12 @@ properties:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       ancienneteChaudiere:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/EXISTANT
-        title: Chaudière existante depuis plus de deux ans à la date d'engagement de l'opération
+        title: Chaudière existante depuis plus de deux ans à la date d'engagement de
+          l'opération
       ancienneteRadiateur:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/EXISTANT
-        title: Radiateur existant depuis plus de deux ans à la date d'engagement de l'opération
+        title: Radiateur existant depuis plus de deux ans à la date d'engagement de
+          l'opération
       quantite:
         title: Nombre d'équipements installés
         type: integer
@@ -55,7 +57,8 @@ required:
   - fiche
   - description
 examples:
-  - description:
+  - fiche: BAR-TH-117v14-1
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       ancienneteChaudiere: EXISTANT

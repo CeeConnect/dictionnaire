@@ -70,7 +70,8 @@ required:
   - fiche
   - description
 examples:
-  - description:
+  - fiche: BAR-TH-112v46-3
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       typeCombustible: GRANULES

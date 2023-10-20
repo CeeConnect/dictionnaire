@@ -18,7 +18,8 @@ properties:
         $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-158v35-2#/properties/description/properties/ancienneteBatiment
       equipements:
         title: Liste des émetteurs électriques installés
-        description: Indiquer autant de lignes que d'équipements aux caractéristiques identiques
+        description: Indiquer autant de lignes que d'équipements aux caractéristiques
+          identiques
         type: array
         minItems: 1
         items:
@@ -37,4 +38,4 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-158v35-2#/examples/0
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-158v35-2

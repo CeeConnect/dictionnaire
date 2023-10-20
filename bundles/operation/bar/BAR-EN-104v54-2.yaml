@@ -124,7 +124,8 @@ required:
   - description
   - documents
 examples:
-  - description:
+  - fiche: BAR-EN-104v54-2
+    description:
       ancienneteBatiment: EXISTANT
       quantite: 10
       surface: 15

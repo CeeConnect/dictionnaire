@@ -34,7 +34,8 @@ properties:
     allOf:
       - contains:
           title: Certification CSTBat ou SolarKeymark
-          description: Certification CSTBat ou SolarKeymark des capteurs solaires ou les pièces justifiant de son équivalence
+          description: Certification CSTBat ou SolarKeymark des capteurs solaires ou les
+            pièces justifiant de son équivalence
           type: object
           properties:
             code:
@@ -55,7 +56,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-TH-101v17-1
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
       typeBatiment: MAISON

@@ -63,7 +63,8 @@ required:
   - description
   - documents
 examples:
-  - description:
+  - fiche: BAR-TH-148v15-2
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       typeEquipement: AIR_EXTRAIT

@@ -108,7 +108,8 @@ required:
   - description
   - documents
 examples:
-  - description:
+  - fiche: BAR-EN-104v14-1
+    description:
       ancienneteBatiment: EXISTANT
       energieChauffage: COMBUSTIBLES
       quantite: 100

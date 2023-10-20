@@ -43,7 +43,9 @@ properties:
         minimum: 0
       puissanceEligibleAutresFiches:
         title: Puissance nominale totale des équipements nouvellement installés (kW)
-        description: Puissance nominale totale des équipements nouvellement installés respectant les conditions des fiches d'opérations standardisées en vigueur
+        description: Puissance nominale totale des équipements nouvellement installés
+          respectant les conditions des fiches d'opérations standardisées en
+          vigueur
         type: number
         minimum: 0
       puissanceChaufferie:
@@ -57,8 +59,11 @@ properties:
         title: Référence de la pompe à chaleur installée
         type: string
       autreEquipement:
-        title: Mise en place d'un ou plusieurs autres équipements (chaudières ou pompes à chaleur)
-        description: La mise en place de la chaudière haute performance énergétique s'accompagne de la mise en place d'un ou plusieurs autres équipements (chaudières ou pompes à chaleur)
+        title: Mise en place d'un ou plusieurs autres équipements (chaudières ou pompes
+          à chaleur)
+        description: La mise en place de la chaudière haute performance énergétique
+          s'accompagne de la mise en place d'un ou plusieurs autres équipements
+          (chaudières ou pompes à chaleur)
         type: boolean
     allOf:
       - if:
@@ -122,7 +127,8 @@ required:
   - description
   - documents
 examples:
-  - description:
+  - fiche: BAR-TH-166v38-1
+    description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       logements: 10

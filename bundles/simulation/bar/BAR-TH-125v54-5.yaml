@@ -27,16 +27,14 @@ properties:
       - if:
           properties:
             typeInstallation:
-              $ref: >-
-                https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/INDIVIDUEL
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/INDIVIDUEL
           required:
             - typeInstallation
         then:
           properties:
             typeEquipement:
               title: Type de VMC double flux
-              $ref: >-
-                https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/doubleFlux
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/doubleFlux
             surfaceHabitable:
               title: Surface habitable du logement (m²)
               type: number
@@ -47,15 +45,13 @@ properties:
       - if:
           properties:
             typeInstallation:
-              $ref: >-
-                https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
           required:
             - typeInstallation
         then:
           properties:
             typeEquipement:
-              $ref: >-
-                https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/AUTOREGLABLE
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/AUTOREGLABLE
               title: L'équipement est une VMC double flux autoréglable
             logements:
               title: Nombre de logements raccordés à la VMC double flux
@@ -69,11 +65,4 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
-      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    description:
-      typeBatiment: MAISON
-      ancienneteBatiment: EXISTANT
-      typeInstallation: INDIVIDUEL
-      typeEquipement: AUTOREGLABLE
-      surfaceHabitable: 100
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-125v54-5

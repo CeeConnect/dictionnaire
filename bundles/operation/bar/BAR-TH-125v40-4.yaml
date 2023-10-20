@@ -46,7 +46,8 @@ properties:
               $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/doubleFlux
             classeEnergetique:
               title: Classe énergétique du système de ventilation
-              description: Classe énergétique du système de ventilation selon le règlement européen (UE) n° 1254/2014
+              description: Classe énergétique du système de ventilation selon le règlement
+                européen (UE) n° 1254/2014
               type: string
               oneOf:
                 - $ref: https://schemas.ceeconnect.fr/enums/bar/classe_efficacite_energetique#/$defs/A+
@@ -97,7 +98,8 @@ properties:
       $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
-          title: Preuve de qualification du professionnel ayant assuré la réalisation de l'opération
+          title: Preuve de qualification du professionnel ayant assuré la réalisation de
+            l'opération
           type: object
           properties:
             code:
@@ -110,7 +112,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-TH-125v40-4
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
       typeBatiment: MAISON

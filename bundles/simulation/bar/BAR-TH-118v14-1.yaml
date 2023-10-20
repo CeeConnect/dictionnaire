@@ -13,8 +13,7 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: >-
-          https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
       energieChauffage:
@@ -28,16 +27,14 @@ properties:
       - if:
           properties:
             typeBatiment:
-              $ref: >-
-                https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/MAISON
           required:
             - typeBatiment
         then:
           properties:
             energieChauffage:
               title: Energie de chauffage principale
-              $ref: >-
-                https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffage
+              $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffage
             surfaceChauffee:
               title: Surface chauffée par le système de chauffage existant
               type: number
@@ -48,8 +45,7 @@ properties:
       - if:
           properties:
             typeBatiment:
-              $ref: >-
-                https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/APPARTEMENT
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/APPARTEMENT
           required:
             - typeBatiment
         then:
@@ -62,8 +58,7 @@ properties:
       - if:
           properties:
             typeInstallationChauffage:
-              $ref: >-
-                https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation#/$defs/COLLECTIF
           required:
             - typeInstallationChauffage
         then:
@@ -78,8 +73,7 @@ properties:
           properties:
             energieChauffage:
               title: Energie de chauffage principale
-              $ref: >-
-                https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffage
+              $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffage
           required:
             - energieChauffage
 required:
@@ -87,10 +81,4 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
-      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    description:
-      typeBatiment: MAISON
-      ancienneteBatiment: EXISTANT
-      energieChauffage: COMBUSTIBLES
-      surfaceChauffee: 100
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-118v14-1

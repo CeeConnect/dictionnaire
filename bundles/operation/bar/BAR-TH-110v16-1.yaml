@@ -51,7 +51,8 @@ required:
   - fiche
   - description
 examples:
-  - description:
+  - fiche: BAR-TH-110v16-1
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       critereChauffageCentral: true

@@ -13,15 +13,13 @@ properties:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       quantite:
         title: Surface d'isolant posé (m²)
-        description:
-          Dans le cas d'une pose superposée de plusieurs isolants, indiquer
+        description: Dans le cas d'une pose superposée de plusieurs isolants, indiquer
           la surface résultant de la superposition des isolants
         type: number
         minimum: 0
       resistanceThermique:
         title: Résistance thermmique de l'isolant
-        description:
-          Dans le cas d'une pose superposée de plusieurs isolants, indiquer
+        description: Dans le cas d'une pose superposée de plusieurs isolants, indiquer
           la résistance thermique globale
         type: number
         minimum: 4.5
@@ -71,7 +69,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-EN-105v39-3
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/3
     description:
       typeBatiment: MAISON

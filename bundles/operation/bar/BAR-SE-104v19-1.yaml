@@ -30,7 +30,9 @@ properties:
     allOf:
       - contains:
           title: Schéma hydraulique
-          description: Un schéma hydraulique simplifié des installations de chauffage précisant l'implantation de toutes les vannes réglées et étiquetées sur site
+          description: Un schéma hydraulique simplifié des installations de chauffage
+            précisant l'implantation de toutes les vannes réglées et étiquetées
+            sur site
           type: object
           properties:
             code:
@@ -40,13 +42,15 @@ properties:
             - code
       - contains:
           title: Grille d'équilibrage
-          description:
-            "une grille d'équilibrage dans laquelle sont précisés, pour chacune des vannes réglée:
-            - le numéro de repérage ;
-            - la marque et référence ou les caractéristiques hydrauliques (tableau de pertes de charge ou équivalent) de chaque type et diamètre de vanne réglée ;
-            - le débit théorique visé ou, pour une température de départ donnée, la température de retour théorique visée ;
-            - le débit final mesuré ou, pour une température de départ donnée, la température de retour finale mesurée ;
-            - la valeur finale de réglage (nombre de tour, graduations ou équivalent)."
+          description: "une grille d'équilibrage dans laquelle sont précisés, pour chacune
+            des vannes réglée: - le numéro de repérage ; - la marque et
+            référence ou les caractéristiques hydrauliques (tableau de pertes de
+            charge ou équivalent) de chaque type et diamètre de vanne réglée ; -
+            le débit théorique visé ou, pour une température de départ donnée,
+            la température de retour théorique visée ; - le débit final mesuré
+            ou, pour une température de départ donnée, la température de retour
+            finale mesurée ; - la valeur finale de réglage (nombre de tour,
+            graduations ou équivalent)."
           type: object
           properties:
             code:
@@ -55,8 +59,10 @@ properties:
           required:
             - code
       - contains:
-          title: Tableau d'enregistrement des températures moyennes sur un échantillon des logements, après équilibrage.
-          description: L'écart de température entre l'appartement le plus chauffé et le moins chauffé doit être strictement inférieur à 2°C.
+          title: Tableau d'enregistrement des températures moyennes sur un échantillon des
+            logements, après équilibrage.
+          description: L'écart de température entre l'appartement le plus chauffé et le
+            moins chauffé doit être strictement inférieur à 2°C.
           type: object
           properties:
             code:
@@ -69,7 +75,8 @@ required:
   - description
   - documents
 examples:
-  - description:
+  - fiche: BAR-SE-104v19-1
+    description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       logements: 10

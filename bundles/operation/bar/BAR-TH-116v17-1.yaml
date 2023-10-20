@@ -47,7 +47,8 @@ required:
   - fiche
   - description
 examples:
-  - description:
+  - fiche: BAR-TH-116v17-1
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       surfaceChauffee: 100

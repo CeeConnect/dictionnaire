@@ -13,8 +13,7 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: >-
-          https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
       quantite:
@@ -29,8 +28,7 @@ properties:
       - if:
           properties:
             typeBatiment:
-              $ref: >-
-                https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/APPARTEMENT
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/APPARTEMENT
           required:
             - typeBatiment
         then:
@@ -45,10 +43,4 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
-      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    description:
-      typeBatiment: APPARTEMENT
-      ancienneteBatiment: EXISTANT
-      typeInstallationChauffage: COLLECTIF
-      quantite: 10
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-110v16-1

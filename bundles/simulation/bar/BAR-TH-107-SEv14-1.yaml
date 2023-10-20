@@ -29,8 +29,7 @@ properties:
         minimum: 0
       puissanceEligibleAutresFiches:
         title: Puissance totale de la pompe à chaleur installée (kW)
-        description: >-
-          Puissance nominale totale des chaudières nouvellement installés
+        description: Puissance nominale totale des chaudières nouvellement installés
           respectant les conditions des fiches d'opérations standardisées en
           vigueur
         type: number
@@ -72,14 +71,4 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
-      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    description:
-      typeBatiment: IMMEUBLE
-      ancienneteBatiment: EXISTANT
-      logements: 50
-      puissanceNominale: 100
-      puissanceEligibleAutresFiches: 0
-      puissanceChaufferie: 100
-      puissanceEligible: 100
-      dureeContrat: 10
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-107-SEv14-1

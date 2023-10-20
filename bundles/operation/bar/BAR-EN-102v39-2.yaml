@@ -75,7 +75,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-EN-102v39-2
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
       ancienneteBatiment: EXISTANT

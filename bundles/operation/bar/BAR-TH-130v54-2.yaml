@@ -34,24 +34,29 @@ properties:
           - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/HYBRIDE
       surfaceReference:
         title: Surface de référence (m²)
-        description: Indiquer la surface thermique du bâtiment au sens de la règlementation thermique RE2020
+        description: Indiquer la surface thermique du bâtiment au sens de la
+          règlementation thermique RE2020
         type: number
         minimum: 0
       cepMax:
         title: CEPmax (kWh/m².an)
-        description: Indiquer la consommation conventionnelle en énergie primaire maximale CEPmax issue de l'étude thermique
+        description: Indiquer la consommation conventionnelle en énergie primaire
+          maximale CEPmax issue de l'étude thermique
         type: number
       cepBat:
         title: CEPbat (kWh/m².an)
-        description: Indiquer la consommation conventionnelle en énergie primaire du bâtiment CEPbat issue de l'étude thermique
+        description: Indiquer la consommation conventionnelle en énergie primaire du
+          bâtiment CEPbat issue de l'étude thermique
         type: number
       cefMax:
         title: CEFmax (kWh/m².an)
-        description: Indiquer la consommation conventionnelle en énergie finale maximale CEFmax issue de l'étude thermique
+        description: Indiquer la consommation conventionnelle en énergie finale maximale
+          CEFmax issue de l'étude thermique
         type: number
       cefBat:
         title: CEFbat (kWh/m².an)
-        description: Indiquer la consommation conventionnelle en énergie finale du bâtiment CEFbat issue de l'étude thermique
+        description: Indiquer la consommation conventionnelle en énergie finale du
+          bâtiment CEFbat issue de l'étude thermique
         type: number
       bbioMax:
         title: Besoin bioclimatique maximale
@@ -62,11 +67,13 @@ properties:
         description: Indiquer le besoin bioclimatique du bâtiment issu de l'étude thermique
         type: number
       icMax:
-        title: Impact maximal sur le changement climatique des consommations d'énergie (kg éq CO2/m2)
+        title: Impact maximal sur le changement climatique des consommations d'énergie
+          (kg éq CO2/m2)
         description: Indiquer la valeur issue de l'étude thermique
         type: number
       icBat:
-        title: Impact sur le changement climatique des consommations d'énergie du bâtiment (kg éq CO2/m2)
+        title: Impact sur le changement climatique des consommations d'énergie du
+          bâtiment (kg éq CO2/m2)
         description: Indiquer la valeur issue de l'étude thermique
         type: number
     required:
@@ -146,7 +153,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-TH-130v54-2
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
       typeBatiment: MAISON

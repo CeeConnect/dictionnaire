@@ -28,7 +28,8 @@ properties:
         minimum: 0
       puissanceEligibleAutresFiches:
         title: Puissance totale de(s) chaudière(s) collective(s) installée(s) (kW)
-        description: Renseigner la puissance nominale totale des chaudières nouvellement installées respectant les conditions de la fiches BAR-TH-107
+        description: Renseigner la puissance nominale totale des chaudières nouvellement
+          installées respectant les conditions de la fiches BAR-TH-107
         type: number
         minimum: 0
       puissanceEligible:
@@ -103,7 +104,8 @@ required:
   - fiche
   - description
 examples:
-  - description:
+  - fiche: BAR-TH-150v14-1
+    description:
       ancienneteBatiment: EXISTANT
       typeBatiment: IMMEUBLE
       logements: 50

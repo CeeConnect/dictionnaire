@@ -123,7 +123,8 @@ required:
   - description
   - documents
 examples:
-  - description:
+  - fiche: BAR-TH-113v41-3
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       typeEquipement: CHARGEMENT_AUTOMATIQUE

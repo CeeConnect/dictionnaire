@@ -42,11 +42,4 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
-      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    description:
-      typeBatiment: IMMEUBLE
-      ancienneteBatiment: EXISTANT
-      besoinEauChaudeSanitaire: 100000
-      productionSolaireUtile: 80000
-      tauxCouverture: 80
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-102v17-1

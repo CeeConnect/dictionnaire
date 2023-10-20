@@ -18,7 +18,8 @@ properties:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       temperatureDistribution:
         $ref: https://schemas.ceeconnect.fr/enums/bar/temperature_distribution#/$defs/BASSE_TEMPERATURE
-        title: Le système est couplé à des émetteurs de chauffage central de type basse température
+        title: Le système est couplé à des émetteurs de chauffage central de type basse
+          température
       productiviteCapteurs:
         title: Productivité des capteurs (W/m²)
         type: number
@@ -32,11 +33,13 @@ properties:
         type: number
         minimum: 400
       critereCertification:
-        title: Les capteurs solaires ont une certification CSTBat ou Solar Keymark ou équivalente
+        title: Les capteurs solaires ont une certification CSTBat ou Solar Keymark ou
+          équivalente
         type: boolean
         const: true
       critereCapteursHybrides:
-        title: Les capteurs solaires produisent à la fois électricité et chaleur (capteurs hybrides)
+        title: Les capteurs solaires produisent à la fois électricité et chaleur
+          (capteurs hybrides)
         type: boolean
         const: false
       marque:
@@ -63,8 +66,10 @@ properties:
     allOf:
       - contains:
           title: Preuve de réalisation de l'opération
-          description: |
-            La preuve de réalisation de l'opération mentionne la mise en place d'un système solaire combiné et la
+          description: >
+            La preuve de réalisation de l'opération mentionne la mise en place
+            d'un système solaire combiné et la
+
             productivité des capteurs solaires en W/m²
           type: object
           properties:
@@ -97,7 +102,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-TH-143v51-5
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
       typeBatiment: MAISON

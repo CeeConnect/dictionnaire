@@ -16,7 +16,8 @@ properties:
         title: Le bâtiment est une maison individuelle
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete
-        description: Les parties nouvelles de logements existants sont considérées comme des logements neufs
+        description: Les parties nouvelles de logements existants sont considérées comme
+          des logements neufs
       typeVente:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_vente
       quantite:
@@ -29,7 +30,8 @@ properties:
         minimum: 0
       performanceEnergetique:
         title: Efficacité énergétique pour le chauffage de l'eau (%)
-        description: Indiquer l'efficacité énergétique conformément au règlement (UE) n° 814/2013
+        description: Indiquer l'efficacité énergétique conformément au règlement (UE) n°
+          814/2013
         type: number
         minimum: 36
     allOf:
@@ -55,9 +57,12 @@ properties:
         then:
           properties:
             critereAbonnement:
-              title: |
-                Le contrat de vente par abonnement a d'une durée minimale de dix ans et il comporte une clause
+              title: >
+                Le contrat de vente par abonnement a d'une durée minimale de dix
+                ans et il comporte une clause
+
                 de maintien, par le professionnel, du bon état de fonctionnement du CESI pendant toute la durée du
+
                 contrat d'abonnement
               type: boolean
               const: true
@@ -78,7 +83,8 @@ properties:
       $ref: https://schemas.ceeconnect.fr/bundles/document
     allOf:
       - contains:
-          title: Certification QB dont le domaine d'emploi de l'avis technique couvre explicitement les départements d'outremer
+          title: Certification QB dont le domaine d'emploi de l'avis technique couvre
+            explicitement les départements d'outremer
           type: object
           properties:
             code:
@@ -86,7 +92,8 @@ properties:
           required:
             - code
       - contains:
-          title: Preuve de qualification du professionnel ayant assuré la réalisation de l'opération
+          title: Preuve de qualification du professionnel ayant assuré la réalisation de
+            l'opération
           type: object
           properties:
             code:
@@ -99,7 +106,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-TH-124v35-3
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/3
     description:
       typeBatiment: MAISON

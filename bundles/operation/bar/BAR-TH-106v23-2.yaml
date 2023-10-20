@@ -38,7 +38,8 @@ properties:
           properties:
             logements:
               title: Nombre d'appartements
-              description: Renseigner le nombre de logements équipés d'une chaudière à haute performance énergétique
+              description: Renseigner le nombre de logements équipés d'une chaudière à haute
+                performance énergétique
               type: integer
               minimum: 1
           required:
@@ -62,7 +63,8 @@ properties:
           properties:
             equipements:
               title: Liste des équipements installés
-              description: Regrouper les équipements par caractéristiques et performances identiques
+              description: Regrouper les équipements par caractéristiques et performances
+                identiques
               type: array
               minItems: 1
               items:
@@ -130,7 +132,8 @@ $defs:
       - marqueRegulateur
       - referenceRegulateur
 examples:
-  - description:
+  - fiche: BAR-TH-106v23-2
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       surfaceHabitable: 100

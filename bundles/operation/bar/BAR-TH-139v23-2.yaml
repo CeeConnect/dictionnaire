@@ -113,3 +113,18 @@ properties:
 required:
   - fiche
   - description
+examples:
+  - fiche: BAR-TH-139v23-2
+    description:
+      typeBatiment: MAISON
+      ancienneteBatiment: EXISTANT
+      typeInstallation: COLLECTIF
+      equipements:
+        - moteurClasseIE2: false
+          dateAchat: "2023-01-01"
+          puissanceNominale: 800
+          quantite: 10
+          marque: MARQUE
+          reference: REFERENCE
+          marqueVariateur: MARQUE
+          referenceVariateur: REFERENCE

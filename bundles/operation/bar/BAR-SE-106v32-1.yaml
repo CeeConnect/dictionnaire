@@ -16,25 +16,32 @@ properties:
       consommationSuivie:
         $ref: https://schemas.ceeconnect.fr/enums/bar/consommation_suivie
       critereServiceConsommations:
-        title: |
-          Le service permet l'affichage des informations sur le suivi des consommations
+        title: >
+          Le service permet l'affichage des informations sur le suivi des
+          consommations
+
           via un support numérique de type espace Web ou via une application mobile
         type: boolean
         const: true
       critereMesureConsommation:
-        title: |
-          Le dispositif exploite les consommations mesurées par les compteurs communicants
+        title: >
+          Le dispositif exploite les consommations mesurées par les compteurs
+          communicants
+
           et transmises par les gestionnaires de réseau et permet de communiquer vers
+
           le consommateur les résulstas obtenus et des consiels adaptés à sa situation
+
           de façon à l'aider à interpréter les données et à l'inciter à réduire ses consommations
+
           d'énergie
         type: boolean
         const: true
       critereIntervalleTemps:
-        title:
-          Le dispositif permet l'affichage de l'ensemble des consommations d'énergie
-          sur l'intervalle de temps entre deux pas de délivrance à un pas minimum de 30
-          minutes pour l'électricité et une journée pour le gaz
+        title: Le dispositif permet l'affichage de l'ensemble des consommations
+          d'énergie sur l'intervalle de temps entre deux pas de délivrance à un
+          pas minimum de 30 minutes pour l'électricité et une journée pour le
+          gaz
         type: boolean
         const: true
       critereValorisationEuros:
@@ -44,36 +51,46 @@ properties:
         type: boolean
         const: true
       critereCumuls:
-        title: |
-          Le dispositif permet la possibilité d'accès par le bénéficiaire à différents
+        title: >
+          Le dispositif permet la possibilité d'accès par le bénéficiaire à
+          différents
+
           cumuls (heure / journée / semaine / mois / année)
         type: boolean
         const: true
       critereDecompositionConsommations:
-        title: |
-          Le dispositif permet une décomposition des consommations et une analyse
+        title: >
+          Le dispositif permet une décomposition des consommations et une
+          analyse
+
           personnalisée par usage
         type: boolean
         const: true
       critereHistoriqueCumuls:
-        title: |
-          Le dispositif dispose d'un historique de tous les cumuls sur au moins 3
+        title: >
+          Le dispositif dispose d'un historique de tous les cumuls sur au moins
+          3
+
           mois et de ceux supérieurs ou égaux à la journée pendant 2 années glissantes
         type: boolean
         const: true
       critereComparaisonConsomations:
-        title: |
-          Le dispositif permet de comparer les consommations réalisées à des consommations
+        title: >
+          Le dispositif permet de comparer les consommations réalisées à des
+          consommations
+
           types, établies à partir de moyennes nationales et locales pour des profils
+
           de consommations comparables à ceux de l'utilisateur, et à des seuils
-        description:
-          A minima, la comparaison doit être effectuée par rapport à des statistiques
-          de consommations extraites de l'historique disponible
+        description: A minima, la comparaison doit être effectuée par rapport à des
+          statistiques de consommations extraites de l'historique disponible
         type: boolean
         const: true
       critereAlerteDepassement:
-        title: |
-          En cas de dépassement d'un seuil de consommation de référence, le dispositif
+        title: >
+          En cas de dépassement d'un seuil de consommation de référence, le
+          dispositif
+
           émet une alarme explicite (par exemple SMS, mail, notification...)
         type: boolean
         const: true
@@ -97,7 +114,8 @@ properties:
     allOf:
       - contains:
           title: Descriptif du dispositif
-          description: Descriptif du dispositif issu du prestataire du service indiquant la présence des fonctions détaillées dans la présente fiche
+          description: Descriptif du dispositif issu du prestataire du service indiquant
+            la présence des fonctions détaillées dans la présente fiche
           type: object
           properties:
             code:
@@ -106,8 +124,11 @@ properties:
           required:
             - code
       - contains:
-          title: Justificatif du nombre de connexions au service de suivi des consommations
-          description: Justificatif du nombre de connexions au service de suivi des consommations sur la durée de souscription, établi par l'opérateur assurant ce suivi.
+          title: Justificatif du nombre de connexions au service de suivi des
+            consommations
+          description: Justificatif du nombre de connexions au service de suivi des
+            consommations sur la durée de souscription, établi par l'opérateur
+            assurant ce suivi.
           type: object
           properties:
             code:
@@ -120,7 +141,8 @@ required:
   - description
   - documents
 examples:
-  - description:
+  - fiche: BAR-SE-106v32-1
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       consommationSuivie: CHAUFFAGE_GAZ

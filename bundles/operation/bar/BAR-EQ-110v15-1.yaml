@@ -26,10 +26,10 @@ properties:
         title: Quantité de luminaires installés
         type: integer
         minimum: 0
-      detecteurLumiere: 
+      detecteurLumiere:
         title: Système de détection tenant compte des apports de lumière du jour
         type: boolean
-      detecteurPresence: 
+      detecteurPresence:
         title: Détection de présence ou de mouvement
         type: boolean
       marque:
@@ -75,14 +75,14 @@ properties:
               minimum: 50000
           required:
             - dureeVie
-    anyOf: 
-      - properties: 
+    anyOf:
+      - properties:
           detecteurLumiere:
             type: boolean
             const: true
         required:
-            - detecteurLumiere
-      - properties: 
+          - detecteurLumiere
+      - properties:
           detecteurPresence:
             type: boolean
             const: true
@@ -92,7 +92,8 @@ required:
   - fiche
   - description
 examples:
-  - description:
+  - fiche: BAR-EQ-110v15-1
+    description:
       ancienneteBatiment: EXISTANT
       indiceProtectionChocs: "10"
       efficaciteLumineuse: 95

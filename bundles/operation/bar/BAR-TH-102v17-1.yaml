@@ -22,17 +22,20 @@ properties:
         minimum: 0
       besoinEauChaudeSanitaire:
         title: Besoin annuel en eau chaude sanitaire (kWh/an)
-        description: Indiquer le besoin annuel en eau chaude sanitaire issu de l'étude de dimensionnement
+        description: Indiquer le besoin annuel en eau chaude sanitaire issu de l'étude
+          de dimensionnement
         type: number
         minimum: 0
       tauxCouvertureSolaire:
         title: Taux de couverture par l'énergie solaire (%)
-        description: Indiquer le taux de couverture par l'énergie solaire issu de l'étude de dimensionnement
+        description: Indiquer le taux de couverture par l'énergie solaire issu de
+          l'étude de dimensionnement
         type: number
         minimum: 0
       productionSolaireUtile:
         title: Production solaire utile (kWh/an)
-        description: Indiquer la production solaire utile issue de l'étude de dimensionnement
+        description: Indiquer la production solaire utile issue de l'étude de
+          dimensionnement
         type: number
         minimum: 0
       marque:
@@ -78,7 +81,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-TH-102v17-1
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
       typeBatiment: IMMEUBLE

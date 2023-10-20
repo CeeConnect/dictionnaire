@@ -39,18 +39,16 @@ properties:
 $defs:
   equipement:
     type: object
-    title:
-      Caractéristiques du système centralisé de production d'ECS par pompe(s)
-      à chaleur (PAC)
+    title: Caractéristiques du système centralisé de production d'ECS par pompe(s) à
+      chaleur (PAC)
     properties:
       typeEquipement:
         title: Type de pompe(s) à chaleur
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac
       puissanceNominale:
         title: Puissance nominale de(s) pompe(s) à chaleur
-        description:
-          La pompe à chaleur chauffant l'eau chaude sanitaire ou le chauffe-eau
-          a une puissance nominale ne dépassant pas 400 kW
+        description: La pompe à chaleur chauffant l'eau chaude sanitaire ou le
+          chauffe-eau a une puissance nominale ne dépassant pas 400 kW
         type: number
         maximum: 400
       performanceEnergetique:
@@ -59,9 +57,12 @@ $defs:
         minimum: 2.8
       tauxCouverture:
         title: Taux de couverture
-        description: |
-          Renseigner le rapport entre l'énergie annuelle cumulée produite par la PAC sans l'appoint pour le chauffage 
+        description: >
+          Renseigner le rapport entre l'énergie annuelle cumulée produite par la
+          PAC sans l'appoint pour le chauffage 
+
           de l'eau et la somme des besoins annuels cumulés liés au puisage de l'eau chaude sanitaire et des pertes de 
+
           distribution d'eau chaude sanitaire cumulées sur l'année
         type: number
         maximum: 1
@@ -89,8 +90,7 @@ $defs:
                 - $ref: https://schemas.ceeconnect.fr/enums/bar/profil_soutirage_chauffe_eau_solaire#/$defs/4XL
             performanceEnergetique:
               title: Efficacité énergétique pour la production d'ECS (Eta wh en %)
-              description:
-                Pour les chauffe-eau thermodynamiques concernés par le règlement
+              description: Pour les chauffe-eau thermodynamiques concernés par le règlement
                 (UE) n° 814/2013 de la Commission du 2 août 2013
               type: number
               minimum: 61
@@ -140,11 +140,10 @@ $defs:
         then:
           properties:
             performanceEnergetique:
-              description:
-                "Selon la norme NF EN 14511, sous les conditions suivantes
-                de température : température à l'entrée (échangeur extérieur) de 7°C
-                extérieur/température à la sortie (échangeur intérieur) de 45°C, pour
-                une PAC air extérieur/eau"
+              description: "Selon la norme NF EN 14511, sous les conditions suivantes de
+                température : température à l'entrée (échangeur extérieur) de
+                7°C extérieur/température à la sortie (échangeur intérieur) de
+                45°C, pour une PAC air extérieur/eau"
           required:
             - performanceEnergetique
       - if:
@@ -156,10 +155,10 @@ $defs:
         then:
           properties:
             performanceEnergetique:
-              description:
-                "Selon la norme NF EN 14511, sous les conditions de température
-                : température à l'entrée (échangeur extérieur) de 20°C/température à
-                la sortie (échangeur intérieur) de 45°C, pour une PAC air extrait/eau"
+              description: "Selon la norme NF EN 14511, sous les conditions de température :
+                température à l'entrée (échangeur extérieur) de 20°C/température
+                à la sortie (échangeur intérieur) de 45°C, pour une PAC air
+                extrait/eau"
           required:
             - performanceEnergetique
       - if:
@@ -171,11 +170,10 @@ $defs:
         then:
           properties:
             performanceEnergetique:
-              description:
-                "Selon la norme NF EN 14511, sous les conditions de température
-                : température à l'entrée (échangeur extérieur) de 10°C/température à
-                la sortie (échangeur intérieur) de 45°C, pour une PAC eau/eau sur eau
-                de nappe"
+              description: "Selon la norme NF EN 14511, sous les conditions de température :
+                température à l'entrée (échangeur extérieur) de 10°C/température
+                à la sortie (échangeur intérieur) de 45°C, pour une PAC eau/eau
+                sur eau de nappe"
           required:
             - performanceEnergetique
       - if:
@@ -187,11 +185,10 @@ $defs:
         then:
           properties:
             performanceEnergetique:
-              description:
-                "Selon la norme NF EN 14511, sous les conditions de température
-                : température à l'entrée (échangeur extérieur) de 0°C/température à
-                la sortie (échangeur intérieur) de 45°C, pour une PAC eau glycolée /eau
-                sur capteurs enterrés"
+              description: "Selon la norme NF EN 14511, sous les conditions de température :
+                température à l'entrée (échangeur extérieur) de 0°C/température
+                à la sortie (échangeur intérieur) de 45°C, pour une PAC eau
+                glycolée /eau sur capteurs enterrés"
           required:
             - performanceEnergetique
       - if:
@@ -203,9 +200,8 @@ $defs:
         then:
           properties:
             performanceEnergetique:
-              description:
-                "Selon la norme NF EN 14511, sous les conditions de température
-                : 10°C/45°C, pour une PAC à capteur solaire atmosphérique"
+              description: "Selon la norme NF EN 14511, sous les conditions de température :
+                10°C/45°C, pour une PAC à capteur solaire atmosphérique"
           required:
             - performanceEnergetique
       - if:
@@ -217,9 +213,8 @@ $defs:
         then:
           properties:
             performanceEnergetique:
-              description:
-                "Selon la norme NF EN 14511, sous les conditions de température
-                : 19°C/45°C, pour une PAC sur eaux grises"
+              description: "Selon la norme NF EN 14511, sous les conditions de température :
+                19°C/45°C, pour une PAC sur eaux grises"
           required:
             - performanceEnergetique
       - if:
@@ -231,12 +226,11 @@ $defs:
         then:
           properties:
             performanceEnergetique:
-              description:
-                "Arrêté du 6 avril 2022 modifiant les arrêtés pris en application
-                des articles R. 122-22 à R. 122-25 et R. 172-1 à R. 172-9 du code de
-                la construction et de l'habitation (intégrant le « Titre V Système »
-                PAC CO2), sous les conditions de température : 7°C/T eau entrée = 15°C
-                avec T eau sortie > 55°C, pour une PAC au CO2"
+              description: "Arrêté du 6 avril 2022 modifiant les arrêtés pris en application
+                des articles R. 122-22 à R. 122-25 et R. 172-1 à R. 172-9 du
+                code de la construction et de l'habitation (intégrant le « Titre
+                V Système » PAC CO2), sous les conditions de température : 7°C/T
+                eau entrée = 15°C avec T eau sortie > 55°C, pour une PAC au CO2"
           required:
             - performanceEnergetique
     required:
@@ -265,7 +259,8 @@ required:
   - description
   - documents
 examples:
-  - description:
+  - fiche: BAR-TH-169v46-1
+    description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       logements: 10

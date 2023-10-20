@@ -18,7 +18,8 @@ properties:
         type: string
         $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffage
       critereAncienneteEquipement:
-        title: L'équipement de régulation est installé sur un système de chauffage existant depuis plus de 2 ans
+        title: L'équipement de régulation est installé sur un système de chauffage
+          existant depuis plus de 2 ans
         type: boolean
         const: true
       marque:
@@ -56,7 +57,8 @@ properties:
           properties:
             surfaceChaufee:
               title: Surface chauffée
-              description: Surface chauffée par le système de chauffage sur lequel est installé le programmateur
+              description: Surface chauffée par le système de chauffage sur lequel est
+                installé le programmateur
               type: number
               minimum: 0
           required:
@@ -72,7 +74,8 @@ required:
   - fiche
   - description
 examples:
-  - description:
+  - fiche: BAR-TH-118v14-1
+    description:
       typeBatiment: APPARTEMENT
       ancienneteBatiment: EXISTANT
       energieChauffage: COMBUSTIBLES

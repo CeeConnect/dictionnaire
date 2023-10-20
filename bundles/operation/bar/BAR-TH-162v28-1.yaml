@@ -22,7 +22,8 @@ properties:
         minimum: 6
       productiviteCapteurs:
         title: Productivité des capteurs (W/m2)
-        description: Productivité des capteurs est calculée avec un rayonnement de 1 000 W/m²
+        description: Productivité des capteurs est calculée avec un rayonnement de 1 000
+          W/m²
         type: number
         minimum: 500
       critereCapteursHybrides:
@@ -71,7 +72,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-TH-162v28-1
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
       typeBatiment: MAISON
@@ -86,4 +88,3 @@ examples:
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}
       - code: PREUVE_QUALIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}
-

@@ -1,7 +1,9 @@
 $id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-160v39-2
 $schema: https://json-schema.org/draft/2020-12/schema
-$comment: |
-  TODO: Vérifier si le rapport de contrôle n'est pas couvert par la doctrine contrôle avant dépôt
+$comment: >
+  TODO: Vérifier si le rapport de contrôle n'est pas couvert par la doctrine
+  contrôle avant dépôt
+
   TODO: Vérifier si le justificatif d'accréditation de l'ogranisme de contrôle n'est pas couvert par la doctrine contrôle avant dépôt
 title: BAR-TH-160v39-2
 type: object
@@ -20,26 +22,32 @@ properties:
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       critereRemplacementInstallation:
-        title: |
-          L'installation de chauffage collectif ou de production d'eau chaude sanitaire a été remplacée après le 01/01/2018
+        title: >
+          L'installation de chauffage collectif ou de production d'eau chaude
+          sanitaire a été remplacée après le 01/01/2018
         type: boolean
         const: false
       critereReseauExistant:
-        title: L'opération est réalisée sur un réseau hydraulique de chauffage ou d'eau chaude sanitaire existant
+        title: L'opération est réalisée sur un réseau hydraulique de chauffage ou d'eau
+          chaude sanitaire existant
         type: boolean
         const: true
       critereReseauNonIsole:
-        title: |
-          L'opération est réalisée sur un réseau hydraulique de chauffage ou d'eau chaude non isolé
+        title: >
+          L'opération est réalisée sur un réseau hydraulique de chauffage ou
+          d'eau chaude non isolé
         type: boolean
       critereReseauIsole:
-        title: |
-          L'opération est réalisée sur un réseau hydraulique de chauffage ou d'eau chaude dont l'isolation 
+        title: >
+          L'opération est réalisée sur un réseau hydraulique de chauffage ou
+          d'eau chaude dont l'isolation 
+
           en place est de classe inférieure ou égale à 2
         type: boolean
       quantite:
         title: Longueur isolée de réseau
-        description: Longueur isolée de réseau de chauffage ou d'eau chaude sanitaire situé hors du volume chauffé
+        description: Longueur isolée de réseau de chauffage ou d'eau chaude sanitaire
+          situé hors du volume chauffé
         type: integer
         minimum: 0
       epaisseur:
@@ -94,8 +102,9 @@ properties:
             - code
       - contains:
           title: Justification de l'accréditation de l'organisme d'inspection
-          description: |
-            La décision de qualification ou le certificat Qualibat 553 ou 554 du prestataire, à la date d'entrée en vigueur du contrat
+          description: >
+            La décision de qualification ou le certificat Qualibat 553 ou 554 du
+            prestataire, à la date d'entrée en vigueur du contrat
           type: object
           properties:
             code:
@@ -109,7 +118,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-TH-160v39-2
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
       typeBatiment: IMMEUBLE

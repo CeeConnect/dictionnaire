@@ -27,4 +27,4 @@ required:
   - adresse
   - description
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-160v54-4#/examples/0
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-160v54-4

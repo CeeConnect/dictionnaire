@@ -78,7 +78,8 @@ required:
   - description
   - documents
 examples:
-  - description:
+  - fiche: BAR-TH-104v41-3
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       temperatureDistribution: BASSE_TEMPERATURE

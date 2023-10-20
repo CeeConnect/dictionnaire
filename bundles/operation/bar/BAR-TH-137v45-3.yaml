@@ -118,7 +118,8 @@ required:
   - description
   - gestionnaire
 examples:
-  - description:
+  - fiche: BAR-TH-137v45-3
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       critereRaccordementAnterieur: false

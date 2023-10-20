@@ -21,12 +21,9 @@ properties:
         title: Type d'équipement assurant l'alimentation de chauffage
         type: string
         oneOf:
-          - $ref: >-
-              https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/CHAUDIERE_HORS_CONDENSATION
-          - $ref: >-
-              https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/CHAUDIERE_CONDENSATION
-          - $ref: >-
-              https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/RESEAU_CHALEUR
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/CHAUDIERE_HORS_CONDENSATION
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/CHAUDIERE_CONDENSATION
+          - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/RESEAU_CHALEUR
       logements:
         title: Nombre de logements
         type: integer
@@ -41,10 +38,4 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
-      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    description:
-      typeBatiment: IMMEUBLE
-      ancienneteBatiment: EXISTANT
-      typeEquipementExistant: CHAUDIERE_HORS_CONDENSATION
-      logements: 50
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-109v54-1

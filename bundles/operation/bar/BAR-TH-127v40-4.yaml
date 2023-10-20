@@ -163,7 +163,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-TH-127v40-4
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
       typeBatiment: MAISON
@@ -174,7 +175,7 @@ examples:
       puissanceElectrique: 10
       classeEnergetique: A+
       referenceAvisTechnique: REFERENCE
-      dateAvisTechnique: '2020-01-01'
+      dateAvisTechnique: 2020-01-01
       marqueCaison: MARQUE
       referenceCaison: REFERENCE
       marqueBouchesExtraction: MARQUE
@@ -182,4 +183,3 @@ examples:
     documents:
       - code: AVIS_TECHNIQUE
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}
-

@@ -87,7 +87,8 @@ required:
   - description
   - documents
 examples:
-  - description:
+  - fiche: BAR-TH-172v55-1
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       temperatureDistribution: BASSE_TEMPERATURE

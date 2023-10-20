@@ -30,10 +30,4 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
-      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    description:
-      typeBatiment: MAISON
-      ancienneteBatiment: EXISTANT
-      energieChauffage: CHARBON
-      performanceEnergetique: 70
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-112v46-3

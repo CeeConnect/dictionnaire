@@ -16,8 +16,10 @@ properties:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       dateEtatRecapitulatif:
         title: Date de l'état récapitulatif
-        description: | 
-          Renseigner la date de l'état récapitulatif établi par le professionnel à l'issue de travaux, mentionnant
+        description: >
+          Renseigner la date de l'état récapitulatif établi par le professionnel
+          à l'issue de travaux, mentionnant
+
           les housses isolantes mises en place et les points singuliers isolés
         type: string
         format: date
@@ -33,8 +35,10 @@ properties:
               $ref: https://schemas.ceeconnect.fr/enums/bar/type_point_singulier
             quantite:
               title: Nombre de housses d'isolation
-              description: |
-                Dans le cas d'un point singulier de type échangeur à plaque, renseigner le nombre d'échangeurs à plaques de 
+              description: >
+                Dans le cas d'un point singulier de type échangeur à plaque,
+                renseigner le nombre d'échangeurs à plaques de 
+
                 caractéristiques identiques
               type: integer
               minimum: 1
@@ -47,11 +51,13 @@ properties:
               type: number
               exclusiveMinimum: 200
             resistance50:
-              title: Résistance thermique de l'isolant R (m2.K/W) à une température moyenne de 50°C
+              title: Résistance thermique de l'isolant R (m2.K/W) à une température moyenne de
+                50°C
               type: number
               minimum: 1.5
             resistance100:
-              title: Résistance thermique de l'isolant R (m2.K/W) à une température moyenne de 100°C
+              title: Résistance thermique de l'isolant R (m2.K/W) à une température moyenne de
+                100°C
               type: number
               minimum: 1
             critereNature:
@@ -107,14 +113,22 @@ properties:
     allOf:
       - contains:
           title: Récapitulatif
-          description: |
-            Etat récapitulatif daté et signé par le professionnel et le bénéficiaire de l'opération. Il comporte :
+          description: >
+            Etat récapitulatif daté et signé par le professionnel et le
+            bénéficiaire de l'opération. Il comporte :
+
             - le lieu d'implantation des matelas en chaufferie ou sous-station ;
+
             - les marques, références ou numéros de repérage internes des points singuliers isolés par les housses ainsi que le
+
             diamètre nominal des canalisations auxquelles sont raccordés les points singuliers ;
+
             - les marques et références des housses installées, la résistance thermique de l'âme isolante à la température
+
             exigée, la température maximale de service de leur âme isolante et, le cas échéant, les numéros de repérage
+
             internes des housses isolantes ;
+
             - la température du fluide caloporteur.
           type: object
           properties:
@@ -125,7 +139,8 @@ properties:
             - code
       - contains:
           title: Justification de l'accréditation de l'organisme d'inspection
-          description: La décision de qualification ou le certificat Qualibat 553 ou 554 du prestataire, à la date d'entrée en vigueur du contrat
+          description: La décision de qualification ou le certificat Qualibat 553 ou 554
+            du prestataire, à la date d'entrée en vigueur du contrat
           type: object
           properties:
             code:
@@ -138,13 +153,14 @@ required:
   - description
   - documents
 examples:
-  - description:
+  - fiche: BAR-TH-161v54-2
+    description:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       typePointSingulier: ECHANGEUR
       temperatureFluide: 60
       quantite: 100
-      dateEtatRecapitulatif: "2023-12-12"
+      dateEtatRecapitulatif: 2023-12-12
       equipements:
         - critereNature: true
           critereMateriau: true

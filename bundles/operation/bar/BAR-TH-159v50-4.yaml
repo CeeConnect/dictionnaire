@@ -27,7 +27,8 @@ properties:
         minimum: 70
       usage:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_usage#/$defs/ECS
-        title: La pompe à chaleur est utilisée uniquement pour la production d'eau chaude sanitaire
+        title: La pompe à chaleur est utilisée uniquement pour la production d'eau
+          chaude sanitaire
       temperatureDistribution:
         title: Température de fonctionnement
         type: string
@@ -77,13 +78,19 @@ properties:
     allOf:
       - contains:
           title: Preuve de réalisation de l'opération
-          description: |
+          description: >
             Le document mentionne :
+
             - que l'équipement de marque et référence mis en place est une pompe à chaleur air/eau avec un dispositif 
+
             d'appoint par combustible liquide ou gazeux ;
+
             - le type de pompe à chaleur (moyenne ou haute température) ;
+
             - l'efficacité énergétique saisonnière (ηs) selon le règlement (EU) n° 813/2013 de la commission du 2 août 
+
             2013 de la pompe à chaleur munie de son dispositif d'appoint (hors dispositif de régulation de la température) ;
+
             - la classe du régulateur.
           type: object
           properties:
@@ -112,7 +119,8 @@ required:
   - description
   - documents
 examples:
-  - description:
+  - fiche: BAR-TH-159v50-4
+    description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
       surfaceChauffee: 100

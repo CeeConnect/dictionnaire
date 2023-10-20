@@ -34,24 +34,29 @@ properties:
           - $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/HYBRIDE
       surfaceThermique:
         title: Surface thermique (m²)
-        description: Indiquer la surface thermique du bâtiment au sens de la règlementation thermique SRT
+        description: Indiquer la surface thermique du bâtiment au sens de la
+          règlementation thermique SRT
         type: number
         minimum: 0
       cepMax:
         title: CEPmax (kWh/m².an)
-        description: Indiquer la consommation conventionnelle en énergie primaire maximale CEPmax issue de l'étude thermique
+        description: Indiquer la consommation conventionnelle en énergie primaire
+          maximale CEPmax issue de l'étude thermique
         type: number
       cepBat:
         title: CEPbat (kWh/m².an)
-        description: Indiquer la consommation conventionnelle en énergie primaire du bâtiment CEPbat issue de l'étude thermique
+        description: Indiquer la consommation conventionnelle en énergie primaire du
+          bâtiment CEPbat issue de l'étude thermique
         type: number
       cefMax:
         title: CEFmax (kWh/m².an)
-        description: Indiquer la consommation conventionnelle en énergie finale maximale CEFmax issue de l'étude thermique
+        description: Indiquer la consommation conventionnelle en énergie finale maximale
+          CEFmax issue de l'étude thermique
         type: number
       cefBat:
         title: CEFbat (kWh/m².an)
-        description: Indiquer la consommation conventionnelle en énergie finale du bâtiment CEFbat issue de l'étude thermique
+        description: Indiquer la consommation conventionnelle en énergie finale du
+          bâtiment CEFbat issue de l'étude thermique
         type: number
       bbioMax:
         title: Besoin bioclimatique maximale
@@ -136,7 +141,8 @@ required:
   - description
   - documents
 examples:
-  - adresse:
+  - fiche: BAR-TH-130v26-1
+    adresse:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
       typeBatiment: MAISON

@@ -13,8 +13,7 @@ properties:
     type: object
     properties:
       typeBatiment:
-        $ref: >-
-          https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
     required:
@@ -25,8 +24,4 @@ required:
   - adresse
   - description
 examples:
-  - adresse:
-      $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-    description:
-      typeBatiment: MAISON
-      ancienneteBatiment: EXISTANT
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-108v48-1

@@ -21,10 +21,12 @@ properties:
       quantiteChaleurUtile:
         $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-165v34-1#/properties/description/properties/quantiteChaleurUtile
       critereRegimeCopropriete:
-        title: L'immeuble relève du régime de la copropriété défini par la loi n° 65-557 du 10 juillet 1965
+        title: L'immeuble relève du régime de la copropriété défini par la loi n° 65-557
+          du 10 juillet 1965
         type: boolean
       critereEquipementExistant:
-        title: L'équipement vient en remplacement d'une chaudière collective au fioul, au gaz ou au charbon
+        title: L'équipement vient en remplacement d'une chaudière collective au fioul,
+          au gaz ou au charbon
         type: boolean
     required:
       - typeBatiment
@@ -36,6 +38,5 @@ properties:
 required:
   - fiche
   - description
-
 examples:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-165v34-1#/examples/0
+  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-165v34-1
