@@ -13,6 +13,8 @@ properties:
     title: Date d'engagement de l'opération
     type: string
     format: date
+  precarite:
+    $ref: https://schemas.ceeconnect.fr/bundles/simulation/precarite
 required:
   - fiche
   - dateEngagement
