@@ -2,6 +2,11 @@ $id: https://schemas.ceeconnect.fr/bundles/simulation/ind
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Industrie
 type: object
+properties:
+  fiche:
+    $ref: https://schemas.ceeconnect.fr/enums/fiche#/$defs/ind
+required:
+  - fiche
 allOf:
   - if:
       properties:
@@ -12,4 +17,3 @@ allOf:
     then:
       discriminator:
         propertyName: fiche
-      oneOf: []

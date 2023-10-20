@@ -1,11 +1,11 @@
-$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-125v40-4
+$id: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-125v54-5
 $schema: https://json-schema.org/draft/2020-12/schema
-title: BAR-TH-125v40-4
+title: BAR-TH-125v54-5
 type: object
 properties:
   fiche:
     type: string
-    const: BAR-TH-125v40-4
+    const: BAR-TH-125v54-5
   adresse:
     $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/franceMetropolitaine
   description:
