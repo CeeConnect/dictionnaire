@@ -31,7 +31,7 @@ Ce projet propose un vocabulaire uniformisé de référence au format YAML pour 
 
 ## Releases
 
-### v1.0.0
+### v0.3.0
 
 - [x] Bâtiment résidentiel
 
