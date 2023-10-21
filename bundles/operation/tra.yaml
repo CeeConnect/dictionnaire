@@ -4,7 +4,7 @@ title: Transport
 type: object
 properties:
   fiche:
-    $ref: https://schemas.ceeconnect.fr/enums/fiche#/$defs/tra
+    $ref: https://schemas.ceeconnect.fr/enums/fiche
 required:
   - fiche
 allOf:

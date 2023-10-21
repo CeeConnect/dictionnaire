@@ -4,7 +4,7 @@ title: Bâtiment résidentiel
 type: object
 properties:
   fiche:
-    $ref: https://schemas.ceeconnect.fr/enums/fiche#/$defs/bar
+    $ref: https://schemas.ceeconnect.fr/enums/fiche
 required:
   - fiche
 allOf:

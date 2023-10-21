@@ -4,7 +4,7 @@ title: Agriculture
 type: object
 properties:
   fiche:
-    $ref: https://schemas.ceeconnect.fr/enums/fiche#/$defs/agri
+    $ref: https://schemas.ceeconnect.fr/enums/fiche
 required:
   - fiche
 allOf:
