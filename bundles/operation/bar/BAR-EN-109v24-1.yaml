@@ -33,6 +33,8 @@ properties:
       reference:
         title: Référence de l'isolant
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - typeBatiment
       - ancienneteBatiment
@@ -42,6 +44,7 @@ properties:
       - facteurSolaire
       - marque
       - reference
+      - installateur
 allOf:
   - if:
       properties:
@@ -110,6 +113,8 @@ examples:
       facteurSolaire: 0.01
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: NOTE_CALCUL
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

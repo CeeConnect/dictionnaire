@@ -49,6 +49,8 @@ properties:
           required:
             - marque
             - reference
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - typeBatiment
       - ancienneteBatiment
@@ -56,6 +58,7 @@ properties:
       - resistanceThermique
       - epaisseur
       - references
+      - installateur
   documents:
     type: array
     items:
@@ -89,6 +92,8 @@ examples:
           reference: REFERENCE
         - marque: MARQUE
           reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

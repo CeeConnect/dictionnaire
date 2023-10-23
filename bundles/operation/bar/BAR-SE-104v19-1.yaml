@@ -19,10 +19,13 @@ properties:
         description: Nombre d'appartement d'un même bâtiment
         type: integer
         minimum: 1
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - ancienneteBatiment
       - typeBatiment
       - logements
+      - installateur
   documents:
     type: array
     items:
@@ -80,6 +83,8 @@ examples:
       typeBatiment: IMMEUBLE
       ancienneteBatiment: EXISTANT
       logements: 10
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: SCHEMA_HYDRAULIQUE
         url: https://api.ceeconnect.fr/archivage/

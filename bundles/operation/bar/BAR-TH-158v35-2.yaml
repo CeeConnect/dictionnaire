@@ -87,10 +87,13 @@ properties:
                     - critereFonctionDetectionOuvertureFenetre
                     - critereFonctionDetectionAbsence
                     - critereFonctionIndicationSurconsommation
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - typeBatiment
       - ancienneteBatiment
       - equipements
+      - installateur
   documents:
     type: array
     items:
@@ -119,6 +122,8 @@ examples:
           puissanceElectrique: 1500
           marque: MARQUE
           reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

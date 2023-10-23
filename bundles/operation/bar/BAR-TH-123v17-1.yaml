@@ -19,10 +19,8 @@ properties:
         type: integer
         minimum: 1
       critereSystemeEligible:
-        title: >
-          L'équipement de régulation est installé sur un système de chauffage
-          collectif à combustible
-
+        title: |
+          L'équipement de régulation est installé sur un système de chauffage collectif à combustible
           existant depuis plus de 2 ans
         type: boolean
         const: true
@@ -32,6 +30,8 @@ properties:
       reference:
         title: Référence de l'équipement
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - typeBatiment
       - ancienneteBatiment
@@ -39,6 +39,7 @@ properties:
       - critereSystemeEligible
       - marque
       - reference
+      - installateur
   documents:
     type: array
     items:
@@ -46,10 +47,8 @@ properties:
     allOf:
       - contains:
           title: Preuve de réalisation de l'opération
-          description: >
-            La preuve de réalisation de l'opération mentionne la mise en place
-            d'un optimiseur de relance comprenant une
-
+          description: |
+            La preuve de réalisation de l'opération mentionne la mise en place d'un optimiseur de relance comprenant une
             fonction auto-adaptative au sens de la norme NF EN 12098-1.
           type: object
           properties:
@@ -71,6 +70,8 @@ examples:
       critereSystemeEligible: true
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_REALISATION
         url: https://api.ceeconnect.fr/archivage/{uuid}

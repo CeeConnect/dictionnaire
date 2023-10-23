@@ -34,6 +34,8 @@ properties:
           814/2013
         type: number
         minimum: 36
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     allOf:
       - if:
           properties:
@@ -57,12 +59,9 @@ properties:
         then:
           properties:
             critereAbonnement:
-              title: >
-                Le contrat de vente par abonnement a d'une durée minimale de dix
-                ans et il comporte une clause
-
+              title: |
+                Le contrat de vente par abonnement a d'une durée minimale de dix ans et il comporte une clause
                 de maintien, par le professionnel, du bon état de fonctionnement du CESI pendant toute la durée du
-
                 contrat d'abonnement
               type: boolean
               const: true
@@ -77,6 +76,7 @@ properties:
       - performanceEnergetique
       - marque
       - reference
+      - installateur
   documents:
     type: array
     items:
@@ -118,6 +118,8 @@ examples:
       performanceEnergetique: 80
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: CERTIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

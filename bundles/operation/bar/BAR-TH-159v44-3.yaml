@@ -59,6 +59,8 @@ properties:
           reference:
             title: Référence
             type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - typeBatiment
       - ancienneteBatiment
@@ -71,6 +73,7 @@ properties:
       - marque
       - reference
       - regulateur
+      - installateur
   documents:
     type: array
     items:
@@ -78,19 +81,13 @@ properties:
     allOf:
       - contains:
           title: Preuve de réalisation de l'opération
-          description: >
+          description: |
             Le document mentionne :
-
             - que l'équipement de marque et référence mis en place est une pompe à chaleur air/eau avec un dispositif 
-
             d'appoint par combustible liquide ou gazeux ;
-
             - le type de pompe à chaleur (moyenne ou haute température) ;
-
             - l'efficacité énergétique saisonnière (ηs) selon le règlement (EU) n° 813/2013 de la commission du 2 août 
-
             2013 de la pompe à chaleur munie de son dispositif d'appoint (hors dispositif de régulation de la température) ;
-
             - la classe du régulateur.
           type: object
           properties:
@@ -135,6 +132,8 @@ examples:
         classe: V
         marque: MARQUE
         reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_REALISATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

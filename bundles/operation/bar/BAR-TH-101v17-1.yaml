@@ -22,11 +22,14 @@ properties:
       reference:
         title: Référence
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - typeBatiment
       - ancienneteBatiment
       - marque
       - reference
+      - installateur
   documents:
     type: array
     items:
@@ -64,6 +67,8 @@ examples:
       ancienneteBatiment: EXISTANT
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: CERTIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

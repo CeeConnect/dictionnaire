@@ -66,6 +66,8 @@ properties:
         title: Besoin bioclimatique du bâtiment
         description: Indiquer le besoin bioclimatique du bâtiment issu de l'étude thermique
         type: number
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - typeBatiment
       - ancienneteBatiment
@@ -79,6 +81,7 @@ properties:
       - cefBat
       - bbioMax
       - bbioBat
+      - installateur
     anyOf:
       - properties:
           ancienneteBatiment:
@@ -158,6 +161,8 @@ examples:
       cefBat: 25
       bbioMax: 50
       bbioBat: 25
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PERMIS_CONSTRUIRE
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

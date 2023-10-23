@@ -28,6 +28,8 @@ properties:
           d'économies d'énergie
         type: boolean
         const: false
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     anyOf:
       - properties:
           critereRaccordementAnterieur:
@@ -77,6 +79,7 @@ properties:
       - ancienneteBatiment
       - identifiantReseau
       - critereRaccordementAnterieur
+      - installateur
   gestionnaire:
     title: Professionnel gestionnaire du réseau
     type: object
@@ -125,6 +128,8 @@ examples:
       critereRaccordementAnterieur: false
       identifiantReseau: RESEAU
       surfaceHabitable: 100
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     gestionnaire:
       nom: NOM
       prenom: PRENOM

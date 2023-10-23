@@ -30,6 +30,8 @@ properties:
       reference:
         title: Référence de l'équipement
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - typeBatiment
       - ancienneteBatiment
@@ -38,6 +40,7 @@ properties:
       - performanceEnergetique
       - marque
       - reference
+      - installateur
 required:
   - fiche
   - description
@@ -51,3 +54,5 @@ examples:
       performanceEnergetique: 4.2
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0

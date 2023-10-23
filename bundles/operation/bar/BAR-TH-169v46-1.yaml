@@ -30,12 +30,15 @@ properties:
         minItems: 1
         items:
           $ref: "#/$defs/equipement"
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - ancienneteBatiment
       - typeBatiment
       - logements
       - quantite
       - equipements
+      - installateur
 $defs:
   equipement:
     type: object
@@ -270,6 +273,8 @@ examples:
           profilSoutirage: 3XL
           marque: MARQUE
           reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

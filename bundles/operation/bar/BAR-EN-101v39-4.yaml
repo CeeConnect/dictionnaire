@@ -15,17 +15,15 @@ properties:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       quantite:
         title: Surface d'isolant posé (m²)
-        description:
-          Dans le cas d'une pose superposée de plusieurs isolants, indiquer la surface
-          résultant de la superposition des isolants
+        description: Dans le cas d'une pose superposée de plusieurs isolants, indiquer
+          la surface résultant de la superposition des isolants
         type: number
         minimum: 0
       typePose:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_pose_isolant
       resistanceThermique:
         title: Résistance thermmique de l'isolant
-        description:
-          Dans le cas d'une pose superposée de plusieurs isolants, indiquer
+        description: Dans le cas d'une pose superposée de plusieurs isolants, indiquer
           la résistance thermique globale
         type: number
         minimum: 6
@@ -35,14 +33,13 @@ properties:
         minimum: 0
       posePareVapeur:
         title: Mise en place d'un pare-vapeur
-        description:
-          L'isolation thermique réalisée a nécessité la mise en place d'un pare-vapeur
-          ou tout autre dispositif permettant d'atteindre un résultat équivalent
+        description: L'isolation thermique réalisée a nécessité la mise en place d'un
+          pare-vapeur ou tout autre dispositif permettant d'atteindre un
+          résultat équivalent
         type: boolean
       references:
         title: Marques et références
-        description:
-          Dans le cas d'une pose superposée de plusieurs isolants, indiquer
+        description: Dans le cas d'une pose superposée de plusieurs isolants, indiquer
           les marques et références de chacun des isolants posés
         type: array
         minItems: 1
@@ -58,6 +55,8 @@ properties:
           required:
             - marque
             - reference
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - ancienneteBatiment
       - quantite
@@ -66,6 +65,7 @@ properties:
       - epaisseur
       - posePareVapeur
       - references
+      - installateur
     allOf:
       - if:
           properties:
@@ -112,6 +112,8 @@ examples:
           reference: REFERENCE
         - marque: MARQUE
           reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

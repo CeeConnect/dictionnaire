@@ -12,11 +12,13 @@ properties:
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       quantite:
-        title: Nombre de fenêtres ou portes fenêtres complètes avec vitrage isolant posées
+        title: Nombre de fenêtres ou portes fenêtres complètes avec vitrage isolant
+          posées
         type: integer
         minimum: 1
       surface:
-        title: Surface totale de fenêtres, doubles fenêtres, fenêtres de toiture ou portes-fenêtres posée
+        title: Surface totale de fenêtres, doubles fenêtres, fenêtres de toiture ou
+          portes-fenêtres posée
         type: number
         minimum: 0
       typeEquipement:
@@ -40,6 +42,8 @@ properties:
       reference:
         title: Référence des équipements
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - ancienneteBatiment
       - quantite
@@ -49,6 +53,7 @@ properties:
       - facteurSolaire
       - marque
       - reference
+      - installateur
     anyOf:
       - properties:
           typeEquipement:
@@ -95,7 +100,7 @@ properties:
           - facteurSolaire
       - properties:
           typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/DOUBLE_FENETRE
+            $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/DOUBLE_FENETRE
           coefficientSurfacique:
             type: number
             maximum: 1.8
@@ -134,6 +139,8 @@ examples:
       facteurSolaire: 0.2
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

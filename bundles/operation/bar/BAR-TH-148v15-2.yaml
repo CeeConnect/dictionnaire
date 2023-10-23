@@ -24,6 +24,8 @@ properties:
       reference:
         title: Référence
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     allOf:
       - if:
           properties:
@@ -45,6 +47,7 @@ properties:
       - performanceEnergetique
       - marque
       - reference
+      - installateur
   documents:
     type: array
     items:
@@ -71,6 +74,8 @@ examples:
       performanceEnergetique: 2.6
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

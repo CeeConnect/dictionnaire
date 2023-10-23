@@ -31,6 +31,8 @@ properties:
       reference:
         title: Référence des équipements
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - ancienneteBatiment
       - typeVentilation
@@ -39,6 +41,7 @@ properties:
       - facteurSolaire
       - marque
       - reference
+      - installateur
     anyOf:
       - properties:
           coefficientSurfacique:
@@ -87,6 +90,8 @@ examples:
       facteurSolaire: 0.6
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

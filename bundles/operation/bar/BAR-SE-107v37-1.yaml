@@ -53,12 +53,15 @@ properties:
           - raisonSociale
           - siren
           - referenceEtude
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - ancienneteBatiment
       - typeBatiment
       - logements
       - typeIntervention
       - entrepriseEtudeTechnique
+      - installateur
   documents:
     type: array
     items:
@@ -99,6 +102,8 @@ examples:
         raisonSociale: ENTREPRISE
         siren: "000000000"
         referenceEtude: REFERENCE ETUDE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: ATTESTATION_SITUATION
         url: https://api.ceeconnect.fr/archivage/

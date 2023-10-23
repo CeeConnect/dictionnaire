@@ -41,6 +41,8 @@ properties:
       referenceBouchesExtraction:
         title: Référence des bouches d'extrations
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     allOf:
       - if:
           properties:
@@ -144,6 +146,7 @@ properties:
       - referenceCaison
       - marqueBouchesExtraction
       - referenceBouchesExtraction
+      - installateur
   documents:
     type: array
     items:
@@ -180,6 +183,8 @@ examples:
       referenceCaison: REFERENCE
       marqueBouchesExtraction: MARQUE
       referenceBouchesExtraction: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: AVIS_TECHNIQUE
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

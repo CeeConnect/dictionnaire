@@ -65,6 +65,8 @@ properties:
           - raisonSociale
           - siren
           - referenceEtude
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - ancienneteBatiment
       - typeBatiment
@@ -77,6 +79,7 @@ properties:
       - marque
       - reference
       - entrepriseEtudeDimensionnement
+      - installateur
     allOf:
       - if:
           properties:
@@ -200,6 +203,8 @@ examples:
         raisonSociale: Raison sociale
         siren: "000000000"
         referenceEtude: Référence.
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: NOTE_DIMENSIONNEMENT
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

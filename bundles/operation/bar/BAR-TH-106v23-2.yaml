@@ -13,6 +13,8 @@ properties:
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_batiment#/$defs/individuel
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     allOf:
       - if:
           properties:
@@ -74,6 +76,7 @@ properties:
     required:
       - typeBatiment
       - ancienneteBatiment
+      - installateur
   documents:
     type: array
     items:
@@ -145,6 +148,8 @@ examples:
       reference: REFERENCE
       marqueRegulateur: MARQUE
       referenceRegulateur: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

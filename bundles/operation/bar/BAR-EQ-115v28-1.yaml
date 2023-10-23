@@ -64,6 +64,8 @@ properties:
           l'utilisateur, et à des seuils
         type: boolean
         const: true
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - ancienneteBatiment
       - typeBatiment
@@ -76,6 +78,7 @@ properties:
       - critereOptionBilanPeriodique
       - critereOptionAlarmeDepassement
       - critereOptionComparaisonConsommations
+      - installateur
     allOf:
       - if:
           properties:
@@ -151,6 +154,8 @@ examples:
       critereOptionBilanPeriodique: true
       critereOptionAlarmeDepassement: true
       critereOptionComparaisonConsommations: true
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: DESCRIPTIF_TECHNIQUE
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

@@ -31,6 +31,8 @@ properties:
       reference:
         title: Référence des équipements
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - typeBatiment
       - ancienneteBatiment
@@ -39,6 +41,7 @@ properties:
       - surfaceHabitable
       - marque
       - reference
+      - installateur
 required:
   - fiche
   - description
@@ -52,3 +55,5 @@ examples:
       surfaceHabitable: 100
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0

@@ -16,10 +16,8 @@ properties:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       dateEtatRecapitulatif:
         title: Date de l'état récapitulatif
-        description: >
-          Renseigner la date de l'état récapitulatif établi par le professionnel
-          à l'issue de travaux, mentionnant
-
+        description: |
+          Renseigner la date de l'état récapitulatif établi par le professionnel à l'issue de travaux, mentionnant
           les housses isolantes mises en place et les points singuliers isolés
         type: string
         format: date
@@ -35,10 +33,8 @@ properties:
               $ref: https://schemas.ceeconnect.fr/enums/bar/type_point_singulier
             quantite:
               title: Nombre de housses d'isolation
-              description: >
-                Dans le cas d'un point singulier de type échangeur à plaque,
-                renseigner le nombre d'échangeurs à plaques de 
-
+              description: |
+                Dans le cas d'un point singulier de type échangeur à plaque, renseigner le nombre d'échangeurs à plaques de 
                 caractéristiques identiques
               type: integer
               minimum: 1
@@ -101,11 +97,14 @@ properties:
                     maximum: 100
                 required:
                   - diametreNominal
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - ancienneteBatiment
       - typeBatiment
       - dateEtatRecapitulatif
       - equipements
+      - installateur
   documents:
     type: array
     items:
@@ -113,22 +112,14 @@ properties:
     allOf:
       - contains:
           title: Récapitulatif
-          description: >
-            Etat récapitulatif daté et signé par le professionnel et le
-            bénéficiaire de l'opération. Il comporte :
-
+          description: |
+            Etat récapitulatif daté et signé par le professionnel et le bénéficiaire de l'opération. Il comporte :
             - le lieu d'implantation des matelas en chaufferie ou sous-station ;
-
             - les marques, références ou numéros de repérage internes des points singuliers isolés par les housses ainsi que le
-
             diamètre nominal des canalisations auxquelles sont raccordés les points singuliers ;
-
             - les marques et références des housses installées, la résistance thermique de l'âme isolante à la température
-
             exigée, la température maximale de service de leur âme isolante et, le cas échéant, les numéros de repérage
-
             internes des housses isolantes ;
-
             - la température du fluide caloporteur.
           type: object
           properties:
@@ -169,6 +160,8 @@ examples:
           resistance100: 1.5
           marque: MARQUE
           reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: ETAT_RECAPITULATIF
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

@@ -40,6 +40,8 @@ properties:
       reference:
         title: Référence de l'équipement
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - typeBatiment
       - ancienneteBatiment
@@ -49,6 +51,7 @@ properties:
       - critereCapteursHybrides
       - marque
       - reference
+      - installateur
   documents:
     type: array
     items:
@@ -56,10 +59,8 @@ properties:
     allOf:
       - contains:
           title: Preuve de réalisation de l'opération
-          description: >
-            La preuve de réalisation de l'opération mentionne la mise en place
-            d'un système solaire combiné et la
-
+          description: |
+            La preuve de réalisation de l'opération mentionne la mise en place d'un système solaire combiné et la
             productivité des capteurs solaires en W/m²
           type: object
           properties:
@@ -105,6 +106,8 @@ examples:
       volumeStockage: 100
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_REALISATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

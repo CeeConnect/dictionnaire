@@ -1,10 +1,9 @@
 $id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-160v39-2
 $schema: https://json-schema.org/draft/2020-12/schema
-$comment: >
-  TODO: Vérifier si le rapport de contrôle n'est pas couvert par la doctrine
+$comment: |
+  - TODO: Vérifier si le rapport de contrôle n'est pas couvert par la doctrine
   contrôle avant dépôt
-
-  TODO: Vérifier si le justificatif d'accréditation de l'ogranisme de contrôle n'est pas couvert par la doctrine contrôle avant dépôt
+  - TODO: Vérifier si le justificatif d'accréditation de l'ogranisme de contrôle n'est pas couvert par la doctrine contrôle avant dépôt
 title: BAR-TH-160v39-2
 type: object
 properties:
@@ -22,7 +21,7 @@ properties:
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       critereRemplacementInstallation:
-        title: >
+        title: |
           L'installation de chauffage collectif ou de production d'eau chaude
           sanitaire a été remplacée après le 01/01/2018
         type: boolean
@@ -33,12 +32,12 @@ properties:
         type: boolean
         const: true
       critereReseauNonIsole:
-        title: >
+        title: |
           L'opération est réalisée sur un réseau hydraulique de chauffage ou
           d'eau chaude non isolé
         type: boolean
       critereReseauIsole:
-        title: >
+        title: |
           L'opération est réalisée sur un réseau hydraulique de chauffage ou
           d'eau chaude dont l'isolation 
 
@@ -67,6 +66,8 @@ properties:
       reference:
         title: Référence de l'isolant
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     anyOf:
       - properties:
           critereReseauNonIsole:
@@ -86,6 +87,7 @@ properties:
       - classeIsolation
       - marque
       - reference
+      - installateur
   documents:
     type: array
     items:
@@ -102,7 +104,7 @@ properties:
             - code
       - contains:
           title: Justification de l'accréditation de l'organisme d'inspection
-          description: >
+          description: |
             La décision de qualification ou le certificat Qualibat 553 ou 554 du
             prestataire, à la date d'entrée en vigueur du contrat
           type: object
@@ -133,6 +135,8 @@ examples:
       classeIsolation: "4"
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: RAPPORT_CONTROLE
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

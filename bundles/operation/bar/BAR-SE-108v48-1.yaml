@@ -24,12 +24,9 @@ properties:
         type: number
         maximum: 70
       critereInjection:
-        title: >
-          Le désembouage comporte l'injection d'un réactif désembouant et
-          circulation selon le dosage et le
-
+        title: |
+          Le désembouage comporte l'injection d'un réactif désembouant et circulation selon le dosage et le
           temps de contact préconisés, avec l'utilisation d'une pompe de désembouage (général puis réseau par
-
           réseau ainsi que dans les deux sens de circulation)
         type: boolean
         const: true
@@ -44,15 +41,14 @@ properties:
         type: boolean
         const: true
       critereVerification:
-        title: >
-          Le désembouage comporte la vérification du filtre (ou pot à boues)
-          existant et/ou installation d'un
-
+        title: |
+          Le désembouage comporte la vérification du filtre (ou pot à boues) existant et/ou installation d'un
           filtre sur le ou les circuits de retour au générateur, ainsi que l'injection d'un réactif inhibiteur
-
           au dosage préconisé
         type: boolean
         const: true
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - ancienneteBatiment
       - typeBatiment
@@ -62,6 +58,7 @@ properties:
       - critereRincageSysteme
       - critereRincageDistribution
       - critereVerification
+      - installateur
   documents:
     type: array
     items:
@@ -69,24 +66,15 @@ properties:
     allOf:
       - contains:
           title: Justificatif spécifique à l'opération
-          description: >
-            Document établi, daté et signé par le professionnel réalisant
-            l'opération, mentionnant :
-
+          description: |
+            Document établi, daté et signé par le professionnel réalisant l'opération, mentionnant :
             - l'adresse du bâtiment concerné par l'opération ;
-
             - le fait que l'opération concerne le désembouage du système de distribution par boucle d'eau d'une installation individuelle de chauffage ;
-
             - le descriptif des étapes de l'opération de désembouage, conformément à la présente fiche ;
-
             - le type de générateur (chaudière, chaudière biomasse, pompe à chaleur, équipement solaire thermique) et sa puissance nominale ;
-
             - le nombre d'émetteurs désemboués ;
-
             - la nature du réseau (cuivre, acier, multicouche, matériaux de synthèse) ;
-
             - le volume d'eau total du circuit ;
-
             - le réactif désembouant et le réactif inhibiteur utilisés.
           type: object
           properties:
@@ -113,6 +101,8 @@ examples:
       critereRincageSysteme: true
       critereRincageDistribution: true
       critereVerification: true
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: JUSTIFICATIF_OPERATION
         url: https://api.ceeconnect.fr/archivage/

@@ -43,6 +43,8 @@ properties:
       reference:
         title: Référence de la chaudière
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     allOf:
       - if:
           properties:
@@ -64,6 +66,7 @@ properties:
       - puissanceEligibleAutresFiches
       - marque
       - reference
+      - installateur
 required:
   - fiche
   - description
@@ -77,3 +80,5 @@ examples:
       puissanceEligibleAutresFiches: 0
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0

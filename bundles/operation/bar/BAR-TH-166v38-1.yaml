@@ -65,6 +65,8 @@ properties:
           s'accompagne de la mise en place d'un ou plusieurs autres équipements
           (chaudières ou pompes à chaleur)
         type: boolean
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     allOf:
       - if:
           properties:
@@ -108,6 +110,7 @@ properties:
       - puissanceEligible
       - puissanceEligibleAutresFiches
       - puissanceChaufferie
+      - installateur
   documents:
     type: array
     items:
@@ -142,6 +145,8 @@ examples:
       puissanceChaufferie: 100
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

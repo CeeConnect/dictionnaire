@@ -28,6 +28,8 @@ properties:
       reference:
         title: Référence de l'équipement
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     allOf:
       - if:
           properties:
@@ -70,6 +72,7 @@ properties:
       - critereAncienneteEquipement
       - marque
       - reference
+      - installateur
 required:
   - fiche
   - description
@@ -84,3 +87,5 @@ examples:
       typeChauffage: INDIVIDUEL
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0

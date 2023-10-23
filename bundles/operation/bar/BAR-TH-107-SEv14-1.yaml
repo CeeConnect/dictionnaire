@@ -118,6 +118,8 @@ properties:
           - critereQuantiteChaleur
           - critereClauseInteressement
           - critereGarantieTotale
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - ancienneteBatiment
       - typeBatiment
@@ -127,6 +129,7 @@ properties:
       - marque
       - reference
       - contrat
+      - installateur
     allOf:
       - if:
           properties:
@@ -181,7 +184,7 @@ examples:
       reference: REFERENCE
       autreEquipement: false
       contrat:
-        dateContrat: 2023-09-25
+        dateContrat: "2023-09-25"
         dureeContrat: 5
         critereDebutContrat: true
         critereObjet: true
@@ -189,6 +192,8 @@ examples:
         critereQuantiteChaleur: true
         critereClauseInteressement: true
         critereGarantieTotale: true
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

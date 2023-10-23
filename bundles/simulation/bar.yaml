@@ -341,11 +341,11 @@ allOf:
         - type: object
           properties:
             fiche:
-              const: BAR-TH-125v54-5
+              const: BAR-TH-127v40-4
           required:
             - fiche
           allOf:
-            - $ref: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-125v54-5
+            - $ref: https://schemas.ceeconnect.fr/bundles/simulation/bar/BAR-TH-127v40-4
         - type: object
           properties:
             fiche:

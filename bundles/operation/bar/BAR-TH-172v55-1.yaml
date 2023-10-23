@@ -35,6 +35,8 @@ properties:
       performanceEnergetiqueRegulateur:
         $ref: https://schemas.ceeconnect.fr/enums/bar/classe_regulateur
         title: Classe du régulateur
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     allOf:
       - if:
           properties:
@@ -59,6 +61,7 @@ properties:
       - marque
       - reference
       - performanceEnergetiqueRegulateur
+      - installateur
   documents:
     type: array
     items:
@@ -98,6 +101,8 @@ examples:
       marque: MARQUE
       reference: REFERENCE
       performanceEnergetiqueRegulateur: VII
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

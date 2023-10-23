@@ -1,6 +1,6 @@
 $id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-145v36-3
 $schema: https://json-schema.org/draft/2020-12/schema
-$comment: >
+$comment: |
   - TODO: Vérifier la possibilité d'intégrer l'attestation de réalisation ANAH
   comme document justificatif spécifique
 title: BAR-TH-145v36-3
@@ -75,10 +75,8 @@ properties:
             type: number
             minimum: 35
           critereEmissionsGes:
-            title: >
-              Les émissions de gaz à effet de serre après rénovation, exprimées
-              en kgeqCO2/m².an, sont inférieures 
-
+            title: |
+              Les émissions de gaz à effet de serre après rénovation, exprimées en kgeqCO2/m².an, sont inférieures 
               ou égales à la valeur initiale de ces émissions avant travaux
             type: boolean
             const: true
@@ -179,19 +177,13 @@ properties:
     allOf:
       - contains:
           title: Rapport de synthèse de l'audit énergétique
-          description: >
+          description: |
             Le rapport de synthèse mentionne les données de consommations
             conventionnelles en énergie primaire 
-
             et en énergie finale (sans déduction de la production d'électricité autoconsommée ou exportée), avant 
-
             et après travaux ainsi que le gain énergétique apporté par la rénovation du bâtiment et les quantités 
-
             annuelles de gaz à effet de serre émis dans l'atmosphère avant et après travaux du fait de la quantité 
-
             d'énergie consommée, rapportés à la surface habitable du bâtiment.
-
-
             Ce rapport précise le nom du logiciel de calcul utilisé dans le cadre de l'opération et son numéro de version.
           type: object
           properties:
@@ -201,19 +193,13 @@ properties:
             - code
       - contains:
           title: Attestation de réalistion de travaux
-          description: >
+          description: |
             L'attestation de réalisation de travaux mentionne :
-
             - la liste des travaux préconisés avec leurs niveaux de performance et la correspondance avec la liste 
-
             des travaux réalisés, datée et signée par le bénéficiaire, le professionnel ayant réalisé l'audit 
-
             énergétique et chaque professionnel mettant en oeuvre ou assurant la maîtrise d'oeuvre de tout ou partie 
-
             de l'opération, permettant d'atteindre les performances énergétiques requises ;
-
             - la liste des entreprises ayant effectué les travaux de rénovation en indiquant la nature de ces travaux 
-
             et la référence de leur qualification ou certification lorsque celle-ci est requise.
           type: object
           properties:
@@ -237,7 +223,7 @@ examples:
       surfaceHabitable: 1000
       logements: 40
       auditEnergetique:
-        dateRealisation: 2023-02-07
+        dateRealisation: "2023-02-07"
         reference: REFERENCE
         cepInitial: 200
         cepProjet: 130
@@ -251,7 +237,7 @@ examples:
       logicielAuditEnergetique:
         nom: NOM
         editeur: EDITEUR
-        date: 2022-02-06
+        date: "2022-02-06"
         version: "2.3"
       installateurs:
         - nom: NOM
@@ -260,7 +246,7 @@ examples:
           siret: "00000000000000"
           domaineTravaux: DOMAINE DE TRAVAUX
           referenceQualification: REFERENCE
-          dateQualification: 2022-01-01
+          dateQualification: "2022-01-01"
     documents:
       - code: AUDIT_ENERGETIQUE
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

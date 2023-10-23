@@ -44,6 +44,8 @@ properties:
       reference:
         title: Référence de la pompe
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - typeBatiment
       - ancienneteBatiment
@@ -55,6 +57,7 @@ properties:
       - performanceEnergetique
       - marque
       - reference
+      - installateur
   documents:
     type: array
     items:
@@ -121,6 +124,8 @@ examples:
       performanceEnergetique: 50
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: CERTIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

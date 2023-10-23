@@ -38,6 +38,8 @@ properties:
       reference:
         title: Référence
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - ancienneteBatiment
       - indiceProtectionChocs
@@ -46,6 +48,7 @@ properties:
       - quantite
       - marque
       - reference
+      - installateur
     allOf:
       - if:
           not:
@@ -102,3 +105,5 @@ examples:
       quantite: 100
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0

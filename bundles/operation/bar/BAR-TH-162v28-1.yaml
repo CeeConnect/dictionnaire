@@ -37,6 +37,8 @@ properties:
       reference:
         title: Référence de l'équipement
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - typeBatiment
       - ancienneteBatiment
@@ -45,6 +47,7 @@ properties:
       - critereCapteursHybrides
       - marque
       - reference
+      - installateur
   documents:
     type: array
     items:
@@ -83,6 +86,8 @@ examples:
       critereCapteursHybrides: true
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: CERTIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

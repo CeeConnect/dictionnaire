@@ -46,6 +46,8 @@ properties:
       reference:
         title: Référence
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     anyOf:
       - properties:
           puissanceNominale:
@@ -100,6 +102,7 @@ properties:
       - puissanceChaufferie
       - marque
       - reference
+      - installateur
 required:
   - fiche
   - description
@@ -118,3 +121,5 @@ examples:
       performanceEnergetique: 140
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0

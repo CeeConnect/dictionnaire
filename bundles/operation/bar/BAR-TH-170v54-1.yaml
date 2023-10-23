@@ -61,7 +61,7 @@ properties:
             type: integer
             minimum: 4
           critereObject:
-            title: >
+            title: |
               Le contrat est un contrat d'exploitation et de maintenance de
               l'installation établi entre le bénéficiaire de l'opération et le
               prestataire, par lequel ce dernier assure le bon fonctionnement de
@@ -106,6 +106,8 @@ properties:
           - email
           - telephone
           - adresse
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - typeBatiment
       - indicateurEfficaciteEnergetique
@@ -116,6 +118,7 @@ properties:
       - critereRefroidissementAuxiliaire
       - crietereCouvertureUsages
       - prestataire
+      - installateur
   documents:
     type: array
     items:
@@ -132,22 +135,14 @@ properties:
             - code
       - contains:
           title: Les extraits d'intérêts du contrat d'exploitation et de maintenance
-          description: >
-            Les extraits d'intérêts du contrat d'exploitation et de maintenance
-            mentionnant:
-
+          description: |
+            Les extraits d'intérêts du contrat d'exploitation et de maintenance mentionnant:
             - la référence du contrat ;
-
             - l'identification du bénéficiaire (pour un particulier : ses prénom, nom et adresse ; pour une personne morale : sa raison sociale, son numéro SIREN et l'adresse du siège social) ;
-
             - l'adresse du bâtiment où est située l'installation constituée du système de récupération de chaleur et des serveurs informatiques ;
-
             - une prestation d'exploitation et de maintenance de l'installation incluant le remplacement, sans frais, des serveurs informatiques ;
-
             - la puissance thermique garantie en kW ;
-
             - les dates de signature et d'entrée en vigueur du contrat ;
-
             - la date de fin du contrat ou la durée du contrat (hors reconduction tacite).
           type: object
           properties:
@@ -185,6 +180,8 @@ examples:
         telephone: "0836656565"
         adresse:
           $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: ETURE_DIMENSIONNEMENT
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}

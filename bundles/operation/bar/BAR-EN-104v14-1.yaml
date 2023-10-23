@@ -14,7 +14,8 @@ properties:
       energieChauffage:
         $ref: https://schemas.ceeconnect.fr/enums/energie#/$defs/energiesChauffage
       quantite:
-        title: Nombre de fenêtres ou portes fenêtres complètes avec vitrage isolant posées
+        title: Nombre de fenêtres ou portes fenêtres complètes avec vitrage isolant
+          posées
         type: integer
         minimum: 1
       typeEquipement:
@@ -37,6 +38,8 @@ properties:
       reference:
         title: Référence des équipements
         type: string
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - ancienneteBatiment
       - energieChauffage
@@ -46,6 +49,7 @@ properties:
       - facteurSolaire
       - marque
       - reference
+      - installateur
     anyOf:
       - properties:
           typeEquipement:
@@ -118,6 +122,8 @@ examples:
       facteurSolaire: 0.2
       marque: MARQUE
       reference: REFERENCE
+      installateur:
+        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
         url: https://api.ceeconnect.fr/archivage/archives/{uuid}
