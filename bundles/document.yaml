@@ -5,7 +5,9 @@ type: object
 properties:
   code:
     title: Code du document
-    type: string
+    type:
+      - string
+      - "null"
   url:
     $ref: https://schemas.ceeconnect.fr/formats/url
     title: URL d'accès au document

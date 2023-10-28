@@ -178,7 +178,7 @@ examples:
       puissanceElectrique: 10
       classeEnergetique: A+
       referenceAvisTechnique: REFERENCE
-      dateAvisTechnique: 2020-01-01
+      dateAvisTechnique: "2020-01-01"
       marqueCaison: MARQUE
       referenceCaison: REFERENCE
       marqueBouchesExtraction: MARQUE
