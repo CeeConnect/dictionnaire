@@ -52,7 +52,10 @@ properties:
   professionnel:
     $ref: https://schemas.ceeconnect.fr/bundles/professionnel
   precarite:
-    $ref: https://schemas.ceeconnect.fr/bundles/precarite
+    title: Précarité énergétique
+    oneOf:
+      - $ref: https://schemas.ceeconnect.fr/bundles/precarite
+      - "null"
   documents:
     title: Liste des documents
     type: array
@@ -79,12 +82,12 @@ required:
   - documents
   - description
 allOf:
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/agri
+  #- $ref: https://schemas.ceeconnect.fr/bundles/operation/agri
   - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/bat
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/ind
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/res
-  - $ref: https://schemas.ceeconnect.fr/bundles/operation/tra
+  #- $ref: https://schemas.ceeconnect.fr/bundles/operation/bat
+  #- $ref: https://schemas.ceeconnect.fr/bundles/operation/ind
+  #- $ref: https://schemas.ceeconnect.fr/bundles/operation/res
+  #- $ref: https://schemas.ceeconnect.fr/bundles/operation/tra
   - if:
       required:
         - fiche
