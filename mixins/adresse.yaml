@@ -3,8 +3,6 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: Adresse
 type: object
 properties:
-  banId:
-    $ref: "#/$defs/banId"
   numero:
     $ref: "#/$defs/numero"
   voie:
@@ -15,10 +13,6 @@ properties:
     title: Nom de la commune
     type: string
     maxLength: 240
-  codePostal:
-    title: Code postal de la commune
-    type: string
-    maxLength: 240
   codeCommune:
     title: Code commune de la commune
     type: string
@@ -26,15 +20,19 @@ properties:
 required:
   - voie
   - commune
-  - codePostal
+  - codeCommune
 $defs:
   banId:
     title: Identifiant de l'adresse dans la Base Adresse Nationale
-    type: string
+    type:
+      - string
+      - "null"
     maxLength: 240
   numero:
     title: Numéro dans la voie
-    type: string
+    type:
+      - string
+      - "null"
     maxLength: 240
   voie:
     title: Nom de voie ou lieu dit
@@ -42,7 +40,9 @@ $defs:
     maxLength: 240
   complement:
     title: Complément d'adresse
-    type: string
+    type:
+      - string
+      - "null"
     maxLength: 240
   commune:
     title: Nom de la commune

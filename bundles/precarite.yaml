@@ -8,7 +8,9 @@ properties:
     $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite
 required:
   - scenario
-anyOf:
+discriminator:
+  propertyName: scenario
+oneOf:
   - $ref: '#/$defs/8.1'
   - $ref: '#/$defs/8.2'
   - $ref: '#/$defs/8.3'
@@ -16,135 +18,125 @@ anyOf:
   - $ref: '#/$defs/8.5'
 $defs:
   '8.1':
+    title: Ménage en situation de précarité énergétique
     type: object
+    properties:
+      scenario:
+        $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.1
+      categorieRessource:
+        $ref: https://schemas.ceeconnect.fr/enums/categorie_ressource
+    required:
+      - scenario
+      - categorieRessource
     allOf:
-      - properties:
-          scenario:
-            $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.1
-        required:
-          - scenario
-      - properties:
-          categorieRessource:
-            $ref: https://schemas.ceeconnect.fr/enums/categorie_ressource
-        required:
-          - categorieRessource
-        allOf:
-          - $ref: '#/$defs/menage'
+      - $ref: '#/$defs/menage'
   '8.2':
+    title: Opération concernant au moins un logement locatif social
     type: object
-    allOf:
-      - properties:
-          scenario:
-            $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.2
-        required:
-          - scenario
-      - properties:
-          bailleursSociaux:
-            title: Liste des bailleurs sociaux
-            type: array
-            minItems: 1
-            items:
-              $ref: '#/$defs/bailleurSocial'
-          menages:
-            title: Liste des ménages
-            description: Ménages occupants un logement qui n'est pas géré par l'un des bailleurs sociaux renseignés
-            type: array
-            minItems: 1
-            items:
-              $ref: '#/$defs/menage'
-        required:
-          - bailleursSociaux
-          - menages
+    properties:
+      scenario:
+        $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.2
+      bailleursSociaux:
+        title: Liste des bailleurs sociaux
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/$defs/bailleurSocial'
+      menages:
+        title: Liste des ménages
+        description: Ménages occupants un logement qui n'est pas géré par l'un des bailleurs sociaux renseignés
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/$defs/menage'
+    required:
+      - scenario
+      - bailleursSociaux
+      - menages
   '8.3':
+    title: Copropriété objet d'une subvention de l'Agence nationale de l'habitat
     type: object
-    allOf:
-      - properties:
-          scenario:
-            $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.3
-        required:
-          - scenario
-      - properties:
-          nombreMenages:
-            title: Nombre de ménages
-            description: Indiquer le nombre de ménages concernés par l'opération
-            type: integer
-            minimum: 1
-          nombreMenagesModestes:
-            title: Nombre de ménages modestes
-            description: |
-              Indiquer le nombre de ménages concernés par l'opération dont les ressources sont inférieures au plafond des 
-              catégories "Modeste" et "Très modestes" du barème Ma Prime Rénov'
-            type: integer
-            minimum: 0
-          nombreMenagesTresModestes:
-            title: Nombre de ménages précaires
-            description: |
-              Indiquer le nombre de ménages concernés par l'opération dont les ressources sont inférieures au plafond de 
-              catégorie "Très modestes" du barème Ma Prime Rénov'
-            type: integer
-            minimum: 0
-        required:
-          - nombreMenages
-          - nombreMenagesModestes
-          - nombreMenagesTresModestes
+    properties:
+      scenario:
+        $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.3
+      nombreMenages:
+        title: Nombre de ménages
+        description: Indiquer le nombre de ménages concernés par l'opération
+        type: integer
+        minimum: 1
+      nombreMenagesModestes:
+        title: Nombre de ménages modestes
+        description: |
+          Indiquer le nombre de ménages concernés par l'opération dont les ressources sont inférieures au plafond des 
+          catégories "Modeste" et "Très modestes" du barème Ma Prime Rénov'
+        type: integer
+        minimum: 0
+      nombreMenagesTresModestes:
+        title: Nombre de ménages précaires
+        description: |
+          Indiquer le nombre de ménages concernés par l'opération dont les ressources sont inférieures au plafond de 
+          catégorie "Très modestes" du barème Ma Prime Rénov'
+        type: integer
+        minimum: 0
+    required:
+      - scenario
+      - nombreMenages
+      - nombreMenagesModestes
+      - nombreMenagesTresModestes
   '8.4':
+    title: Quartier prioritaire de la politique de la ville
     type: object
-    allOf:
-      - properties:
-          scenario:
-            $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.4
-        required:
-          - scenario
-      - properties:
-          codeQuartierPrioritaire:
-            title: Code du quartier prioritaire de la politique de la ville
-            $ref: https://schemas.ceeconnect.fr/formats/code_quartier_prioritaire
-          nomQuartierPrioritaire:
-            title: Nom du quartier prioritaire de la politique de la ville
-            type: string
-            maxLength: 240
-        required:
-          - codeQuartierPrioritaire
-          - nomQuartierPrioritaire
+    properties:
+      scenario:
+        $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.4
+      codeQuartierPrioritaire:
+        title: Code du quartier prioritaire de la politique de la ville
+        $ref: https://schemas.ceeconnect.fr/formats/code_quartier_prioritaire
+      nomQuartierPrioritaire:
+        title: Nom du quartier prioritaire de la politique de la ville
+        type: string
+        maxLength: 240
+    required:
+      - scenario
+      - codeQuartierPrioritaire
+      - nomQuartierPrioritaire
   '8.5':
+    title: Autres cas
     type: object
-    allOf:
-      - properties:
-          scenario:
-            $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.5
-        required:
-          - scenario
-      - properties:
-          nombreMenages:
-            title: Nombre de ménages
-            description: Indiquer le nombre de ménages concernés par l'opération
-            type: integer
-            minimum: 1
-          nombreMenagesModestes:
-            title: Nombre de ménages modestes
-            description: |
-              Indiquer le nombre de ménages concernés par l'opération dont les ressources sont inférieures au plafond des 
-              catégories "Modeste" et "Très modestes" du barème Ma Prime Rénov'
-            type: integer
-            minimum: 0
-          nombreMenagesTresModestes:
-            title: Nombre de ménages précaires
-            description: |
-              Indiquer le nombre de ménages concernés par l'opération dont les ressources sont inférieures au plafond de 
-              catégorie "Très modestes" du barème Ma Prime Rénov'
-            type: integer
-            minimum: 0
-          menages:
-            title: Liste des ménages concernés par l'opération
-            type: array
-            minItems: 1
-            items:
-              $ref: '#/$defs/menage'
-        required:
-          - nombreMenages
-          - nombreMenagesModestes
-          - nombreMenagesTresModestes
-          - menages
+    properties:
+      scenario:
+        $ref: https://schemas.ceeconnect.fr/enums/scenario_precarite#/$defs/8.5
+      nombreMenages:
+        title: Nombre de ménages
+        description: Indiquer le nombre de ménages concernés par l'opération
+        type: integer
+        minimum: 1
+      nombreMenagesModestes:
+        title: Nombre de ménages modestes
+        description: |
+          Indiquer le nombre de ménages concernés par l'opération dont les ressources sont inférieures au plafond des 
+          catégories "Modeste" et "Très modestes" du barème Ma Prime Rénov'
+        type: integer
+        minimum: 0
+      nombreMenagesTresModestes:
+        title: Nombre de ménages précaires
+        description: |
+          Indiquer le nombre de ménages concernés par l'opération dont les ressources sont inférieures au plafond de 
+          catégorie "Très modestes" du barème Ma Prime Rénov'
+        type: integer
+        minimum: 0
+      menages:
+        title: Liste des ménages concernés par l'opération
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/$defs/menage'
+    required:
+      - scenario
+      - nombreMenages
+      - nombreMenagesModestes
+      - nombreMenagesTresModestes
+      - menages
   menage:
     title: Ménage
     description: Ménage bénéficiant de l'opération d'économies d'énergie

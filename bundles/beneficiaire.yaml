@@ -16,7 +16,9 @@ properties:
   adresse:
     title: Adresse
     $ref: https://schemas.ceeconnect.fr/mixins/adresse
-anyOf:
+discriminator:
+  propertyName: nature
+oneOf:
   - $ref: "#/$defs/personnePhysique"
   - $ref: "#/$defs/personneMorale"
 required:
@@ -26,59 +28,50 @@ required:
   - adresse
 $defs:
   personnePhysique:
-    allOf:
-      - type: object
-        properties:
-          nature:
-            $ref: https://schemas.ceeconnect.fr/enums/nature_juridique#/$defs/PERSONNE_PHYSIQUE
-        required:
-          - nature
-      - type: object
-        properties:
-          type:
-            $ref: https://schemas.ceeconnect.fr/enums/type_beneficiaire#/$defs/PERSONNE_PHYSIQUE
-          nom:
-            title: Nom
-            $ref: https://schemas.ceeconnect.fr/formats/nom_famille
-          prenom:
-            title: Prénom
-            $ref: https://schemas.ceeconnect.fr/formats/prenom
-        required:
-          - type
-          - nom
-          - prenom
+    title: Personne physique
+    type: object
+    properties:
+      nature:
+        $ref: https://schemas.ceeconnect.fr/enums/nature_juridique#/$defs/PERSONNE_PHYSIQUE
+      nom:
+        title: Nom
+        $ref: https://schemas.ceeconnect.fr/formats/nom_famille
+      prenom:
+        title: Prénom
+        $ref: https://schemas.ceeconnect.fr/formats/prenom
+    required:
+      - type
+      - nom
+      - prenom
   personneMorale:
-    allOf:
-      - type: object
-        properties:
-          nature:
-            $ref: https://schemas.ceeconnect.fr/enums/nature_juridique#/$defs/PERSONNE_MORALE
-        required:
-          - nature
-      - type: object
-        properties:
-          type:
-            $ref: https://schemas.ceeconnect.fr/enums/type_beneficiaire#/$defs/PERSONNE_MORALE
-          raisonSociale:
-            $ref: https://schemas.ceeconnect.fr/formats/raison_sociale
-          siren:
-            $ref: https://schemas.ceeconnect.fr/formats/siren
-          nom:
-            title: Nom de famille du représentant
-            $ref: https://schemas.ceeconnect.fr/formats/nom_famille
-          prenom:
-            title: Prénom du représentant
-            $ref: https://schemas.ceeconnect.fr/formats/prenom
-          fonction:
-            title: Fonction du représentant
-            $ref: https://schemas.ceeconnect.fr/formats/fonction
-        required:
-          - type
-          - raisonSociale
-          - siren
-          - nom
-          - prenom
-          - fonction
+    title: Personne morale
+    type: object
+    properties:
+      nature:
+        $ref: https://schemas.ceeconnect.fr/enums/nature_juridique#/$defs/PERSONNE_MORALE
+      type:
+        $ref: https://schemas.ceeconnect.fr/enums/type_beneficiaire#/$defs/PERSONNE_MORALE
+      raisonSociale:
+        $ref: https://schemas.ceeconnect.fr/formats/raison_sociale
+      siren:
+        $ref: https://schemas.ceeconnect.fr/formats/siren
+      nom:
+        title: Nom de famille du représentant
+        $ref: https://schemas.ceeconnect.fr/formats/nom_famille
+      prenom:
+        title: Prénom du représentant
+        $ref: https://schemas.ceeconnect.fr/formats/prenom
+      fonction:
+        title: Fonction du représentant
+        $ref: https://schemas.ceeconnect.fr/formats/fonction
+    required:
+      - nature
+      - type
+      - raisonSociale
+      - siren
+      - nom
+      - prenom
+      - fonction
 examples:
   - nature: PERSONNE_PHYSIQUE
     type: PROPRIETAIRE_UNIQUE
