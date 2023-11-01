@@ -55,6 +55,35 @@ properties:
           - referenceEtude
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+      gestionnaire:
+        title: Prestataire titulaire du contrat d'exploitation et de maintenance
+        type: object
+        properties:
+          nom:
+            title: Nom du représentant
+            type: string
+          prenom:
+            title: Prénom du représentant
+            type: string
+          raisonSociale:
+            title: Raison sociale
+            type: string
+          siret:
+            $ref: https://schemas.ceeconnect.fr/formats/siret
+          email:
+            $ref: https://schemas.ceeconnect.fr/formats/email
+          telephone:
+            $ref: https://schemas.ceeconnect.fr/formats/telephone
+          adresse:
+            $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+        required:
+          - nom
+          - prenom
+          - raisonSociale
+          - siret
+          - email
+          - telephone
+          - adresse
     required:
       - ancienneteBatiment
       - typeBatiment
@@ -62,6 +91,7 @@ properties:
       - typeIntervention
       - entrepriseEtudeTechnique
       - installateur
+      - gestionnaire
   documents:
     type: array
     items:
@@ -104,6 +134,15 @@ examples:
         referenceEtude: REFERENCE ETUDE
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
+      gestionnaire:
+        nom: NOM
+        prenom: PRENOM
+        raisonSociale: RAISON SOCIALE
+        siret: "00000000000000"
+        email: contact@email.com
+        telephone: "0836656565"
+        adresse:
+          $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     documents:
       - code: ATTESTATION_SITUATION
         url: https://api.ceeconnect.fr/archivage/

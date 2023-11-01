@@ -30,6 +30,35 @@ properties:
         const: false
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+      gestionnaire:
+        title: Prestataire titulaire du contrat d'exploitation et de maintenance
+        type: object
+        properties:
+          nom:
+            title: Nom du représentant
+            type: string
+          prenom:
+            title: Prénom du représentant
+            type: string
+          raisonSociale:
+            title: Raison sociale
+            type: string
+          siret:
+            $ref: https://schemas.ceeconnect.fr/formats/siret
+          email:
+            $ref: https://schemas.ceeconnect.fr/formats/email
+          telephone:
+            $ref: https://schemas.ceeconnect.fr/formats/telephone
+          adresse:
+            $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
+        required:
+          - nom
+          - prenom
+          - raisonSociale
+          - siret
+          - email
+          - telephone
+          - adresse
     anyOf:
       - properties:
           critereRaccordementAnterieur:
@@ -80,46 +109,10 @@ properties:
       - identifiantReseau
       - critereRaccordementAnterieur
       - installateur
-  gestionnaire:
-    title: Professionnel gestionnaire du réseau
-    type: object
-    properties:
-      nom:
-        title: Nom de famille du réprésentant
-        type: string
-      prenom:
-        title: Prénom du représentant
-        type: string
-      fonction:
-        title: Fonction du représentant
-        type: string
-      raisonSociale:
-        title: Raison sociale
-        type: string
-      siret:
-        $ref: https://schemas.ceeconnect.fr/formats/siret
-      adresse:
-        $ref: https://schemas.ceeconnect.fr/mixins/adresse#/$defs/france
-      email:
-        $ref: https://schemas.ceeconnect.fr/formats/email
-      telephone:
-        $ref: https://schemas.ceeconnect.fr/formats/telephone
-      mobile:
-        $ref: https://schemas.ceeconnect.fr/formats/telephone
-    required:
-      - nom
-      - prenom
-      - fonction
-      - raisonSociale
-      - siret
-      - adresse
-      - email
-      - telephone
-      - mobile
+      - gestionnaire
 required:
   - fiche
   - description
-  - gestionnaire
 examples:
   - fiche: BAR-TH-137v45-3
     description:
@@ -130,14 +123,13 @@ examples:
       surfaceHabitable: 100
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
-    gestionnaire:
-      nom: NOM
-      prenom: PRENOM
-      fonction: FONCTION
-      raisonSociale: RAISON SOCIALE
-      siret: "00000000000000"
-      adresse:
-        $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
-      email: contact@email.com
-      telephone: "0400000000"
-      mobile: "0600000000"
+      gestionnaire:
+        nom: NOM
+        prenom: PRENOM
+        fonction: FONCTION
+        raisonSociale: RAISON SOCIALE
+        siret: "00000000000000"
+        adresse:
+          $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
+        email: contact@email.com
+        telephone: "0400000000"
