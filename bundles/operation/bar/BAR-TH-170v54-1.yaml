@@ -184,6 +184,6 @@ examples:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: ETURE_DIMENSIONNEMENT
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}
       - code: EXTRAIT_CONTRAT
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

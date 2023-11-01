@@ -14,7 +14,7 @@ properties:
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       typeEquipement:
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_eau_thermodynamique
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/chauffeEauThermodynamique
       performanceEnergetique:
         $ref: https://schemas.ceeconnect.fr/formats/performance_energetique#/$defs/cop
         exclusiveMinimum: 2.4
@@ -26,11 +26,20 @@ properties:
         type: string
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+        type: object
+        properties:
+          qualificationsRge:
+            type: array
+            contains:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/90
+        required:
+          - qualificationsRge
     allOf:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_eau_thermodynamique#/$defs/AIR_EXTRAIT
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_CET_AIR_EXTRAIT
           required:
             - typeEquipement
         then:
@@ -70,7 +79,7 @@ examples:
     description:
       typeBatiment: MAISON
       ancienneteBatiment: EXISTANT
-      typeEquipement: AIR_EXTRAIT
+      typeEquipement: PAC_CET_AIR_EXTRAIT
       performanceEnergetique: 2.6
       marque: MARQUE
       reference: REFERENCE
@@ -78,4 +87,4 @@ examples:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

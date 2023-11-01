@@ -168,6 +168,6 @@ examples:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: RAPPORT_CONTROLE
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}
       - code: ACCREDITATION
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

@@ -20,8 +20,7 @@ properties:
         title: Type d'installation
         $ref: https://schemas.ceeconnect.fr/enums/bar/type_installation
       typeEquipement:
-        title: Type de VMC simple flux
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/hygroreglable
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/vmcHygroreglable
     required:
       - typeBatiment
       - ancienneteBatiment

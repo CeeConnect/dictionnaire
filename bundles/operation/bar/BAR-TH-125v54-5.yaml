@@ -31,6 +31,15 @@ properties:
         type: string
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+        type: object
+        properties:
+          qualificationsRge:
+            type: array
+            contains:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/92
+        required:
+          - qualificationsRge
     allOf:
       - if:
           properties:
@@ -45,7 +54,7 @@ properties:
               type: number
               minimum: 0
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/doubleFlux
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/vmcDoubleFlux
             classeEnergetique:
               title: Classe énergétique du système de ventilation
               description: Classe énergétique du système de ventilation selon le règlement
@@ -85,7 +94,7 @@ properties:
               type: integer
               minimum: 1
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/AUTOREGLABLE
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/VMC_AUTOREGLABLE
             performanceEnergetiqueEchangeur:
               title: Rendement en température (efficacité thermique) de l'échangeur de chaleur
                 (%)
@@ -98,7 +107,7 @@ properties:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/MODULE
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/VMC_MODULE
           required:
             - typeEquipement
         then:
@@ -163,4 +172,4 @@ examples:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

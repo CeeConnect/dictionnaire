@@ -1,5 +1,7 @@
 $id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-105v28-1
 $schema: https://json-schema.org/draft/2020-12/schema
+$comment: |
+  - TODO: Implémentation des critères de qualification Qualibat ou équivalents
 title: BAR-SE-105v28-1
 type: object
 properties:

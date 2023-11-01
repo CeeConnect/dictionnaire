@@ -13,6 +13,8 @@ properties:
     properties:
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
+      typeIsolation:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_isolation#/$defs/murs
       quantite:
         title: Surface d'isolant posé (m²)
         description: Dans le cas d'une pose superposée de plusieurs isolants, indiquer
@@ -49,13 +51,67 @@ properties:
             - reference
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+        type: object
+        properties:
+          qualificationsRge:
+            type: array
+            contains:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/95
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/96
+        required:
+          - qualificationsRge
     required:
       - ancienneteBatiment
+      - typeIsolation
       - quantite
       - resistanceThermique
       - epaisseur
       - references
       - installateur
+    allOf:
+      - if:
+          properties:
+            typeIsolation:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_isolation#/$defs/ISOLATION_MURS_INTERIEUR
+          required:
+            - typeIsolation
+        then:
+          type: object
+          properties:
+            installateur:
+              type: object
+              properties:
+                qualificationsRge:
+                  type: array
+                  contains:
+                    oneOf:
+                      - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/95
+              required:
+                - qualificationsRge
+          required:
+            - installateur
+      - if:
+          properties:
+            typeIsolation:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_isolation#/$defs/ISOLATION_MURS_EXTERIEUR
+          required:
+            - typeIsolation
+        then:
+          type: object
+          properties:
+            installateur:
+              type: object
+              properties:
+                qualificationsRge:
+                  type: array
+                  contains:
+                    oneOf:
+                      - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/96
+              required:
+                - qualificationsRge
+          required:
+            - installateur
   documents:
     type: array
     items:
@@ -80,6 +136,7 @@ examples:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
       ancienneteBatiment: EXISTANT
+      typeIsolation: ISOLATION_MURS_EXTERIEUR
       quantite: 100
       resistanceThermique: 4
       epaisseur: 200
@@ -92,4 +149,4 @@ examples:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

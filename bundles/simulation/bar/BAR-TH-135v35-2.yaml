@@ -18,7 +18,7 @@ properties:
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batiment
       typeEquipement:
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_eau_solaire#/$defs/collectif
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/chauffeEauSolaireCollectif
       besoinEauChaudeSanitaire:
         title: Besoin annuel d'eau chaude sanitaire (kWh/an)
         description: Besoin annuel en eau chaude sanitaire à produire par l'énergie

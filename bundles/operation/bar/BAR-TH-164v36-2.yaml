@@ -236,6 +236,6 @@ examples:
           dateQualification: "2022-01-01"
     documents:
       - code: AUDIT_ENERGETIQUE
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}
       - code: ATTESTATION_REALISATION_TRAVAUX
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

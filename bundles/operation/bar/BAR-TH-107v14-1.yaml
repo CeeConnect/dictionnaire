@@ -45,6 +45,15 @@ properties:
         type: string
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+        type: object
+        properties:
+          qualificationsRge:
+            type: array
+            contains:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/86
+        required:
+          - qualificationsRge
     allOf:
       - if:
           properties:
@@ -67,9 +76,23 @@ properties:
       - marque
       - reference
       - installateur
+  documents:
+    type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/bundles/document
+    contains:
+      title: Preuve de qualification de l'installateur
+      type: object
+      properties:
+        code:
+          type: string
+          const: PREUVE_QUALIFICATION
+      required:
+        - code
 required:
   - fiche
   - description
+  - documents
 examples:
   - fiche: BAR-TH-107v14-1
     description:
@@ -82,3 +105,6 @@ examples:
       reference: REFERENCE
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
+    documents:
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

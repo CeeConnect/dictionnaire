@@ -20,7 +20,7 @@ properties:
         title: L'opération concerne une partie nouvelle d'un bâtiment existant
         type: boolean
       typeEquipement:
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_eau_solaire#/$defs/collectif
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/chauffeEauSolaireCollectif
       surfaceCapteurs:
         title: Surface hors-tout totale de capteurs solaires (m²)
         type: number
@@ -46,6 +46,15 @@ properties:
         type: string
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+        type: object
+        properties:
+          qualificationsRge:
+            type: array
+            contains:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/86
+        required:
+          - qualificationsRge
     required:
       - typeBatiment
       - ancienneteBatiment
@@ -128,8 +137,8 @@ examples:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: CERTIFICATION
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}
       - code: NOTE_DIMENSIONNEMENT
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}
       - code: PREUVE_QUALIFICATION
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

@@ -26,6 +26,15 @@ properties:
         const: true
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+        type: object
+        properties:
+          qualificationsRge:
+            type: array
+            contains:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/85
+        required:
+          - qualificationsRge
     required:
       - ancienneteBatiment
       - typeBatiment
@@ -46,8 +55,7 @@ properties:
               type: number
               minimum: 0
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain
-              title: Type de chauffe-bain
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/chauffeBain
           required:
             - surfaceHabitable
             - typeEquipement
@@ -118,8 +126,7 @@ $defs:
     type: object
     properties:
       typeEquipement:
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain
-        title: Type de chauffe-bain
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/chauffeBain
       performanceEnergetique:
         $ref: https://schemas.ceeconnect.fr/formats/performance_energetique#/$defs/rendementPCI
         minimum: 0
@@ -136,8 +143,8 @@ $defs:
           properties:
             typeEquipement:
               oneOf:
-                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain#/$defs/FLUX_FORCE_HAUT_RENDEMENT
-                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain#/$defs/COMBUSTION_HAUT_RENDEMENT
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/CHAUFFE_BAIN_FLUX_FORCE_HAUT_RENDEMENT
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/CHAUFFE_BAIN_COMBUSTION_HAUT_RENDEMENT
           required:
             - typeEquipement
         then:
@@ -150,7 +157,7 @@ $defs:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chauffe_bain#/$defs/CONDENSATION
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/CHAUFFE_BAIN_CONDENSATION
           required:
             - typeEquipement
         then:
@@ -185,4 +192,4 @@ examples:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

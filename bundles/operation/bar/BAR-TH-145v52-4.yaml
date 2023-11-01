@@ -3,6 +3,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 $comment: |
   - TODO: Vérifier la possibilité d'intégrer l'attestation de réalisation ANAH
   comme document justificatif spécifique
+  - TODO: Intégrer les dates de qualification au bundle installateur ?
 title: BAR-TH-145v52-4
 type: object
 properties:
@@ -96,6 +97,40 @@ properties:
               en kgeqCO2/m².an, sont inférieures ou égales à la valeur initiale de ces émissions avant travaux
             type: boolean
             const: true
+          auditeur:
+            title: Professionnel ayant assuré l'audit énergétique
+            type: object
+            properties:
+              raisonSociale:
+                title: Raison sociale
+                type: string
+              siren:
+                $ref: https://schemas.ceeconnect.fr/formats/siren
+            required:
+              - raisonSociale
+              - siren
+          logiciel:
+            title: Logiciel utilisé pour réaliser l'audit énergétique
+            type: object
+            properties:
+              nom:
+                title: Nom du logiciel
+                type: string
+              editeur:
+                title: Nom de l'éditeur
+                type: string
+              date:
+                title: Date de création du logiciel
+                type: string
+                format: date
+              version:
+                title: Numéro de version du logiciel
+                type: string
+            required:
+              - nom
+              - editeur
+              - date
+              - version
         required:
           - reference
           - dateRealisation
@@ -105,40 +140,8 @@ properties:
           - cefProjet
           - gainEnergetique
           - critereEmissionsGes
-      logicielAuditEnergetique:
-        title: Logiciel utilisé pour réaliser l'audit énergétique
-        type: object
-        properties:
-          nom:
-            title: Nom du logiciel
-            type: string
-          editeur:
-            title: Nom de l'éditeur
-            type: string
-          date:
-            title: Date de création du logiciel
-            type: string
-            format: date
-          version:
-            title: Numéro de version du logiciel
-            type: string
-        required:
-          - nom
-          - editeur
-          - date
-          - version
-      auditeur:
-        title: Professionnel ayant assuré l'audit énergétique
-        type: object
-        properties:
-          raisonSociale:
-            title: Raison sociale
-            type: string
-          siren:
-            $ref: https://schemas.ceeconnect.fr/formats/siren
-        required:
-          - raisonSociale
-          - siren
+          - auditeur
+          - logiciel
       installateurs:
         title: Liste des professionnels
         description: Indiquer les informations de chaque intervenant
@@ -185,8 +188,6 @@ properties:
       - surfaceHabitable
       - logements
       - auditEnergetique
-      - logicielAuditEnergetique
-      - auditeur
       - installateurs
     allOf:
       - if:
@@ -271,14 +272,14 @@ examples:
         cefProjet: 130
         gainEnergetique: 70
         critereEmissionsGes: true
-      auditeur:
-        raisonSociale: RAISON SOCIALE
-        siren: "000000000"
-      logicielAuditEnergetique:
-        nom: NOM
-        editeur: EDITEUR
-        date: "2022-02-06"
-        version: "2.3"
+        auditeur:
+          raisonSociale: RAISON SOCIALE
+          siren: "000000000"
+        logiciel:
+          nom: NOM
+          editeur: EDITEUR
+          date: "2022-02-06"
+          version: "2.3"
       installateurs:
         - nom: NOM
           prenom: PRENOM
@@ -289,6 +290,6 @@ examples:
           dateQualification: "2022-01-01"
     documents:
       - code: AUDIT_ENERGETIQUE
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}
       - code: ATTESTATION_REALISATION_TRAVAUX
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

@@ -46,6 +46,15 @@ properties:
         type: string
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+        type: object
+        properties:
+          qualificationsRge:
+            type: array
+            contains:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/86
+        required:
+          - qualificationsRge
     required:
       - ancienneteBatiment
       - typeBatiment
@@ -78,6 +87,15 @@ properties:
               const: ETUDE_DIMENSIONNEMENT
           required:
             - code
+      - contains:
+          title: Preuve de qualification de l'installateur
+          type: object
+          properties:
+            code:
+              type: string
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
 required:
   - fiche
   - adresse
@@ -100,6 +118,8 @@ examples:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: CERTIFICATION
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}
       - code: ETUDE_DIMENSIONNEMENT
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

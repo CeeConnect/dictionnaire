@@ -67,6 +67,15 @@ properties:
           - referenceEtude
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+        type: object
+        properties:
+          qualificationsRge:
+            type: array
+            contains:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/87
+        required:
+          - qualificationsRge
     required:
       - ancienneteBatiment
       - typeBatiment
@@ -97,7 +106,7 @@ properties:
               type: number
               minimum: 83
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chaudiere_biomasse
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/chaudiereBiomasse
             critereFlammeVerte:
               title: L'équipement possède le label Flamme Verte 7*
               type: boolean
@@ -110,7 +119,7 @@ properties:
             - if:
                 properties:
                   typeEquipement:
-                    $ref: https://schemas.ceeconnect.fr/enums/bar/type_chaudiere_biomasse#/$defs/CHARGEMENT_AUTOMATIQUE
+                    $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/CHAUDIERE_BIOMASSE_CHARGEMENT_AUTOMATIQUE
                 required:
                   - typeEquipement
               then:
@@ -124,7 +133,7 @@ properties:
             - if:
                 properties:
                   typeEquipement:
-                    $ref: https://schemas.ceeconnect.fr/enums/bar/type_chaudiere_biomasse#/$defs/CHARGEMENT_MANUEL
+                    $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/CHAUDIERE_BIOMASSE_CHARGEMENT_MANUEL
                 required:
                   - typeEquipement
               then:
@@ -178,6 +187,15 @@ properties:
               const: NOTE_DIMENSIONNEMENT
           required:
             - code
+      - contains:
+          title: Preuve de qualification de l'installateur
+          type: object
+          properties:
+            code:
+              type: string
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
 required:
   - fiche
   - description
@@ -207,4 +225,6 @@ examples:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: NOTE_DIMENSIONNEMENT
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

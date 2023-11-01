@@ -25,6 +25,12 @@ properties:
   fonction:
     $ref: https://schemas.ceeconnect.fr/formats/fonction
     title: Fonction du représentant
+  qualificationsRge:
+    title: Qualifications RGE
+    description: Renseignier les domaines de qualification RGE
+    type: array
+    items:
+      $ref: https://schemas.ceeconnect.fr/enums/domaine_rge
 required:
   - prestation
   - raisonSociale
@@ -35,6 +41,7 @@ required:
   - nom
   - prenom
   - fonction
+  - qualificationsRge
 examples:
   - prestation: MISE_EN_OEUVRE
     raisonSociale: RAISON SOCIALE
@@ -46,3 +53,4 @@ examples:
     nom: NOM
     prenom: PRENOM
     fonction: FONCTION
+    qualificationsRge: []

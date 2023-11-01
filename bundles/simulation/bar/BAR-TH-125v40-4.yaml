@@ -33,8 +33,7 @@ properties:
         then:
           properties:
             typeEquipement:
-              title: Type de VMC double flux
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/doubleFlux
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/vmcDoubleFlux
             surfaceHabitable:
               title: Surface habitable du logement (m²)
               type: number
@@ -51,8 +50,8 @@ properties:
         then:
           properties:
             typeEquipement:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/VMC_AUTOREGLABLE
               title: Type de VMC double flux
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_vmc#/$defs/AUTOREGLABLE
             logements:
               title: Nombre de logements raccordés à la VMC double flux
               type: integer

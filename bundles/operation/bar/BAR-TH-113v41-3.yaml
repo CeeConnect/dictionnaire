@@ -16,7 +16,7 @@ properties:
       ancienneteBatiment:
         $ref: https://schemas.ceeconnect.fr/enums/anciennete#/$defs/batimentExistant
       typeEquipement:
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_chaudiere_biomasse
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/chaudiereBiomasse
       puissanceNominale:
         title: Puissance nominale de la chaudière
         type: number
@@ -45,6 +45,15 @@ properties:
         type: string
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+        type: object
+        properties:
+          qualificationsRge:
+            type: array
+            contains:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/87
+        required:
+          - qualificationsRge
     allOf:
       - if:
           properties:
@@ -63,7 +72,7 @@ properties:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chaudiere_biomasse#/$defs/CHARGEMENT_AUTOMATIQUE
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/CHAUDIERE_BIOMASSE_CHARGEMENT_AUTOMATIQUE
           required:
             - typeEquipement
         then:
@@ -77,7 +86,7 @@ properties:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_chaudiere_biomasse#/$defs/CHARGEMENT_MANUEL
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/CHAUDIERE_BIOMASSE_CHARGEMENT_MANUEL
           required:
             - typeEquipement
         then:
@@ -143,6 +152,6 @@ examples:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}
       - code: NOTE_DIMENSIONNEMENT
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

@@ -19,8 +19,8 @@ properties:
           la surface résultant de la superposition des isolants
         type: number
         minimum: 0
-      typePose:
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_pose_isolant
+      typeIsolation:
+        $ref: https://schemas.ceeconnect.fr/enums/bar/type_isolation#/$defs/combles
       resistanceThermique:
         title: Résistance thermmique de l'isolant
         description: Dans le cas d'une pose superposée de plusieurs isolants, indiquer
@@ -57,10 +57,21 @@ properties:
             - reference
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+        type: object
+        properties:
+          qualificationsRge:
+            type: array
+            contains:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/95
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/97
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/98
+        required:
+          - qualificationsRge
     required:
       - ancienneteBatiment
       - quantite
-      - typePose
+      - typeIsolation
       - resistanceThermique
       - epaisseur
       - posePareVapeur
@@ -69,10 +80,10 @@ properties:
     allOf:
       - if:
           properties:
-            typePose:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pose_isolant#/$defs/COMBLES_PERDUS
+            typeIsolation:
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_isolation#/$defs/ISOLATION_COMBLES_PERDUS
           required:
-            - typePose
+            - typeIsolation
         then:
           properties:
             resistanceThermique:
@@ -102,7 +113,7 @@ examples:
       $ref: https://schemas.ceeconnect.fr/mixins/adresse#/examples/0
     description:
       ancienneteBatiment: EXISTANT
-      typePose: COMBLES_PERDUS
+      typeIsolation: ISOLATION_COMBLES_PERDUS
       quantite: 100
       resistanceThermique: 8
       epaisseur: 400
@@ -114,6 +125,17 @@ examples:
           reference: REFERENCE
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
+        type: object
+        properties:
+          qualificationsRge:
+            type: array
+            contains:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/95
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/97
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/98
+        required:
+          - qualificationsRge
     documents:
       - code: PREUVE_QUALIFICATION
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

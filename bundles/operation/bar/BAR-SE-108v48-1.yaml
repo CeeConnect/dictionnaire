@@ -49,6 +49,18 @@ properties:
         const: true
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+        type: object
+        properties:
+          qualificationsRge:
+            type: array
+            contains:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/85
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/86
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/87
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/89
+        required:
+          - qualificationsRge
     required:
       - ancienneteBatiment
       - typeBatiment
@@ -83,6 +95,15 @@ properties:
               const: JUSTIFICATIF_OPERATION
           required:
             - code
+      - contains:
+          title: Preuve de qualification de l'installateur
+          type: object
+          properties:
+            code:
+              type: string
+              const: PREUVE_QUALIFICATION
+          required:
+            - code
 required:
   - fiche
   - adresse
@@ -106,3 +127,5 @@ examples:
     documents:
       - code: JUSTIFICATIF_OPERATION
         url: https://api.ceeconnect.fr/archivage/
+      - code: PREUVE_QUALIFICATION
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

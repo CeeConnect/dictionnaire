@@ -37,6 +37,15 @@ properties:
         type: string
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+        type: object
+        properties:
+          qualificationsRge:
+            type: array
+            contains:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/93
+        required:
+          - qualificationsRge
     required:
       - ancienneteBatiment
       - critereAncienneteEquipement
@@ -63,6 +72,7 @@ required:
   - fiche
   - adresse
   - description
+  - documents
 examples:
   - fiche: BAR-EN-108v37-2
     adresse:
@@ -79,4 +89,4 @@ examples:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

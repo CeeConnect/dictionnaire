@@ -32,6 +32,15 @@ properties:
           $ref: "#/$defs/equipement"
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
+        type: object
+        properties:
+          qualificationsRge:
+            type: array
+            contains:
+              oneOf:
+                - $ref: https://schemas.ceeconnect.fr/enums/domaine_rge#/$defs/89
+        required:
+          - qualificationsRge
     required:
       - ancienneteBatiment
       - typeBatiment
@@ -47,7 +56,16 @@ $defs:
     properties:
       typeEquipement:
         title: Type de pompe(s) à chaleur
-        $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac
+        type: string
+        oneOf:
+          - $ref: "https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_CET"
+          - $ref: "https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_AIR_EXTERIEUR_EAU"
+          - $ref: "https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_AIR_EXTRAIT_EAU"
+          - $ref: "https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_EAU_NAPPE_EAU"
+          - $ref: "https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_EAU_GLYCOLEE_EAU"
+          - $ref: "https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_SOLAIRE"
+          - $ref: "https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_EAUX_GRISES"
+          - $ref: "https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_CO2"
       puissanceNominale:
         title: Puissance nominale de(s) pompe(s) à chaleur
         description: La pompe à chaleur chauffant l'eau chaude sanitaire ou le
@@ -76,7 +94,7 @@ $defs:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/CET
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_CET
           required:
             - typeEquipement
         then:
@@ -117,10 +135,10 @@ $defs:
           properties:
             typeEquipement:
               anyOf:
-                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/AIR-EXTERIEUR-EAU
-                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/AIR-EXTRAIT-EAU
-                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/EAU-NAPPE-EAU
-                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/EAU-GLYCOLEE-EAU
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_AIR_EXTERIEUR_EAU
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_AIR_EXTRAIT_EAU
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_EAU_NAPPE_EAU
+                - $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_EAU_GLYCOLEE_EAU
           required:
             - typeEquipement
         then:
@@ -134,7 +152,7 @@ $defs:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/AIR-EXTERIEUR-EAU
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_AIR_EXTERIEUR_EAU
           required:
             - typeEquipement
         then:
@@ -149,7 +167,7 @@ $defs:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/AIR-EXTRAIT-EAU
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_AIR_EXTRAIT_EAU
           required:
             - typeEquipement
         then:
@@ -164,7 +182,7 @@ $defs:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/EAU-NAPPE-EAU
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_EAU_NAPPE_EAU
           required:
             - typeEquipement
         then:
@@ -179,7 +197,7 @@ $defs:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/EAU-GLYCOLEE-EAU
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_EAU_GLYCOLEE_EAU
           required:
             - typeEquipement
         then:
@@ -194,7 +212,7 @@ $defs:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/SOLAIRE
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_SOLAIRE
           required:
             - typeEquipement
         then:
@@ -207,7 +225,7 @@ $defs:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/EAUX-GRISES
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_EAUX_GRISES
           required:
             - typeEquipement
         then:
@@ -220,7 +238,7 @@ $defs:
       - if:
           properties:
             typeEquipement:
-              $ref: https://schemas.ceeconnect.fr/enums/bar/type_pac#/$defs/CO2
+              $ref: https://schemas.ceeconnect.fr/enums/bar/type_equipement#/$defs/PAC_CO2
           required:
             - typeEquipement
         then:
@@ -266,7 +284,7 @@ examples:
       logements: 10
       quantite: 10
       equipements:
-        - typeEquipement: CET
+        - typeEquipement: PAC_CET
           puissanceNominale: 200
           performanceEnergetique: 65
           tauxCouverture: 90
@@ -277,4 +295,4 @@ examples:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PREUVE_QUALIFICATION
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

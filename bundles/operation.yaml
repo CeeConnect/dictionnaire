@@ -55,7 +55,7 @@ properties:
     title: Précarité énergétique
     oneOf:
       - $ref: https://schemas.ceeconnect.fr/bundles/precarite
-      - "null"
+      - type: "null"
   documents:
     title: Liste des documents
     type: array

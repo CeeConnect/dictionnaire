@@ -46,7 +46,7 @@ $defs:
         title: Liste des ménages
         description: Ménages occupants un logement qui n'est pas géré par l'un des bailleurs sociaux renseignés
         type: array
-        minItems: 1
+        minItems: 0
         items:
           $ref: '#/$defs/menage'
     required:
@@ -162,11 +162,19 @@ $defs:
           title: Foyer fiscal
           type: object
           properties:
+            nom:
+              title: Nom du représentant du foyer fiscal
+              type: string
+            prenom:
+              title: Prénom du représentant du foyer fiscal
+              type: string
             identifiantFiscal:
               $ref: https://schemas.ceeconnect.fr/formats/numero_fiscal
             referenceAvis:
               $ref: https://schemas.ceeconnect.fr/formats/reference_avis_imposition
           required:
+            - nom
+            - prenom
             - identifiantFiscal
             - referenceAvis
     required:
@@ -197,7 +205,7 @@ $defs:
         $ref: https://schemas.ceeconnect.fr/formats/email
       telephone:
         $ref: https://schemas.ceeconnect.fr/formats/telephone
-      menages:
+      nombreMenages:
         title: Nombre de ménages couverts
         description: Nombre de ménages habitant un logement conventionné géré par l'organisme
         type: integer
@@ -211,7 +219,7 @@ $defs:
       - adresse
       - email
       - telephone
-      - menages
+      - nombreMenages
 examples:
   - scenario: "8.1"
     nom: NOM
@@ -219,5 +227,7 @@ examples:
     composition: 3
     categorieRessource: MODESTE
     foyersFiscaux:
-      - identifiantFiscal: "0000000000000"
+      - nom: NOM
+        prenom: PRENOM
+        identifiantFiscal: "0000000000000"
         referenceAvis: "00000000000000"

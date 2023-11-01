@@ -76,8 +76,6 @@ properties:
           bâtiment (kg éq CO2/m2)
         description: Indiquer la valeur issue de l'étude thermique
         type: number
-      installateur:
-        $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
       - typeBatiment
       - ancienneteBatiment
@@ -93,7 +91,6 @@ properties:
       - bbioBat
       - icMax
       - icBat
-      - installateur
     anyOf:
       - properties:
           ancienneteBatiment:
@@ -175,14 +172,12 @@ examples:
       bbioBat: 25
       icMax: 50
       icBat: 50
-      installateur:
-        $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
       - code: PERMIS_CONSTRUIRE
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}
       - code: ETUDE_THERMIQUE
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}
       - code: ATTESTATION_RE
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}
       - code: DAACT
-        url: https://api.ceeconnect.fr/archivage/archives/{uuid}
+        url: https://api.ceeconnect.fr/document/documents/{uuid}

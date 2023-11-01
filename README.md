@@ -54,6 +54,12 @@ Ce projet propose un vocabulaire uniformisé de référence au format YAML pour 
 
 Les performances et caractéristiques des équipements mentionnées par les fiches d'opérations standardisées couvertent par une réglementation nationale ou européenne ne sont pas validées. Elles sont considérées de facto cohérente avec le cadre réglementaire.
 
+### Qualifications de l'installateur
+
+Les schémas couvrent les contraintes de **qualifications RGE** requises pour le professionnel assurant la mise en oeuvre de l'opération.
+
+**Les autres critères de qualifications (Qualibat ou équivalents) ne sont pas supportés pour le moment**.
+
 ###  BAR-EN-108v37-2
 
 **L'attesation sur l'honneur prévoit la possibilité de renseigner plusieurs marques et référence dans le cas d'équipements installés de caractéristiques différentes, mais un unique champs relatif à la résistance thermique additionnelle.**
