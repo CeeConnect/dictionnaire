@@ -87,16 +87,25 @@ properties:
           consommations comparables à ceux de l'utilisateur, et à des seuils
         type: boolean
         const: true
-      critereOptionSupportNumerique:
-        title: |
-          Le dispositif permet l'affichage de statistiques de consommation sur au moins un 
-          support numérique de la liste suivante :
-          - écran dédié
-          - site Web
-          - tablette ou Smartphone (via des applications dédiées)
-          - télévision
-        type: boolean
-        const: true
+      supportsNumeriques:
+        title: Support(s) numérique(s)
+        description: Renseigner le(s) support(s) numérique(s) permettant l'affichage des statistiques de consommation
+        type: array
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          oneOf:
+            - title: Écran dédié
+              const: ECRAN
+            - title: Site web
+              const: SITE_WEB
+            - title: SMARTPHONE
+              const: Smartphone
+            - title: TABLETTE
+              const: Tablette
+            - title: TELEVISION
+              const: Télévision
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur
     required:
@@ -114,7 +123,7 @@ properties:
       - critereOptionComparaisonConsommations
       - critereOptionHistorique
       - critereOptionComparaisonHistorique
-      - critereOptionSupportNumerique
+      - supportsNumeriques
       - installateur
     allOf:
       - if:
@@ -194,7 +203,8 @@ examples:
       critereOptionComparaisonConsommations: true
       critereOptionHistorique: true
       critereOptionComparaisonHistorique: true
-      critereOptionSupportNumerique: true
+      supportsNumeriques:
+        - SMARTPHONE
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
