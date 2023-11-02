@@ -1,10 +1,8 @@
 $id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-164v52-3
 $schema: https://json-schema.org/draft/2020-12/schema
 $comment: |
-  - TODO: Vérifier la possibilité d'intégrer l'attestation de réalisation ANAH
-  comme document justificatif spécifique
-  - TODO: Intégrer les postes de
-  rénovation prévus par la bonification CRM ?
+  - TODO: Vérifier la possibilité d'intégrer l'attestation de réalisation ANAH comme document justificatif spécifique
+  - TODO: Intégrer les postes de rénovation prévus par la bonification CRM ?
 title: BAR-TH-164v52-3
 type: object
 properties:
@@ -77,6 +75,9 @@ properties:
             title: Professionnel ayant assuré l'audit énergétique
             type: object
             properties:
+              numeroDiagnostiqueur:
+                title: Numéro de diagnostiqueur
+                type: string
               raisonSociale:
                 title: Raison sociale
                 type: string

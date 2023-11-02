@@ -69,8 +69,7 @@ properties:
           properties:
             quantite:
               title: Nombre de chauffe-bain
-              description: Indiquer le nombre de chauffe bain aux caractéristiques strictement
-                identiques
+              description: Indiquer le nombre de chauffe bain aux caractéristiques strictement identiques
               type: integer
               minimum: 1
           required:

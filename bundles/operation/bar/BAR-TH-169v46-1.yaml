@@ -84,12 +84,20 @@ $defs:
           sanitaire et des pertes de distribution d'eau chaude sanitaire cumulées sur l'année
         type: number
         minimum: 0
+        maximum: 100
       marque:
         title: Marque de la pompe à chaleur installée
         type: string
       reference:
         title: Référence de la pompe à chaleur installée
         type: string
+    required:
+      - typeEquipement
+      - puissanceNominale
+      - performanceEnergetique
+      - tauxCouverture
+      - marque
+      - reference
     allOf:
       - if:
           properties:
@@ -106,7 +114,7 @@ $defs:
                 - $ref: https://schemas.ceeconnect.fr/enums/bar/profil_soutirage_chauffe_eau_solaire#/$defs/XXL
                 - $ref: https://schemas.ceeconnect.fr/enums/bar/profil_soutirage_chauffe_eau_solaire#/$defs/3XL
                 - $ref: https://schemas.ceeconnect.fr/enums/bar/profil_soutirage_chauffe_eau_solaire#/$defs/4XL
-            performanceEnergetique:
+            efficaciteEnergetique:
               title: Efficacité énergétique pour la production d'ECS (Eta wh en %)
               description: Pour les chauffe-eau thermodynamiques concernés par le règlement
                 (UE) n° 814/2013 de la Commission du 2 août 2013
@@ -123,14 +131,14 @@ $defs:
                   - profilSoutirage
               then:
                 properties:
-                  performanceEnergetique:
+                  efficaciteEnergetique:
                     type: number
                     minimum: 65
                 required:
-                  - performanceEnergetique
+                  - efficaciteEnergetique
           required:
             - profilSoutirage
-            - performanceEnergetique
+            - efficaciteEnergetique
       - if:
           properties:
             typeEquipement:
@@ -143,12 +151,12 @@ $defs:
             - typeEquipement
         then:
           properties:
-            performanceEnergetique:
+            efficaciteEnergetique:
               title: Efficacité énergétique saisonnière (ηs)
               type: number
               minimum: 111
           required:
-            - performanceEnergetique
+            - efficaciteEnergetique
       - if:
           properties:
             typeEquipement:
@@ -251,13 +259,6 @@ $defs:
                 eau entrée = 15°C avec T eau sortie > 55°C, pour une PAC au CO2"
           required:
             - performanceEnergetique
-    required:
-      - typeEquipement
-      - puissanceNominale
-      - performanceEnergetique
-      - tauxCouverture
-      - marque
-      - reference
   documents:
     type: array
     items:
@@ -287,6 +288,7 @@ examples:
         - typeEquipement: PAC_CET
           puissanceNominale: 200
           performanceEnergetique: 65
+          efficaciteEnergetique: 65
           tauxCouverture: 90
           profilSoutirage: 3XL
           marque: MARQUE
