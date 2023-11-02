@@ -1,6 +1,7 @@
 $id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-139v23-2
 $schema: https://json-schema.org/draft/2020-12/schema
-$comment: "TODO: Définir la nature neuve d'une pompe en fonction de sa date d'achat"
+$comment: |
+  - TODO: Définir la nature neuve d'une pompe en fonction de sa date d'achat
 title: BAR-TH-139v23-2
 type: object
 properties:
@@ -35,7 +36,7 @@ properties:
               title: Date d'achat
               type: string
               format: date
-              formatMinimum: 2015-01-01
+              formatMinimum: "2015-01-01"
             puissanceNominale:
               title: Puissance nominale du moteur de la pompe (kW)
               type: number
@@ -74,8 +75,8 @@ properties:
                 dateAchat:
                   type: string
                   format: date
-                  formatMinimum: 2015-01-01
-                  formatMaximum: 2016-12-31
+                  formatMinimum: "2015-01-01"
+                  formatMaximum: "2016-12-31"
                 puissanceNominale:
                   type: number
                   minimum: 7.5
@@ -91,7 +92,7 @@ properties:
                 dateAchat:
                   type: string
                   format: date
-                  formatMinimum: 2017-01-01
+                  formatMinimum: "2017-01-01"
                 puissanceNominale:
                   type: number
                   minimum: 0.75

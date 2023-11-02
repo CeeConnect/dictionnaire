@@ -64,8 +64,7 @@ properties:
                 - $ref: https://schemas.ceeconnect.fr/enums/bar/classe_efficacite_energetique#/$defs/A+
                 - $ref: https://schemas.ceeconnect.fr/enums/bar/classe_efficacite_energetique#/$defs/A
             performanceEnergetiqueCentrale:
-              title: Rapport de température de la centrale double flux (efficacité thermique)
-                (%)
+              title: Rapport de température de la centrale double flux (efficacité thermique) (%)
               type: number
               exclusiveMinimum: 85
             puissanceElectrique:
@@ -78,7 +77,7 @@ properties:
             - surfaceHabitable
             - typeEquipement
             - classeEnergetique
-            - performanceEnergetiqueEchangeur
+            - performanceEnergetiqueCentrale
             - puissanceElectrique
       - if:
           properties:

@@ -25,43 +25,77 @@ properties:
         type: number
         minimum: 0
       location:
-        title: Le dispositif d'affichage et d'interprétation est installé dans le cadre
-          d'une location
+        title: |
+          Le dispositif d'affichage et d'interprétation est installé dans le cadre d'une location
         type: boolean
       optionSuiviConfort:
-        title: Le dispositif inclut l'option « suivi du confort » comprenant la collecte
+        title: |
+          Le dispositif inclut l'option « suivi du confort » comprenant la collecte
           locale et l'affichage des données de température et d'hygrométrie
           intérieures et extérieures au logement
         type: boolean
       critereOptionCollecteConsommations:
-        title: Le dispositif permet de collecter et de traiter les données de
-          consommations d'énergie de l'utilisateur
+        title: |
+          Le dispositif permet de collecter et de traiter les données de consommations d'énergie de l'utilisateur
         type: boolean
         const: true
       critereOptionAssistance:
-        title: Le dispositif apporte à l'utilisateur des conseils adaptés à sa
+        title: |
+          Le dispositif apporte à l'utilisateur des conseils adaptés à sa
           situation, l'aide à interpréter les données affichées et à réduire ses
           consommations d'énergie
         type: boolean
         const: true
       critereOptionBilanPeriodique:
-        title: Le dispositif informe l'utilisateur de manière régulière, à un pas
+        title: |
+          Le dispositif informe l'utilisateur de manière régulière, à un pas
           inférieur ou égal à 1 mois, des données disponibles sur l'affichage en
           lui adressant un bilan de la période écoulée, et en l'invitant à
           consulter l'affichage pour davantage de détails
         type: boolean
         const: true
+      critereOptionAffichageConsommation:
+        title: |
+          Le dispositif permet l'affichage des consommations d'énergie en m3 et/ou en kWh selon l'énergie 
+          et valorisées en euros
+        type: boolean
+        const: true
       critereOptionAlarmeDepassement:
-        title: En cas de dépassement d'un seuil de consommation de référence, le
+        title: |
+          En cas de dépassement d'un seuil de consommation de référence, le
           dispositif émet une alarme explicite (par exemple SMS, mail,
           notification...)
         type: boolean
         const: true
       critereOptionComparaisonConsommations:
-        title: Le dispositif permet de comparer les consommations réalisées à des
+        title: |
+          Le dispositif permet de comparer les consommations réalisées à des
           consommations types, établies à partir de moyennes nationales et
           locales pour des profils de consommations comparables à ceux de
           l'utilisateur, et à des seuils
+        type: boolean
+        const: true
+      critereOptionHistorique:
+        title: |
+          Le dispositif permet d'accèder à l'historique des cumuls, pour une durée 
+          supérieure ou égale à la journée, disponible pendant deux années glissantes
+        type: boolean
+        const: true
+      critereOptionComparaisonHistorique:
+        title: |
+          Le dispositif permet de comparer les consommations réalisées à des consommations 
+          types, établies à partir de moyennes nationales et locales pour des profils de 
+          consommations comparables à ceux de l'utilisateur, et à des seuils
+        type: boolean
+        const: true
+      critereOptionSupportNumerique:
+        title: |
+          Le dispositif permet l'affichage de statistiques de consommation sur au moins un 
+          support numérique de la liste suivante :
+          - écran dédié
+          - site Web
+          - tablette ou Smartphone (via des applications dédiées)
+          - télévision
         type: boolean
         const: true
       installateur:
@@ -76,8 +110,12 @@ properties:
       - critereOptionCollecteConsommations
       - critereOptionAssistance
       - critereOptionBilanPeriodique
+      - critereOptionAffichageConsommation
       - critereOptionAlarmeDepassement
       - critereOptionComparaisonConsommations
+      - critereOptionHistorique
+      - critereOptionComparaisonHistorique
+      - critereOptionSupportNumerique
       - installateur
     allOf:
       - if:
@@ -152,8 +190,12 @@ examples:
       critereOptionCollecteConsommations: true
       critereOptionAssistance: true
       critereOptionBilanPeriodique: true
+      critereOptionAffichageConsommation: true
       critereOptionAlarmeDepassement: true
       critereOptionComparaisonConsommations: true
+      critereOptionHistorique: true
+      critereOptionComparaisonHistorique: true
+      critereOptionSupportNumerique: true
       installateur:
         $ref: https://schemas.ceeconnect.fr/bundles/installateur#/examples/0
     documents:
