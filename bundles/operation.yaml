@@ -82,6 +82,7 @@ required:
   - documents
   - description
 allOf:
+  
   #- $ref: https://schemas.ceeconnect.fr/bundles/operation/agri
   - $ref: https://schemas.ceeconnect.fr/bundles/operation/bar
   #- $ref: https://schemas.ceeconnect.fr/bundles/operation/bat
