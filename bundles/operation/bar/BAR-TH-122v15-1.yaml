@@ -1,7 +1,5 @@
 $id: https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-122v15-1
 $schema: https://json-schema.org/draft/2020-12/schema
-$comment: "TODO: Vérifier la partie relative au coefficient R de l'attestation
-  sur l'honneur"
 title: BAR-TH-122v15-1
 type: object
 properties:
