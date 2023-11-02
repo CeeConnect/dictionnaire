@@ -1,4 +1,4 @@
-$id: https://schemas.ceeconnect.fr/enums/domaine-rge
+$id: https://schemas.ceeconnect.fr/enums/domaine_rge
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Domaine RGE
 type: string

@@ -1,4 +1,4 @@
-$id: https://schemas.ceeconnect.fr/enums/type-beneficiaire
+$id: https://schemas.ceeconnect.fr/enums/type_beneficiaire
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Type
 type: string

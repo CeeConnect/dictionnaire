@@ -1,4 +1,4 @@
-$id: https://schemas.ceeconnect.fr/enums/sous-secteur-application
+$id: https://schemas.ceeconnect.fr/enums/sous_secteur_application
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Sous-secteur d'application
 type: string

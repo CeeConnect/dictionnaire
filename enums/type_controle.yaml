@@ -1,4 +1,4 @@
-$id: https://schemas.ceeconnect.fr/enums/type-controle
+$id: https://schemas.ceeconnect.fr/enums/type_controle
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Type de contrôle
 type: string

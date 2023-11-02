@@ -1,4 +1,4 @@
-$id: https://schemas.ceeconnect.fr/enums/nature-prestation
+$id: https://schemas.ceeconnect.fr/enums/nature_prestation
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Prestation
 description: Nature de la prestation assurée par le professionnel signataire de

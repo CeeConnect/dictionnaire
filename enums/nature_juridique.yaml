@@ -1,4 +1,4 @@
-$id: https://schemas.ceeconnect.fr/enums/nature-juridique
+$id: https://schemas.ceeconnect.fr/enums/nature_juridique
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Nature juridique
 type: string
